@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="第三方SDK," />
 
 
 
@@ -84,23 +84,27 @@
 
 
 
-<meta name="description" content="Hexo 相关教程
-Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on Git">
+<meta name="description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤
+注册极光账号 并配置Android 程序包名
+集成依赖
+12345678910111213141516171819android &amp;#123;    defaultConfig &amp;#123;        applicationId &amp;quot;com.xxx.xxx&amp;quot; //JPush上注册的包名.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo Tutorial">
-<meta property="og:url" content="http://zhilinchn.online/2016/12/03/hexo-tutorial/index.html">
+<meta property="og:title" content="推送实践">
+<meta property="og:url" content="http://zhilinchn.online/2017/12/23/jpush-note/index.html">
 <meta property="og:site_name" content="林酱的博客">
-<meta property="og:description" content="Hexo 相关教程
-Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on Git">
-<meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/gif.gif">
-<meta property="og:image" content="http://7xk67j.com1.z0.glb.clouddn.com/qiunchengQQ%E6%88%AA%E5%9B%BE20150802114506.png">
-<meta property="og:image" content="http://7xk67j.com1.z0.glb.clouddn.com/qiunchengQQ%E6%88%AA%E5%9B%BE20150802114733.png">
-<meta property="og:updated_time" content="2017-01-10T23:59:44.080Z">
+<meta property="og:description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤
+注册极光账号 并配置Android 程序包名
+集成依赖
+12345678910111213141516171819android &amp;#123;    defaultConfig &amp;#123;        applicationId &amp;quot;com.xxx.xxx&amp;quot; //JPush上注册的包名.">
+<meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/JPush_tutorial_img.png">
+<meta property="og:updated_time" content="2017-01-29T08:02:24.895Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo Tutorial">
-<meta name="twitter:description" content="Hexo 相关教程
-Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on Git">
-<meta name="twitter:image" content="http://ohlb58e07.bkt.clouddn.com/gif.gif">
+<meta name="twitter:title" content="推送实践">
+<meta name="twitter:description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤
+注册极光账号 并配置Android 程序包名
+集成依赖
+12345678910111213141516171819android &amp;#123;    defaultConfig &amp;#123;        applicationId &amp;quot;com.xxx.xxx&amp;quot; //JPush上注册的包名.">
+<meta name="twitter:image" content="http://ohlb58e07.bkt.clouddn.com/JPush_tutorial_img.png">
 
 
 
@@ -128,13 +132,13 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 
 
 
-  <link rel="canonical" href="http://zhilinchn.online/2016/12/03/hexo-tutorial/"/>
+  <link rel="canonical" href="http://zhilinchn.online/2017/12/23/jpush-note/"/>
 
 
 
 
 
-  <title> Hexo Tutorial | 林酱的博客 </title>
+  <title> 推送实践 | 林酱的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -298,7 +302,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2016/12/03/hexo-tutorial/">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2017/12/23/jpush-note/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="林酱">
@@ -322,7 +326,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
             
             
               
-                Hexo Tutorial
+                推送实践
               
             
           </h1>
@@ -335,8 +339,8 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T07:53:52+08:00">
-                2016-12-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T07:53:52+08:00">
+                2017-12-23
               </time>
             
 
@@ -369,8 +373,8 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/hexo-tutorial/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/hexo-tutorial/" itemprop="commentCount"></span>
+                <a href="/2017/12/23/jpush-note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/23/jpush-note/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -396,45 +400,39 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
       
 
       
-        <h3 id="Hexo-相关教程"><a href="#Hexo-相关教程" class="headerlink" title="Hexo 相关教程"></a>Hexo 相关教程</h3><hr>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h3><h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><ul>
-<li>Git / <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>  <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">hexo官方教程</a><h4 id="两个初始化命令"><a href="#两个初始化命令" class="headerlink" title="两个初始化命令"></a>两个初始化命令</h4><h4 id="hexo-init"><a href="#hexo-init" class="headerlink" title="hexo init"></a>hexo init</h4></li>
-<li>类似git init 需要新建目录保存博文信息；</li>
-<li>执行命令会在当前目录下生产如下文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">├── _config.yml #全局配置文件</div><div class="line">├── node_modules #Hexo插件（Node.js 插件默认安装目录）</div><div class="line">├── package.json #Node 工程的依赖和基本信息</div><div class="line">├── scaffolds  #模板</div><div class="line">├── source #博客正文源文件</div><div class="line">└── themes</div></pre></td></tr></table></figure>
+        <h3 id="极光推送介绍"><a href="#极光推送介绍" class="headerlink" title="极光推送介绍"></a>极光推送介绍</h3><h3 id="极光推送自动集成"><a href="#极光推送自动集成" class="headerlink" title="极光推送自动集成"></a>极光推送自动集成</h3><h4 id="官方-Android-SDK-集成指南"><a href="#官方-Android-SDK-集成指南" class="headerlink" title="官方 Android SDK 集成指南"></a><a href="https://docs.jiguang.cn/jpush/client/Android/android_guide/" target="_blank" rel="external">官方 Android SDK 集成指南</a></h4><h4 id="集成实践详细步骤"><a href="#集成实践详细步骤" class="headerlink" title="集成实践详细步骤"></a>集成实践详细步骤</h4><ul>
+<li><a href="https://www.jiguang.cn/" target="_blank" rel="external">注册极光账号</a> 并配置Android 程序包名</li>
+<li><p>集成依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.xxx.xxx&quot; //JPush上注册的包名.</div><div class="line">        ndk &#123;</div><div class="line">            //选择要添加的对应cpu类型的.so库。</div><div class="line">            abiFilters &apos;armeabi&apos;, &apos;armeabi-v7a&apos;, &apos;armeabi-v8a&apos;</div><div class="line">            // 还可以添加 &apos;x86&apos;, &apos;x86_64&apos;, &apos;mips&apos;, &apos;mips64&apos;</div><div class="line">        &#125;</div><div class="line">        manifestPlaceholders = [</div><div class="line">            JPUSH_PKGNAME : applicationId,</div><div class="line">            JPUSH_APPKEY : &quot;你的appkey&quot;, //JPush上注册的包名对应的appkey.</div><div class="line">            JPUSH_CHANNEL : &quot;developer-default&quot;, //暂时填写默认值即可.</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile &apos;cn.jiguang.sdk:jpush:3.0.0&apos;  // 此处以JPush 3.0.0 版本为例。</div><div class="line">    compile &apos;cn.jiguang.sdk:jcore:1.0.0&apos;  // 此处以JCore 1.0.0 版本为例。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>gradle.properties 增加 <code>android.useDeprecatedNdk=true</code> 使用旧版本的ndk集成方式,不添加会报错:</p>
+<blockquote>
+<p>NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin.</p>
+</blockquote>
+</li>
+<li><p>AndroidManifest.xml 自定义的广播接收器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></div><div class="line"><span class="comment">&lt;!--      The beginning setting of JPush   --&gt;</span></div><div class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></div><div class="line"><span class="comment">&lt;!-- User defined. 用户自定义的广播接收器--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">receiver</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".component.JPushReceive"</span></div><div class="line">    <span class="attr">android:enabled</span>=<span class="string">"true"</span>&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--Required 用户注册SDK的intent--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.REGISTRATION"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!--Required 用户接收SDK消息的intent--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.MESSAGE_RECEIVED"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!--Required 用户接收SDK通知栏信息的intent--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_RECEIVED"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!--Required 用户打开自定义通知栏的intent--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_OPENED"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 接收网络变化 连接/断开 since 1.6.3 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.CONNECTION"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"com.moement"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></div><div class="line"><span class="comment">&lt;!--      The end setting of JPush         --&gt;</span></div><div class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>自定义广播接收器官方Demo代码 <a href="https://gist.github.com/Orange168/f40de8f1796cfcd1b81cc7908226b7b7" target="_blank" rel="external">JPushReceive.java </a></p>
+<blockquote>
+<p>以上步骤已经完成Api集成</p>
+</blockquote>
 </li>
 </ul>
-<p>【重点】如果你有配置，会覆盖你原来的配置；<br><img src="http://ohlb58e07.bkt.clouddn.com/gif.gif" alt="配置好了在执行一边,你懂的"></p>
-<h4 id="npm-install-安装package-json-下面的依赖包"><a href="#npm-install-安装package-json-下面的依赖包" class="headerlink" title="npm install #安装package.json 下面的依赖包"></a>npm install #安装package.json 下面的依赖包</h4><h4 id="hexo-http-localhost-4000-检查是否安装成功"><a href="#hexo-http-localhost-4000-检查是否安装成功" class="headerlink" title="hexo http://localhost:4000/ 检查是否安装成功"></a>hexo <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 检查是否安装成功</h4><h3 id="hexo-配置"><a href="#hexo-配置" class="headerlink" title="hexo 配置"></a>hexo 配置</h3><h4 id="hexo-theme-next主题的配置"><a href="#hexo-theme-next主题的配置" class="headerlink" title="hexo-theme-next主题的配置"></a><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a>主题的配置</h4><p> 最强主题基本上所有的配置信息都能满足,优雅,文档齐全</p>
+<h4 id="测试API集成是否成功"><a href="#测试API集成是否成功" class="headerlink" title="测试API集成是否成功"></a>测试API集成是否成功</h4><ul>
+<li>运行App，到控制台发送测试推送<br><img src="http://ohlb58e07.bkt.clouddn.com/JPush_tutorial_img.png" alt=""></li>
+<li>【重点-填坑】如果没有收到推送重启手机， 日志会打印某些jni调用的代码未找到；</li>
+</ul>
+<h3 id="进价"><a href="#进价" class="headerlink" title="进价"></a>进价</h3><h4 id="别名与标签"><a href="#别名与标签" class="headerlink" title="别名与标签"></a>别名与标签</h4><p>把绑定关系保存到 JPush 服务器端</p>
 <ul>
-<li><a href="http://theme-next.iissnan.com/getting-started.html#select-language" target="_blank" rel="external">安装 Next主题 基本和教程走一边,就可以得到一个很牛的网站了</a></li>
-<li>三种主题样式的选择： <code>hexo/themes/next/_config.xml 搜索 scheme</code></li>
+<li>使用案例： 动态标签  根据角色和地域等相关的信息动态设置标签和别名，从而区分收到推送的客户；<br>相关方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">JPushInterface.setAlias(Context context,String alias, TagAliasCallback CallBack);</div><div class="line">JPushInterface.setTags(Context ctx,Set&lt;String&gt; tags, TagAliasCallback CallBack);</div><div class="line">JPushInterface.setAliasAndTags(getApplicationContext(), null, (Set&lt;String&gt;) msg.obj, mTagsCallback);</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="注册云存储存储图片"><a href="#注册云存储存储图片" class="headerlink" title="注册云存储存储图片"></a>注册云存储存储图片</h4><p>防止图片链接失效,和在博客迁移过程中导致的图片获取异常,丢失. 统一管理文章中的图片</p>
-<ul>
-<li><a href="http://www.qiniu.com/" target="_blank" rel="external">七牛</a></li>
-</ul>
-<h4 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h4><ul>
-<li>设置域名的指向的地址<br><img src="http://7xk67j.com1.z0.glb.clouddn.com/qiunchengQQ%E6%88%AA%E5%9B%BE20150802114506.png" alt=""></li>
-<li>在源文件中增加github page 的设置文件 <code>source/CNAME</code> 并增加你的域名,不带www的,例如:’taobao.com’<br><img src="http://7xk67j.com1.z0.glb.clouddn.com/qiunchengQQ%E6%88%AA%E5%9B%BE20150802114733.png" alt=""></li>
-</ul>
-<h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><h4 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h4 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h4 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h4 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h4><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
-<h3 id="常用的方法"><a href="#常用的方法" class="headerlink" title="常用的方法"></a>常用的方法</h3><h4 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
-<h4 id="一般的发布步骤"><a href="#一般的发布步骤" class="headerlink" title="一般的发布步骤"></a>一般的发布步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean #删除产生的文件和缓存</div><div class="line">hexo (g)generate # 生成静太文件</div><div class="line">hexo (d)deploy # 发布网页</div></pre></td></tr></table></figure>
-<h4 id="日常维护命令"><a href="#日常维护命令" class="headerlink" title="日常维护命令"></a>日常维护命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm update -g hexo #hexo 更新</div><div class="line">cd /&#123;you-blog-dir&#125;/theme/next git pull #更新主题代码</div><div class="line">npm update # 更新插件</div></pre></td></tr></table></figure>
-<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><ul>
-<li>ERROR Plugin load failed: hexo-server 解决: <code>npm install hexo-server</code></li>
-</ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="http://blog.csdn.net/yuan3065/article/details/51594454" target="_blank" rel="external">GitHub Pages 绑定来自阿里云的域名</a></li>
-<li><a href="http://www.jianshu.com/p/701b1095da11" target="_blank" rel="external">手把手教你建github技术博客</a></li>
-</ul>
+<h4 id="RegistrationID"><a href="#RegistrationID" class="headerlink" title="RegistrationID"></a>RegistrationID</h4><p>把绑定关系保存到开发者应用服务器中</p>
+<h4 id="客户端设置通知栏样式"><a href="#客户端设置通知栏样式" class="headerlink" title="客户端设置通知栏样式"></a><a href="https://docs.jiguang.cn/jpush/client/Android/android_senior/#_8" target="_blank" rel="external">客户端设置通知栏样式</a></h4><blockquote>
+<p>铃声、震动<br>显示图标<br>替换默认的通知栏样式。</p>
+</blockquote>
+<h4 id="自定义通知栏样式"><a href="#自定义通知栏样式" class="headerlink" title="自定义通知栏样式"></a>自定义通知栏样式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 设置通知提示方式 - 基础属性</div><div class="line"> */</div><div class="line">private void setStyleBasic() &#123;</div><div class="line">	BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(PushSetActivity.this);</div><div class="line">	builder.statusBarDrawable = R.drawable.ic_launcher;</div><div class="line">	builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失</div><div class="line">	builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）</div><div class="line">	JPushInterface.setPushNotificationBuilder(1, builder);</div><div class="line">	Toast.makeText(PushSetActivity.this, &quot;Basic Builder - 1&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 设置通知栏样式 - 定义通知栏Layout</div><div class="line"> */</div><div class="line">private void setStyleCustom() &#123;</div><div class="line">	CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(PushSetActivity.this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text);</div><div class="line">	builder.layoutIconDrawable = R.drawable.ic_launcher;</div><div class="line">	builder.developerArg0 = &quot;developerArg2&quot;;</div><div class="line">	JPushInterface.setPushNotificationBuilder(2, builder);</div><div class="line">	Toast.makeText(PushSetActivity.this, &quot;Custom Builder - 2&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">private void setAddActionsStyle() &#123;</div><div class="line">	MultiActionsNotificationBuilder builder = new MultiActionsNotificationBuilder(PushSetActivity.this);</div><div class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;first&quot;, &quot;my_extra1&quot;);</div><div class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;second&quot;, &quot;my_extra2&quot;);</div><div class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;third&quot;, &quot;my_extra3&quot;);</div><div class="line">	JPushInterface.setPushNotificationBuilder(10, builder);</div><div class="line"></div><div class="line">	Toast.makeText(PushSetActivity.this, &quot;AddActions Builder - 10&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -458,7 +456,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/第三方SDK/" rel="tag"># 第三方SDK</a>
           
         </div>
       
@@ -467,15 +465,15 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/01/08/gradle-note/" rel="next" title="Gradle 学习积累">
+                <i class="fa fa-chevron-left"></i> Gradle 学习积累
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/03/android-test/" rel="prev" title="Android测试资源集合,测试工具,测试开源项目">
-                Android测试资源集合,测试工具,测试开源项目 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -490,10 +488,10 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/03/hexo-tutorial/"
-     data-title="Hexo Tutorial"
+        <div class="ds-share flat" data-thread-key="2017/12/23/jpush-note/"
+     data-title="推送实践"
      data-content=""
-     data-url="http://zhilinchn.online/2016/12/03/hexo-tutorial/">
+     data-url="http://zhilinchn.online/2017/12/23/jpush-note/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -520,8 +518,8 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/03/hexo-tutorial/"
-           data-title="Hexo Tutorial" data-url="http://zhilinchn.online/2016/12/03/hexo-tutorial/">
+      <div class="ds-thread" data-thread-key="2017/12/23/jpush-note/"
+           data-title="推送实践" data-url="http://zhilinchn.online/2017/12/23/jpush-note/">
       </div>
     
   </div>
@@ -665,7 +663,7 @@ Welcome to Hexo! This is your very first post. Check documentation for more info
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-相关教程"><span class="nav-number">1.</span> <span class="nav-text">Hexo 相关教程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#环境准备"><span class="nav-number">2.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两个初始化命令"><span class="nav-number">2.2.</span> <span class="nav-text">两个初始化命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-init"><span class="nav-number">2.3.</span> <span class="nav-text">hexo init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-install-安装package-json-下面的依赖包"><span class="nav-number">2.4.</span> <span class="nav-text">npm install #安装package.json 下面的依赖包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-http-localhost-4000-检查是否安装成功"><span class="nav-number">2.5.</span> <span class="nav-text">hexo http://localhost:4000/ 检查是否安装成功</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-配置"><span class="nav-number">3.</span> <span class="nav-text">hexo 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-theme-next主题的配置"><span class="nav-number">3.1.</span> <span class="nav-text">hexo-theme-next主题的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注册云存储存储图片"><span class="nav-number">3.2.</span> <span class="nav-text">注册云存储存储图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名绑定"><span class="nav-number">3.3.</span> <span class="nav-text">域名绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quick-Start"><span class="nav-number">4.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">4.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Run-server"><span class="nav-number">4.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">4.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">4.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的方法"><span class="nav-number">5.</span> <span class="nav-text">常用的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令简写"><span class="nav-number">5.1.</span> <span class="nav-text">命令简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一般的发布步骤"><span class="nav-number">5.2.</span> <span class="nav-text">一般的发布步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日常维护命令"><span class="nav-number">5.3.</span> <span class="nav-text">日常维护命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题解决"><span class="nav-number">6.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">6.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#极光推送介绍"><span class="nav-number">1.</span> <span class="nav-text">极光推送介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#极光推送自动集成"><span class="nav-number">2.</span> <span class="nav-text">极光推送自动集成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#官方-Android-SDK-集成指南"><span class="nav-number">2.1.</span> <span class="nav-text">官方 Android SDK 集成指南</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集成实践详细步骤"><span class="nav-number">2.2.</span> <span class="nav-text">集成实践详细步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试API集成是否成功"><span class="nav-number">2.3.</span> <span class="nav-text">测试API集成是否成功</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进价"><span class="nav-number">3.</span> <span class="nav-text">进价</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#别名与标签"><span class="nav-number">3.1.</span> <span class="nav-text">别名与标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RegistrationID"><span class="nav-number">3.2.</span> <span class="nav-text">RegistrationID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端设置通知栏样式"><span class="nav-number">3.3.</span> <span class="nav-text">客户端设置通知栏样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义通知栏样式"><span class="nav-number">3.4.</span> <span class="nav-text">自定义通知栏样式</span></a></li></ol></li></ol></div>
             
 
           </div>

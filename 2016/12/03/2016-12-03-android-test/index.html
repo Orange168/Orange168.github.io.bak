@@ -1,0 +1,1248 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="测试第三方服务 国内  https://bugly.qq.com/v2/ 腾讯的bugly 免费, 而且相当好用 腾讯优测云 提供真机测试和漏洞分析 Testin MTC 易测云  国外  TestCloud Testdroid Nimbledroid   Automated performance analysis website Test bird  APP和手游测试 kobiton 免费的在">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android测试资源集合,测试工具,测试开源项目">
+<meta property="og:url" content="http://zhilinchn.online/2016/12/03/2016-12-03-android-test/index.html">
+<meta property="og:site_name" content="林酱的博客">
+<meta property="og:description" content="测试第三方服务 国内  https://bugly.qq.com/v2/ 腾讯的bugly 免费, 而且相当好用 腾讯优测云 提供真机测试和漏洞分析 Testin MTC 易测云  国外  TestCloud Testdroid Nimbledroid   Automated performance analysis website Test bird  APP和手游测试 kobiton 免费的在">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-4c6b0b4c090c171b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-8ab2613a35397236.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/Calabash_code_demo.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-694d36e6a73eb429.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-bc9d6b02dc8e52a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-0ffccba21e710b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-36bbbc4ff14afbf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-17b49035bfef0d95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://github.com/openstf/stf/raw/master/doc/7s_usage.gif?raw=true">
+<meta property="og:image" content="https://github.com/palaima/DebugDrawer/raw/master/images/all.png">
+<meta property="og:image" content="https://github.com/JakeWharton/pidcat/raw/master/screen.png">
+<meta property="og:image" content="https://github.com/ZhaoKaiQiang/KLog/raw/master/image/demo.gif">
+<meta property="og:image" content="https://github.com/xfumihiro/ViewInspector/raw/master/images/sample.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/frogermcs/androiddevmetrics/master/art/activities_metrics.png">
+<meta property="og:image" content="https://github.com/markzhai/AndroidPerformanceMonitor/raw/master/art/shot1.png">
+<meta property="og:updated_time" content="2018-05-14T14:48:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android测试资源集合,测试工具,测试开源项目">
+<meta name="twitter:description" content="测试第三方服务 国内  https://bugly.qq.com/v2/ 腾讯的bugly 免费, 而且相当好用 腾讯优测云 提供真机测试和漏洞分析 Testin MTC 易测云  国外  TestCloud Testdroid Nimbledroid   Automated performance analysis website Test bird  APP和手游测试 kobiton 免费的在">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1321512-4c6b0b4c090c171b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'CD2IHLO3Q2',
+      apiKey: 'f3890b1e9cf212771f29d3258b186372',
+      indexName: 'LocalSearch',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhilinchn.online/2016/12/03/2016-12-03-android-test/"/>
+
+
+
+
+
+  <title> Android测试资源集合,测试工具,测试开源项目 | 林酱的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd275ba96bfa28cb8bd3809466f17419";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">林酱的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2016/12/03/2016-12-03-android-test/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="林酱">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="林酱的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="林酱的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android测试资源集合,测试工具,测试开源项目
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T07:53:52+08:00">
+                2016-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coder/" itemprop="url" rel="index">
+                    <span itemprop="name">coder</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/03/2016-12-03-android-test/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/2016-12-03-android-test/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="测试第三方服务"><a href="#测试第三方服务" class="headerlink" title="测试第三方服务"></a>测试第三方服务</h3><hr>
+<p><strong>国内</strong></p>
+<ul>
+<li><a href="https://bugly.qq.com/v2/" target="_blank" rel="noopener">https://bugly.qq.com/v2/</a> 腾讯的bugly 免费, 而且相当好用</li>
+<li><a href="http://utest.qq.com/" target="_blank" rel="noopener">腾讯优测云</a> 提供真机测试和漏洞分析</li>
+<li><a href="http://www.testin.cn/" target="_blank" rel="noopener">Testin</a></li>
+<li><a href="http://mtc.baidu.com/?_if=12065-bt_16-Brand_16-Brand" target="_blank" rel="noopener">MTC</a></li>
+<li><a href="http://www.yiceyun.com/" target="_blank" rel="noopener">易测云</a></li>
+</ul>
+<p><strong>国外</strong></p>
+<ul>
+<li><a href="http://www.test-cloud.com/" target="_blank" rel="noopener">TestCloud</a></li>
+<li><a href="http://testdroid.com/" target="_blank" rel="noopener">Testdroid</a></li>
+<li><a href="https://nimbledroid.com/" target="_blank" rel="noopener">Nimbledroid</a>   Automated performance analysis website</li>
+<li><a href="http://en.testbird.com/" target="_blank" rel="noopener">Test bird</a>  APP和手游测试</li>
+<li><a href="https://portal.kobiton.com" target="_blank" rel="noopener">kobiton</a> 免费的在线真机测试</li>
+</ul>
+<p><strong>第三方性能采集SDK</strong></p>
+<ul>
+<li><a href="http://www.oneapm.com/brand/apm.html?utm_source=BaiduPaid&amp;utm_medium=cpc&amp;utm_term=oneapm%E4%BC%81%E4%B8%9A%E5%90%8D%E7%89%87%E6%A0%87%E9%A2%98&amp;utm_content=mingpian&amp;utm_campaign=BaiduPromotion&amp;from=urysaeuvwrsphdiqyb" target="_blank" rel="noopener">OneAPM</a></li>
+<li><a href="http://www.tingyun.com/sem1.html" target="_blank" rel="noopener">听云</a></li>
+</ul>
+<p><strong>自动化测试</strong></p>
+<ul>
+<li><strong><a href="https://circleci.com/" target="_blank" rel="noopener">CircleCI</a></strong>  一个基于Github的自动化测试，单元测试工具，提供一个免费的私有仓库。</li>
+</ul>
+<h3 id="Google官方学习资料"><a href="#Google官方学习资料" class="headerlink" title="Google官方学习资料"></a>Google官方学习资料</h3><hr>
+<ul>
+<li><a href="http://developer.android.com/training/testing.html" target="_blank" rel="noopener">Best Practices for Testing</a>  【最新/重点】</li>
+<li><strong><a href="https://google.github.io/android-testing-support-library/" target="_blank" rel="noopener">Android Testing Support library</a></strong> (ATSL)  【重点】<br>相关视频： <a href="https://www.youtube.com/watch?v=vdasFFfXKOY" target="_blank" rel="noopener">Android Testing (Android Dev Summit 2015)</a> youtube 2015年视频</li>
+<li>Developer API  <a href="http://developer.android.com/tools/testing/testing_android.html" target="_blank" rel="noopener">Testing Concepts</a></li>
+</ul>
+<h3 id="优秀博客"><a href="#优秀博客" class="headerlink" title="优秀博客"></a><strong>优秀博客</strong></h3><hr>
+<h4 id="Java-测试"><a href="#Java-测试" class="headerlink" title="Java 测试"></a>Java 测试</h4><ul>
+<li><a href="http://android-developers.blogspot.com/2015/12/leveraging-product-flavors-in-android.html" target="_blank" rel="noopener">Leveraging product flavors in Android Studio for hermetic testing</a>  与之对应的 <a href="https://www.code-labs.io/codelabs/android-testing/index.html#0" target="_blank" rel="noopener">codelab</a>学习地址<br>笔记：<br><img src="http://upload-images.jianshu.io/upload_images/1321512-4c6b0b4c090c171b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><ul>
+<li><a href="http://googletesting.blogspot.co.uk/2015/04/just-say-no-to-more-end-to-end-tests.html" target="_blank" rel="noopener">Just Say No to More End-to-End Tests</a></li>
+<li><a href="https://google.github.io/android-testing-support-library/docs/rules/index.html" target="_blank" rel="noopener">two JUnit Rules</a> @rule will be launched before @Before. The ActivityTestRule  is a rule that provides functional testing of a single Activity.</li>
+</ul>
+</li>
+<li><a href="http://blog.wittchen.biz.pl/test-coverage-report-for-android-application/" target="_blank" rel="noopener">Test coverage report for Android application</a>  使用jacoco-android plugin in a build.gradle<br>进行测试覆盖率报告<br><img src="http://upload-images.jianshu.io/upload_images/1321512-8ab2613a35397236.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sample"></li>
+<li><a href="http://chriszou.com/2016/04/25/android-unit-testing-wechat-group-share.html#rd" target="_blank" rel="noopener">Android单元测试在蘑菇街支付金融部门的实践</a> 很详细介绍了单元测试在实践操作中的使用</li>
+</ul>
+<h4 id="RxJava-Test"><a href="#RxJava-Test" class="headerlink" title="RxJava Test"></a>RxJava Test</h4><ul>
+<li><a href="http://fedepaol.github.io/blog/2015/09/13/testing-rxjava-observables-subscriptions/" target="_blank" rel="noopener">Unit Testing RxJava Observables and Subscriptions</a></li>
+<li><a href="https://medium.com/ribot-labs/unit-testing-rxjava-6e9540d4a329" target="_blank" rel="noopener">Unit Testing RxJava Observables</a></li>
+<li><a href="http://alexismas.com/blog/2015/05/20/unit-testing-rxjava/" target="_blank" rel="noopener">Unit Testing with RxJava</a></li>
+</ul>
+<h4 id="UI测试"><a href="#UI测试" class="headerlink" title="UI测试"></a>UI测试</h4><ul>
+<li><a href="http://mp.weixin.qq.com/s/gSgpaN1j1drCfs1tKCZ-xQ" target="_blank" rel="noopener">小心！做UI自动化一定要跨过这些坑</a> 【待看】</li>
+</ul>
+<h3 id="测试框架"><a href="#测试框架" class="headerlink" title="测试框架"></a>测试框架</h3><hr>
+<h4 id="Unit-Testing"><a href="#Unit-Testing" class="headerlink" title="Unit Testing"></a><strong>Unit Testing</strong></h4><ul>
+<li><strong><a href="https://github.com/junit-team/junit4" target="_blank" rel="noopener">Junit4 Github</a></strong> A programmer-oriented testing framework for Java.<br><a href="http://junit.org/junit4/" target="_blank" rel="noopener">http://junit.org/junit4/</a></li>
+<li><strong><a href="https://github.com/mockito/mockito" target="_blank" rel="noopener">Mockito</a></strong>    Tasty mocking framework for unit tests in Java</li>
+<li><a href="http://jmockit.org/" target="_blank" rel="noopener">JMockit</a> An automated testing toolkit for Java<br>对比： mockito不能mock static method和final class、final method，JMockit可以；<br><a href="http://stackoverflow.com/questions/4105592/comparison-between-mockito-vs-jmockit-why-is-mockito-voted-better-than-jmockit" target="_blank" rel="noopener">对比Mockito和JMockit的文章</a></li>
+<li><a href="https://github.com/jayway/powermock" target="_blank" rel="noopener">PowerMock</a> 一个可以Mock静态类的开源库</li>
+</ul>
+<blockquote>
+<p>Tools for UI Testing: <a href="http://robotium.com/" target="_blank" rel="noopener">Robotium</a>, <a href="http://appium.io/" target="_blank" rel="noopener">Appium</a>, <a href="http://calaba.sh/" target="_blank" rel="noopener">Calabash</a>, <a href="http://robolectric.org/" target="_blank" rel="noopener">Robolectric</a>.  </p>
+</blockquote>
+<h4 id="UI-Testing"><a href="#UI-Testing" class="headerlink" title="UI Testing"></a>UI Testing</h4><ul>
+<li><a href="https://google.github.io/android-testing-support-library/docs/espresso/" target="_blank" rel="noopener">Espresso</a> Android 官方推荐使用的UI测试库</li>
+<li><a href="https://developer.android.com/training/testing/ui-testing/uiautomator-testing.html" target="_blank" rel="noopener">UIAutomator</a> 可以夸应用进行测试</li>
+<li><a href="http://robolectric.org/" target="_blank" rel="noopener">Robolectric</a> is a unit test framework that de-fangs the Android SDK jar so you can test-drive the development of your Android app. Tests run inside the JVM on your workstation in seconds</li>
+</ul>
+<h4 id="More"><a href="#More" class="headerlink" title="More"></a>More</h4><ul>
+<li><strong><a href="https://github.com/robospock/RoboSpock" target="_blank" rel="noopener">RoboSpock Github </a></strong> A testing framework which brings powers of Spock and Groovy to Android app testing <a href="http://robospock.org/" target="_blank" rel="noopener">http://robospock.org</a></li>
+<li><a href="https://github.com/hamcrest" target="_blank" rel="noopener">Hamcrest matchers</a><br>What is Hamcrest?<br>Hamcrest is a library of matchers, which can be combined in to create flexible expressions of intent in tests. They’ve also been used for other purposes.</li>
+<li><a href="http://calaba.sh/" target="_blank" rel="noopener">Calabash</a> 特点:<ul>
+<li>支持多种平台，代码复用性强:代码同时支持Android 和iOS, Web也有一定的支持;</li>
+<li>语法更接近自然语音,易懂也易维护;<br><img src="http://ohlb58e07.bkt.clouddn.com/Calabash_code_demo.png" alt=""></li>
+<li>纯黑盒测试。</li>
+</ul>
+</li>
+</ul>
+<h3 id="开源库"><a href="#开源库" class="headerlink" title="开源库"></a>开源库</h3><hr>
+<p><strong>Collection</strong></p>
+<ul>
+<li><a href="http://github.com/hotchemi/awesome-android-testing" target="_blank" rel="noopener">awesome-android-testing</a> collection of android  test info 【重点】</li>
+</ul>
+<p><strong>Sample</strong></p>
+<ul>
+<li><strong><a href="https://github.com/jaredsburrows/android-gradle-java-template" target="_blank" rel="noopener">android-gradle-java-template</a></strong> Gradle + Android Studio + Robolectric + Espresso + Mockito + EasyMock/PowerMock + JaCoCo Demo</li>
+<li><strong><a href="https://github.com/txusballesteros/Android-Clean-Testing" target="_blank" rel="noopener">Android-Clean-Testing</a></strong> Android Testing Sample Project</li>
+<li><strong><a href="https://github.com/piotrek1543/robotium-showcase" target="_blank" rel="noopener">robotium-showcase</a></strong>  This example shows how to use Robotium with ActvitityTestRule and <a href="https://github.com/Test" target="_blank" rel="noopener">@Test</a> annotation, it means in Google’s Espresso way.</li>
+</ul>
+<p><strong>Google Sample</strong></p>
+<ol>
+<li><a href="http://https//github.com/googlesamples/android-testing-templates" target="_blank" rel="noopener">android-testing-templates</a></li>
+<li><a href="http://https//github.com/googlesamples/android-testing" target="_blank" rel="noopener">android-testing</a>  A collection of samples demonstrating different frameworks and techniques for automated testing</li>
+</ol>
+<h3 id="Tools-测试工具"><a href="#Tools-测试工具" class="headerlink" title="Tools 测试工具"></a>Tools 测试工具</h3><h4 id="square-spoon"><a href="#square-spoon" class="headerlink" title="square/spoon"></a><a href="https://github.com/square" target="_blank" rel="noopener">square</a>/<strong><a href="https://github.com/square/spoon" target="_blank" rel="noopener">spoon</a></strong></h4><p>在adb devices 检测到的设备跑测试程序，并提供截屏，文件，数据库操作：<br><img src="http://upload-images.jianshu.io/upload_images/1321512-694d36e6a73eb429.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Screenshots"><br><img src="http://upload-images.jianshu.io/upload_images/1321512-bc9d6b02dc8e52a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Files"><br><strong>最最重要的是生成简单明了的测试报告：</strong><br><img src="http://upload-images.jianshu.io/upload_images/1321512-0ffccba21e710b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" displaying the results in a meaningful way"></p>
+<h4 id="Android-Studio-2-2-Preview-new-feature"><a href="#Android-Studio-2-2-Preview-new-feature" class="headerlink" title="Android Studio 2.2 Preview new feature:"></a>Android Studio 2.2 Preview new feature:</h4><ul>
+<li><strong>Espresso Test Recorder</strong> 菜单/run/Recorder Expresso Test 选项可以记录你的操作并转化为Espresso 的测试代码<br><img src="http://upload-images.jianshu.io/upload_images/1321512-36bbbc4ff14afbf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><strong>APK Analyzer</strong> 菜单/build/Analyzer APK 提供APK大小分析工具，清楚的知道代码体积变换的趋势。<br><img src="http://upload-images.jianshu.io/upload_images/1321512-17b49035bfef0d95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".png"></li>
+</ul>
+<h4 id="screengrab-当UI-Tests-时自动化截屏"><a href="#screengrab-当UI-Tests-时自动化截屏" class="headerlink" title="screengrab 当UI Tests 时自动化截屏"></a><strong><a href="https://github.com/fastlane/screengrab" target="_blank" rel="noopener">screengrab</a></strong> 当UI Tests 时自动化截屏</h4><h4 id="STF-远程控制，一台电脑控制测试多个测试设"><a href="#STF-远程控制，一台电脑控制测试多个测试设" class="headerlink" title="STF   远程控制，一台电脑控制测试多个测试设"></a><a href="http://github.com/openstf/stf" target="_blank" rel="noopener">STF</a>   远程控制，一台电脑控制测试多个测试设</h4><p><a href="https://openstf.github.io/" target="_blank" rel="noopener">openstf.github.io</a> Control and manage Android devices from your browser <img src="https://github.com/openstf/stf/raw/master/doc/7s_usage.gif?raw=true" alt=""></p>
+<h4 id="Vysor-用Chrome浏览器控制你的Android手机"><a href="#Vysor-用Chrome浏览器控制你的Android手机" class="headerlink" title="Vysor 用Chrome浏览器控制你的Android手机"></a>Vysor 用Chrome浏览器控制你的Android手机</h4><ul>
+<li><a href="http://jijiaxin89.com/2015/08/29/Mirror-android-phone-s-screen-and-gain-full-control-on-computer-with-Vysor/" target="_blank" rel="noopener">Vysor让你在电脑上完全控制android手机屏幕镜像</a></li>
+<li><a href="http://jijiaxin89.com/2015/08/31/Vysor-superior/#more" target="_blank" rel="noopener">Vysor 情怀玩法 （番外篇）</a></li>
+</ul>
+<h3 id="开发时的调试工具"><a href="#开发时的调试工具" class="headerlink" title="开发时的调试工具"></a>开发时的调试工具</h3><h4 id="stetho"><a href="#stetho" class="headerlink" title="stetho"></a><strong><a href="https://github.com/facebook/stetho" target="_blank" rel="noopener">stetho</a></strong></h4><p>Facebook开源，很强大的Android网络和数据库调试工具,能像调试WebApp一样调试Android原生应用。<a href="http://www.jianshu.com/p/03da9f91f41f" target="_blank" rel="noopener">借助Stetho在Chrome上调试Android网络&amp;数据库</a><br>常用配置:</p>
+<ul>
+<li><p>初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate();</span><br><span class="line">    Stetho.initializeWithDefaults(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Chrome浏览器打开<code>chrome://inspect/#devices</code></p>
+</li>
+</ul>
+<p><strong>进阶</strong>增加网络拦截</p>
+<ul>
+<li><p><strong>Dependency</strong> 增加依赖环境</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.facebook.stetho:stetho:1.3.1'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.facebook.stetho:stetho-okhttp3:1.3.1'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:retrofit:2.0.0-beta4'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.okhttp3:okhttp:3.2.0'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:converter-gson:2.0.0-beta4'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>向OkHttpClient增加网络拦截</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient.Builder()</span><br><span class="line">            .addNetworkInterceptor(<span class="keyword">new</span> StethoInterceptor())</span><br><span class="line">            .build();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="augmented-traffic-control"><a href="#augmented-traffic-control" class="headerlink" title="augmented-traffic-control"></a><strong><a href="https://github.com/facebook/augmented-traffic-control" target="_blank" rel="noopener">augmented-traffic-control</a></strong></h4><p>Fackbook开源项目模拟移动网络，对App的调试及网络优化有很大的帮助，主要参数有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">网络带宽（bandwidth）</span><br><span class="line">延迟（latency）</span><br><span class="line">丢包率（packet loss）</span><br><span class="line">错包率（corrupted packets）</span><br><span class="line">乱序率（packets ordering）</span><br></pre></td></tr></table></figure></p>
+<h4 id="GT（随身调）-腾讯开源的测试套件"><a href="#GT（随身调）-腾讯开源的测试套件" class="headerlink" title="GT（随身调） 腾讯开源的测试套件"></a>GT（随身调） 腾讯开源的测试套件</h4><p>能Android设备上安装,进行<code>移动</code>调试,确保测试数据的真实有效性<br>开源地址: <a href="https://github.com/TencentOpen/GT" target="_blank" rel="noopener">https://github.com/TencentOpen/GT</a><br><a href="http://gt.qq.com/index.html" target="_blank" rel="noopener">官网地址</a></p>
+<blockquote>
+<p>使用GT APP进行快速的性能测试(CPU、内存、流量、电量、帧率/流畅度等等)、开发日志的查看、Crash日志查看、网络数据包的抓取、APP内部参数的调试、真机代码耗时统计等。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">一. 基本功能测试</span><br><span class="line"><span class="number">1</span>. CPU占有率;</span><br><span class="line"><span class="number">2</span> jiffes（CPU时间片）;</span><br><span class="line"><span class="number">3</span>. 内存PSS值稳定在<span class="number">36</span>M;</span><br><span class="line"><span class="number">4</span>. 网络上行流量和下行流量;</span><br><span class="line"><span class="number">5</span>. <span class="string">"数据存档"</span></span><br><span class="line">二. 电量测试</span><br><span class="line">再启动电流监控观察，<span class="number">1</span>分钟后平均电流是<span class="number">220</span>mA</span><br><span class="line">三. crash</span><br><span class="line">- 保存了抓包文件后;</span><br><span class="line">- Logcat查看界面，立即把手机缓存的Logcat日志保存下来;</span><br><span class="line">四. Net</span><br><span class="line">- 系统提供的流量查看也包括局域网socket的流量,而且不能分时段统计;</span><br><span class="line">- tcpdump抓包(需要手机root) + Wiresharek 抓包分析;</span><br><span class="line">疑问点:</span><br><span class="line"><span class="number">1</span>. 激活FPS（帧率）的监测;</span><br></pre></td></tr></table></figure>
+<h4 id="应用开发助手"><a href="#应用开发助手" class="headerlink" title="应用开发助手"></a>应用开发助手</h4><p> Google Play、应用宝搜索“开发助手”下载， 或<a href="http://trinea.cn/app/dev-tools.apk" target="_blank" rel="noopener">Download</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">屏幕分辨率、CPU 核数、IP 及 Mac 地址、so 类型、系统版本。</span><br><span class="line">频繁切换“严格模式”；</span><br><span class="line">多次启停“显示布局边界”；</span><br><span class="line">测试被系统回收来回切换“不保留活动”；</span><br></pre></td></tr></table></figure></p>
+<h4 id="Android-Debug-Drawer-查看设备信息"><a href="#Android-Debug-Drawer-查看设备信息" class="headerlink" title="Android Debug Drawer 查看设备信息"></a>Android Debug Drawer 查看设备信息</h4><p><img src="https://github.com/palaima/DebugDrawer/raw/master/images/all.png" alt=""></p>
+<h4 id="安卓日志工具"><a href="#安卓日志工具" class="headerlink" title="安卓日志工具"></a>安卓日志工具</h4><ul>
+<li>XLog <a href="https://github.com/elvishew/xLog" target="_blank" rel="noopener">github</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=2653578220&amp;idx=3&amp;sn=5691bdd82ae0715ab12fd6b849f74aee&amp;chksm=84b3b1ebb3c438fddf86bf74e232fa14222932ebd6d6439bed04ad17d5e64e9270d4ab460f64&amp;mpshare=1&amp;scene=1&amp;srcid=1110XcvPqVz21oivUSueMAeB#rd" target="_blank" rel="noopener">微信mars 的高性能日志模块 xlog</a></li>
+<li><a href="http://github.com/JakeWharton/pidcat/" target="_blank" rel="noopener">Pidcat</a><br><img src="https://github.com/JakeWharton/pidcat/raw/master/screen.png" alt=""></li>
+<li><p><a href="http://github.com/JakeWharton/timber" target="_blank" rel="noopener">Timber</a> jakewharton 出品</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.jakewharton.timber:timber:4.5.1'</span></span><br><span class="line">  <span class="comment">// 初始化</span></span><br><span class="line">  <span class="keyword">if</span> (BuildConfig.DEBUG) &#123;</span><br><span class="line">      Timber.plant(<span class="keyword">new</span> Timber.DebugTree());</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      Timber.plant(<span class="keyword">new</span> CrashReportingTree());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//发布后程序（Release.apk），崩溃日志上报</span></span><br><span class="line">  <span class="comment">/** A tree which logs important information for crash reporting. */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CrashReportingTree</span> <span class="keyword">extends</span> <span class="title">Timber</span>.<span class="title">Tree</span> </span>&#123;</span><br><span class="line">      <span class="meta">@Override</span> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(<span class="keyword">int</span> priority, String tag, String message, Throwable t)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (priority == Log.ERROR) &#123;</span><br><span class="line">              String msg = message + (t == <span class="keyword">null</span> ? <span class="string">""</span> : t.getMessage());</span><br><span class="line">              MobclickAgent.reportError(mContext,</span><br><span class="line">                      String.format(<span class="string">"TAG=%s, msg=%s, Throwable=%s"</span>,</span><br><span class="line">                              tag, message, t == <span class="keyword">null</span> ? <span class="string">""</span> : t.getMessage())); <span class="comment">//友盟错误上传</span></span><br><span class="line"><span class="comment">//                Crashlytics.log(priority, tag, msg);// Fabric 错误上传</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://github.com/JakeWharton/hugo" target="_blank" rel="noopener">Hugo</a> 用注解的方式日志打印方法传入的参数 Annotation-triggered method call logging for your debug builds.</p>
+</li>
+<li><a href="https://github.com/NikitaKozlov/Pury" target="_blank" rel="noopener">Pury</a>   like Hugo But Android library for measuring time between multiple independent<br>events.</li>
+<li><a href="http://github.com/fengjundev/DoubanMovie-React-Native" target="_blank" rel="noopener">KLog</a> 这是一个Android专用的LogCat工具，主要功能为打印行号、函数调用、Json解析、XML解析、点击跳转、Log信息保存等功能<br><img src="https://github.com/ZhaoKaiQiang/KLog/raw/master/image/demo.gif" alt=""></li>
+</ul>
+<h4 id="ViewInspector-查看View绘制层级，参数等"><a href="#ViewInspector-查看View绘制层级，参数等" class="headerlink" title="ViewInspector 查看View绘制层级，参数等"></a><a href="http://github.com/xfumihiro/ViewInspector" target="_blank" rel="noopener">ViewInspector</a> 查看View绘制层级，参数等</h4><p>View Inspection Toolbar for Android Development<br><img src="https://github.com/xfumihiro/ViewInspector/raw/master/images/sample.gif" alt=""></p>
+<h4 id="Purchase-UI-Tool-付费工具"><a href="#Purchase-UI-Tool-付费工具" class="headerlink" title="Purchase UI Tool (付费工具)"></a>Purchase UI Tool (付费工具)</h4><ul>
+<li><a href="http://robotium.com/" target="_blank" rel="noopener">Robotium Recorder</a></li>
+</ul>
+<h3 id="优化和分析工具"><a href="#优化和分析工具" class="headerlink" title="优化和分析工具"></a>优化和分析工具</h3><h4 id="Quality-Tools-for-Android"><a href="#Quality-Tools-for-Android" class="headerlink" title="Quality-Tools-for-Android"></a><strong><a href="https://github.com/stephanenicolas/Quality-Tools-for-Android" target="_blank" rel="noopener">Quality-Tools-for-Android</a></strong></h4><h4 id="vb-android-app-quality"><a href="#vb-android-app-quality" class="headerlink" title="vb-android-app-quality"></a><strong><a href="https://github.com/vincentbrison/vb-android-app-quality" target="_blank" rel="noopener">vb-android-app-quality</a></strong></h4><h4 id="AndroidCodeQuality"><a href="#AndroidCodeQuality" class="headerlink" title="AndroidCodeQuality"></a><strong><a href="https://github.com/MasonLiuChn/AndroidCodeQuality" target="_blank" rel="noopener">AndroidCodeQuality</a></strong></h4><p>每次打包时都进行一次  checkstyle,pmd,findbugs验证</p>
+<h4 id="AndroidDevMetrics"><a href="#AndroidDevMetrics" class="headerlink" title="AndroidDevMetrics"></a><strong><a href="https://github.com/frogermcs/AndroidDevMetrics" target="_blank" rel="noopener">AndroidDevMetrics</a></strong></h4><p>Performance metrics library for Android development<br><img src="https://raw.githubusercontent.com/frogermcs/androiddevmetrics/master/art/activities_metrics.png" alt=""></p>
+<h4 id="AndroidPerformanceMonitor"><a href="#AndroidPerformanceMonitor" class="headerlink" title="AndroidPerformanceMonitor"></a><strong><a href="https://github.com/markzhai/AndroidPerformanceMonitor" target="_blank" rel="noopener">AndroidPerformanceMonitor</a></strong></h4><p>一个对ANR（UI线程block）的监控工具</p>
+<blockquote>
+<p>A transparent ui-block detection library for Android. (known as BlockCanary)<br><img src="https://github.com/markzhai/AndroidPerformanceMonitor/raw/master/art/shot1.png" alt=""></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/03/2016-12-03-hexo-tutorial/" rel="next" title="Hexo Tutorial">
+                <i class="fa fa-chevron-left"></i> Hexo Tutorial
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/23/2016-12-23-jpush-note/" rel="prev" title="推送实践">
+                推送实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/03/2016-12-03-android-test/"
+     data-title="Android测试资源集合,测试工具,测试开源项目"
+     data-content=""
+     data-url="http://zhilinchn.online/2016/12/03/2016-12-03-android-test/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/03/2016-12-03-android-test/"
+           data-title="Android测试资源集合,测试工具,测试开源项目" data-url="http://zhilinchn.online/2016/12/03/2016-12-03-android-test/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg"
+               alt="林酱" />
+          <p class="site-author-name" itemprop="name">林酱</p>
+          <p class="site-description motion-element" itemprop="description">自古以来，所谓豪杰之士，必有过人之节。人情有所不能忍着，匹夫见辱.拔剑而起.挺身而斗，此不足为勇也。天下有大勇者,猝然临之而不惊,无故加之而不怒。而其挟持者甚大，其志甚远也。 ——苏东坡《留候论》</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Orange168" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/bonanzas" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/53927a5b90c8/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              常用网站
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://androidweekly.net/" title="Androidweekly English" target="_blank">Androidweekly English</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://androidweekly.cn/" title="Androidweekly Chinese" target="_blank">Androidweekly Chinese</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试第三方服务"><span class="nav-number">1.</span> <span class="nav-text">测试第三方服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google官方学习资料"><span class="nav-number">2.</span> <span class="nav-text">Google官方学习资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优秀博客"><span class="nav-number">3.</span> <span class="nav-text">优秀博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-测试"><span class="nav-number">3.1.</span> <span class="nav-text">Java 测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RxJava-Test"><span class="nav-number">3.2.</span> <span class="nav-text">RxJava Test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UI测试"><span class="nav-number">3.3.</span> <span class="nav-text">UI测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试框架"><span class="nav-number">4.</span> <span class="nav-text">测试框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Unit-Testing"><span class="nav-number">4.1.</span> <span class="nav-text">Unit Testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UI-Testing"><span class="nav-number">4.2.</span> <span class="nav-text">UI Testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#More"><span class="nav-number">4.3.</span> <span class="nav-text">More</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开源库"><span class="nav-number">5.</span> <span class="nav-text">开源库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-测试工具"><span class="nav-number">6.</span> <span class="nav-text">Tools 测试工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#square-spoon"><span class="nav-number">6.1.</span> <span class="nav-text">square/spoon</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android-Studio-2-2-Preview-new-feature"><span class="nav-number">6.2.</span> <span class="nav-text">Android Studio 2.2 Preview new feature:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#screengrab-当UI-Tests-时自动化截屏"><span class="nav-number">6.3.</span> <span class="nav-text">screengrab 当UI Tests 时自动化截屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STF-远程控制，一台电脑控制测试多个测试设"><span class="nav-number">6.4.</span> <span class="nav-text">STF   远程控制，一台电脑控制测试多个测试设</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vysor-用Chrome浏览器控制你的Android手机"><span class="nav-number">6.5.</span> <span class="nav-text">Vysor 用Chrome浏览器控制你的Android手机</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发时的调试工具"><span class="nav-number">7.</span> <span class="nav-text">开发时的调试工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#stetho"><span class="nav-number">7.1.</span> <span class="nav-text">stetho</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#augmented-traffic-control"><span class="nav-number">7.2.</span> <span class="nav-text">augmented-traffic-control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GT（随身调）-腾讯开源的测试套件"><span class="nav-number">7.3.</span> <span class="nav-text">GT（随身调） 腾讯开源的测试套件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用开发助手"><span class="nav-number">7.4.</span> <span class="nav-text">应用开发助手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android-Debug-Drawer-查看设备信息"><span class="nav-number">7.5.</span> <span class="nav-text">Android Debug Drawer 查看设备信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安卓日志工具"><span class="nav-number">7.6.</span> <span class="nav-text">安卓日志工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ViewInspector-查看View绘制层级，参数等"><span class="nav-number">7.7.</span> <span class="nav-text">ViewInspector 查看View绘制层级，参数等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Purchase-UI-Tool-付费工具"><span class="nav-number">7.8.</span> <span class="nav-text">Purchase UI Tool (付费工具)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化和分析工具"><span class="nav-number">8.</span> <span class="nav-text">优化和分析工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Quality-Tools-for-Android"><span class="nav-number">8.1.</span> <span class="nav-text">Quality-Tools-for-Android</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vb-android-app-quality"><span class="nav-number">8.2.</span> <span class="nav-text">vb-android-app-quality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AndroidCodeQuality"><span class="nav-number">8.3.</span> <span class="nav-text">AndroidCodeQuality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AndroidDevMetrics"><span class="nav-number">8.4.</span> <span class="nav-text">AndroidDevMetrics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AndroidPerformanceMonitor"><span class="nav-number">8.5.</span> <span class="nav-text">AndroidPerformanceMonitor</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林酱</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zhilinchn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

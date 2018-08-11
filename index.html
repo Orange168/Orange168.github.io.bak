@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
 
 
 
@@ -90,6 +90,7 @@
 <meta property="og:url" content="http://zhilinchn.online/index.html">
 <meta property="og:site_name" content="林酱的博客">
 <meta property="og:description" content="自古以来，所谓豪杰之士，必有过人之节。人情有所不能忍着，匹夫见辱.拔剑而起.挺身而斗，此不足为勇也。天下有大勇者,猝然临之而不惊,无故加之而不怒。而其挟持者甚大，其志甚远也。 ——苏东坡《留候论》">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="林酱的博客">
 <meta name="twitter:description" content="自古以来，所谓豪杰之士，必有过人之节。人情有所不能忍着，匹夫见辱.拔剑而起.挺身而斗，此不足为勇也。天下有大勇者,猝然临之而不惊,无故加之而不怒。而其挟持者甚大，其志甚远也。 ——苏东坡《留候论》">
@@ -109,9 +110,9 @@
       author: '博主'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'CD2IHLO3Q2',
+      apiKey: 'f3890b1e9cf212771f29d3258b186372',
+      indexName: 'LocalSearch',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -272,6 +273,156 @@
 </nav>
 
 
+<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
 
  </div>
     </header>
@@ -292,7 +443,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2017/12/23/jpush-note/">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/08/07/2018-4-14-android-optimization/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="林酱">
@@ -317,8 +468,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/12/23/jpush-note/" itemprop="url">
-                  推送实践
+                <a class="post-title-link" href="/2018/08/07/2018-4-14-android-optimization/" itemprop="url">
+                  优化Android App
                 </a>
               
             
@@ -332,8 +483,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T07:53:52+08:00">
-                2017-12-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-07T22:21:08+08:00">
+                2018-08-07
               </time>
             
 
@@ -366,8 +517,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/12/23/jpush-note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/23/jpush-note/" itemprop="commentCount"></span>
+                <a href="/2018/08/07/2018-4-14-android-optimization/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/07/2018-4-14-android-optimization/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,41 +546,27 @@
       
         
           
-            <h3 id="极光推送介绍"><a href="#极光推送介绍" class="headerlink" title="极光推送介绍"></a>极光推送介绍</h3><h3 id="极光推送自动集成"><a href="#极光推送自动集成" class="headerlink" title="极光推送自动集成"></a>极光推送自动集成</h3><h4 id="官方-Android-SDK-集成指南"><a href="#官方-Android-SDK-集成指南" class="headerlink" title="官方 Android SDK 集成指南"></a><a href="https://docs.jiguang.cn/jpush/client/Android/android_guide/" target="_blank" rel="external">官方 Android SDK 集成指南</a></h4><h4 id="集成实践详细步骤"><a href="#集成实践详细步骤" class="headerlink" title="集成实践详细步骤"></a>集成实践详细步骤</h4><ul>
-<li><a href="https://www.jiguang.cn/" target="_blank" rel="external">注册极光账号</a> 并配置Android 程序包名</li>
-<li><p>集成依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.xxx.xxx&quot; //JPush上注册的包名.</div><div class="line">        ndk &#123;</div><div class="line">            //选择要添加的对应cpu类型的.so库。</div><div class="line">            abiFilters &apos;armeabi&apos;, &apos;armeabi-v7a&apos;, &apos;armeabi-v8a&apos;</div><div class="line">            // 还可以添加 &apos;x86&apos;, &apos;x86_64&apos;, &apos;mips&apos;, &apos;mips64&apos;</div><div class="line">        &#125;</div><div class="line">        manifestPlaceholders = [</div><div class="line">            JPUSH_PKGNAME : applicationId,</div><div class="line">            JPUSH_APPKEY : &quot;你的appkey&quot;, //JPush上注册的包名对应的appkey.</div><div class="line">            JPUSH_CHANNEL : &quot;developer-default&quot;, //暂时填写默认值即可.</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile &apos;cn.jiguang.sdk:jpush:3.0.0&apos;  // 此处以JPush 3.0.0 版本为例。</div><div class="line">    compile &apos;cn.jiguang.sdk:jcore:1.0.0&apos;  // 此处以JCore 1.0.0 版本为例。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>gradle.properties 增加 <code>android.useDeprecatedNdk=true</code> 使用旧版本的ndk集成方式,不添加会报错:</p>
-<blockquote>
-<p>NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin.</p>
-</blockquote>
-</li>
-<li><p>AndroidManifest.xml 自定义的广播接收器</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></div><div class="line"><span class="comment">&lt;!--      The beginning setting of JPush   --&gt;</span></div><div class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></div><div class="line"><span class="comment">&lt;!-- User defined. 用户自定义的广播接收器--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">receiver</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".component.JPushReceive"</span></div><div class="line">    <span class="attr">android:enabled</span>=<span class="string">"true"</span>&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--Required 用户注册SDK的intent--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.REGISTRATION"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!--Required 用户接收SDK消息的intent--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.MESSAGE_RECEIVED"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!--Required 用户接收SDK通知栏信息的intent--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_RECEIVED"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!--Required 用户打开自定义通知栏的intent--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_OPENED"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 接收网络变化 连接/断开 since 1.6.3 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.CONNECTION"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"com.moement"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></div><div class="line"><span class="comment">&lt;!--      The end setting of JPush         --&gt;</span></div><div class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>自定义广播接收器官方Demo代码 <a href="https://gist.github.com/Orange168/f40de8f1796cfcd1b81cc7908226b7b7" target="_blank" rel="external">JPushReceive.java </a></p>
-<blockquote>
-<p>以上步骤已经完成Api集成</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="测试API集成是否成功"><a href="#测试API集成是否成功" class="headerlink" title="测试API集成是否成功"></a>测试API集成是否成功</h4><ul>
-<li>运行App，到控制台发送测试推送<br><img src="http://ohlb58e07.bkt.clouddn.com/JPush_tutorial_img.png" alt=""></li>
-<li>【重点-填坑】如果没有收到推送重启手机， 日志会打印某些jni调用的代码未找到；</li>
-</ul>
-<h3 id="进价"><a href="#进价" class="headerlink" title="进价"></a>进价</h3><h4 id="别名与标签"><a href="#别名与标签" class="headerlink" title="别名与标签"></a>别名与标签</h4><p>把绑定关系保存到 JPush 服务器端</p>
-<ul>
-<li>使用案例： 动态标签  根据角色和地域等相关的信息动态设置标签和别名，从而区分收到推送的客户；<br>相关方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">JPushInterface.setAlias(Context context,String alias, TagAliasCallback CallBack);</div><div class="line">JPushInterface.setTags(Context ctx,Set&lt;String&gt; tags, TagAliasCallback CallBack);</div><div class="line">JPushInterface.setAliasAndTags(getApplicationContext(), null, (Set&lt;String&gt;) msg.obj, mTagsCallback);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="RegistrationID"><a href="#RegistrationID" class="headerlink" title="RegistrationID"></a>RegistrationID</h4><p>把绑定关系保存到开发者应用服务器中</p>
-<h4 id="客户端设置通知栏样式"><a href="#客户端设置通知栏样式" class="headerlink" title="客户端设置通知栏样式"></a><a href="https://docs.jiguang.cn/jpush/client/Android/android_senior/#_8" target="_blank" rel="external">客户端设置通知栏样式</a></h4><blockquote>
-<p>铃声、震动<br>显示图标<br>替换默认的通知栏样式。</p>
-</blockquote>
-<h4 id="自定义通知栏样式"><a href="#自定义通知栏样式" class="headerlink" title="自定义通知栏样式"></a>自定义通知栏样式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 设置通知提示方式 - 基础属性</div><div class="line"> */</div><div class="line">private void setStyleBasic() &#123;</div><div class="line">	BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(PushSetActivity.this);</div><div class="line">	builder.statusBarDrawable = R.drawable.ic_launcher;</div><div class="line">	builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失</div><div class="line">	builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）</div><div class="line">	JPushInterface.setPushNotificationBuilder(1, builder);</div><div class="line">	Toast.makeText(PushSetActivity.this, &quot;Basic Builder - 1&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 设置通知栏样式 - 定义通知栏Layout</div><div class="line"> */</div><div class="line">private void setStyleCustom() &#123;</div><div class="line">	CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(PushSetActivity.this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text);</div><div class="line">	builder.layoutIconDrawable = R.drawable.ic_launcher;</div><div class="line">	builder.developerArg0 = &quot;developerArg2&quot;;</div><div class="line">	JPushInterface.setPushNotificationBuilder(2, builder);</div><div class="line">	Toast.makeText(PushSetActivity.this, &quot;Custom Builder - 2&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">private void setAddActionsStyle() &#123;</div><div class="line">	MultiActionsNotificationBuilder builder = new MultiActionsNotificationBuilder(PushSetActivity.this);</div><div class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;first&quot;, &quot;my_extra1&quot;);</div><div class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;second&quot;, &quot;my_extra2&quot;);</div><div class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;third&quot;, &quot;my_extra3&quot;);</div><div class="line">	JPushInterface.setPushNotificationBuilder(10, builder);</div><div class="line"></div><div class="line">	Toast.makeText(PushSetActivity.this, &quot;AddActions Builder - 10&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          学习资源博文
+Background Optimizations
+Facebook是如何收集其Android应用性能数据的
+安卓性能优化收集网站
 
-          
+总结性
+
+Android客户端性能优化（魅族资深工程师毫无保留奉献）
+Java Performance blog
+
+性能分析的网站
+
+NimbleDroi
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/08/07/2018-4-14-android-optimization/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -466,7 +603,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2017/02/01/rx-learning-note/">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/08/07/2018-8-7-remote-control/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="林酱">
@@ -491,8 +628,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/01/rx-learning-note/" itemprop="url">
-                  Rx 学习笔记
+                <a class="post-title-link" href="/2018/08/07/2018-8-7-remote-control/" itemprop="url">
+                  远程控制笔记整理
                 </a>
               
             
@@ -506,8 +643,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-01T00:00:00+08:00">
-                2017-02-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-07T14:58:20+08:00">
+                2018-08-07
               </time>
             
 
@@ -540,8 +677,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/02/01/rx-learning-note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/01/rx-learning-note/" itemprop="commentCount"></span>
+                <a href="/2018/08/07/2018-8-7-remote-control/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/07/2018-8-7-remote-control/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -569,67 +706,20 @@
       
         
           
-            <h3 id="Open-Source"><a href="#Open-Source" class="headerlink" title="Open Source"></a>Open Source</h3><hr>
-<ul>
-<li><strong><a href="https://github.com/artem-zinnatullin/RxUi" target="_blank" rel="external">RxUi</a></strong>  Implementation of pure functional concept of talking to Android View layer in a Reactive way</li>
-<li><strong><a href="https://github.com/VictorAlbertos/ReactiveCache" target="_blank" rel="external">ReactiveCache</a></strong></li>
-<li><a href="http://github.com/kaushikgopal/RxJava-Android-Samples" target="_blank" rel="external">Android-RxJava-samples</a> </li>
-<li><a href="http://github.com/vyshane/rex-weather" target="_blank" rel="external">Rex-weather</a> </li>
-</ul>
-<h4 id="Rx-相关的开源工具库"><a href="#Rx-相关的开源工具库" class="headerlink" title="Rx 相关的开源工具库"></a>Rx 相关的开源工具库</h4><ul>
-<li><strong><a href="https://github.com/0ximDigital/RxAnimations" target="_blank" rel="external">RxAnimations</a></strong></li>
-</ul>
-<h3 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h3><ul>
-<li>Homepage <a href="http://reactivex.io/" target="_blank" rel="external">http://reactivex.io/</a></li>
-<li>RxJava 操作符动画效果演示 <a href="http://rxmarbles.com/" target="_blank" rel="external">http://rxmarbles.com/</a></li>
-<li><a href="http://androidweekly.cn/android-dev-special-weekly-rxjava-rxandroid-issue-0/" target="_blank" rel="external">Android开发技术周报特刊之RxJava&amp;RxAndroid Issue#0 </a> 【重点】</li>
-<li><a href="http://www.androidweekly.cn/android-dev-special-weekly-rxjava-rxandroid-issue-1/" target="_blank" rel="external">Android开发技术周报特刊之RxJava&amp;RxAndroid Issue#1</a>【重点】</li>
-<li><a href="https://medium.com/@fabioCollini/testing-asynchronous-rxjava-code-using-mockito-8ad831a16877#.c0tch3nxw" target="_blank" rel="external">Testing asynchronous RxJava code using Mockito</a></li>
-<li><a href="https://medium.com/@scottmeschke/rxrecipes-wrap-your-way-to-rx-fd40eb5254b6#.hbtcjp4rm" target="_blank" rel="external">RxRecipes: Wrap your way to Rx </a>  主要讲 fromCallable() fromAction()  替换Rx中的接口；</li>
-<li><a href="http://www.andevcon.com/news/rxify-the-anti-cache-then-network-or-network-then-cache-problem" target="_blank" rel="external"><code>Rxify</code> : The Anti Cache-then-Network OR Network-then-Cache Problem</a> 使用RX concat onErrorResumeNext onErrorReturn 处理访问网络失败后返回本地缓存的机制。</li>
-</ul>
-<h3 id="Rx-应用"><a href="#Rx-应用" class="headerlink" title="Rx 应用"></a>Rx 应用</h3><hr>
-<ul>
-<li><a href="https://pspdfkit.com/blog/2016/android-animations-powered-by-rx-java/" target="_blank" rel="external">Android animations powered by RxJava</a></li>
-</ul>
-<h3 id="RxJS"><a href="#RxJS" class="headerlink" title="RxJS"></a>RxJS</h3><hr>
-<ul>
-<li><strong><a href="https://github.com/Reactive-Extensions/RxJS" target="_blank" rel="external">RxJS</a></strong> The Reactive Extensions for JavaScript <a href="http://reactivex.io/" target="_blank" rel="external">http://reactivex.io</a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank" rel="external">Big list of functions</a> 常用函数的例子</li>
-<li><a href="https://github.com/ReactiveX/RxJava/wiki/Creating-Observables" target="_blank" rel="external">Creating Observables</a> 产生Observable的方法</li>
-<li><a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754" target="_blank" rel="external">The introduction to Reactive Programming you’ve been missing</a>  对应的 <a href="http://jsfiddle.net/staltz/8jFJH/48/" target="_blank" rel="external">Demo</a></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1321512-0e4e7d86dd98eae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="RxJava"><a href="#RxJava" class="headerlink" title="RxJava"></a>RxJava</h3><hr>
-<ul>
-<li><a href="http://reactivex.io/documentation/operators.html" target="_blank" rel="external">Doc for operators</a></li>
-<li><strong><a href="https://github.com/JakeWharton/RxBinding" target="_blank" rel="external">RxBinding</a></strong><br>flatMap //压缩到一个Map</li>
-</ul>
-<p><strong>first() vs. takeFirst()</strong><img src="http://upload-images.jianshu.io/upload_images/1321512-0e4e7d86dd98eae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>The difference between the two calls is that first()<br> will throw a NoSuchElementException<br> if none of the sources emits valid data, whereas takeFirst()<br> will simply complete without exception.</p>
-<h3 id="RxJava操作符笔记"><a href="#RxJava操作符笔记" class="headerlink" title="RxJava操作符笔记"></a>RxJava操作符笔记</h3><hr>
-<ul>
-<li>FlatMap最后的发射顺序可能交错，对顺序有要求可以使用concatmap<br>-</li>
-</ul>
-<h3 id="Scheduler-的-API-一"><a href="#Scheduler-的-API-一" class="headerlink" title="Scheduler 的 API (一)"></a>Scheduler 的 API (一)</h3><p>在RxJava 中，Scheduler ——调度器，相当于线程控制器，RxJava 通过它来指定每一段代码应该运行在什么样的线程。RxJava 已经内置了几个 Scheduler ，它们已经适合大多数的使用场景：</p>
-<ul>
-<li>Schedulers.immediate(): 直接在当前线程运行，相当于不指定线程。这是默认的 Scheduler。</li>
-<li>Schedulers.newThread(): 总是启用新线程，并在新线程执行操作。</li>
-<li>Schedulers.io(): I/O 操作（读写文件、读写数据库、网络信息交互等）所使用的 Scheduler。行为模式和 newThread() 差不多，区别在于 io() 的内部实现是是用一个无数量上限的线程池，可以重用空闲的线程，因此多数情况下 io() 比 newThread() 更有效率。不要把计算工作放在 io() 中，可以避免创建不必要的线程。</li>
-<li>Schedulers.computation(): 计算所使用的 Scheduler。这个计算指的是 CPU 密集型计算，即不会被 I/O 等操作限制性能的操作，例如图形的计算。这个 Scheduler 使用的固定的线程池，大小为 CPU 核数。不要把 I/O 操作放在 computation() 中，否则 I/O 操作的等待时间会浪费 CPU。<br>另外， Android 还有一个专用的 AndroidSchedulers.mainThread()，它指定的操作将在 Android 主线程运行。<br>有了这几个 Scheduler ，就可以使用 subscribeOn() 和 observeOn() 两个方法来对线程进行控制了。</li>
-</ul>
-<h3 id="实战笔记"><a href="#实战笔记" class="headerlink" title="实战笔记"></a>实战笔记</h3><hr>
-<p><strong>RxJava-Android-Samples</strong><br><strong>RetrofitFragment.java</strong><br>Observable.zip / Observable.just <a href="https://gist.github.com/Orange168/2f751594f95f9b05c129cd44f5b10739" target="_blank" rel="external">gist code</a></p>
-<p><strong>DebounceSearchEmitterFragment.java</strong><br><a href="https://gist.github.com/Orange168/ab5784b27fec8ee8e2614a189c094636" target="_blank" rel="external">RxTextView.textChangeEvents gitst code </a></p>
-<p><strong>BufferDemoFragment.java</strong><br>     RxView.clickEvents/  .buffer(2, TimeUnit.SECONDS) //收集2s内的点击事件到List中<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> Subscription <span class="title">_getBufferedSubscription</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> RxView.clickEvents(_tapBtn)</div><div class="line">             .map(<span class="keyword">new</span> Func1&lt;ViewClickEvent, Integer&gt;() &#123;</div><div class="line">                 <span class="meta">@Override</span></div><div class="line">                 <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(ViewClickEvent onClickEvent)</span> </span>&#123;</div><div class="line">                     Timber.d(<span class="string">"--------- GOT A TAP"</span>);</div><div class="line">                     _log(<span class="string">"GOT A TAP"</span>);</div><div class="line">                     <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">                 &#125;</div><div class="line">             &#125;)</div><div class="line">             .buffer(<span class="number">2</span>, TimeUnit.SECONDS) <span class="comment">//收集2s内的点击事件到List中</span></div><div class="line">             .observeOn(AndroidSchedulers.mainThread())</div><div class="line">		  .subscribe(<span class="keyword">new</span> Observer&lt;List&lt;Integer&gt;&gt;() &#123;&#125; ）；</div></pre></td></tr></table></figure></p>
-<p>PublishSubject<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">PublishSubject&lt;Float&gt;   _resultEmitterSubject = PublishSubject.create();</div><div class="line">       _subscription = _resultEmitterSubject.asObservable().subscribe(<span class="keyword">new</span> Action1&lt;Float&gt;() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Float aFloat)</span> </span>&#123;</div><div class="line">               _result.setText(String.valueOf(aFloat));</div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line">	 _resultEmitterSubject.onNext(num1 + num2);</div><div class="line">	 <span class="meta">@OnTextChanged</span></div></pre></td></tr></table></figure></p>
-<p><em>PollingFragment.java</em><br>CompositeSubscription / interval /doOnSubscribe /repeatWhen /Observable.timer<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">   _subscriptions.add(<span class="comment">//</span></div><div class="line">          Observable.just(<span class="number">1</span>)</div><div class="line">                .repeatWhen(<span class="keyword">new</span> RepeatWithDelay(pollCount, pollingInterval))</div><div class="line">                .subscribe(<span class="keyword">new</span> Action1&lt;Object&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">                        _log(String.format(Locale.US, <span class="string">"Executing polled task now time : [xx:%02d]"</span>,</div><div class="line">                              _getSecondHand()));</div><div class="line">                    &#125;</div><div class="line">                &#125;, <span class="keyword">new</span> Action1&lt;Throwable&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line">                        Timber.d(e, <span class="string">"arrrr. Error"</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">    );</div><div class="line">     _subscriptions.add(<span class="comment">//</span></div><div class="line">          Observable.interval(INITIAL_DELAY, POLLING_INTERVAL, TimeUnit.MILLISECONDS)</div><div class="line">                .map(<span class="keyword">new</span> Func1&lt;Long, String&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">(Long heartBeat)</span> </span>&#123;</div><div class="line">                        <span class="keyword">return</span> _doNetworkCallAndGetStringResult(heartBeat);</div><div class="line">                    &#125;</div><div class="line">                &#125;).take(pollCount)</div><div class="line">                .doOnSubscribe(<span class="keyword">new</span> Action0() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123;</div><div class="line">                        _log(String.format(<span class="string">"Start simple polling - %s"</span>, _counter));</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .subscribe(<span class="keyword">new</span> Action1&lt;String&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(String taskName)</span> </span>&#123;</div><div class="line">                        _log(String.format(Locale.US, <span class="string">"Executing polled task [%s] now time : [xx:%02d]"</span>,</div><div class="line">                              taskName, _getSecondHand()));</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">    );</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RepeatWithDelay</span></span></div><div class="line">      <span class="keyword">implements</span> <span class="title">Func1</span>&lt;<span class="title">Observable</span>&lt;? <span class="keyword">extends</span> <span class="title">Void</span>&gt;, <span class="title">Observable</span>&lt;?&gt;&gt; &#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> _repeatLimit;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> _pollingInterval;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _repeatCount = <span class="number">1</span>;</div><div class="line"></div><div class="line">    RepeatWithDelay(<span class="keyword">int</span> repeatLimit, <span class="keyword">int</span> pollingInterval) &#123;</div><div class="line">        _pollingInterval = pollingInterval;</div><div class="line">        _repeatLimit = repeatLimit;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// this is a notificationhandler, all we care about is</span></div><div class="line">    <span class="comment">// the emission "type" not emission "content"</span></div><div class="line">    <span class="comment">// only onNext triggers a re-subscription</span></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> Observable&lt;?&gt; call(Observable&lt;? extends Void&gt; inputObservable) &#123;</div><div class="line"></div><div class="line">        <span class="comment">// it is critical to use inputObservable in the chain for the result</span></div><div class="line">        <span class="comment">// ignoring it and doing your own thing will break the sequence</span></div><div class="line"></div><div class="line">        <span class="keyword">return</span> inputObservable.flatMap(<span class="keyword">new</span> Func1&lt;Void, Observable&lt;?&gt;&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="keyword">public</span> Observable&lt;?&gt; call(Void blah) &#123;</div><div class="line"></div><div class="line"></div><div class="line">                <span class="keyword">if</span> (_repeatCount &gt;= _repeatLimit) &#123;</div><div class="line">                    <span class="comment">// terminate the sequence cause we reached the limit</span></div><div class="line">                    _log(<span class="string">"Completing sequence"</span>);</div><div class="line">                    <span class="keyword">return</span> Observable.empty();</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="comment">// since we don't get an input</span></div><div class="line">                <span class="comment">// we store state in this handler to tell us the point of time we're firing</span></div><div class="line">                _repeatCount++;</div><div class="line"></div><div class="line">                <span class="keyword">return</span> Observable.timer(_repeatCount * _pollingInterval,</div><div class="line">                      TimeUnit.MILLISECONDS);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><em>RxBusDemoFragment.java</em><br>ConnectableObservable / SerializedSubject<br><a href="https://gist.github.com/Orange168/81a3f2dc67bc2248b56b3697adcc601e" target="_blank" rel="external">gist代码</a><br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> Subject&lt;Object, Object&gt; _bus = <span class="keyword">new</span> SerializedSubject&lt;&gt;(PublishSubject.create());</div><div class="line">_bus.onNext(object);</div><div class="line">_bus.hasObservers();</div><div class="line">ConnectableObservable&lt;Object&gt; tapEventEmitter = _rxBus.toObserverable().publish();</div><div class="line">   _subscriptions<span class="comment">//</span></div><div class="line">              .add(tapEventEmitter.subscribe(<span class="keyword">new</span> Action1&lt;Object&gt;() &#123;</div><div class="line">                  <span class="meta">@Override</span></div><div class="line">                  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Object event)</span> </span>&#123;</div><div class="line">                      <span class="keyword">if</span> (event <span class="keyword">instanceof</span> RxBusDemoFragment.TapEvent) &#123;</div><div class="line">                          _showTapText();</div><div class="line">                      &#125;</div><div class="line">                  &#125;</div><div class="line">              &#125;));</div><div class="line"> stream.buffer(stream.debounce(<span class="number">1</span>, TimeUnit.SECONDS));</div><div class="line"> _subscriptions.add(tapEventEmitter.connect());</div></pre></td></tr></table></figure></p>
-<p><em>FormValidationCombineLatestFragment.java</em><br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Observable&lt;CharSequence&gt; _numberChangeObservable = RxTextView.textChanges(_email_editText).skip(<span class="number">1</span>);</div><div class="line"> _subscription = Observable.combineLatest(_emailChangeObservable,</div><div class="line">              _passwordChangeObservable,</div><div class="line">              _numberChangeObservable, <span class="keyword">new</span> Fun3...)</div></pre></td></tr></table></figure></p>
-<p><em>PseudoCacheMergeFragment.java</em><br>Observable.merge();<br><em>TimingDemoFragment.java</em><br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Observable.timer(<span class="number">2</span>, TimeUnit.SECONDS)<span class="comment">//</span></div><div class="line">              <span class="comment">//.just(1).delay(2, TimeUnit.SECONDS)//</span></div><div class="line">			  <span class="comment">//.interval(1, TimeUnit.SECONDS)//</span></div><div class="line">			  <span class="comment">//.interval(0, 1, TimeUnit.SECONDS)//</span></div><div class="line">			  <span class="comment">//.interval(3, TimeUnit.SECONDS).take(5)//</span></div></pre></td></tr></table></figure></p>
-<p><em>ExponentialBackoffFragment.java</em><br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">  Observable<span class="comment">//</span></div><div class="line">                    .error(<span class="keyword">new</span> RuntimeException(<span class="string">"testing"</span>)) <span class="comment">// always fails</span></div><div class="line">                    .retryWhen(<span class="keyword">new</span> RetryWithDelay(<span class="number">5</span>, <span class="number">1000</span>)) <span class="comment">//当错误时调用，适用于错误处理</span></div><div class="line"> <span class="comment">//1-4 指数的递增延迟</span></div><div class="line">Observable.range(<span class="number">1</span>, <span class="number">4</span>)<span class="comment">//</span></div><div class="line">                    .delay(<span class="keyword">new</span> Func1&lt;Integer, Observable&lt;Integer&gt;&gt;() &#123;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> Observable&lt;Integer&gt; <span class="title">call</span><span class="params">(<span class="keyword">final</span> Integer integer)</span> </span>&#123;</div><div class="line">                            <span class="comment">// Rx-y way of doing the Fibonnaci :P</span></div><div class="line">                            <span class="keyword">return</span> MathObservable<span class="comment">//</span></div><div class="line">                                  .sumInteger(Observable.range(<span class="number">1</span>, integer))</div><div class="line">                                  .flatMap(<span class="keyword">new</span> Func1&lt;Integer, Observable&lt;Integer&gt;&gt;() &#123;</div><div class="line">                                      <span class="meta">@Override</span></div><div class="line">                                      <span class="function"><span class="keyword">public</span> Observable&lt;Integer&gt; <span class="title">call</span><span class="params">(Integer targetSecondDelay)</span> </span>&#123;</div><div class="line">                                          <span class="keyword">return</span> Observable.just(integer)</div><div class="line">                                                .delay(targetSecondDelay, TimeUnit.SECONDS);</div><div class="line">                                      &#125;</div><div class="line">                                  &#125;);</div><div class="line">                        &#125;</div><div class="line">                    &#125;)<span class="comment">//</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RxView.clickEvents(button) <span class="comment">// RxBinding 代码，后面的文章有解释</span></div><div class="line">    .throttleFirst(<span class="number">500</span>, TimeUnit.MILLISECONDS) <span class="comment">// 设置防抖间隔为 500ms</span></div><div class="line">    .subscribe(subscriber);</div></pre></td></tr></table></figure>
-
-          
+          视频流播放相关相关开源库
+FFmpeg
+Libstreaming A solution for streaming H.264, H.263, AMR, AAC using RTP on Android
+RemoteDroid 能运行但是链接失败
+android-eye
+Gstreamer-Andr
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/08/07/2018-8-7-remote-control/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -666,7 +756,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2017/01/08/gradle-note/">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/08/03/2018-8-3-coder-software/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="林酱">
@@ -691,8 +781,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/08/gradle-note/" itemprop="url">
-                  Gradle 学习积累
+                <a class="post-title-link" href="/2018/08/03/2018-8-3-coder-software/" itemprop="url">
+                  编程中好用工具
                 </a>
               
             
@@ -706,8 +796,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-08T21:52:31+08:00">
-                2017-01-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T08:53:43+08:00">
+                2018-08-03
               </time>
             
 
@@ -725,8 +815,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coder/" itemprop="url" rel="index">
-                    <span itemprop="name">coder</span>
+                  <a href="/categories/tool/" itemprop="url" rel="index">
+                    <span itemprop="name">tool</span>
                   </a>
                 </span>
 
@@ -740,8 +830,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/01/08/gradle-note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/08/gradle-note/" itemprop="commentCount"></span>
+                <a href="/2018/08/03/2018-8-3-coder-software/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/03/2018-8-3-coder-software/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -769,77 +859,18 @@
       
         
           
-            <h3 id="基础教程"><a href="#基础教程" class="headerlink" title="基础教程"></a>基础教程</h3><hr>
-<h4 id="实践博客"><a href="#实践博客" class="headerlink" title="实践博客"></a>实践博客</h4><ul>
-<li><a href="http://tools.android.com/tech-docs/new-build-system/user-guide" target="_blank" rel="external">Google’s guide on Gradle for Android</a></li>
-<li><a href="http://tech.meituan.com/mt-apk-adaptation.html" target="_blank" rel="external">美团Android自动化之旅—适配渠道包</a></li>
-<li><a href="http://www.open-open.com/lib/view/open1439216256770.html" target="_blank" rel="external">Android Gradle实战中遇到的问题与经验</a></li>
-</ul>
-<h4 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h4><p><a href="http://blog.csdn.net/qinxiandiqi/article/details/44458707" target="_blank" rel="external">  建立企业内部maven服务器并使用Android Studio发布公共项目</a>。</p>
-<h4 id="Gradle-Tutorial"><a href="#Gradle-Tutorial" class="headerlink" title="Gradle Tutorial"></a>Gradle Tutorial</h4><ul>
-<li><a href="http://jijiaxin89.com/2015/08/29/gradle-use-note/" target="_blank" rel="external">Gradle 用法总结</a> </li>
-<li><a href="http://jiajixin.cn/2015/08/07/gradle-android/" target="_blank" rel="external">构建神器Gradle</a> </li>
-<li><a href="http://segmentfault.com/a/1190000004229002" target="_blank" rel="external">翻译gradle for android</a> ==&gt;gradle for android pdf</li>
-<li><a href="https://docs.gradle.org/current/userguide/custom_plugins.html" target="_blank" rel="external">Writing Custom Plugins</a> gradle官方文档，自定义插件拿到<a href="https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html" target="_blank" rel="external">Project</a>类，就可以拿到几乎所有工程配置的属性和方法，然后发挥想象控制你的工程。</li>
-</ul>
-<h4 id="官网资料"><a href="#官网资料" class="headerlink" title="官网资料"></a>官网资料</h4><ul>
-<li><a href="https://docs.gradle.org/current/userguide/dependency_management.html" target="_blank" rel="external">Chapter 23. Dependency Management</a> 【待研究】</li>
-<li><a href="https://docs.gradle.org/current/userguide/java_plugin.html" target="_blank" rel="external">Chapter 45. The Java Plugin</a></li>
-<li><a href="https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.DependencyHandler.html" target="_blank" rel="external">DependencyHandler</a></li>
-<li><a href="http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Types" target="_blank" rel="external">Gradle Plugin User Guide</a> Android Studio 官网提供的Gradle实用教程</li>
-<li><a href="http://google.github.io/android-gradle-dsl/current/" target="_blank" rel="external">Android Plugin DSL Reference</a>  build.gradle  android{….} API</li>
-</ul>
-<h3 id="进阶博文"><a href="#进阶博文" class="headerlink" title="进阶博文"></a>进阶博文</h3><hr>
-<ul>
-<li><a href="http://chuansong.me/n/425965451447" target="_blank" rel="external">Android Gradle编译过程</a> 比较详细的讲述了Gradle 编译 Apk的过程。</li>
-<li><a href="http://es.slideshare.net/everywaretech/weapons-for-boilerplate-destruction" target="_blank" rel="external">Weapons for Boilerplate Destruction</a> 之Gradle 篇<br><img src="http://upload-images.jianshu.io/upload_images/1321512-68febc7f6adf083f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="检查插件"><br><img src="http://upload-images.jianshu.io/upload_images/1321512-7f10a967eb15d7df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="增加依赖"><br><img src="http://upload-images.jianshu.io/upload_images/1321512-93e9e3d22c58cbda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="增加外部扩展（1），可以清晰统一的管理子moduled的配置"><br>以上project.extensions.create….,可以使用${project.myextension.aNumber}访问到对应的属性<br><img src="http://upload-images.jianshu.io/upload_images/1321512-33598d6aed0431f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="获取变量从而达到动态配置的目的"></li>
-</ul>
-<h3 id="进阶源码阅读"><a href="#进阶源码阅读" class="headerlink" title="进阶源码阅读"></a>进阶源码阅读</h3><ul>
-<li><strong><a href="https://github.com/JakeWharton/hugo" target="_blank" rel="external">hugo</a></strong>  JakeWharton 不必介绍了。项目中使用Gradle plugin 和自定义Task 顺便学习一些Process Annotation.</li>
-</ul>
-<h3 id="开源插件"><a href="#开源插件" class="headerlink" title="开源插件"></a>开源插件</h3><hr>
-<ul>
-<li><a href="https://github.com/vanniktech/gradle-android-junit-jacoco-plugin" target="_blank" rel="external">gradle-android-junit-jacoco-plugin</a><br>可以生成代码单元测试覆盖率报告的 Gradle 插件。</li>
-<li><a href="https://github.com/vanniktech/gradle-android-javadoc-plugin" target="_blank" rel="external">gradle-android-javadoc-plugin</a><br>可以生成 java doc 的 Gradle 插件。</li>
-<li><a href="https://github.com/vanniktech/gradle-android-apk-size-plugin" target="_blank" rel="external">gradle-android-apk-size-plugin</a><br>可以将 Apk 大小记录到 CSV 文件的 Gradle 插件。</li>
-<li><a href="http://github.com/adwiv/android-fat-aar" target="_blank" rel="external">android-fat-aar </a> Gradle script that allows you to merge and embed dependencies in generted aar file.</li>
-<li><strong><a href="https://github.com/JcMinarro/ProperDroid" target="_blank" rel="external">ProperDroid</a></strong>  simplifies the way that config different variant on your project.</li>
-<li><strong><a href="https://github.com/KeepSafe/dexcount-gradle-plugin" target="_blank" rel="external">dexcount-gradle-plugin</a></strong>  A Gradle plugin to report the number of method references in your APK on every build.</li>
-</ul>
-<h3 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h3><hr>
-<ul>
-<li><p>本地引入.aar文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">   compile(name:<span class="string">'nameOfYourAARFileWithoutExtension'</span>, ext:<span class="string">'aar'</span>)</div><div class="line"> &#125;</div><div class="line">repositories&#123;</div><div class="line">      flatDir&#123;</div><div class="line">              dirs <span class="string">'libs'</span></div><div class="line">       &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong><a href="https://gist.github.com/Orange168/a94d5fee6eeaba2d708ad56387ac2a90" target="_blank" rel="external">gradleBuildTime.gradle</a></strong> 获取build脚本每个任务（Task）执行的时间。</p>
-</li>
-<li><strong><a href="https://gist.github.com/Orange168/e3973ed9f01dbfc1eeb234873116e35d" target="_blank" rel="external">gradle.properties 自定义 buildConfigField 外部变量</a></strong></li>
-<li><a href="https://gist.github.com/Orange168/e01b4b0103adc148eaa1b3a5c412e4bb" target="_blank" rel="external">修改output/apk/[自定义].apk</a></li>
-<li><p>每次构建工程把git版本控制的信息加入VersionName中</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> gitSha = <span class="string">'git rev-parse --short HEAD'</span>.execute([], <span class="keyword">project</span>.rootDir).text.trim()</div><div class="line"><span class="keyword">def</span> gitTag = <span class="string">'git tag'</span>.execute([], <span class="keyword">project</span>.rootDir).text.trim().split(<span class="string">"\n"</span>).last()</div><div class="line"><span class="keyword">def</span> gitCommits = Integer.parseInt(<span class="string">'git rev-list --count HEAD'</span>.execute([], <span class="keyword">project</span>.rootDir).text.trim())</div></pre></td></tr></table></figure>
-</li>
-<li><p>动态修改Manifest中的参数<br><img src="http://upload-images.jianshu.io/upload_images/1321512-3a9cf4161a59a9e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">23</span></div><div class="line">    buildToolsVersion <span class="string">'23.0.2'</span></div><div class="line"></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId <span class="string">"com.liulishuo.engzo"</span></div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">23</span></div><div class="line">        manifestPlaceholders = [</div><div class="line">                <span class="comment">// 这里需要换成:tencent+你的AppId</span></div><div class="line">                <span class="string">"tencentAuthId"</span>: <span class="string">"tencent123456"</span>,</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">｝</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://gist.github.com/Orange168/3e42a562bafd6b9b0174114140f3e498" target="_blank" rel="external">使用全局变量进行依赖版本及一些常用配置的统一管理</a></p>
-</li>
-<li>配置 <a href="https://gist.github.com/Orange168/c266fbe36fa26c26def0e3162c6ab3d1" target="_blank" rel="external">Apk split</a> 使Android  Studio每个对应的Cpu 架构都生成单独的apk，减小整个应用的大小。</li>
-<li>rootdirOfProject/gradle.properties  配置变量如： <code>VERSION_NAME=1.2.2-SNAPSHOT</code> 然后可以在配置文件所在项目中的所有*.gradle 文件直接引用。 有点类似Java public static的感觉。</li>
-<li><p>Java 指定JDK版本</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">	compileOptions &#123;</div><div class="line">   	 sourceCompatibility JavaVersion.VERSION_1_7</div><div class="line">    	targetCompatibility JavaVersion.VERSION_1_7</div><div class="line"><span class="comment">//		targetCompatibility JavaVersion.VERSION_1_8</span></div><div class="line"><span class="comment">//        sourceCompatibility JavaVersion.VERSION_1_8</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>签名信息(release.keystore)的存放方式 <a href="http://stackoverflow.com/questions/18328730/how-to-create-a-release-signed-apk-file-using-gradle" target="_blank" rel="external">stackoverflow</a></p>
-</li>
-<li><a href="https://hackernoon.com/android-how-to-add-gradle-dependencies-using-foreach-c4cbcc070458#.l2rzk4st6" target="_blank" rel="external">Android — How to add Gradle dependencies using ‘foreach’</a>  很多开源项目都把依赖统一管理, 这个博文是做得做系统和简洁</li>
-</ul>
-<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><hr>
-<ul>
-<li><strong>依赖更新</strong><br>项目依赖的远程包如果有更新，会有提醒或者自动更新吗？ 不会的，需要你手动设置changing标记为true，这样gradle会每24小时检查更新，通过更改resolutionStrategy可以修改检查周期。<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">configurations</span>.all &#123;</div><div class="line"><span class="comment">// check for updates every build</span></div><div class="line">resolutionStrategy.cacheChangingModulesFor <span class="number">0</span>, <span class="string">'seconds'</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line"><span class="keyword">compile</span> <span class="keyword">group</span>: <span class="string">"group"</span>, name: <span class="string">"projectA"</span>, version: <span class="string">"1.1-SNAPSHOT"</span>, changing: <span class="keyword">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>之前上传aar同一版本到maven仓库，但依赖却没有更新，该怎么办呢?可以直接删除本地缓存，缓存在~/.gradle/caches目录下，删除缓存后，下次运行就会自动重新下载远程依赖了。</p>
+          记录
+terminalizer 录制终端命令行并转化成gif  
+
 
           
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/08/03/2018-8-3-coder-software/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -876,7 +907,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2016/12/03/android-test/">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/08/01/2018-8-1-cmake-note/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="林酱">
@@ -901,8 +932,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/03/android-test/" itemprop="url">
-                  Android测试资源集合,测试工具,测试开源项目
+                <a class="post-title-link" href="/2018/08/01/2018-8-1-cmake-note/" itemprop="url">
+                  AndroidStudio用Cmake方式编译NDK代码
                 </a>
               
             
@@ -916,8 +947,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T07:53:52+08:00">
-                2016-12-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-01T00:00:00+08:00">
+                2018-08-01
               </time>
             
 
@@ -935,8 +966,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coder/" itemprop="url" rel="index">
-                    <span itemprop="name">coder</span>
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
                   </a>
                 </span>
 
@@ -950,8 +981,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/android-test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/android-test/" itemprop="commentCount"></span>
+                <a href="/2018/08/01/2018-8-1-cmake-note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/01/2018-8-1-cmake-note/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -979,122 +1010,17 @@
       
         
           
-            <h3 id="测试第三方服务"><a href="#测试第三方服务" class="headerlink" title="测试第三方服务"></a>测试第三方服务</h3><hr>
-<p><strong>国内</strong></p>
-<ul>
-<li><a href="https://bugly.qq.com/v2/" target="_blank" rel="external">https://bugly.qq.com/v2/</a> 腾讯的bugly 免费, 而且相当好用</li>
-<li><a href="http://utest.qq.com/" target="_blank" rel="external">腾讯优测云</a> 提供真机测试和漏洞分析</li>
-<li><a href="http://www.testin.cn/" target="_blank" rel="external">Testin</a></li>
-<li><a href="http://mtc.baidu.com/?_if=12065-bt_16-Brand_16-Brand" target="_blank" rel="external">MTC</a></li>
-<li><a href="http://www.yiceyun.com/" target="_blank" rel="external">易测云</a></li>
-</ul>
-<p><strong>国外</strong></p>
-<ul>
-<li><a href="http://www.test-cloud.com/" target="_blank" rel="external">TestCloud</a></li>
-<li><a href="http://testdroid.com/" target="_blank" rel="external">Testdroid</a></li>
-<li><a href="https://nimbledroid.com/" target="_blank" rel="external">Nimbledroid</a>   Automated performance analysis website</li>
-<li><a href="http://en.testbird.com/" target="_blank" rel="external">Test bird</a>  APP和手游测试</li>
-</ul>
-<p><strong>第三方性能采集SDK</strong></p>
-<ul>
-<li><a href="http://www.oneapm.com/brand/apm.html?utm_source=BaiduPaid&amp;utm_medium=cpc&amp;utm_term=oneapm%E4%BC%81%E4%B8%9A%E5%90%8D%E7%89%87%E6%A0%87%E9%A2%98&amp;utm_content=mingpian&amp;utm_campaign=BaiduPromotion&amp;from=urysaeuvwrsphdiqyb" target="_blank" rel="external">OneAPM</a></li>
-<li><a href="http://www.tingyun.com/sem1.html" target="_blank" rel="external">听云</a></li>
-</ul>
-<p><strong>自动化测试</strong></p>
-<ul>
-<li><strong><a href="https://circleci.com/" target="_blank" rel="external">CircleCI</a></strong>  一个基于Github的自动化测试，单元测试工具，提供一个免费的私有仓库。</li>
-</ul>
-<h3 id="Google官方学习资料"><a href="#Google官方学习资料" class="headerlink" title="Google官方学习资料"></a>Google官方学习资料</h3><hr>
-<ul>
-<li><a href="http://developer.android.com/training/testing.html" target="_blank" rel="external">Best Practices for Testing</a>  【最新/重点】</li>
-<li><strong><a href="https://google.github.io/android-testing-support-library/" target="_blank" rel="external">Android Testing Support library</a></strong> (ATSL)  【重点】<br>相关视频： <a href="https://www.youtube.com/watch?v=vdasFFfXKOY" target="_blank" rel="external">Android Testing (Android Dev Summit 2015)</a> youtube 2015年视频</li>
-<li>Developer API  <a href="http://developer.android.com/tools/testing/testing_android.html" target="_blank" rel="external">Testing Concepts</a></li>
-</ul>
-<h3 id="优秀博客"><a href="#优秀博客" class="headerlink" title="优秀博客"></a><strong>优秀博客</strong></h3><hr>
-<h4 id="Java-测试"><a href="#Java-测试" class="headerlink" title="Java 测试"></a>Java 测试</h4><ul>
-<li><a href="http://android-developers.blogspot.com/2015/12/leveraging-product-flavors-in-android.html" target="_blank" rel="external">Leveraging product flavors in Android Studio for hermetic testing</a>  与之对应的 <a href="https://www.code-labs.io/codelabs/android-testing/index.html#0" target="_blank" rel="external">codelab</a>学习地址<br>笔记：<br><img src="http://upload-images.jianshu.io/upload_images/1321512-4c6b0b4c090c171b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><ul>
-<li><a href="http://googletesting.blogspot.co.uk/2015/04/just-say-no-to-more-end-to-end-tests.html" target="_blank" rel="external">Just Say No to More End-to-End Tests</a></li>
-<li><a href="https://google.github.io/android-testing-support-library/docs/rules/index.html" target="_blank" rel="external">two JUnit Rules</a> @rule will be launched before @Before. The ActivityTestRule  is a rule that provides functional testing of a single Activity.</li>
-</ul>
-</li>
-<li><a href="http://blog.wittchen.biz.pl/test-coverage-report-for-android-application/" target="_blank" rel="external">Test coverage report for Android application</a>  使用jacoco-android plugin in a build.gradle<br>进行测试覆盖率报告<br><img src="http://upload-images.jianshu.io/upload_images/1321512-8ab2613a35397236.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sample"></li>
-<li><a href="http://chriszou.com/2016/04/25/android-unit-testing-wechat-group-share.html#rd" target="_blank" rel="external">Android单元测试在蘑菇街支付金融部门的实践</a> 很详细介绍了单元测试在实践操作中的使用</li>
-</ul>
-<h4 id="RxJava-Test"><a href="#RxJava-Test" class="headerlink" title="RxJava Test"></a>RxJava Test</h4><ul>
-<li><a href="http://fedepaol.github.io/blog/2015/09/13/testing-rxjava-observables-subscriptions/" target="_blank" rel="external">Unit Testing RxJava Observables and Subscriptions</a></li>
-<li><a href="https://medium.com/ribot-labs/unit-testing-rxjava-6e9540d4a329" target="_blank" rel="external">Unit Testing RxJava Observables</a></li>
-<li><a href="http://alexismas.com/blog/2015/05/20/unit-testing-rxjava/" target="_blank" rel="external">Unit Testing with RxJava</a></li>
-</ul>
-<h3 id="测试框架"><a href="#测试框架" class="headerlink" title="测试框架"></a>测试框架</h3><hr>
-<h4 id="Unit-Testing"><a href="#Unit-Testing" class="headerlink" title="Unit Testing"></a><strong>Unit Testing</strong></h4><ul>
-<li><strong><a href="https://github.com/junit-team/junit4" target="_blank" rel="external">Junit4 Github</a></strong> A programmer-oriented testing framework for Java.<br><a href="http://junit.org/junit4/" target="_blank" rel="external">http://junit.org/junit4/</a></li>
-<li><strong><a href="https://github.com/mockito/mockito" target="_blank" rel="external">Mockito</a></strong>    Tasty mocking framework for unit tests in Java</li>
-<li><a href="http://jmockit.org/" target="_blank" rel="external">JMockit</a> An automated testing toolkit for Java<br>对比： mockito不能mock static method和final class、final method，JMockit可以；<br><a href="http://stackoverflow.com/questions/4105592/comparison-between-mockito-vs-jmockit-why-is-mockito-voted-better-than-jmockit" target="_blank" rel="external">对比Mockito和JMockit的文章</a></li>
-<li><a href="https://github.com/jayway/powermock" target="_blank" rel="external">PowerMock</a> 一个可以Mock静态类的开源库</li>
-</ul>
-<blockquote>
-<p>Tools for UI Testing: <a href="http://robotium.com/" target="_blank" rel="external">Robotium</a>, <a href="http://appium.io/" target="_blank" rel="external">Appium</a>, <a href="http://calaba.sh/" target="_blank" rel="external">Calabash</a>, <a href="http://robolectric.org/" target="_blank" rel="external">Robolectric</a>.  </p>
-</blockquote>
-<h4 id="UI-Testing"><a href="#UI-Testing" class="headerlink" title="UI Testing"></a>UI Testing</h4><ul>
-<li><a href="https://google.github.io/android-testing-support-library/docs/espresso/" target="_blank" rel="external">Espresso</a> Android 官方推荐使用的UI测试库</li>
-<li><a href="https://developer.android.com/training/testing/ui-testing/uiautomator-testing.html" target="_blank" rel="external">UIAutomator</a> 可以夸应用进行测试</li>
-<li><a href="http://robolectric.org/" target="_blank" rel="external">Robolectric</a> is a unit test framework that de-fangs the Android SDK jar so you can test-drive the development of your Android app. Tests run inside the JVM on your workstation in seconds</li>
-</ul>
-<h4 id="More"><a href="#More" class="headerlink" title="More"></a>More</h4><ul>
-<li><strong><a href="https://github.com/robospock/RoboSpock" target="_blank" rel="external">RoboSpock Github </a></strong> A testing framework which brings powers of Spock and Groovy to Android app testing <a href="http://robospock.org/" target="_blank" rel="external">http://robospock.org</a></li>
-<li><a href="https://github.com/hamcrest" target="_blank" rel="external">Hamcrest matchers</a><br>What is Hamcrest?<br>Hamcrest is a library of matchers, which can be combined in to create flexible expressions of intent in tests. They’ve also been used for other purposes.</li>
-</ul>
-<h3 id="开源库"><a href="#开源库" class="headerlink" title="开源库"></a>开源库</h3><hr>
-<p><strong>Collection</strong></p>
-<ul>
-<li><a href="http://github.com/hotchemi/awesome-android-testing" target="_blank" rel="external">awesome-android-testing</a> collection of android  test info 【重点】</li>
-</ul>
-<p><strong>Sample</strong></p>
-<ul>
-<li><strong><a href="https://github.com/jaredsburrows/android-gradle-java-template" target="_blank" rel="external">android-gradle-java-template</a></strong> Gradle + Android Studio + Robolectric + Espresso + Mockito + EasyMock/PowerMock + JaCoCo Demo</li>
-<li><strong><a href="https://github.com/txusballesteros/Android-Clean-Testing" target="_blank" rel="external">Android-Clean-Testing</a></strong> Android Testing Sample Project</li>
-<li><strong><a href="https://github.com/piotrek1543/robotium-showcase" target="_blank" rel="external">robotium-showcase</a></strong>  This example shows how to use Robotium with ActvitityTestRule and <a href="https://github.com/Test" target="_blank" rel="external">@Test</a> annotation, it means in Google’s Espresso way.</li>
-</ul>
-<p><strong>Google Sample</strong></p>
-<ol>
-<li><a href="http://https//github.com/googlesamples/android-testing-templates" target="_blank" rel="external">android-testing-templates</a></li>
-<li><a href="http://https//github.com/googlesamples/android-testing" target="_blank" rel="external">android-testing</a>  A collection of samples demonstrating different frameworks and techniques for automated testing</li>
-</ol>
-<h3 id="Tools-测试工具"><a href="#Tools-测试工具" class="headerlink" title="Tools 测试工具"></a>Tools 测试工具</h3><h4 id="square-spoon"><a href="#square-spoon" class="headerlink" title="square/spoon"></a><a href="https://github.com/square" target="_blank" rel="external">square</a>/<strong><a href="https://github.com/square/spoon" target="_blank" rel="external">spoon</a></strong></h4><p>在adb devices 检测到的设备跑测试程序，并提供截屏，文件，数据库操作：<br><img src="http://upload-images.jianshu.io/upload_images/1321512-694d36e6a73eb429.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Screenshots"><br><img src="http://upload-images.jianshu.io/upload_images/1321512-bc9d6b02dc8e52a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Files"><br><strong>最最重要的是生成简单明了的测试报告：</strong><br><img src="http://upload-images.jianshu.io/upload_images/1321512-0ffccba21e710b11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" displaying the results in a meaningful way"></p>
-<h4 id="Android-Studio-2-2-Preview-new-feature"><a href="#Android-Studio-2-2-Preview-new-feature" class="headerlink" title="Android Studio 2.2 Preview new feature:"></a>Android Studio 2.2 Preview new feature:</h4><ul>
-<li><strong>Espresso Test Recorder</strong> 菜单/run/Recorder Expresso Test 选项可以记录你的操作并转化为Espresso 的测试代码<br><img src="http://upload-images.jianshu.io/upload_images/1321512-36bbbc4ff14afbf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li><strong>APK Analyzer</strong> 菜单/build/Analyzer APK 提供APK大小分析工具，清楚的知道代码体积变换的趋势。<br><img src="http://upload-images.jianshu.io/upload_images/1321512-17b49035bfef0d95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=".png"></li>
-</ul>
-<h4 id="screengrab-当UI-Tests-时自动化截屏"><a href="#screengrab-当UI-Tests-时自动化截屏" class="headerlink" title="screengrab 当UI Tests 时自动化截屏"></a><strong><a href="https://github.com/fastlane/screengrab" target="_blank" rel="external">screengrab</a></strong> 当UI Tests 时自动化截屏</h4><h4 id="STF-远程控制，一台电脑控制测试多个测试设"><a href="#STF-远程控制，一台电脑控制测试多个测试设" class="headerlink" title="STF   远程控制，一台电脑控制测试多个测试设"></a><a href="http://github.com/openstf/stf" target="_blank" rel="external">STF</a>   远程控制，一台电脑控制测试多个测试设</h4><p><a href="https://openstf.github.io/" target="_blank" rel="external">openstf.github.io</a> Control and manage Android devices from your browser <img src="https://github.com/openstf/stf/raw/master/doc/7s_usage.gif?raw=true" alt=""></p>
-<h3 id="开发时的调试工具"><a href="#开发时的调试工具" class="headerlink" title="开发时的调试工具"></a>开发时的调试工具</h3><h4 id="stetho"><a href="#stetho" class="headerlink" title="stetho"></a><strong><a href="https://github.com/facebook/stetho" target="_blank" rel="external">stetho</a></strong></h4><p>Facebook开源，很强大的Android网络和数据库调试工具,能像调试WebApp一样调试Android原生应用。<a href="http://www.jianshu.com/p/03da9f91f41f" target="_blank" rel="external">借助Stetho在Chrome上调试Android网络&amp;数据库</a><br>常用配置:</p>
-<ul>
-<li><p>初始化</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate();</div><div class="line">    Stetho.initializeWithDefaults(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Chrome浏览器打开<code>chrome://inspect/#devices</code></p>
-</li>
-</ul>
-<p><strong>进阶</strong>增加网络拦截</p>
-<ul>
-<li><p><strong>Dependency</strong> 增加依赖环境</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.facebook.stetho:stetho:1.3.1'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.facebook.stetho:stetho-okhttp3:1.3.1'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:retrofit:2.0.0-beta4'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.okhttp3:okhttp:3.2.0'</span></div><div class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:converter-gson:2.0.0-beta4'</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>向OkHttpClient增加网络拦截</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient.Builder()</div><div class="line">            .addNetworkInterceptor(<span class="keyword">new</span> StethoInterceptor())</div><div class="line">            .build();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="augmented-traffic-control"><a href="#augmented-traffic-control" class="headerlink" title="augmented-traffic-control"></a><strong><a href="https://github.com/facebook/augmented-traffic-control" target="_blank" rel="external">augmented-traffic-control</a></strong></h4><p>Fackbook开源项目模拟移动网络，对App的调试及网络优化有很大的帮助，主要参数有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">网络带宽（bandwidth）</div><div class="line">延迟（latency）</div><div class="line">丢包率（packet loss）</div><div class="line">错包率（corrupted packets）</div><div class="line">乱序率（packets ordering）</div></pre></td></tr></table></figure></p>
-<h4 id="GT（随身调）-腾讯开源的测试套件"><a href="#GT（随身调）-腾讯开源的测试套件" class="headerlink" title="GT（随身调） 腾讯开源的测试套件"></a>GT（随身调） 腾讯开源的测试套件</h4><p>能Android设备上安装,进行<code>移动</code>调试,确保测试数据的真实有效性<br>开源地址: <a href="https://github.com/TencentOpen/GT" target="_blank" rel="external">https://github.com/TencentOpen/GT</a><br><a href="http://gt.qq.com/index.html" target="_blank" rel="external">官网地址</a></p>
-<blockquote>
-<p>使用GT APP进行快速的性能测试(CPU、内存、流量、电量、帧率/流畅度等等)、开发日志的查看、Crash日志查看、网络数据包的抓取、APP内部参数的调试、真机代码耗时统计等。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">一. 基本功能测试</div><div class="line"><span class="number">1</span>. CPU占有率;</div><div class="line"><span class="number">2</span> jiffes（CPU时间片）;</div><div class="line"><span class="number">3</span>. 内存PSS值稳定在<span class="number">36</span>M;</div><div class="line"><span class="number">4</span>. 网络上行流量和下行流量;</div><div class="line"><span class="number">5</span>. <span class="string">"数据存档"</span></div><div class="line">二. 电量测试</div><div class="line">再启动电流监控观察，<span class="number">1</span>分钟后平均电流是<span class="number">220</span>mA</div><div class="line">三. crash</div><div class="line">- 保存了抓包文件后;</div><div class="line">- Logcat查看界面，立即把手机缓存的Logcat日志保存下来;</div><div class="line">四. Net</div><div class="line">- 系统提供的流量查看也包括局域网socket的流量,而且不能分时段统计;</div><div class="line">- tcpdump抓包(需要手机root) + Wiresharek 抓包分析;</div><div class="line">疑问点:</div><div class="line"><span class="number">1</span>. 激活FPS（帧率）的监测;</div></pre></td></tr></table></figure>
-<h4 id="应用开发助手"><a href="#应用开发助手" class="headerlink" title="应用开发助手"></a>应用开发助手</h4><p><img src="http://mmbiz.qpic.cn/mmbiz_png/KfDGLcEiauQgdNcOflOECDvEr9tCfsfQzAJ3jpTicNniaMttTMvVNT39OCk9IwibOrsGicHr2Hrk2Ur0Xylv3yicJ3Dw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""><br> Google Play、应用宝搜索“开发助手”下载， 或<a href="http://trinea.cn/app/dev-tools.apk" target="_blank" rel="external">Download</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">屏幕分辨率、CPU 核数、IP 及 Mac 地址、so 类型、系统版本。</div><div class="line">频繁切换“严格模式”；</div><div class="line">多次启停“显示布局边界”；</div><div class="line">测试被系统回收来回切换“不保留活动”；</div></pre></td></tr></table></figure></p>
-<h4 id="Purchase-UI-Tool-付费工具"><a href="#Purchase-UI-Tool-付费工具" class="headerlink" title="Purchase UI Tool (付费工具)"></a>Purchase UI Tool (付费工具)</h4><ul>
-<li><a href="http://robotium.com/" target="_blank" rel="external">Robotium Recorder</a></li>
-</ul>
-
-          
+          基础知识1.cmake是什么？
+CMake是一个跨平台的安装（编译）工具，可以用简单的语句来描述所有平台的安装(编译过程)。他能够输出各种各样的makefile或者project文件，能测试编译器所支持的C++特性,类似UNIX下的automake。
+谷歌从AndroidStudio2.2以上就添加
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/08/01/2018-8-1-cmake-note/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1131,7 +1057,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2016/12/03/hexo-tutorial/">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/07/03/2018-7-3-ui-open-source/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="林酱">
@@ -1156,8 +1082,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/03/hexo-tutorial/" itemprop="url">
-                  Hexo Tutorial
+                <a class="post-title-link" href="/2018/07/03/2018-7-3-ui-open-source/" itemprop="url">
+                  基本UI空控件的用方法和属性
                 </a>
               
             
@@ -1171,8 +1097,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T07:53:52+08:00">
-                2016-12-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-03T00:00:00+08:00">
+                2018-07-03
               </time>
             
 
@@ -1190,8 +1116,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/coder/" itemprop="url" rel="index">
-                    <span itemprop="name">coder</span>
+                  <a href="/categories/UI/" itemprop="url" rel="index">
+                    <span itemprop="name">UI</span>
                   </a>
                 </span>
 
@@ -1205,8 +1131,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/03/hexo-tutorial/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/03/hexo-tutorial/" itemprop="commentCount"></span>
+                <a href="/2018/07/03/2018-7-3-ui-open-source/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/03/2018-7-3-ui-open-source/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1234,47 +1160,801 @@
       
         
           
-            <h3 id="Hexo-相关教程"><a href="#Hexo-相关教程" class="headerlink" title="Hexo 相关教程"></a>Hexo 相关教程</h3><hr>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h3><h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><ul>
-<li>Git / <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>  <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">hexo官方教程</a><h4 id="两个初始化命令"><a href="#两个初始化命令" class="headerlink" title="两个初始化命令"></a>两个初始化命令</h4><h4 id="hexo-init"><a href="#hexo-init" class="headerlink" title="hexo init"></a>hexo init</h4></li>
-<li>类似git init 需要新建目录保存博文信息；</li>
-<li>执行命令会在当前目录下生产如下文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">├── _config.yml #全局配置文件</div><div class="line">├── node_modules #Hexo插件（Node.js 插件默认安装目录）</div><div class="line">├── package.json #Node 工程的依赖和基本信息</div><div class="line">├── scaffolds  #模板</div><div class="line">├── source #博客正文源文件</div><div class="line">└── themes</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>【重点】如果你有配置，会覆盖你原来的配置；<br><img src="http://ohlb58e07.bkt.clouddn.com/gif.gif" alt="配置好了在执行一边,你懂的"></p>
-<h4 id="npm-install-安装package-json-下面的依赖包"><a href="#npm-install-安装package-json-下面的依赖包" class="headerlink" title="npm install #安装package.json 下面的依赖包"></a>npm install #安装package.json 下面的依赖包</h4><h4 id="hexo-http-localhost-4000-检查是否安装成功"><a href="#hexo-http-localhost-4000-检查是否安装成功" class="headerlink" title="hexo http://localhost:4000/ 检查是否安装成功"></a>hexo <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 检查是否安装成功</h4><h3 id="hexo-配置"><a href="#hexo-配置" class="headerlink" title="hexo 配置"></a>hexo 配置</h3><h4 id="hexo-theme-next主题的配置"><a href="#hexo-theme-next主题的配置" class="headerlink" title="hexo-theme-next主题的配置"></a><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a>主题的配置</h4><p> 最强主题基本上所有的配置信息都能满足,优雅,文档齐全</p>
-<ul>
-<li><a href="http://theme-next.iissnan.com/getting-started.html#select-language" target="_blank" rel="external">安装 Next主题 基本和教程走一边,就可以得到一个很牛的网站了</a></li>
-<li>三种主题样式的选择： <code>hexo/themes/next/_config.xml 搜索 scheme</code></li>
-</ul>
-<h4 id="注册云存储存储图片"><a href="#注册云存储存储图片" class="headerlink" title="注册云存储存储图片"></a>注册云存储存储图片</h4><p>防止图片链接失效,和在博客迁移过程中导致的图片获取异常,丢失. 统一管理文章中的图片</p>
-<ul>
-<li><a href="http://www.qiniu.com/" target="_blank" rel="external">七牛</a></li>
-</ul>
-<h4 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h4><ul>
-<li>设置域名的指向的地址<br><img src="http://7xk67j.com1.z0.glb.clouddn.com/qiunchengQQ%E6%88%AA%E5%9B%BE20150802114506.png" alt=""></li>
-<li>在源文件中增加github page 的设置文件 <code>source/CNAME</code> 并增加你的域名,不带www的,例如:’taobao.com’<br><img src="http://7xk67j.com1.z0.glb.clouddn.com/qiunchengQQ%E6%88%AA%E5%9B%BE20150802114733.png" alt=""></li>
-</ul>
-<h3 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h3><h4 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h4 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h4 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h4 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h4><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
-<h3 id="常用的方法"><a href="#常用的方法" class="headerlink" title="常用的方法"></a>常用的方法</h3><h4 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
-<h4 id="一般的发布步骤"><a href="#一般的发布步骤" class="headerlink" title="一般的发布步骤"></a>一般的发布步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean #删除产生的文件和缓存</div><div class="line">hexo (g)generate # 生成静太文件</div><div class="line">hexo (d)deploy # 发布网页</div></pre></td></tr></table></figure>
-<h4 id="日常维护命令"><a href="#日常维护命令" class="headerlink" title="日常维护命令"></a>日常维护命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm update -g hexo #hexo 更新</div><div class="line">cd /&#123;you-blog-dir&#125;/theme/next git pull #更新主题代码</div><div class="line">npm update # 更新插件</div></pre></td></tr></table></figure>
-<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><ul>
-<li>ERROR Plugin load failed: hexo-server 解决: <code>npm install hexo-server</code></li>
-</ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="http://blog.csdn.net/yuan3065/article/details/51594454" target="_blank" rel="external">GitHub Pages 绑定来自阿里云的域名</a></li>
-<li><a href="http://www.jianshu.com/p/701b1095da11" target="_blank" rel="external">手把手教你建github技术博客</a></li>
-</ul>
+          提示类型Tosat
+GlideToast  
+
+工具类型
+MaterialDateTimePicker 质感设计日期时间选择器
+
 
           
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/07/03/2018-7-3-ui-open-source/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/06/01/2018-6-1-font-img-tools/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="林酱">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="林酱的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="林酱的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/06/01/2018-6-1-font-img-tools/" itemprop="url">
+                  Android 图片和文字开源库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-01T09:20:24+08:00">
+                2018-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tool/" itemprop="url" rel="index">
+                    <span itemprop="name">tool</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2018/06/01/2018-6-1-font-img-tools/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/01/2018-6-1-font-img-tools/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          图片图片样式处理PloyFun
+加载样式
+加载样式 
+
+
+          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/06/01/2018-6-1-font-img-tools/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/05/05/2018-5-5-android-web-tools/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="林酱">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="林酱的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="林酱的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/05/05/2018-5-5-android-web-tools/" itemprop="url">
+                  Android 网页工具
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-05T09:56:47+08:00">
+                2018-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tool/" itemprop="url" rel="index">
+                    <span itemprop="name">tool</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2018/05/05/2018-5-5-android-web-tools/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/05/05/2018-5-5-android-web-tools/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          看代码
+codota 查询代码案例
+查看不同版本Android，JDK源码
+Android Framwork 源码查看
+sourcegraph 基于网页端和Git的智能源码查看工具，可以本地安装
+
+依赖
+maven 仓库中搜索依赖
+统计依赖大小，方法数量的变化
+
+开源项目查找
+GitHub 搜索
+
+
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/05/05/2018-5-5-android-web-tools/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/04/20/2018-4-20-entertainment-fancy-talk/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="林酱">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="林酱的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="林酱的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/20/2018-4-20-entertainment-fancy-talk/" itemprop="url">
+                  奇葩说娱乐笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-20T21:51:01+08:00">
+                2018-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/娱乐/" itemprop="url" rel="index">
+                    <span itemprop="name">娱乐</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2018/04/20/2018-4-20-entertainment-fancy-talk/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/20/2018-4-20-entertainment-fancy-talk/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          奇葩说第4季分手要不要当面说 20170414刘白范甜甜
+他提出不公平，最爱的人否定伤得最深；
+
+永开
+分手的理由都是不对
+把爱看太重
+把爱情当成婚姻一样沉重，轻松的开始轻松的结束，把感情看得太重而不会享受感情—– 反驳受众是把分手看特很重的人群（这样这个辩题才有意义）
+
+
+
+赵大情
+热恋痛离
+爱情
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/04/20/2018-4-20-entertainment-fancy-talk/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/04/15/2018-4-15-designer/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="林酱">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="林酱的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="林酱的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/15/2018-4-15-designer/" itemprop="url">
+                  设计相关
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T21:51:01+08:00">
+                2018-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tool/" itemprop="url" rel="index">
+                    <span itemprop="name">tool</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2018/04/15/2018-4-15-designer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/15/2018-4-15-designer/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          相关开源库AE动画设计 + lottie-android 【简易的惊艳动画.必看】
+fack-rebound 弹性动画 有网页Demo
+能大大的提高用户体验
+
+代码开源库控件
+Genius-Android
+
+
+          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/04/15/2018-4-15-designer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2018/04/15/2018-4-15-android-studio-usage/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="林酱">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="林酱的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="林酱的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/15/2018-4-15-android-studio-usage/" itemprop="url">
+                  Android studio 使用总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T09:56:47+08:00">
+                2018-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tool/" itemprop="url" rel="index">
+                    <span itemprop="name">tool</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2018/04/15/2018-4-15-android-studio-usage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/15/2018-4-15-android-studio-usage/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          常用插件
+ADB Comand 3星
+GsonFormatString 解析成实体 Default Option + s(Mac), Alt + s (win)
+Key Promoter X 快捷键提示 AS plugin 搜索安装
+codota 代码案例查找【重点】 快捷键 Shift + Alt
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/04/15/2018-4-15-android-studio-usage/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1305,6 +1985,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1343,7 +2027,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1351,7 +2035,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1360,7 +2044,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1447,7 +2131,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1468,6 +2152,22 @@
 
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
 
         
       </div>

@@ -198,9 +198,9 @@
       </categories>
       <tags>
         <tag>Android</tag>
-        <tag>Basic</tag>
         <tag>support</tag>
         <tag>UI</tag>
+        <tag>Basic</tag>
       </tags>
   </entry>
   <entry>
@@ -212,9 +212,9 @@
       </categories>
       <tags>
         <tag>Android</tag>
+        <tag>Design</tag>
         <tag>support</tag>
         <tag>UI</tag>
-        <tag>Design</tag>
       </tags>
   </entry>
   <entry>
@@ -317,8 +317,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>Android</tag>
         <tag>数据库</tag>
+        <tag>Android</tag>
         <tag>database</tag>
       </tags>
   </entry>
@@ -330,8 +330,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>New Trench</tag>
         <tag>Android</tag>
+        <tag>New Trench</tag>
         <tag>新技术</tag>
       </tags>
   </entry>

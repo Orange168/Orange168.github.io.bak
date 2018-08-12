@@ -2151,6 +2151,16 @@ codota 代码案例查找【重点】 快捷键 Shift + Alt
 </div>
 
 
+
+<% if (theme.mermaid.enable) { %>
+  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+<% } %>
+
         
 
 <div class="busuanzi-count">

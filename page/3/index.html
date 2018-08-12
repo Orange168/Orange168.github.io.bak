@@ -2129,6 +2129,16 @@ Android 3.0 (API level 11)开始，Android 2D渲染管道支持硬件加速。AP
 </div>
 
 
+
+<% if (theme.mermaid.enable) { %>
+  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+<% } %>
+
         
 
 <div class="busuanzi-count">

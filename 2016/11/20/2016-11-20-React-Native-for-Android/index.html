@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,facebook,React Native," />
+  <meta name="keywords" content="facebook,React Native,Android," />
 
 
 
@@ -85,7 +85,7 @@
 
 
 <meta name="description" content="入门  React Native for Android 入门老虎problem solution:   when  “brew install watchman”  ==&amp;gt;&amp;gt; configure: error: You need a C++ compiler for C++ support ==&amp;gt; sudo apt-get install build-essential2.">
-<meta name="keywords" content="Android,facebook,React Native">
+<meta name="keywords" content="facebook,React Native,Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native for Android">
 <meta property="og:url" content="http://zhilinchn.online/2016/11/20/2016-11-20-React-Native-for-Android/index.html">
@@ -616,11 +616,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
-          
             <a href="/tags/facebook/" rel="tag"># facebook</a>
           
             <a href="/tags/React-Native/" rel="tag"># React Native</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
           
         </div>
       
@@ -871,6 +871,16 @@
   </a>
 </div>
 
+
+
+<% if (theme.mermaid.enable) { %>
+  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+<% } %>
 
         
 

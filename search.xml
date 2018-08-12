@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[远程控制笔记整理]]></title>
     <url>%2F2018%2F08%2F07%2F2018-8-7-remote-control%2F</url>
-    <content type="text"><![CDATA[视频流播放相关相关开源库 FFmpeg Libstreaming A solution for streaming H.264, H.263, AMR, AAC using RTP on Android RemoteDroid 能运行但是链接失败 android-eye Gstreamer-Android-example EasyDarwin 高性能开源流媒体服务器，支持RTSP、HLS、HTTP直播 ————– 官网 spydroid-ipcamera A powerful and funny android app. that streams the camera and microphone of your phone to your browser or to VLC libstreaming libstreaming-examples Google开源播放器 ExoPlayer 教程 最简单的基于FFmpeg的移动端例子：Android 视频转码器 Android本地视频播放器开发–ffmpeg解码视频文件中的音频(1) java 调用 ffmpeg 进行视频转换以及截图 FFmpeg 抽取视频中的一段(视频转换) [总结]FFMPEG视音频编解码零基础学习方法 重点 GStreamer SDK Tutorials 手机Android音视频采集与直播推送，实现单兵、移动监控类应用 实践笔记积累 Wowza Streaming Engine1234sudo service WowzaStreamingEngine startsudo service WowzaStreamingEngineManager start访问 http://[wowza-ip-address]:8088/enginemanagerhttp://localhost:8088/enginemanager/#home/_defaultVHost_ 视频发布账号和密码：/usr/local/WowzaStreamingEngine/conf/publish.password 网络相关学习 Socket.io资源列举 Get Started: Chat application （基于Node.js html）炒鸡简单的例子，无需编程经验 github github.com/socket.io socket.io-android-chat engine.io-client-java Engine.IO Client Library for Java JavaApidocs socket.io-redis libjitsi Advanced Java media library for secure real-time audio/video communication. 基础知识 网络大爬虫 SSL/TLS协议运行机制的概述 SOCKET通信中TCP、UDP数据包大小的确定 关于网络编程中MTU、TCP、UDP优化配置的一些总结 Blog Introducing Socket.IO 1.0 socket-io-p2p 试验UDP打洞穿透NAT Interactive Connectivity Establishment (ICE) ice4j code .google ice4j 资源交老 https://github.com/jitsi/ice4j 比较新的资源 ice4j Javadoc rfc5245.pdf jain-sip jain-sdp 获取Sdp源码 restcomm-android-sdk Tutorial https://telestax.com/jain-sip-stack-for-android/ libnice libnice-4-android Api documentation Englis PDF Material rfc4566 SDP: Session Description Protocol rfc5928 Traversal Using Relays around NAT (TURN) Resolution Mechanism rfc5766.pdf Traversal Using Relays around NAT (TURN):Relay Extensions to Session Traversal Utilities for NAT (STUN) rfc5245 Interactive Connectivity Establishment (ICE): A Protocol for Network Address Translator (NAT) Traversal for Offer/Answer Protocols UDP打洞 QQ通信原理及QQ是怎么穿透内网进行通信的 P2P技术揭秘-P2P网络技术原理与典型系统开发 教程下载 webrtc turnserverdownloadsImportant directory:/usr/local/share/examples/turnserverhttp://66.228.45.110/ 免费申请 账号的网站比较详细的turnserver.conf配置说明 Node.jsLearning resource http://nodeschool.io/#workshoppers openSource node-express-mongoose-demo Module http://samhuri.net/projects/strftime Tutorial Node.js Tutorial – Step-by-Step Guide For Getting Started Tool123npm install -g node-inspector# basically `node-debug` instead of `node`$ node-debug example.js https://developers.google.com/web/tools/setup/ 数据传输数据转码 Convert bitmap array to YUV (YCbCr NV21) Appending a byte[] to the end of another byte[] Android 用MediaCodec实现视频硬解码 MediaCodec Api) 数据校验 传输数据校验算法研究 WebRTC Introduction to WebRTC on Android Android IOS WebRTC 音视频开发总结列表 https://webrtc.org/ Getting Started with WebRTC WebRTC samples 有各种Sample代码Html/js演示，并有对应Github源 码地址， 整个工程的samples Native APIs Diagram AndroidRTC 相关博文 WebRTC VideoEngine综合应用示例（一）——视频通话的基本流程 参考文章 控制相关 Android模拟产生事件 概括分析了模拟事件的三种方式，而且文章格式很喜欢 Input Technical Information Android Source 关于android devices input 的说明，偏底层 ； getevent/sendevent及 input 命令的详解 截屏相关 Android中使用代码截图的各种方法总结 视频相关 FFmpeg深入分析之零-基础 FFmpeg的Android平台移植—编译篇 Android中实时视频传输(摄像头实时视频传输)解决方案&lt;二&gt; android视频录制、另一部手机实时观看方案 重点 android视频处理相关资料 重点 资料http://www.ffmpeg.org/ffmpeg.htmlEzStreamSvr 一个流媒体传输服务器端GStreamer open source multimedia framework]]></content>
+    <content type="text"><![CDATA[视频流播放相关相关开源库 FFmpeg Libstreaming A solution for streaming H.264, H.263, AMR, AAC using RTP on Android RemoteDroid 能运行但是链接失败 android-eye Gstreamer-Android-example EasyDarwin 高性能开源流媒体服务器，支持RTSP、HLS、HTTP直播 ————– 官网 spydroid-ipcamera A powerful and funny android app. that streams the camera and microphone of your phone to your browser or to VLC libstreaming libstreaming-examples Google开源播放器 ExoPlayer 教程 最简单的基于FFmpeg的移动端例子：Android 视频转码器 Android本地视频播放器开发–ffmpeg解码视频文件中的音频(1) java 调用 ffmpeg 进行视频转换以及截图 FFmpeg 抽取视频中的一段(视频转换) [总结]FFMPEG视音频编解码零基础学习方法 重点 GStreamer SDK Tutorials 手机Android音视频采集与直播推送，实现单兵、移动监控类应用 实践笔记积累 Wowza Streaming Engine1234sudo service WowzaStreamingEngine startsudo service WowzaStreamingEngineManager start访问 http://[wowza-ip-address]:8088/enginemanagerhttp://localhost:8088/enginemanager/#home/_defaultVHost_ 视频发布账号和密码：/usr/local/WowzaStreamingEngine/conf/publish.password 网络相关学习 Socket.io资源列举 Get Started: Chat application （基于Node.js html）炒鸡简单的例子，无需编程经验 github github.com/socket.io socket.io-android-chat engine.io-client-java Engine.IO Client Library for Java JavaApidocs socket.io-redis libjitsi Advanced Java media library for secure real-time audio/video communication. 基础知识 网络大爬虫 SSL/TLS协议运行机制的概述 SOCKET通信中TCP、UDP数据包大小的确定 关于网络编程中MTU、TCP、UDP优化配置的一些总结 Blog Introducing Socket.IO 1.0 socket-io-p2p 试验UDP打洞穿透NAT Interactive Connectivity Establishment (ICE) ice4j code .google ice4j 资源交老 https://github.com/jitsi/ice4j 比较新的资源 ice4j Javadoc rfc5245.pdf jain-sip jain-sdp 获取Sdp源码 restcomm-android-sdk Tutorial https://telestax.com/jain-sip-stack-for-android/ libnice libnice-4-android Api documentation Englis PDF Material rfc4566 SDP: Session Description Protocol rfc5928 Traversal Using Relays around NAT (TURN) Resolution Mechanism rfc5766.pdf Traversal Using Relays around NAT (TURN):Relay Extensions to Session Traversal Utilities for NAT (STUN) rfc5245 Interactive Connectivity Establishment (ICE): A Protocol for Network Address Translator (NAT) Traversal for Offer/Answer Protocols UDP打洞 QQ通信原理及QQ是怎么穿透内网进行通信的 P2P技术揭秘-P2P网络技术原理与典型系统开发 教程下载 webrtc turnserverdownloadsImportant directory:/usr/local/share/examples/turnserverhttp://66.228.45.110/ 免费申请 账号的网站比较详细的turnserver.conf配置说明 Node.jsLearning resource http://nodeschool.io/#workshoppers openSource node-express-mongoose-demo Module http://samhuri.net/projects/strftime Tutorial Node.js Tutorial – Step-by-Step Guide For Getting Started Tool123npm install -g node-inspector# basically `node-debug` instead of `node`$ node-debug example.js https://developers.google.com/web/tools/setup/ 数据传输数据转码 Convert bitmap array to YUV (YCbCr NV21) Appending a byte[] to the end of another byte[] Android 用MediaCodec实现视频硬解码 MediaCodec Api) 数据校验 传输数据校验算法研究 WebRTC Introduction to WebRTC on Android Android IOS WebRTC 音视频开发总结列表 https://webrtc.org/ Getting Started with WebRTC WebRTC samples 有各种Sample代码Html/js演示，并有对应Github源 码地址， 整个工程的samples Native APIs Diagram AndroidRTC 相关博文 WebRTC VideoEngine综合应用示例（一）——视频通话的基本流程 参考文章 控制相关 Android模拟产生事件 概括分析了模拟事件的三种方式，而且文章格式很喜欢 Input Technical Information Android Source 关于android devices input 的说明，偏底层 ； getevent/sendevent及 input 命令的详解 截屏相关 Android中使用代码截图的各种方法总结 视频相关 FFmpeg深入分析之零-基础 FFmpeg的Android平台移植—编译篇 Android中实时视频传输(摄像头实时视频传输)解决方案&lt;二&gt; android视频录制、另一部手机实时观看方案 重点 android视频处理相关资料 重点 资料http://www.ffmpeg.org/ffmpeg.htmlEzStreamSvr 一个流媒体传输服务器端GStreamer open source multimedia framework daf12345graph TD; A--&gt;B; A--&gt;C; B--&gt;D; C--&gt;D;]]></content>
       <categories>
         <category>note</category>
       </categories>
@@ -198,9 +198,9 @@
       </categories>
       <tags>
         <tag>Android</tag>
+        <tag>Basic</tag>
         <tag>support</tag>
         <tag>UI</tag>
-        <tag>Basic</tag>
       </tags>
   </entry>
   <entry>
@@ -212,9 +212,9 @@
       </categories>
       <tags>
         <tag>Android</tag>
-        <tag>Design</tag>
         <tag>support</tag>
         <tag>UI</tag>
+        <tag>Design</tag>
       </tags>
   </entry>
   <entry>
@@ -317,8 +317,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>数据库</tag>
         <tag>Android</tag>
+        <tag>数据库</tag>
         <tag>database</tag>
       </tags>
   </entry>
@@ -330,8 +330,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>Android</tag>
         <tag>New Trench</tag>
+        <tag>Android</tag>
         <tag>新技术</tag>
       </tags>
   </entry>

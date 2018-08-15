@@ -137,7 +137,8 @@
 
 
   <title> Gradle 学习积累 | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -592,43 +593,85 @@
 </ul>
 <h3 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h3><hr>
 <ul>
-<li><p>本地引入.aar文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">   compile(name:<span class="string">'nameOfYourAARFileWithoutExtension'</span>, ext:<span class="string">'aar'</span>)</span><br><span class="line"> &#125;</span><br><span class="line">repositories&#123;</span><br><span class="line">      flatDir&#123;</span><br><span class="line">              dirs <span class="string">'libs'</span></span><br><span class="line">       &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<li>本地引入.aar文件<pre class="line-numbers language-java"><code class="language-java">dependencies <span class="token punctuation">{</span>
+ <span class="token function">compile</span><span class="token punctuation">(</span>name<span class="token operator">:</span><span class="token string">'nameOfYourAARFileWithoutExtension'</span><span class="token punctuation">,</span> ext<span class="token operator">:</span><span class="token string">'aar'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+repositories<span class="token punctuation">{</span>
+    flatDir<span class="token punctuation">{</span>
+            dirs <span class="token string">'libs'</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p><strong><a href="https://gist.github.com/Orange168/a94d5fee6eeaba2d708ad56387ac2a90" target="_blank" rel="noopener">gradleBuildTime.gradle</a></strong> 获取build脚本每个任务（Task）执行的时间。</p>
-</li>
+<li><strong><a href="https://gist.github.com/Orange168/a94d5fee6eeaba2d708ad56387ac2a90" target="_blank" rel="noopener">gradleBuildTime.gradle</a></strong> 获取build脚本每个任务（Task）执行的时间。</li>
 <li><strong><a href="https://gist.github.com/Orange168/e3973ed9f01dbfc1eeb234873116e35d" target="_blank" rel="noopener">gradle.properties 自定义 buildConfigField 外部变量</a></strong></li>
 <li><a href="https://gist.github.com/Orange168/e01b4b0103adc148eaa1b3a5c412e4bb" target="_blank" rel="noopener">修改output/apk/[自定义].apk</a></li>
-<li><p>每次构建工程把git版本控制的信息加入VersionName中</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> gitSha = <span class="string">'git rev-parse --short HEAD'</span>.execute([], <span class="keyword">project</span>.rootDir).text.trim()</span><br><span class="line"><span class="keyword">def</span> gitTag = <span class="string">'git tag'</span>.execute([], <span class="keyword">project</span>.rootDir).text.trim().split(<span class="string">"\n"</span>).last()</span><br><span class="line"><span class="keyword">def</span> gitCommits = Integer.parseInt(<span class="string">'git rev-list --count HEAD'</span>.execute([], <span class="keyword">project</span>.rootDir).text.trim())</span><br></pre></td></tr></table></figure>
+<li>每次构建工程把git版本控制的信息加入VersionName中<pre class="line-numbers language-gradle"><code class="language-gradle">def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+def gitTag = 'git tag'.execute([], project.rootDir).text.trim().split("\n").last()
+def gitCommits = Integer.parseInt('git rev-list --count HEAD'.execute([], project.rootDir).text.trim())
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>动态修改Manifest中的参数<br><img src="http://upload-images.jianshu.io/upload_images/1321512-3a9cf4161a59a9e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">23</span></span><br><span class="line">    buildToolsVersion <span class="string">'23.0.2'</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"com.liulishuo.engzo"</span></span><br><span class="line">        minSdkVersion <span class="number">15</span></span><br><span class="line">        targetSdkVersion <span class="number">23</span></span><br><span class="line">        manifestPlaceholders = [</span><br><span class="line">                <span class="comment">// 这里需要换成:tencent+你的AppId</span></span><br><span class="line">                <span class="string">"tencentAuthId"</span>: <span class="string">"tencent123456"</span>,</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-gradle"><code class="language-gradle">android {
+  compileSdkVersion 23
+  buildToolsVersion '23.0.2'
+
+  defaultConfig {
+      applicationId "com.liulishuo.engzo"
+      minSdkVersion 15
+      targetSdkVersion 23
+      manifestPlaceholders = [
+              // 这里需要换成:tencent+你的AppId
+              "tencentAuthId": "tencent123456",
+      ]
+  }
+｝
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><a href="https://gist.github.com/Orange168/3e42a562bafd6b9b0174114140f3e498" target="_blank" rel="noopener">使用全局变量进行依赖版本及一些常用配置的统一管理</a></p>
 </li>
 <li>配置 <a href="https://gist.github.com/Orange168/c266fbe36fa26c26def0e3162c6ab3d1" target="_blank" rel="noopener">Apk split</a> 使Android  Studio每个对应的Cpu 架构都生成单独的apk，减小整个应用的大小。</li>
 <li>rootdirOfProject/gradle.properties  配置变量如： <code>VERSION_NAME=1.2.2-SNAPSHOT</code> 然后可以在配置文件所在项目中的所有*.gradle 文件直接引用。 有点类似Java public static的感觉。</li>
-<li><p>Java 指定JDK版本</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">	compileOptions &#123;</span><br><span class="line">   	 sourceCompatibility JavaVersion.VERSION_1_7</span><br><span class="line">    	targetCompatibility JavaVersion.VERSION_1_7</span><br><span class="line"><span class="comment">//		targetCompatibility JavaVersion.VERSION_1_8</span></span><br><span class="line"><span class="comment">//        sourceCompatibility JavaVersion.VERSION_1_8</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>Java 指定JDK版本<pre class="line-numbers language-java"><code class="language-java">android <span class="token punctuation">{</span>
+  compileOptions <span class="token punctuation">{</span>
+      sourceCompatibility JavaVersion<span class="token punctuation">.</span>VERSION_1_7
+      targetCompatibility JavaVersion<span class="token punctuation">.</span>VERSION_1_7
+<span class="token comment" spellcheck="true">//        targetCompatibility JavaVersion.VERSION_1_8</span>
+<span class="token comment" spellcheck="true">//        sourceCompatibility JavaVersion.VERSION_1_8</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>签名信息(release.keystore)的存放方式 <a href="http://stackoverflow.com/questions/18328730/how-to-create-a-release-signed-apk-file-using-gradle" target="_blank" rel="noopener">stackoverflow</a></p>
-</li>
+<li>签名信息(release.keystore)的存放方式 <a href="http://stackoverflow.com/questions/18328730/how-to-create-a-release-signed-apk-file-using-gradle" target="_blank" rel="noopener">stackoverflow</a></li>
 <li><a href="https://hackernoon.com/android-how-to-add-gradle-dependencies-using-foreach-c4cbcc070458#.l2rzk4st6" target="_blank" rel="noopener">Android — How to add Gradle dependencies using ‘foreach’</a>  很多开源项目都把依赖统一管理, 这个博文是做得做系统和简洁</li>
 </ul>
 <h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><hr>
-<h4 id="依赖更新"><a href="#依赖更新" class="headerlink" title="依赖更新"></a><strong>依赖更新</strong></h4><p>项目依赖的远程包如果有更新，会有提醒或者自动更新吗？ 不会的，需要你手动设置changing标记为true，这样gradle会每24小时检查更新，通过更改resolutionStrategy可以修改检查周期。<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">configurations</span>.all &#123;</span><br><span class="line"><span class="comment">// check for updates every build</span></span><br><span class="line">resolutionStrategy.cacheChangingModulesFor <span class="number">0</span>, <span class="string">'seconds'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line"><span class="keyword">compile</span> <span class="keyword">group</span>: <span class="string">"group"</span>, name: <span class="string">"projectA"</span>, version: <span class="string">"1.1-SNAPSHOT"</span>, changing: <span class="keyword">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="依赖更新"><a href="#依赖更新" class="headerlink" title="依赖更新"></a><strong>依赖更新</strong></h4><p>项目依赖的远程包如果有更新，会有提醒或者自动更新吗？ 不会的，需要你手动设置changing标记为true，这样gradle会每24小时检查更新，通过更改resolutionStrategy可以修改检查周期。</p>
+<pre class="line-numbers language-gradle"><code class="language-gradle">configurations.all {
+// check for updates every build
+resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+dependencies {
+compile group: "group", name: "projectA", version: "1.1-SNAPSHOT", changing: true
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>之前上传aar同一版本到maven仓库，但依赖却没有更新，该怎么办呢?可以直接删除本地缓存，缓存在~/.gradle/caches目录下，删除缓存后，下次运行就会自动重新下载远程依赖了。</p>
 <h4 id="Gradle-一直在后台下载-（更新Gradle-版本）"><a href="#Gradle-一直在后台下载-（更新Gradle-版本）" class="headerlink" title="Gradle 一直在后台下载 （更新Gradle 版本）"></a>Gradle 一直在后台下载 （更新Gradle 版本）</h4><blockquote>
 <p>原因: 由于 services.gradle.org 国内下载速度很慢(一般为45kb/s), 而每个gradle-xx.xx.-all.zip 版本至少60MB, 也就正常是需要40分钟左右,花都谢了</p>
 </blockquote>
 <p>修改{$your_project}/gradle/wrapper/gradle-wrapper.properties</p>
 <ul>
-<li><p>方案一： 修改distributionUrl指定的版本为本地存在的版本(正常能跑的项目中找)</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例如： 新的工程, gradle-wrapper.properties 文件,如下</span></span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper<span class="regexp">/dists</span></span><br><span class="line"><span class="regexp">zipStoreBase=GRADLE_USER_HOME</span></span><br><span class="line"><span class="regexp">zipStorePath=wrapper/</span>dists</span><br><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-3.3-all.zip</span></span><br><span class="line"><span class="comment">// 只修改 distributionUrl 属性</span></span><br><span class="line"><span class="comment">// 如: distributionUrl=.../gradle-3.3-all.zip 修改为: distributionUrl=.../gradle-2.14.1-all.zip</span></span><br></pre></td></tr></table></figure>
+<li>方案一： 修改distributionUrl指定的版本为本地存在的版本(正常能跑的项目中找)<pre class="line-numbers language-gradle"><code class="language-gradle">//例如： 新的工程, gradle-wrapper.properties 文件,如下
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
+// 只修改 distributionUrl 属性
+// 如: distributionUrl=.../gradle-3.3-all.zip 修改为: distributionUrl=.../gradle-2.14.1-all.zip
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>方案二：</p>
-<ul>
+<li>方案二：<ul>
 <li>直接从distributionUrl指定的链接下载如: <code>https\://services.gradle.org/distributions/gradle-3.3-all.zip</code> 一般浏览器下载比Android Studio快</li>
 <li>或者搜索对应版本(<code>gradle-3.3-all.zip</code>),下载别人已经下载好的,国内节点2~3分钟搞定 ;</li>
 <li>修改distributionUrl,指向本地文件 Window ==&gt; <code>distributionUrl=file:///C:/downloads/gradle-2.1-all.zip</code><br> Unix ==&gt; <code>distributionUrl=file\:/tmp/gradle-2.2.1-all.zip</code></li>
@@ -636,11 +679,14 @@
 </li>
 <li>方案三: 直接把下载好的文件(gradle-xx.xx.-all.zip),放在{$your_project}/gradle/wrapper/下,也就是和gradle-wrapper.properties同一目录;</li>
 <li>方案四: 把下载好的<code>gradle-xx.xx.-xx.zip</code>,放到gradle对应的缓存目录下,{文件md校验生成的文件名}/gradle-xx.xx.-xx.zip;</li>
-<li>方案五： 直接更改 distributionUrl的下载路径为国内服务器，例如：<a href="http://mirrors.flysnow.org/" target="_blank" rel="noopener">http://mirrors.flysnow.org/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">distributionUrl=http\://mirrors.flysnow.org/gradle/gradle-4.1-bin.zip</span><br><span class="line">如果你在 gradle.properties 配置了代理，请添加一个不走代理的配置，否则 gralde 无法安装</span><br><span class="line">systemProp.http.proxyHost=mirrors.neusoft.edu.cn</span><br><span class="line">systemProp.http.proxyPort=80</span><br><span class="line"></span><br><span class="line"># 添加不走代理的 host，会影响 package 的安装</span><br><span class="line">systemProp.http.nonProxyHosts=172.1.1.227|localhost|mirrors.flysnow.org</span><br></pre></td></tr></table></figure>
-</li>
+<li>方案五： 直接更改 distributionUrl的下载路径为国内服务器，例如：<a href="http://mirrors.flysnow.org/" target="_blank" rel="noopener">http://mirrors.flysnow.org/</a><br><code>`</code><br>distributionUrl=http\://mirrors.flysnow.org/gradle/gradle-4.1-bin.zip<br>如果你在 gradle.properties 配置了代理，请添加一个不走代理的配置，否则 gralde 无法安装<br>systemProp.http.proxyHost=mirrors.neusoft.edu.cn<br>systemProp.http.proxyPort=80</li>
 </ul>
-<h4 id="使用阿里云国内镜像"><a href="#使用阿里云国内镜像" class="headerlink" title="使用阿里云国内镜像"></a>使用阿里云国内镜像</h4><p>单个项目生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos; &#125;</span><br><span class="line">        maven&#123; url &apos;http://maven.aliyun.com/nexus/content/repositories/jcenter&apos;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath &apos;com.android.tools.build:gradle:2.2.3&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        maven &#123; url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos; &#125;</span><br><span class="line">        maven&#123; url &apos;http://maven.aliyun.com/nexus/content/repositories/jcenter&apos;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对所有项目生效，在USER_HOME/.gradle/下创建init.gradle文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">allprojects&#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        def ALIYUN_REPOSITORY_URL = &apos;http://maven.aliyun.com/nexus/content/groups/public&apos;</span><br><span class="line">        def ALIYUN_JCENTER_URL = &apos;http://maven.aliyun.com/nexus/content/repositories/jcenter&apos;</span><br><span class="line">        all &#123; ArtifactRepository repo -&gt;</span><br><span class="line">            if(repo instanceof MavenArtifactRepository)&#123;</span><br><span class="line">                def url = repo.url.toString()</span><br><span class="line">                if (url.startsWith(&apos;https://repo1.maven.org/maven2&apos;)) &#123;</span><br><span class="line">                    project.logger.lifecycle &quot;Repository $&#123;repo.url&#125; replaced by $ALIYUN_REPOSITORY_URL.&quot;</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">                if (url.startsWith(&apos;https://jcenter.bintray.com/&apos;)) &#123;</span><br><span class="line">                    project.logger.lifecycle &quot;Repository $&#123;repo.url&#125; replaced by $ALIYUN_JCENTER_URL.&quot;</span><br><span class="line">                    remove repo</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url ALIYUN_REPOSITORY_URL</span><br><span class="line">            url ALIYUN_JCENTER_URL</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="添加不走代理的-host，会影响-package-的安装"><a href="#添加不走代理的-host，会影响-package-的安装" class="headerlink" title="添加不走代理的 host，会影响 package 的安装"></a>添加不走代理的 host，会影响 package 的安装</h1><p>systemProp.http.nonProxyHosts=172.1.1.227|localhost|mirrors.flysnow.org</p>
+<pre><code>#### 使用阿里云国内镜像
+单个项目生效
+</code></pre><p>buildscript {<br>    repositories {<br>        maven { url ‘<a href="http://maven.aliyun.com/nexus/content/groups/public/&#39;" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/groups/public/&#39;</a> }<br>        maven{ url ‘<a href="http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;}" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;}</a><br>    }<br>    dependencies {<br>        classpath ‘com.android.tools.build:gradle:2.2.3’<br>    }<br>}<br>allprojects {<br>    repositories {<br>        maven { url ‘<a href="http://maven.aliyun.com/nexus/content/groups/public/&#39;" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/groups/public/&#39;</a> }<br>        maven{ url ‘<a href="http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;}" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;}</a><br>    }<br>}</p>
+<pre><code>对所有项目生效，在USER_HOME/.gradle/下创建init.gradle文件
+</code></pre><p>allprojects{<br>    repositories {<br>        def ALIYUN_REPOSITORY_URL = ‘<a href="http://maven.aliyun.com/nexus/content/groups/public&#39;" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/groups/public&#39;</a><br>        def ALIYUN_JCENTER_URL = ‘<a href="http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;</a><br>        all { ArtifactRepository repo -&gt;<br>            if(repo instanceof MavenArtifactRepository){<br>                def url = repo.url.toString()<br>                if (url.startsWith(‘<a href="https://repo1.maven.org/maven2&#39;)" target="_blank" rel="noopener">https://repo1.maven.org/maven2&#39;)</a>) {<br>                    project.logger.lifecycle “Repository ${repo.url} replaced by $ALIYUN_REPOSITORY_URL.”<br>                    remove repo<br>                }<br>                if (url.startsWith(‘<a href="https://jcenter.bintray.com/&#39;)" target="_blank" rel="noopener">https://jcenter.bintray.com/&#39;)</a>) {<br>                    project.logger.lifecycle “Repository ${repo.url} replaced by $ALIYUN_JCENTER_URL.”<br>                    remove repo<br>                }<br>            }<br>        }<br>        maven {<br>            url ALIYUN_REPOSITORY_URL<br>            url ALIYUN_JCENTER_URL<br>        }<br>    }<br>}<br><code>`</code></p>
 <h3 id="实用小技巧"><a href="#实用小技巧" class="headerlink" title="实用小技巧"></a>实用小技巧</h3><h4 id="distributionUrl-尽量使用-bin-zip-如：gradle-xxx-bin-zip"><a href="#distributionUrl-尽量使用-bin-zip-如：gradle-xxx-bin-zip" class="headerlink" title="distributionUrl 尽量使用** bin.zip 如：gradle-xxx-bin.zip"></a>distributionUrl 尽量使用<code>** bin.zip</code> 如：gradle-xxx-bin.zip</h4><p><img src="http://ohlb58e07.bkt.clouddn.com/2018-4-14-gralde-binvsall-download.jpg" alt=""></p>
 
       
@@ -777,7 +823,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -794,7 +840,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -876,7 +922,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础教程"><span class="nav-number">1.</span> <span class="nav-text">基础教程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实践博客"><span class="nav-number">1.1.</span> <span class="nav-text">实践博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven"><span class="nav-number">1.2.</span> <span class="nav-text">Maven</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle-Tutorial"><span class="nav-number">1.3.</span> <span class="nav-text">Gradle Tutorial</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#官网资料"><span class="nav-number">1.4.</span> <span class="nav-text">官网资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶博文"><span class="nav-number">2.</span> <span class="nav-text">进阶博文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶源码阅读"><span class="nav-number">3.</span> <span class="nav-text">进阶源码阅读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开源插件"><span class="nav-number">4.</span> <span class="nav-text">开源插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用案例"><span class="nav-number">5.</span> <span class="nav-text">使用案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题解决"><span class="nav-number">6.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖更新"><span class="nav-number">6.1.</span> <span class="nav-text">依赖更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle-一直在后台下载-（更新Gradle-版本）"><span class="nav-number">6.2.</span> <span class="nav-text">Gradle 一直在后台下载 （更新Gradle 版本）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用阿里云国内镜像"><span class="nav-number">6.3.</span> <span class="nav-text">使用阿里云国内镜像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实用小技巧"><span class="nav-number">7.</span> <span class="nav-text">实用小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#distributionUrl-尽量使用-bin-zip-如：gradle-xxx-bin-zip"><span class="nav-number">7.1.</span> <span class="nav-text">distributionUrl 尽量使用** bin.zip 如：gradle-xxx-bin.zip</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础教程"><span class="nav-number">1.</span> <span class="nav-text">基础教程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实践博客"><span class="nav-number">1.1.</span> <span class="nav-text">实践博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven"><span class="nav-number">1.2.</span> <span class="nav-text">Maven</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle-Tutorial"><span class="nav-number">1.3.</span> <span class="nav-text">Gradle Tutorial</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#官网资料"><span class="nav-number">1.4.</span> <span class="nav-text">官网资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶博文"><span class="nav-number">2.</span> <span class="nav-text">进阶博文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶源码阅读"><span class="nav-number">3.</span> <span class="nav-text">进阶源码阅读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开源插件"><span class="nav-number">4.</span> <span class="nav-text">开源插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用案例"><span class="nav-number">5.</span> <span class="nav-text">使用案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题解决"><span class="nav-number">6.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖更新"><span class="nav-number">6.1.</span> <span class="nav-text">依赖更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradle-一直在后台下载-（更新Gradle-版本）"><span class="nav-number">6.2.</span> <span class="nav-text">Gradle 一直在后台下载 （更新Gradle 版本）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加不走代理的-host，会影响-package-的安装"><span class="nav-number"></span> <span class="nav-text">添加不走代理的 host，会影响 package 的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实用小技巧"><span class="nav-number">1.</span> <span class="nav-text">实用小技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#distributionUrl-尽量使用-bin-zip-如：gradle-xxx-bin-zip"><span class="nav-number">1.1.</span> <span class="nav-text">distributionUrl 尽量使用** bin.zip 如：gradle-xxx-bin.zip</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -916,16 +962,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

@@ -138,7 +138,8 @@
 
 
   <title> 优化Android App | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -627,17 +628,30 @@
 <p><strong>卡顿常见原因</strong><br>1）人为在UI线程中做轻微耗时操作，导致UI线程卡顿；<br>2） 布局Layout过于复杂，无法在16ms内完成渲染；<br>3）同一时间动画执行的次数过多，导致CPU或GPU负载过重；<br>4） View过度绘制，导致某些像素在同一帧时间内被绘制多次，从而使CPU或GPU负载过重；<br>5） View频繁的触发measure、layout，导致measure、layout累计耗时过多及整个View频繁的重新渲染；<br>6）内存频繁触发GC过多（同一帧中频繁创建内存），导致暂时阻塞渲染操作；<br>7） 冗余资源及逻辑等导致加载和执行缓慢；<br>8）工作线程优先级未设置为<br>Process.THREAD_PRIORITY_BACKGROUND<br>导致后台线程抢占UI线程cpu时间片，阻塞渲染操作；<br>9） ANR；<br><strong>卡顿分析解决的一般步骤</strong></p>
 <ul>
 <li>解决过度绘制问题<br>1) 调试GPU过度绘制中打开调试，看对应界面是否有过度绘制，如果有先解决掉：<br><img src="http://upload-images.jianshu.io/upload_images/1321512-864b92693c2dc9bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>2) 定位过渡绘制区域<br>3) 利用Android提供的工具进行位置确认以及修改(HierarchyView , Tracer for OpenGL ES)<br>4) 定位到具体的视图(xml文件或者View)<br>5) 通过代码和xml文件分析过渡绘制的原因<br>6) 结合具体情况进行优化<br>7) 使用Lint工具进一步优化</li>
-<li><p>检查是否有主线程做了耗时操作：<br>1) Application 开启 StrictMode;</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (DEVELOPER_MODE) &#123;</span><br><span class="line"> 	 StrictMode.setThreadPolicy(<span class="keyword">new</span> StrictMode.ThreadPolicy.Builder()</span><br><span class="line">   	.detectAll() .penaltyLog() .build());</span><br><span class="line">     StrictMode.setVmPolicy(<span class="keyword">new</span> StrictMode.VmPolicy.Builder()</span><br><span class="line">	 .detectAll() .penaltyLog() .build());</span><br><span class="line"> &#125;</span><br><span class="line">     <span class="keyword">super</span>.onCreate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>检查是否有主线程做了耗时操作：<br>1) Application 开启 StrictMode;<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>DEVELOPER_MODE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    StrictMode<span class="token punctuation">.</span><span class="token function">setThreadPolicy</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StrictMode<span class="token punctuation">.</span>ThreadPolicy<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+     <span class="token punctuation">.</span><span class="token function">detectAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token function">penaltyLog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   StrictMode<span class="token punctuation">.</span><span class="token function">setVmPolicy</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StrictMode<span class="token punctuation">.</span>VmPolicy<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   <span class="token punctuation">.</span><span class="token function">detectAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token function">penaltyLog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+   <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>如果主线程无耗时操作，还存在卡顿，有很大可能是必须在UI线程操作的一些逻辑有问题，比如控件measure、layout耗时过多等，此时可通过Traceview以及systrace来进行分析。</p>
-</li>
+<li>如果主线程无耗时操作，还存在卡顿，有很大可能是必须在UI线程操作的一些逻辑有问题，比如控件measure、layout耗时过多等，此时可通过Traceview以及systrace来进行分析。</li>
 <li>Traceview：Traceview主要用做热点分析，找出最需要优化的点。<br><img src="http://upload-images.jianshu.io/upload_images/1321512-026a3d898789674e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图中展示了Trace期间各方法调用关系，调用次数以及耗时比例"></li>
 <li>systrace：抓取trace：</li>
 <li>使用hugo打印方法调用的时长及参数</li>
 </ul>
-<h4 id="Method-Tracing-优化启动时间"><a href="#Method-Tracing-优化启动时间" class="headerlink" title="Method Tracing 优化启动时间"></a>Method Tracing 优化启动时间</h4><p>官网：<a href="https://developer.android.com/studio/profile/generate-trace-logs" target="_blank" rel="noopener">Generate trace logs by instrumenting your app</a><br>Java 代码<code>android.os.Debug.startMethodTracing() 和 stopMethodTracing()</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 启动HomePageActivity并每1s跟踪方法调用</span><br><span class="line">adb shell am start -n com.runan.countprisoner/.view.activity.HomePageActivity --start-profiler /data/local/tmp/startup.trace --sampling 1000</span><br><span class="line"> 终止跟踪</span><br><span class="line">adb shell am profile stop</span><br><span class="line"># 拉取 .trace 文件到本机当前目录</span><br><span class="line">adb pull /data/local/tmp/startup.trace .</span><br></pre></td></tr></table></figure></p>
-<font color="#D92524">Android Studio -&gt; File -&gt; open  直接打开*.trace</font>
+<h4 id="Method-Tracing-优化启动时间"><a href="#Method-Tracing-优化启动时间" class="headerlink" title="Method Tracing 优化启动时间"></a>Method Tracing 优化启动时间</h4><p>官网：<a href="https://developer.android.com/studio/profile/generate-trace-logs" target="_blank" rel="noopener">Generate trace logs by instrumenting your app</a><br>Java 代码<code>android.os.Debug.startMethodTracing() 和 stopMethodTracing()</code> </p>
+<pre><code># 启动HomePageActivity并每1s跟踪方法调用
+adb shell am start -n com.runan.countprisoner/.view.activity.HomePageActivity --start-profiler /data/local/tmp/startup.trace --sampling 1000
+ 终止跟踪
+adb shell am profile stop
+# 拉取 .trace 文件到本机当前目录
+adb pull /data/local/tmp/startup.trace .
+</code></pre><font color="#D92524">Android Studio -&gt; File -&gt; open  直接打开*.trace</font>
 
 <h3 id="官方工具"><a href="#官方工具" class="headerlink" title="官方工具"></a>官方工具</h3><hr>
 <p><a href="https://developer.android.com/tools/help/android-monitor.html" target="_blank" rel="noopener">Android Monitor</a></p>
@@ -715,6 +729,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/15/2018-8-15-jni-note/" rel="prev" title="JNI/NDK开发指南学习笔记">
+                JNI/NDK开发指南学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -805,7 +823,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -822,7 +840,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -944,16 +962,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

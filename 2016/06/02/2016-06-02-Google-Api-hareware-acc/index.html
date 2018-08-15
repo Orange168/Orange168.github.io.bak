@@ -133,7 +133,8 @@
 
 
   <title> 谷歌官网之硬件加速 【译】 | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -553,14 +554,18 @@
 <p>Android 3.0 (API level 11)开始，Android 2D渲染管道支持硬件加速。API level &gt;=14的Android系统默认开启硬件加速。由于硬件加速并不支持所有的2D绘制操作，所以开启硬件加速，可能会导致自定义view中部分元素看不到，程序抛出异常，或者错误的像素渲染等问题。</p>
 <h4 id="开启-关闭硬件加速"><a href="#开启-关闭硬件加速" class="headerlink" title="开启/关闭硬件加速"></a>开启/关闭硬件加速</h4><ul>
 <li>Application<br><code>&lt;application android:hardwareAccelerated=&quot;true&quot; ...&gt;</code></li>
-<li><p>Activity</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">application</span> <span class="attr">android:hardwareAccelerated</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">...</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:hardwareAccelerated</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>Activity<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span> <span class="token attr-name"><span class="token namespace">android:</span>hardwareAccelerated</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activity</span> <span class="token attr-name">...</span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activity</span> <span class="token attr-name"><span class="token namespace">android:</span>hardwareAccelerated</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>Window 级别只能开启硬件加速</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getWindow().setFlags(</span><br><span class="line">WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,</span><br><span class="line">WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);</span><br></pre></td></tr></table></figure>
+<li>Window 级别只能开启硬件加速<pre class="line-numbers language-java"><code class="language-java"><span class="token function">getWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setFlags</span><span class="token punctuation">(</span>
+WindowManager<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>FLAG_HARDWARE_ACCELERATED<span class="token punctuation">,</span>
+WindowManager<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>FLAG_HARDWARE_ACCELERATED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>View 关闭硬件加速<br><code>myView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);</code></p>
-</li>
+<li>View 关闭硬件加速<br><code>myView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);</code></li>
 </ul>
 <h4 id="View硬件加速的判断"><a href="#View硬件加速的判断" class="headerlink" title="View硬件加速的判断"></a>View硬件加速的判断</h4><p>两个方法：</p>
 <ul>
@@ -610,7 +615,17 @@
 <li>rotation, rotationX, rotationY: Changes the layer’s orientation in 3D space</li>
 <li>pivotX, pivotY: Changes the layer’s transformations origin</li>
 </ul>
-<p>demo：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">View.setLayerType(View.LAYER_TYPE_HARDWARE, <span class="keyword">null</span>);</span><br><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, <span class="string">"rotationY"</span>, <span class="number">180</span>);</span><br><span class="line">animator.addListener(<span class="keyword">new</span> AnimatorListenerAdapter() &#123;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line">view.setLayerType(View.LAYER_TYPE_NONE, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure></p>
+<p>demo：</p>
+<pre class="line-numbers language-java"><code class="language-java">View<span class="token punctuation">.</span><span class="token function">setLayerType</span><span class="token punctuation">(</span>View<span class="token punctuation">.</span>LAYER_TYPE_HARDWARE<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ObjectAnimator animator <span class="token operator">=</span> ObjectAnimator<span class="token punctuation">.</span><span class="token function">ofFloat</span><span class="token punctuation">(</span>view<span class="token punctuation">,</span> <span class="token string">"rotationY"</span><span class="token punctuation">,</span> <span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+animator<span class="token punctuation">.</span><span class="token function">addListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AnimatorListenerAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onAnimationEnd</span><span class="token punctuation">(</span>Animator animation<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+view<span class="token punctuation">.</span><span class="token function">setLayerType</span><span class="token punctuation">(</span>View<span class="token punctuation">.</span>LAYER_TYPE_NONE<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+animator<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="提示和技巧"><a href="#提示和技巧" class="headerlink" title="提示和技巧"></a>提示和技巧</h4><ul>
 <li>减少view的数量</li>
 <li>避免过度绘制<br>A good rule of thumb with current hardware is to not draw more than 2.5 times the number of pixels on screen per frame (transparent pixels in a bitmap count!).</li>
@@ -752,7 +767,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -769,7 +784,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -891,16 +906,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

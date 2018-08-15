@@ -149,7 +149,8 @@
 
 
   <title> Material Design | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -612,14 +613,35 @@
 <h4 id="Toolbar"><a href="#Toolbar" class="headerlink" title="Toolbar"></a>Toolbar</h4><p><a href="http://www.tuicool.com/articles/7BJBZb" target="_blank" rel="noopener">ToolBar详解</a><br><img src="http://upload-images.jianshu.io/upload_images/1321512-bddcf5a56fa4f69d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h4 id="TabLayout"><a href="#TabLayout" class="headerlink" title="TabLayout"></a>TabLayout</h4><p> <a href="http://blog.csdn.net/aigestudio/article/details/47155769" target="_blank" rel="noopener">TabLayout：另一种Tab的实现方式</a></p>
 <ul>
-<li><p>如下代码，Tab间隔转换会有更好的动画效果。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Method animateToTab = clz.getDeclaredMethod(<span class="string">"animateToTab"</span>, <span class="keyword">new</span> Class[]&#123;<span class="keyword">int</span>.class&#125;);</span><br><span class="line">animateToTab.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">animateToTab.invoke(tabLayout, <span class="keyword">new</span> Object[]&#123;<span class="number">5</span>&#125;);</span><br></pre></td></tr></table></figure>
+<li>如下代码，Tab间隔转换会有更好的动画效果。<pre class="line-numbers language-java"><code class="language-java">Method animateToTab <span class="token operator">=</span> clz<span class="token punctuation">.</span><span class="token function">getDeclaredMethod</span><span class="token punctuation">(</span><span class="token string">"animateToTab"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token keyword">int</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+animateToTab<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+animateToTab<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>tabLayout<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>与ViewPager结合标准代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.ac_tab_layout);</span><br><span class="line">    <span class="comment">// 获取ViewPager</span></span><br><span class="line">    ViewPager viewPager = (ViewPager) findViewById(R.id.ac_tab_vp);</span><br><span class="line">    <span class="comment">// 构造一个TabPagerAdapter对象</span></span><br><span class="line">    TabPagerAdapter adapter = <span class="keyword">new</span> TabPagerAdapter();</span><br><span class="line">    <span class="comment">// 获取ViewPager</span></span><br><span class="line">    TabLayout tabLayout = (TabLayout) findViewById(R.id.ac_tab_layout);</span><br><span class="line">    <span class="comment">// 设置TabLayout模式</span></span><br><span class="line">    tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);</span><br><span class="line">    <span class="comment">// 设置ViewPager的适配器</span></span><br><span class="line">    viewPager.setAdapter(adapter);</span><br><span class="line">    <span class="comment">// 设置ViewPager</span></span><br><span class="line">    tabLayout.setupWithViewPager(viewPager);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>与ViewPager结合标准代码<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>ac_tab_layout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 获取ViewPager</span>
+  ViewPager viewPager <span class="token operator">=</span> <span class="token punctuation">(</span>ViewPager<span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>ac_tab_vp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 构造一个TabPagerAdapter对象</span>
+  TabPagerAdapter adapter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TabPagerAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 获取ViewPager</span>
+  TabLayout tabLayout <span class="token operator">=</span> <span class="token punctuation">(</span>TabLayout<span class="token punctuation">)</span> <span class="token function">findViewById</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>id<span class="token punctuation">.</span>ac_tab_layout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 设置TabLayout模式</span>
+  tabLayout<span class="token punctuation">.</span><span class="token function">setTabMode</span><span class="token punctuation">(</span>TabLayout<span class="token punctuation">.</span>MODE_SCROLLABLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 设置ViewPager的适配器</span>
+  viewPager<span class="token punctuation">.</span><span class="token function">setAdapter</span><span class="token punctuation">(</span>adapter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 设置ViewPager</span>
+  tabLayout<span class="token punctuation">.</span><span class="token function">setupWithViewPager</span><span class="token punctuation">(</span>viewPager<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h4 id="Bottom-Navigation"><a href="#Bottom-Navigation" class="headerlink" title="Bottom Navigation"></a>Bottom Navigation</h4><p>Dependence<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.0.0'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:design:25.0.0'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Bottom-Navigation"><a href="#Bottom-Navigation" class="headerlink" title="Bottom Navigation"></a>Bottom Navigation</h4><p>Dependence</p>
+<pre class="line-numbers language-gradle"><code class="language-gradle">compile 'com.android.support:appcompat-v7:25.0.0'
+compile 'com.android.support:design:25.0.0'
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li><a href="https://blog.autsoft.hu/now-you-can-use-the-bottom-navigation-view-in-the-design-support-library/" target="_blank" rel="noopener">Tutorial：Now you can use the Bottom Navigation View in the Design Support Library</a></li>
 </ul>
@@ -836,7 +858,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -853,7 +875,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -975,16 +997,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

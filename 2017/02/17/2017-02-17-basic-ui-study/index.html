@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,support,UI,Basic," />
+  <meta name="keywords" content="Android,Basic,support,UI," />
 
 
 
@@ -85,7 +85,7 @@
 
 
 <meta name="description" content="控件使用ViewFlipper setInAnimation/setOutAnimation showNext/showPrevious getDisplayedChild() ==&amp;gt; index ==&amp;gt; getChildAt addView(view)/addView(view,position)  AbsListView setSelector(new ColorDrawable(">
-<meta name="keywords" content="Android,support,UI,Basic">
+<meta name="keywords" content="Android,Basic,support,UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基本UI空控件的用方法和属性">
 <meta property="og:url" content="http://zhilinchn.online/2017/02/17/2017-02-17-basic-ui-study/index.html">
@@ -130,7 +130,8 @@
 
 
   <title> 基本UI空控件的用方法和属性 | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -564,37 +565,106 @@
 <p>Tip: 在GridView 的Adapter 内的View 设置setOnClickListener 会导致 设置的 GestureDetector.SimpleOnGestureListener.onFling返回的MotionEvent == null;</p>
 </blockquote>
 <h4 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h4><ul>
-<li><p>显示/隐藏密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInputType(hasShowPassword ? 129 : InputType.TYPE_TEXT_VARIATION_PASSWORD);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>光标位置(定位到最后)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">edittext.setSelection(int)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>获取焦点</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">editText.requestFocus();<span class="comment">//获取焦点</span></span><br><span class="line">如果对edittext组件设置了editText.setFocusable(<span class="keyword">false</span>);需要重新获取焦点则必须执行：</span><br><span class="line">editText.setFocusable(ture);</span><br><span class="line">editText.setFocusableInTouchMode(<span class="keyword">true</span>);</span><br><span class="line">editText.requestFocus();</span><br><span class="line">注意：这种情况下，当重新点击文本框，是无法打开软键盘，必须点击第二次才能打开。</span><br></pre></td></tr></table></figure>
+<li>显示/隐藏密码<pre><code>setInputType(hasShowPassword ? 129 : InputType.TYPE_TEXT_VARIATION_PASSWORD);
+</code></pre></li>
+<li>光标位置(定位到最后)<pre><code>edittext.setSelection(int)
+</code></pre></li>
+<li>获取焦点<pre class="line-numbers language-java"><code class="language-java">editText<span class="token punctuation">.</span><span class="token function">requestFocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//获取焦点</span>
+如果对edittext组件设置了editText<span class="token punctuation">.</span><span class="token function">setFocusable</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>需要重新获取焦点则必须执行：
+editText<span class="token punctuation">.</span><span class="token function">setFocusable</span><span class="token punctuation">(</span>ture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+editText<span class="token punctuation">.</span><span class="token function">setFocusableInTouchMode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+editText<span class="token punctuation">.</span><span class="token function">requestFocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+注意：这种情况下，当重新点击文本框，是无法打开软键盘，必须点击第二次才能打开。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h4 id="ViewPager"><a href="#ViewPager" class="headerlink" title="ViewPager"></a>ViewPager</h4><ul>
 <li>setPageTransformer(); //设置页面切换效果 <a href="https://github.com/jfeinstein10/JazzyViewPager" target="_blank" rel="noopener">JazzyViewPager</a> 提供11种切换效果</li>
-<li>经常直播的效果<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepthPageTransformer</span> <span class="keyword">implements</span> <span class="title">PageTransformer</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> MIN_SCALE = <span class="number">0.75f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transformPage</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pageWidth = view.getWidth();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (position &lt; -<span class="number">1</span>) &#123; <span class="comment">// [-Infinity,-1) ///看不到的一页 *</span></span><br><span class="line">            <span class="comment">// This page is way off-screen to the left.</span></span><br><span class="line">            view.setAlpha(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position &lt;= <span class="number">0</span>) &#123; <span class="comment">// [-1,0]</span></span><br><span class="line">            <span class="comment">// Use the default slide transition when moving to the left page</span></span><br><span class="line">            view.setAlpha(<span class="number">1</span>);</span><br><span class="line">            view.setTranslationX(<span class="number">0</span>);</span><br><span class="line">            view.setScaleX(<span class="number">1</span>);</span><br><span class="line">            view.setScaleY(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position &lt;= <span class="number">1</span>) &#123; <span class="comment">// (0,1]</span></span><br><span class="line">            <span class="comment">// Fade the page out.</span></span><br><span class="line">            view.setAlpha(<span class="number">1</span> - position);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Counteract the default slide transition</span></span><br><span class="line">            view.setTranslationX(pageWidth * -position);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Scale the page down (between MIN_SCALE and 1)</span></span><br><span class="line">            <span class="keyword">float</span> scaleFactor = MIN_SCALE</span><br><span class="line">                    + (<span class="number">1</span> - MIN_SCALE) * (<span class="number">1</span> - Math.abs(position));</span><br><span class="line">            view.setScaleX(scaleFactor);</span><br><span class="line">            view.setScaleY(scaleFactor);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">// (1,+Infinity]</span></span><br><span class="line">            <span class="comment">// This page is way off-screen to the right.</span></span><br><span class="line">            view.setAlpha(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>经常直播的效果</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DepthPageTransformer</span> <span class="token keyword">implements</span> <span class="token class-name">PageTransformer</span>  <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">float</span> MIN_SCALE <span class="token operator">=</span> <span class="token number">0.75f</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">transformPage</span><span class="token punctuation">(</span>View view<span class="token punctuation">,</span> <span class="token keyword">float</span> position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">int</span> pageWidth <span class="token operator">=</span> view<span class="token punctuation">.</span><span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// [-Infinity,-1) ///看不到的一页 *</span>
+          <span class="token comment" spellcheck="true">// This page is way off-screen to the left.</span>
+          view<span class="token punctuation">.</span><span class="token function">setAlpha</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// [-1,0]</span>
+          <span class="token comment" spellcheck="true">// Use the default slide transition when moving to the left page</span>
+          view<span class="token punctuation">.</span><span class="token function">setAlpha</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          view<span class="token punctuation">.</span><span class="token function">setTranslationX</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          view<span class="token punctuation">.</span><span class="token function">setScaleX</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          view<span class="token punctuation">.</span><span class="token function">setScaleY</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// (0,1]</span>
+          <span class="token comment" spellcheck="true">// Fade the page out.</span>
+          view<span class="token punctuation">.</span><span class="token function">setAlpha</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment" spellcheck="true">// Counteract the default slide transition</span>
+          view<span class="token punctuation">.</span><span class="token function">setTranslationX</span><span class="token punctuation">(</span>pageWidth <span class="token operator">*</span> <span class="token operator">-</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment" spellcheck="true">// Scale the page down (between MIN_SCALE and 1)</span>
+          <span class="token keyword">float</span> scaleFactor <span class="token operator">=</span> MIN_SCALE
+                  <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> MIN_SCALE<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          view<span class="token punctuation">.</span><span class="token function">setScaleX</span><span class="token punctuation">(</span>scaleFactor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          view<span class="token punctuation">.</span><span class="token function">setScaleY</span><span class="token punctuation">(</span>scaleFactor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// (1,+Infinity]</span>
+          <span class="token comment" spellcheck="true">// This page is way off-screen to the right.</span>
+          view<span class="token punctuation">.</span><span class="token function">setAlpha</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <h4 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h4><ul>
 <li>List内容平滑的移动到指定的位置 smoothScrollToPosition(position); </li>
 </ul>
 <h4 id="PopupWindow"><a href="#PopupWindow" class="headerlink" title="PopupWindow"></a><a href="https://developer.android.com/reference/android/widget/PopupWindow.html" target="_blank" rel="noopener">PopupWindow</a></h4><ul>
-<li><p>一定要设置的：View contentView，int width, int height;</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造方法：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">PopupWindow</span> <span class="params">(Context context)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">PopupWindow</span><span class="params">(View contentView)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">PopupWindow</span><span class="params">(View contentView, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">PopupWindow</span><span class="params">(View contentView, <span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="keyword">boolean</span> focusable)</span></span></span><br><span class="line"><span class="function"><span class="comment">//常用的初始化</span></span></span><br><span class="line"><span class="function">View contentView </span>= LayoutInflater.from(MainActivity.<span class="keyword">this</span>).inflate(R.layout.popuplayout, <span class="keyword">null</span>);</span><br><span class="line">PopupWindow popWnd = PopupWindow (context);</span><br><span class="line">popWnd.setContentView(contentView);</span><br><span class="line">popWnd.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);</span><br><span class="line">popWnd.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);</span><br></pre></td></tr></table></figure>
+<li>一定要设置的：View contentView，int width, int height;<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//构造方法：</span>
+<span class="token keyword">public</span> <span class="token function">PopupWindow</span> <span class="token punctuation">(</span>Context context<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token function">PopupWindow</span><span class="token punctuation">(</span>View contentView<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token function">PopupWindow</span><span class="token punctuation">(</span>View contentView<span class="token punctuation">,</span> <span class="token keyword">int</span> width<span class="token punctuation">,</span> <span class="token keyword">int</span> height<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token function">PopupWindow</span><span class="token punctuation">(</span>View contentView<span class="token punctuation">,</span> <span class="token keyword">int</span> width<span class="token punctuation">,</span> <span class="token keyword">int</span> height<span class="token punctuation">,</span> <span class="token keyword">boolean</span> focusable<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//常用的初始化</span>
+View contentView <span class="token operator">=</span> LayoutInflater<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>MainActivity<span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">inflate</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>popuplayout<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+PopupWindow popWnd <span class="token operator">=</span> <span class="token function">PopupWindow</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+popWnd<span class="token punctuation">.</span><span class="token function">setContentView</span><span class="token punctuation">(</span>contentView<span class="token punctuation">)</span><span class="token punctuation">;</span>
+popWnd<span class="token punctuation">.</span><span class="token function">setWidth</span><span class="token punctuation">(</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>WRAP_CONTENT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+popWnd<span class="token punctuation">.</span><span class="token function">setHeight</span><span class="token punctuation">(</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>WRAP_CONTENT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>显示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//相对某个控件的位置（正左下方），无偏移</span></span><br><span class="line">showAsDropDown(View anchor)：</span><br><span class="line"><span class="comment">//相对某个控件的位置，有偏移;xoff表示x轴的偏移，正值表示向左，负值表示向右；yoff表示相对y轴的偏移，正值是向下，负值是向上；</span></span><br><span class="line">showAsDropDown(View anchor, <span class="keyword">int</span> xoff, <span class="keyword">int</span> yoff)：</span><br><span class="line"><span class="comment">//相对于父控件的位置（例如正中央Gravity.CENTER，下方Gravity.BOTTOM等），可以设置偏移或无偏移</span></span><br><span class="line">showAtLocation(View parent, <span class="keyword">int</span> gravity, <span class="keyword">int</span> x, <span class="keyword">int</span> y)：</span><br></pre></td></tr></table></figure>
+<li>显示<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//相对某个控件的位置（正左下方），无偏移</span>
+<span class="token function">showAsDropDown</span><span class="token punctuation">(</span>View anchor<span class="token punctuation">)</span>：
+<span class="token comment" spellcheck="true">//相对某个控件的位置，有偏移;xoff表示x轴的偏移，正值表示向左，负值表示向右；yoff表示相对y轴的偏移，正值是向下，负值是向上；</span>
+<span class="token function">showAsDropDown</span><span class="token punctuation">(</span>View anchor<span class="token punctuation">,</span> <span class="token keyword">int</span> xoff<span class="token punctuation">,</span> <span class="token keyword">int</span> yoff<span class="token punctuation">)</span>：
+<span class="token comment" spellcheck="true">//相对于父控件的位置（例如正中央Gravity.CENTER，下方Gravity.BOTTOM等），可以设置偏移或无偏移</span>
+<span class="token function">showAtLocation</span><span class="token punctuation">(</span>View parent<span class="token punctuation">,</span> <span class="token keyword">int</span> gravity<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span>：
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>添加动画<br><code>mPopWindow.setAnimationStyle(R.style.contextMenuAnim);</code><br>contextMenuAnim.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"contextMenuAnim"</span> <span class="attr">parent</span>=<span class="string">"@android:style/Animation.Activity"</span>&gt;</span><span class="undefined">  </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterAnimation"</span>&gt;</span>@anim/context_menu_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitAnimation"</span>&gt;</span>@anim/context_menu_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>contextMenuAnim<span class="token punctuation">"</span></span> <span class="token attr-name">parent</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@android:style/Animation.Activity<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">  
+  &lt;item name=<span class="token string">"android:windowEnterAnimation"</span>>@anim/context_menu_enter&lt;/item>  
+  &lt;item name=<span class="token string">"android:windowExitAnimation"</span>>@anim/context_menu_exit&lt;/item>  
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>context_menu_exit.xml</p>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>set</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span>  
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>translate</span>  
+      <span class="token attr-name"><span class="token namespace">android:</span>duration</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@android:integer/config_shortAnimTime<span class="token punctuation">"</span></span>  
+      <span class="token attr-name"><span class="token namespace">android:</span>fromXDelta</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span>  
+      <span class="token attr-name"><span class="token namespace">android:</span>fromYDelta</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span>  
+      <span class="token attr-name"><span class="token namespace">android:</span>interpolator</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@android:anim/accelerate_decelerate_interpolator<span class="token punctuation">"</span></span>  
+      <span class="token attr-name"><span class="token namespace">android:</span>toXDelta</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span>  
+      <span class="token attr-name"><span class="token namespace">android:</span>toYDelta</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100%p<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>set</span><span class="token punctuation">></span></span>  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
-<p>context_menu_exit.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span> &gt;</span>  </span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;<span class="name">translate</span>  </span></span><br><span class="line"><span class="tag">        <span class="attr">android:duration</span>=<span class="string">"@android:integer/config_shortAnimTime"</span>  </span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromXDelta</span>=<span class="string">"0"</span>  </span></span><br><span class="line"><span class="tag">        <span class="attr">android:fromYDelta</span>=<span class="string">"0"</span>  </span></span><br><span class="line"><span class="tag">        <span class="attr">android:interpolator</span>=<span class="string">"@android:anim/accelerate_decelerate_interpolator"</span>  </span></span><br><span class="line"><span class="tag">        <span class="attr">android:toXDelta</span>=<span class="string">"0"</span>  </span></span><br><span class="line"><span class="tag">        <span class="attr">android:toYDelta</span>=<span class="string">"100%p"</span> /&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<ul>
 <li>setFocusable EditText 是否点击后可编辑</li>
 <li>mPopWindow.setBackgroundDrawable(new BitmapDrawable()) 的作用<blockquote>
 <ol>
@@ -613,7 +683,15 @@
 <ol>
 <li><a href="http://blog.csdn.net/harvic880925/article/details/49272285" target="_blank" rel="noopener">PopupWindow才会对手机的返回按钮有响应</a></li>
 </ol>
-<h3 id="常用的UI方法"><a href="#常用的UI方法" class="headerlink" title="常用的UI方法"></a>常用的UI方法</h3><p>获取xml属性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Calculate ActionBar height</span></span><br><span class="line">TypedValue tv = <span class="keyword">new</span> TypedValue();</span><br><span class="line">          <span class="keyword">if</span> (context.getTheme().resolveAttribute(</span><br><span class="line">                  android.R.attr.actionBarSize, tv, <span class="keyword">true</span>)) &#123;</span><br><span class="line">              mActionBarHeight = TypedValue.complexToDimensionPixelSize(</span><br><span class="line">                      tv.data, context.getResources().getDisplayMetrics());</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="常用的UI方法"><a href="#常用的UI方法" class="headerlink" title="常用的UI方法"></a>常用的UI方法</h3><p>获取xml属性</p>
+<pre class="line-numbers language-java"><code class="language-java">  <span class="token comment" spellcheck="true">// Calculate ActionBar height</span>
+  TypedValue tv <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TypedValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>context<span class="token punctuation">.</span><span class="token function">getTheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">resolveAttribute</span><span class="token punctuation">(</span>
+                    android<span class="token punctuation">.</span>R<span class="token punctuation">.</span>attr<span class="token punctuation">.</span>actionBarSize<span class="token punctuation">,</span> tv<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                mActionBarHeight <span class="token operator">=</span> TypedValue<span class="token punctuation">.</span><span class="token function">complexToDimensionPixelSize</span><span class="token punctuation">(</span>
+                        tv<span class="token punctuation">.</span>data<span class="token punctuation">,</span> context<span class="token punctuation">.</span><span class="token function">getResources</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDisplayMetrics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -639,11 +717,11 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
+            <a href="/tags/Basic/" rel="tag"># Basic</a>
+          
             <a href="/tags/support/" rel="tag"># support</a>
           
             <a href="/tags/UI/" rel="tag"># UI</a>
-          
-            <a href="/tags/Basic/" rel="tag"># Basic</a>
           
         </div>
       
@@ -755,7 +833,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -772,7 +850,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -894,16 +972,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

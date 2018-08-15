@@ -130,7 +130,8 @@
 
 
   <title> React Native for Android | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -577,8 +578,21 @@
 <ul>
 <li>InfoQ: <a href="http://www.infoq.com/cn/presentations/explore-react-ecosystem" target="_blank" rel="noopener">探索 React 生态圈</a></li>
 </ul>
-<h4 id="Atom官网"><a href="#Atom官网" class="headerlink" title="Atom官网"></a><a href="http://atom.io" target="_blank" rel="noopener">Atom官网</a></h4><p><a href="http://www.linuxidc.com/Linux/2014-05/101501.htm" target="_blank" rel="noopener"><em>安装</em></a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:webupd8team/atom</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install atom</span><br><span class="line">/opt/atom/atom</span><br></pre></td></tr></table></figure></p>
-<p>Proxy setting  from <a href="https://github.com/atom/apm" target="_blank" rel="noopener">apm github</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Using a proxy?</span><br><span class="line">If you are using a HTTP(S) proxy you can configure apm</span><br><span class="line"> to use it by running:</span><br><span class="line">apm config set https-proxy https://127.0.0.1:1080</span><br><span class="line">You can run </span><br><span class="line">apm config get https-proxy</span><br><span class="line"> to verify it has been set correctly.</span><br></pre></td></tr></table></figure></p>
+<h4 id="Atom官网"><a href="#Atom官网" class="headerlink" title="Atom官网"></a><a href="http://atom.io" target="_blank" rel="noopener">Atom官网</a></h4><p><a href="http://www.linuxidc.com/Linux/2014-05/101501.htm" target="_blank" rel="noopener"><em>安装</em></a></p>
+<pre class="line-numbers language-shell"><code class="language-shell">sudo add-apt-repository ppa:webupd8team/atom
+sudo apt-get update
+sudo apt-get install atom
+/opt/atom/atom
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Proxy setting  from <a href="https://github.com/atom/apm" target="_blank" rel="noopener">apm github</a></p>
+<pre class="line-numbers language-shell"><code class="language-shell">Using a proxy?
+If you are using a HTTP(S) proxy you can configure apm
+ to use it by running:
+apm config set https-proxy https://127.0.0.1:1080
+You can run 
+apm config get https-proxy
+ to verify it has been set correctly.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><em>plugin</em><br>cp the plugin.zip to ~/.atom/packages or <code>$ apm install</code></p>
 <ul>
 <li><strong><a href="https://github.com/thomaslindstrom/color-picker" target="_blank" rel="noopener">color-picker</a></strong></li>
@@ -732,7 +746,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -749,7 +763,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -871,16 +885,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

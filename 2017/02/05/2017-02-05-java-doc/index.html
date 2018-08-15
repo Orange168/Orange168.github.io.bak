@@ -130,7 +130,8 @@
 
 
   <title> JavaDoc学习笔记 | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -578,10 +579,23 @@
 </table>
 <h4 id="加粗-strong"><a href="#加粗-strong" class="headerlink" title="加粗 strong"></a>加粗 strong</h4><p><code>&lt;strong&gt;Strong&lt;/strong&gt;</code></p>
 <h4 id="超链接-href"><a href="#超链接-href" class="headerlink" title="超链接 href"></a>超链接 href</h4><p><code>&lt;a href=&quot;http://go.microsoft.com/fwlink/?LinkID=205219&quot;&gt;Rx Design Guidelines (PDF)&lt;/a&gt;</code></p>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** &lt;p&gt;</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** &lt;p>
+*
+**/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="图片引用"><a href="#图片引用" class="headerlink" title="图片引用"></a>图片引用</h4><p><code>&lt;img width=&quot;640&quot; height=&quot;200&quot; src=&quot;https://raw.github.com/create.png&quot; alt=&quot;&quot;&gt;</code></p>
 <h3 id="常用的格式"><a href="#常用的格式" class="headerlink" title="常用的格式"></a>常用的格式</h3><hr>
-<h4 id="标题加粗换行"><a href="#标题加粗换行" class="headerlink" title="标题加粗换行"></a>标题加粗换行</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* &lt;dl&gt;</span></span><br><span class="line"><span class="comment">*  &lt;dt&gt;&lt;b&gt;Backpressure:&lt;/b&gt;&lt;/dt&gt;</span></span><br><span class="line"><span class="comment">*  &lt;dd&gt;The &#123;<span class="doctag">@code</span> OnSubscribe&#125; instance provided is responsible to be backpressure-aware or</span></span><br><span class="line"><span class="comment">*  document the fact that the consumer of the returned &#123;<span class="doctag">@code</span> Observable&#125; has to apply one of</span></span><br><span class="line"><span class="comment">*  the &#123;<span class="doctag">@code</span> onBackpressureXXX&#125; operators.&lt;/dd&gt;</span></span><br><span class="line"><span class="comment">*  &lt;dt&gt;&lt;b&gt;Scheduler:&lt;/b&gt;&lt;/dt&gt;</span></span><br><span class="line"><span class="comment">*  &lt;dd&gt;&#123;<span class="doctag">@code</span> create&#125; does not operate by default on a particular &#123;<span class="doctag">@link</span> Scheduler&#125;.&lt;/dd&gt;</span></span><br><span class="line"><span class="comment">* &lt;/dl&gt;</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure>
+<h4 id="标题加粗换行"><a href="#标题加粗换行" class="headerlink" title="标题加粗换行"></a>标题加粗换行</h4><pre class="line-numbers language-java"><code class="language-java"> <span class="token comment" spellcheck="true">/**
+ * &lt;dl>
+ *  &lt;dt>&lt;b>Backpressure:&lt;/b>&lt;/dt>
+ *  &lt;dd>The {@code OnSubscribe} instance provided is responsible to be backpressure-aware or
+ *  document the fact that the consumer of the returned {@code Observable} has to apply one of
+ *  the {@code onBackpressureXXX} operators.&lt;/dd>
+ *  &lt;dt>&lt;b>Scheduler:&lt;/b>&lt;/dt>
+ *  &lt;dd>{@code create} does not operate by default on a particular {@link Scheduler}.&lt;/dd>
+ * &lt;/dl>
+ **/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       
     </div>
@@ -717,7 +731,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -734,7 +748,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -856,16 +870,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

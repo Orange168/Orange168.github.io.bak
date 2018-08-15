@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据库,Android,database," />
+  <meta name="keywords" content="Android,数据库,database," />
 
 
 
@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="数据格式 gson Gson Json Annotations Example   stag-java Speedy Type Adapter Generation fastjson  序列化 Parcelable Parcelable AutoValue使用 Google AutoValue 自动生成代码 Dependencies12345dependencies &amp;#123;  provide">
-<meta name="keywords" content="数据库,Android,database">
+<meta name="description" content="数据格式 gson Gson Json Annotations Example   stag-java Speedy Type Adapter Generation fastjson  序列化 Parcelable Parcelable AutoValue使用 Google AutoValue 自动生成代码 Dependencies dependencies {   provided &amp;#39;c">
+<meta name="keywords" content="Android,数据库,database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 数据处理资源总汇">
 <meta property="og:url" content="http://zhilinchn.online/2016/09/08/2016-09-08-Android-database-note/index.html">
 <meta property="og:site_name" content="林酱的博客">
-<meta property="og:description" content="数据格式 gson Gson Json Annotations Example   stag-java Speedy Type Adapter Generation fastjson  序列化 Parcelable Parcelable AutoValue使用 Google AutoValue 自动生成代码 Dependencies12345dependencies &amp;#123;  provide">
+<meta property="og:description" content="数据格式 gson Gson Json Annotations Example   stag-java Speedy Type Adapter Generation fastjson  序列化 Parcelable Parcelable AutoValue使用 Google AutoValue 自动生成代码 Dependencies dependencies {   provided &amp;#39;c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://camo.githubusercontent.com/5a2f9fe0725a29ff92f941daa814a65f2bdc193c/68747470733a2f2f7261772e6769746875622e636f6d2f696e66696e756d2f616e64726f69645f6462696e73706563746f722f6d61737465722f73637265656e73686f74732e706e67">
 <meta property="og:updated_time" content="2017-03-31T23:24:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 数据处理资源总汇">
-<meta name="twitter:description" content="数据格式 gson Gson Json Annotations Example   stag-java Speedy Type Adapter Generation fastjson  序列化 Parcelable Parcelable AutoValue使用 Google AutoValue 自动生成代码 Dependencies12345dependencies &amp;#123;  provide">
+<meta name="twitter:description" content="数据格式 gson Gson Json Annotations Example   stag-java Speedy Type Adapter Generation fastjson  序列化 Parcelable Parcelable AutoValue使用 Google AutoValue 自动生成代码 Dependencies dependencies {   provided &amp;#39;c">
 <meta name="twitter:image" content="https://camo.githubusercontent.com/5a2f9fe0725a29ff92f941daa814a65f2bdc193c/68747470733a2f2f7261772e6769746875622e636f6d2f696e66696e756d2f616e64726f69645f6462696e73706563746f722f6d61737465722f73637265656e73686f74732e706e67">
 
 
@@ -132,7 +132,8 @@
 
 
   <title> Android 数据处理资源总汇 | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -558,9 +559,22 @@
 </ul>
 <h4 id="序列化-Parcelable"><a href="#序列化-Parcelable" class="headerlink" title="序列化 Parcelable"></a>序列化 Parcelable</h4><hr>
 <h4 id="Parcelable-AutoValue"><a href="#Parcelable-AutoValue" class="headerlink" title="Parcelable AutoValue"></a>Parcelable AutoValue</h4><p><a href="http://tedyin.me/2016/04/11/auto-value/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">使用 Google AutoValue 自动生成代码</a></p>
-<p><strong>Dependencies</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  provided &apos;com.google.auto.value:auto-value:1.2&apos;</span><br><span class="line">  apt &apos;com.google.auto.value:auto-value:1.2&apos;</span><br><span class="line">  apt &apos;com.ryanharter.auto.value:auto-value-parcel:0.2.1&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>Sample</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@AutoValue</span><br><span class="line">public abstract class Story implements Parcelable&#123;</span><br><span class="line">  public abstract int id();</span><br><span class="line">  public abstract String title();</span><br><span class="line">  public static Story create(int id, String title)&#123;</span><br><span class="line">    new AutoValue_Story(id,title);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="日常笔记"><a href="#日常笔记" class="headerlink" title="日常笔记"></a>日常笔记</h4><hr>
+<p><strong>Dependencies</strong></p>
+<pre><code>dependencies {
+  provided &#39;com.google.auto.value:auto-value:1.2&#39;
+  apt &#39;com.google.auto.value:auto-value:1.2&#39;
+  apt &#39;com.ryanharter.auto.value:auto-value-parcel:0.2.1&#39;
+}
+</code></pre><p><strong>Sample</strong></p>
+<pre><code>@AutoValue
+public abstract class Story implements Parcelable{
+  public abstract int id();
+  public abstract String title();
+  public static Story create(int id, String title){
+    new AutoValue_Story(id,title);
+  }
+}
+</code></pre><h4 id="日常笔记"><a href="#日常笔记" class="headerlink" title="日常笔记"></a>日常笔记</h4><hr>
 <p><em>Sqlite 批量处理</em></p>
 <ul>
 <li><a href="http://blog.sina.com.cn/s/blog_48d4cf2d0102v5ip.html" target="_blank" rel="noopener">SQLite批量插入和其他一些使用心得</a> </li>
@@ -572,14 +586,27 @@
 <li><a href="http://zhangfan822.iteye.com/blog/1883118" target="_blank" rel="noopener">Android 保存图片到SQLite,读出SQLite中的图片</a></li>
 <li><a href="https://www.sqlite.org/lang_createtrigger.html" target="_blank" rel="noopener">sqlite 官方教程 CREATE TRIGGER</a></li>
 <li><a href="http://www.runoob.com/sqlite/sqlite-index.html" target="_blank" rel="noopener">Sqlite learnning Course</a></li>
-<li><a href="http://www.runoob.com/sql/sql-union.html" target="_blank" rel="noopener">SQL语句 Inner join/ union 的学习</a><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> f.name ,<span class="keyword">count</span>(<span class="number">1</span>) <span class="keyword">as</span> <span class="keyword">sum</span>, d.value <span class="keyword">as</span> <span class="keyword">url</span> <span class="keyword">from</span> Favorite f <span class="keyword">inner</span> <span class="keyword">join</span> <span class="keyword">data</span> d  <span class="keyword">on</span> d.key==f.name  <span class="keyword">group</span> <span class="keyword">by</span> f.name</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><em>笔记好滴博文</em></p>
-<ul>
+<li><a href="http://www.runoob.com/sql/sql-union.html" target="_blank" rel="noopener">SQL语句 Inner join/ union 的学习</a><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token number">f</span><span class="token punctuation">.</span>name <span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sum<span class="token punctuation">,</span> <span class="token number">d</span><span class="token punctuation">.</span><span class="token keyword">value</span> <span class="token keyword">as</span> url <span class="token keyword">from</span> Favorite <span class="token number">f</span> <span class="token keyword">inner</span> <span class="token keyword">join</span> <span class="token keyword">data</span> <span class="token number">d</span>  <span class="token keyword">on</span> <span class="token number">d</span><span class="token punctuation">.</span><span class="token keyword">key</span><span class="token operator">=</span><span class="token operator">=</span><span class="token number">f</span><span class="token punctuation">.</span>name  <span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">f</span><span class="token punctuation">.</span>name
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<em>笔记好滴博文</em></li>
 <li><a href="http://blog.csdn.net/iefreer/article/details/39188231" target="_blank" rel="noopener">5个Android ORM框架</a>  Android 主流ORM（对象关系数据映射）简介</li>
 </ul>
-<p><em>常用的SQL语句</em><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> t_student</span><br><span class="line"><span class="keyword">CREATE</span> TALBE <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> t_student (<span class="keyword">id</span> iteger primary <span class="keyword">key</span> autoincrement, <span class="keyword">name</span> <span class="built_in">text</span>, age <span class="built_in">integer</span>, score <span class="built_in">real</span> );</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_student (<span class="keyword">name</span>,age) <span class="keyword">values</span> (<span class="string">'jack'</span>,<span class="number">22</span>)</span><br><span class="line"><span class="keyword">update</span> t_student <span class="keyword">set</span> <span class="keyword">name</span>=<span class="string">'jack'</span> ,<span class="keyword">id</span> =<span class="number">1</span> </span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_student <span class="keyword">where</span> score &gt;= <span class="number">60</span> <span class="keyword">order</span> <span class="keyword">by</span> score <span class="keyword">asc</span>, age <span class="keyword">asc</span>;</span><br><span class="line">limit 分页查询</span><br><span class="line">limit 0,5</span><br><span class="line">limit 5,5</span><br><span class="line">约束</span><br><span class="line">not null, unique, default</span><br><span class="line">外键—— </span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_student (<span class="keyword">id</span> <span class="built_in">integer</span> primary <span class="keyword">key</span> autoincrement,<span class="keyword">name</span> <span class="built_in">text</span>, class_id <span class="built_in">integer</span>,</span><br><span class="line"><span class="keyword">constraint</span> fk_t_student_class_id_t_class_id foreign <span class="keyword">key</span> (class_id) <span class="keyword">references</span> t_class(<span class="keyword">id</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p><em>常用的SQL语句</em></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> t_student
+<span class="token keyword">CREATE</span> TALBE <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> t_student <span class="token punctuation">(</span>id iteger <span class="token keyword">primary</span> <span class="token keyword">key</span> autoincrement<span class="token punctuation">,</span> name <span class="token keyword">text</span><span class="token punctuation">,</span> age <span class="token keyword">integer</span><span class="token punctuation">,</span> score <span class="token keyword">real</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t_student <span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span> <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token string">'jack'</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">)</span>
+<span class="token keyword">update</span> t_student <span class="token keyword">set</span> name<span class="token operator">=</span><span class="token string">'jack'</span> <span class="token punctuation">,</span>id <span class="token operator">=</span><span class="token number">1</span> 
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_student <span class="token keyword">where</span> score <span class="token operator">>=</span> <span class="token number">60</span> <span class="token keyword">order</span> <span class="token keyword">by</span> score <span class="token keyword">asc</span><span class="token punctuation">,</span> age <span class="token keyword">asc</span><span class="token punctuation">;</span>
+<span class="token keyword">limit</span> 分页查询
+<span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">5</span>
+<span class="token keyword">limit</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span>
+约束
+<span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span> <span class="token keyword">unique</span><span class="token punctuation">,</span> <span class="token keyword">default</span>
+外键—— 
+<span class="token keyword">create</span> <span class="token keyword">table</span> t_student <span class="token punctuation">(</span>id <span class="token keyword">integer</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> autoincrement<span class="token punctuation">,</span>name <span class="token keyword">text</span><span class="token punctuation">,</span> class_id <span class="token keyword">integer</span><span class="token punctuation">,</span>
+<span class="token keyword">constraint</span> fk_t_student_class_id_t_class_id <span class="token keyword">foreign</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>class_id<span class="token punctuation">)</span> <span class="token keyword">references</span> t_class<span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="No-Sql"><a href="#No-Sql" class="headerlink" title="No Sql"></a><strong>No Sql</strong></h4><hr>
 <ul>
 <li><strong><a href="http://github.com/cesarferreira/RxPaper#handle-data-structure-changes" target="_blank" rel="noopener">RxPaper</a>   Like  below Paper </strong></li>
@@ -649,9 +676,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据库/" rel="tag"># 数据库</a>
-          
             <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
           
             <a href="/tags/database/" rel="tag"># database</a>
           
@@ -765,7 +792,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -782,7 +809,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -904,16 +931,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

@@ -146,7 +146,8 @@
 
 
   <title> Android测试资源集合,测试工具,测试开源项目 | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -665,37 +666,92 @@
 </ul>
 <h3 id="开发时的调试工具"><a href="#开发时的调试工具" class="headerlink" title="开发时的调试工具"></a>开发时的调试工具</h3><h4 id="stetho"><a href="#stetho" class="headerlink" title="stetho"></a><strong><a href="https://github.com/facebook/stetho" target="_blank" rel="noopener">stetho</a></strong></h4><p>Facebook开源，很强大的Android网络和数据库调试工具,能像调试WebApp一样调试Android原生应用。<a href="http://www.jianshu.com/p/03da9f91f41f" target="_blank" rel="noopener">借助Stetho在Chrome上调试Android网络&amp;数据库</a><br>常用配置:</p>
 <ul>
-<li><p>初始化</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate();</span><br><span class="line">    Stetho.initializeWithDefaults(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>初始化<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyApplication</span> <span class="token keyword">extends</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Stetho<span class="token punctuation">.</span><span class="token function">initializeWithDefaults</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>Chrome浏览器打开<code>chrome://inspect/#devices</code></p>
-</li>
+<li>Chrome浏览器打开<code>chrome://inspect/#devices</code></li>
 </ul>
 <p><strong>进阶</strong>增加网络拦截</p>
 <ul>
-<li><p><strong>Dependency</strong> 增加依赖环境</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.facebook.stetho:stetho:1.3.1'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.facebook.stetho:stetho-okhttp3:1.3.1'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:retrofit:2.0.0-beta4'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.okhttp3:okhttp:3.2.0'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.squareup.retrofit2:converter-gson:2.0.0-beta4'</span></span><br></pre></td></tr></table></figure>
+<li><strong>Dependency</strong> 增加依赖环境<pre class="line-numbers language-gradle"><code class="language-gradle">compile 'com.facebook.stetho:stetho:1.3.1'
+compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+compile 'com.squareup.okhttp3:okhttp:3.2.0'
+compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>向OkHttpClient增加网络拦截</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient.Builder()</span><br><span class="line">            .addNetworkInterceptor(<span class="keyword">new</span> StethoInterceptor())</span><br><span class="line">            .build();</span><br></pre></td></tr></table></figure>
+<li>向OkHttpClient增加网络拦截<pre class="line-numbers language-java"><code class="language-java">OkHttpClient client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OkHttpClient<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">addNetworkInterceptor</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StethoInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<h4 id="augmented-traffic-control"><a href="#augmented-traffic-control" class="headerlink" title="augmented-traffic-control"></a><strong><a href="https://github.com/facebook/augmented-traffic-control" target="_blank" rel="noopener">augmented-traffic-control</a></strong></h4><p>Fackbook开源项目模拟移动网络，对App的调试及网络优化有很大的帮助，主要参数有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">网络带宽（bandwidth）</span><br><span class="line">延迟（latency）</span><br><span class="line">丢包率（packet loss）</span><br><span class="line">错包率（corrupted packets）</span><br><span class="line">乱序率（packets ordering）</span><br></pre></td></tr></table></figure></p>
-<h4 id="GT（随身调）-腾讯开源的测试套件"><a href="#GT（随身调）-腾讯开源的测试套件" class="headerlink" title="GT（随身调） 腾讯开源的测试套件"></a>GT（随身调） 腾讯开源的测试套件</h4><p>能Android设备上安装,进行<code>移动</code>调试,确保测试数据的真实有效性<br>开源地址: <a href="https://github.com/TencentOpen/GT" target="_blank" rel="noopener">https://github.com/TencentOpen/GT</a><br><a href="http://gt.qq.com/index.html" target="_blank" rel="noopener">官网地址</a></p>
+<h4 id="augmented-traffic-control"><a href="#augmented-traffic-control" class="headerlink" title="augmented-traffic-control"></a><strong><a href="https://github.com/facebook/augmented-traffic-control" target="_blank" rel="noopener">augmented-traffic-control</a></strong></h4><p>Fackbook开源项目模拟移动网络，对App的调试及网络优化有很大的帮助，主要参数有：</p>
+<pre><code>网络带宽（bandwidth）
+延迟（latency）
+丢包率（packet loss）
+错包率（corrupted packets）
+乱序率（packets ordering）
+</code></pre><h4 id="GT（随身调）-腾讯开源的测试套件"><a href="#GT（随身调）-腾讯开源的测试套件" class="headerlink" title="GT（随身调） 腾讯开源的测试套件"></a>GT（随身调） 腾讯开源的测试套件</h4><p>能Android设备上安装,进行<code>移动</code>调试,确保测试数据的真实有效性<br>开源地址: <a href="https://github.com/TencentOpen/GT" target="_blank" rel="noopener">https://github.com/TencentOpen/GT</a><br><a href="http://gt.qq.com/index.html" target="_blank" rel="noopener">官网地址</a></p>
 <blockquote>
 <p>使用GT APP进行快速的性能测试(CPU、内存、流量、电量、帧率/流畅度等等)、开发日志的查看、Crash日志查看、网络数据包的抓取、APP内部参数的调试、真机代码耗时统计等。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">一. 基本功能测试</span><br><span class="line"><span class="number">1</span>. CPU占有率;</span><br><span class="line"><span class="number">2</span> jiffes（CPU时间片）;</span><br><span class="line"><span class="number">3</span>. 内存PSS值稳定在<span class="number">36</span>M;</span><br><span class="line"><span class="number">4</span>. 网络上行流量和下行流量;</span><br><span class="line"><span class="number">5</span>. <span class="string">"数据存档"</span></span><br><span class="line">二. 电量测试</span><br><span class="line">再启动电流监控观察，<span class="number">1</span>分钟后平均电流是<span class="number">220</span>mA</span><br><span class="line">三. crash</span><br><span class="line">- 保存了抓包文件后;</span><br><span class="line">- Logcat查看界面，立即把手机缓存的Logcat日志保存下来;</span><br><span class="line">四. Net</span><br><span class="line">- 系统提供的流量查看也包括局域网socket的流量,而且不能分时段统计;</span><br><span class="line">- tcpdump抓包(需要手机root) + Wiresharek 抓包分析;</span><br><span class="line">疑问点:</span><br><span class="line"><span class="number">1</span>. 激活FPS（帧率）的监测;</span><br></pre></td></tr></table></figure>
-<h4 id="应用开发助手"><a href="#应用开发助手" class="headerlink" title="应用开发助手"></a>应用开发助手</h4><p> Google Play、应用宝搜索“开发助手”下载， 或<a href="http://trinea.cn/app/dev-tools.apk" target="_blank" rel="noopener">Download</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">屏幕分辨率、CPU 核数、IP 及 Mac 地址、so 类型、系统版本。</span><br><span class="line">频繁切换“严格模式”；</span><br><span class="line">多次启停“显示布局边界”；</span><br><span class="line">测试被系统回收来回切换“不保留活动”；</span><br></pre></td></tr></table></figure></p>
-<h4 id="Android-Debug-Drawer-查看设备信息"><a href="#Android-Debug-Drawer-查看设备信息" class="headerlink" title="Android Debug Drawer 查看设备信息"></a>Android Debug Drawer 查看设备信息</h4><p><img src="https://github.com/palaima/DebugDrawer/raw/master/images/all.png" alt=""></p>
+<pre class="line-numbers language-java"><code class="language-java">一<span class="token punctuation">.</span> 基本功能测试
+<span class="token number">1</span><span class="token punctuation">.</span> CPU占有率<span class="token punctuation">;</span>
+<span class="token number">2</span> jiffes（CPU时间片）<span class="token punctuation">;</span>
+<span class="token number">3</span><span class="token punctuation">.</span> 内存PSS值稳定在36M<span class="token punctuation">;</span>
+<span class="token number">4</span><span class="token punctuation">.</span> 网络上行流量和下行流量<span class="token punctuation">;</span>
+<span class="token number">5</span><span class="token punctuation">.</span> <span class="token string">"数据存档"</span>
+二<span class="token punctuation">.</span> 电量测试
+再启动电流监控观察，<span class="token number">1</span>分钟后平均电流是220mA
+三<span class="token punctuation">.</span> crash
+<span class="token operator">-</span> 保存了抓包文件后<span class="token punctuation">;</span>
+<span class="token operator">-</span> Logcat查看界面，立即把手机缓存的Logcat日志保存下来<span class="token punctuation">;</span>
+四<span class="token punctuation">.</span> Net
+<span class="token operator">-</span> 系统提供的流量查看也包括局域网socket的流量<span class="token punctuation">,</span>而且不能分时段统计<span class="token punctuation">;</span>
+<span class="token operator">-</span> tcpdump抓包<span class="token punctuation">(</span>需要手机root<span class="token punctuation">)</span> <span class="token operator">+</span> Wiresharek 抓包分析<span class="token punctuation">;</span>
+疑问点<span class="token operator">:</span>
+<span class="token number">1</span><span class="token punctuation">.</span> 激活FPS（帧率）的监测<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="应用开发助手"><a href="#应用开发助手" class="headerlink" title="应用开发助手"></a>应用开发助手</h4><p> Google Play、应用宝搜索“开发助手”下载， 或<a href="http://trinea.cn/app/dev-tools.apk" target="_blank" rel="noopener">Download</a></p>
+<pre><code>屏幕分辨率、CPU 核数、IP 及 Mac 地址、so 类型、系统版本。
+频繁切换“严格模式”；
+多次启停“显示布局边界”；
+测试被系统回收来回切换“不保留活动”；
+</code></pre><h4 id="Android-Debug-Drawer-查看设备信息"><a href="#Android-Debug-Drawer-查看设备信息" class="headerlink" title="Android Debug Drawer 查看设备信息"></a>Android Debug Drawer 查看设备信息</h4><p><img src="https://github.com/palaima/DebugDrawer/raw/master/images/all.png" alt=""></p>
 <h4 id="安卓日志工具"><a href="#安卓日志工具" class="headerlink" title="安卓日志工具"></a>安卓日志工具</h4><ul>
 <li>XLog <a href="https://github.com/elvishew/xLog" target="_blank" rel="noopener">github</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&amp;mid=2653578220&amp;idx=3&amp;sn=5691bdd82ae0715ab12fd6b849f74aee&amp;chksm=84b3b1ebb3c438fddf86bf74e232fa14222932ebd6d6439bed04ad17d5e64e9270d4ab460f64&amp;mpshare=1&amp;scene=1&amp;srcid=1110XcvPqVz21oivUSueMAeB#rd" target="_blank" rel="noopener">微信mars 的高性能日志模块 xlog</a></li>
 <li><a href="http://github.com/JakeWharton/pidcat/" target="_blank" rel="noopener">Pidcat</a><br><img src="https://github.com/JakeWharton/pidcat/raw/master/screen.png" alt=""></li>
 <li><p><a href="http://github.com/JakeWharton/timber" target="_blank" rel="noopener">Timber</a> jakewharton 出品</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.jakewharton.timber:timber:4.5.1'</span></span><br><span class="line">  <span class="comment">// 初始化</span></span><br><span class="line">  <span class="keyword">if</span> (BuildConfig.DEBUG) &#123;</span><br><span class="line">      Timber.plant(<span class="keyword">new</span> Timber.DebugTree());</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      Timber.plant(<span class="keyword">new</span> CrashReportingTree());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//发布后程序（Release.apk），崩溃日志上报</span></span><br><span class="line">  <span class="comment">/** A tree which logs important information for crash reporting. */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CrashReportingTree</span> <span class="keyword">extends</span> <span class="title">Timber</span>.<span class="title">Tree</span> </span>&#123;</span><br><span class="line">      <span class="meta">@Override</span> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(<span class="keyword">int</span> priority, String tag, String message, Throwable t)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (priority == Log.ERROR) &#123;</span><br><span class="line">              String msg = message + (t == <span class="keyword">null</span> ? <span class="string">""</span> : t.getMessage());</span><br><span class="line">              MobclickAgent.reportError(mContext,</span><br><span class="line">                      String.format(<span class="string">"TAG=%s, msg=%s, Throwable=%s"</span>,</span><br><span class="line">                              tag, message, t == <span class="keyword">null</span> ? <span class="string">""</span> : t.getMessage())); <span class="comment">//友盟错误上传</span></span><br><span class="line"><span class="comment">//                Crashlytics.log(priority, tag, msg);// Fabric 错误上传</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java"><code class="language-java">compile <span class="token string">'com.jakewharton.timber:timber:4.5.1'</span>
+<span class="token comment" spellcheck="true">// 初始化</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>BuildConfig<span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Timber<span class="token punctuation">.</span><span class="token function">plant</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Timber<span class="token punctuation">.</span>DebugTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    Timber<span class="token punctuation">.</span><span class="token function">plant</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CrashReportingTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//发布后程序（Release.apk），崩溃日志上报</span>
+<span class="token comment" spellcheck="true">/** A tree which logs important information for crash reporting. */</span>
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">CrashReportingTree</span> <span class="token keyword">extends</span> <span class="token class-name">Timber<span class="token punctuation">.</span>Tree</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span> <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">int</span> priority<span class="token punctuation">,</span> String tag<span class="token punctuation">,</span> String message<span class="token punctuation">,</span> Throwable t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>priority <span class="token operator">==</span> Log<span class="token punctuation">.</span>ERROR<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            String msg <span class="token operator">=</span> message <span class="token operator">+</span> <span class="token punctuation">(</span>t <span class="token operator">==</span> null <span class="token operator">?</span> <span class="token string">""</span> <span class="token operator">:</span> t<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            MobclickAgent<span class="token punctuation">.</span><span class="token function">reportError</span><span class="token punctuation">(</span>mContext<span class="token punctuation">,</span>
+                    String<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"TAG=%s, msg=%s, Throwable=%s"</span><span class="token punctuation">,</span>
+                            tag<span class="token punctuation">,</span> message<span class="token punctuation">,</span> t <span class="token operator">==</span> null <span class="token operator">?</span> <span class="token string">""</span> <span class="token operator">:</span> t<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//友盟错误上传</span>
+<span class="token comment" spellcheck="true">//                Crashlytics.log(priority, tag, msg);// Fabric 错误上传</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p><a href="https://github.com/JakeWharton/hugo" target="_blank" rel="noopener">Hugo</a> 用注解的方式日志打印方法传入的参数 Annotation-triggered method call logging for your debug builds.</p>
-</li>
+<li><a href="https://github.com/JakeWharton/hugo" target="_blank" rel="noopener">Hugo</a> 用注解的方式日志打印方法传入的参数 Annotation-triggered method call logging for your debug builds.</li>
 <li><a href="https://github.com/NikitaKozlov/Pury" target="_blank" rel="noopener">Pury</a>   like Hugo But Android library for measuring time between multiple independent<br>events.</li>
 <li><a href="http://github.com/fengjundev/DoubanMovie-React-Native" target="_blank" rel="noopener">KLog</a> 这是一个Android专用的LogCat工具，主要功能为打印行号、函数调用、Json解析、XML解析、点击跳转、Log信息保存等功能<br><img src="https://github.com/ZhaoKaiQiang/KLog/raw/master/image/demo.gif" alt=""></li>
 </ul>
@@ -844,7 +900,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -861,7 +917,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -983,16 +1039,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

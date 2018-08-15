@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="常用的命令日常常用1234567891011121314151617181920212223242526cp /etc/apt/sources.list /etc/apt/sources.list.2015.06.05vim /etc/apt/sources.listsudo chmod ugo+rwx   //user + read write execution permisstion ps">
+<meta name="description" content="常用的命令日常常用cp /etc/apt/sources.list /etc/apt/sources.list.2015.06.05 vim /etc/apt/sources.list sudo chmod ugo+rwx   //user + read write execution permisstion  ps -ef  | grep &quot;key_word&quot; edward    7751  7">
 <meta name="keywords" content="Basic,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux学习笔记">
 <meta property="og:url" content="http://zhilinchn.online/2017/02/21/2017-02-21-linux-study/index.html">
 <meta property="og:site_name" content="林酱的博客">
-<meta property="og:description" content="常用的命令日常常用1234567891011121314151617181920212223242526cp /etc/apt/sources.list /etc/apt/sources.list.2015.06.05vim /etc/apt/sources.listsudo chmod ugo+rwx   //user + read write execution permisstion ps">
+<meta property="og:description" content="常用的命令日常常用cp /etc/apt/sources.list /etc/apt/sources.list.2015.06.05 vim /etc/apt/sources.list sudo chmod ugo+rwx   //user + read write execution permisstion  ps -ef  | grep &quot;key_word&quot; edward    7751  7">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/busyloop/lolcat/raw/master/ass/screenshot.png">
 <meta property="og:updated_time" content="2017-03-31T23:24:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux学习笔记">
-<meta name="twitter:description" content="常用的命令日常常用1234567891011121314151617181920212223242526cp /etc/apt/sources.list /etc/apt/sources.list.2015.06.05vim /etc/apt/sources.listsudo chmod ugo+rwx   //user + read write execution permisstion ps">
+<meta name="twitter:description" content="常用的命令日常常用cp /etc/apt/sources.list /etc/apt/sources.list.2015.06.05 vim /etc/apt/sources.list sudo chmod ugo+rwx   //user + read write execution permisstion  ps -ef  | grep &quot;key_word&quot; edward    7751  7">
 <meta name="twitter:image" content="https://github.com/busyloop/lolcat/raw/master/ass/screenshot.png">
 
 
@@ -132,7 +132,8 @@
 
 
   <title> Linux学习笔记 | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -548,9 +549,84 @@
       
 
       
-        <h3 id="常用的命令"><a href="#常用的命令" class="headerlink" title="常用的命令"></a>常用的命令</h3><h4 id="日常常用"><a href="#日常常用" class="headerlink" title="日常常用"></a>日常常用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/apt/sources.list /etc/apt/sources.list.2015.06.05</span><br><span class="line">vim /etc/apt/sources.list</span><br><span class="line">sudo chmod ugo+rwx   //user + read write execution permisstion</span><br><span class="line"> ps -ef  | grep "key_word"</span><br><span class="line">edward    7751  7723  0 23:01 ?        00:00:00 /usr/share/android-studio/bin/fs</span><br><span class="line">kill 7723</span><br><span class="line">sudo lsb_release -a　// look ubuntu version</span><br><span class="line">uname -r  //kernal version</span><br><span class="line"></span><br><span class="line">netstat –tln //查看服务监听端口</span><br><span class="line">netstat      //查看进程号</span><br><span class="line">ps –aux     //查看进程号</span><br><span class="line">ps –aux | more //全部查看</span><br><span class="line">ps –ef | grep mysql //查看mysql的进程</span><br><span class="line">kill -9 3306 //强制杀掉进程号3306</span><br><span class="line"></span><br><span class="line">sudo gdebi sogou_pinyin_linux_1.0.0.0014_amd64.deb</span><br><span class="line"></span><br><span class="line">vim ~/.bashrc</span><br><span class="line">alias pbcopy="xclip -selection c"</span><br><span class="line">alias pbpaste="xclip -selection clipboard -o"</span><br><span class="line">source ~/.bashrc</span><br><span class="line"></span><br><span class="line">diff -ruNa dir1  dir2 &gt; s12.diff</span><br><span class="line"></span><br><span class="line">pcmanfm  .  当前路径当前文件管理</span><br></pre></td></tr></table></figure>
-<h4 id="加压和解压"><a href="#加压和解压" class="headerlink" title="加压和解压"></a>加压和解压</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">.bz2</span><br><span class="line">解压1：bzip2 -d FileName.bz2</span><br><span class="line">解压2：bunzip2 FileName.bz2</span><br><span class="line">压缩： bzip2 -z FileName</span><br><span class="line">.tar.bz2</span><br><span class="line">解压：tar jxvf FileName.tar.bz2</span><br><span class="line">压缩：tar jcvf FileName.tar.bz2 DirName</span><br><span class="line">---------------------------------------------</span><br><span class="line">.bz</span><br><span class="line">解压1：bzip2 -d FileName.bz</span><br><span class="line">解压2：bunzip2 FileName.bz</span><br><span class="line">压缩：未知</span><br><span class="line">.tar.bz</span><br><span class="line">解压：tar jxvf FileName.tar.bz</span><br><span class="line">压缩：未知</span><br><span class="line">---------------------------------------------</span><br><span class="line">.Z</span><br><span class="line">解压：uncompress FileName.Z</span><br><span class="line">压缩：compress FileName</span><br><span class="line">.tar.Z</span><br><span class="line">解压：tar Zxvf FileName.tar.Z</span><br><span class="line">压缩：tar Zcvf FileName.tar.Z DirName</span><br><span class="line">---------------------------------------------</span><br><span class="line">.tgz</span><br><span class="line">解压：tar zxvf FileName.tgz</span><br><span class="line">压缩：未知</span><br><span class="line">.tar.tgz</span><br><span class="line">解压：tar zxvf FileName.tar.tgz</span><br><span class="line">压缩：tar zcvf FileName.tar.tgz FileName</span><br><span class="line">---------------------------------------------</span><br><span class="line">.zip</span><br><span class="line">解压：unzip FileName.zip</span><br><span class="line">压缩：zip FileName.zip DirName</span><br><span class="line">---------------------------------------------</span><br><span class="line">.rar</span><br><span class="line">解压：rar a FileName.rar</span><br><span class="line">压缩：r ar e FileName.rar</span><br><span class="line">gz</span><br><span class="line">解压1：gunzip FileName.gz</span><br><span class="line">解压2：gzip -d FileName.gz</span><br><span class="line">压缩：gzip FileName</span><br><span class="line">.tar.gz</span><br><span class="line">解压：tar zxvf FileName.tar.gz</span><br><span class="line">压缩：tar zcvf FileName.tar.gz DirName</span><br></pre></td></tr></table></figure>
-<h4 id="几种快速清空文件内容的方法"><a href="#几种快速清空文件内容的方法" class="headerlink" title="几种快速清空文件内容的方法"></a>几种快速清空文件内容的方法</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo "" &gt; fileName</span><br><span class="line">echo /dev/null &gt; fileName</span><br><span class="line">echo &gt; fileName</span><br><span class="line">cat /dev/null &gt; fileName</span><br></pre></td></tr></table></figure>
+        <h3 id="常用的命令"><a href="#常用的命令" class="headerlink" title="常用的命令"></a>常用的命令</h3><h4 id="日常常用"><a href="#日常常用" class="headerlink" title="日常常用"></a>日常常用</h4><pre class="line-numbers language-shell"><code class="language-shell">cp /etc/apt/sources.list /etc/apt/sources.list.2015.06.05
+vim /etc/apt/sources.list
+sudo chmod ugo+rwx   //user + read write execution permisstion
+ ps -ef  | grep "key_word"
+edward    7751  7723  0 23:01 ?        00:00:00 /usr/share/android-studio/bin/fs
+kill 7723
+sudo lsb_release -a　// look ubuntu version
+uname -r  //kernal version
+
+netstat –tln //查看服务监听端口
+netstat      //查看进程号
+ps –aux     //查看进程号
+ps –aux | more //全部查看
+ps –ef | grep mysql //查看mysql的进程
+kill -9 3306 //强制杀掉进程号3306
+
+sudo gdebi sogou_pinyin_linux_1.0.0.0014_amd64.deb
+
+vim ~/.bashrc
+alias pbcopy="xclip -selection c"
+alias pbpaste="xclip -selection clipboard -o"
+source ~/.bashrc
+
+diff -ruNa dir1  dir2 > s12.diff
+
+pcmanfm  .  当前路径当前文件管理
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="加压和解压"><a href="#加压和解压" class="headerlink" title="加压和解压"></a>加压和解压</h4><pre class="line-numbers language-shell---------------------------------------------"><code class="language-shell---------------------------------------------">.bz2
+解压1：bzip2 -d FileName.bz2
+解压2：bunzip2 FileName.bz2
+压缩： bzip2 -z FileName
+.tar.bz2
+解压：tar jxvf FileName.tar.bz2
+压缩：tar jcvf FileName.tar.bz2 DirName
+---------------------------------------------
+.bz
+解压1：bzip2 -d FileName.bz
+解压2：bunzip2 FileName.bz
+压缩：未知
+.tar.bz
+解压：tar jxvf FileName.tar.bz
+压缩：未知
+---------------------------------------------
+.Z
+解压：uncompress FileName.Z
+压缩：compress FileName
+.tar.Z
+解压：tar Zxvf FileName.tar.Z
+压缩：tar Zcvf FileName.tar.Z DirName
+---------------------------------------------
+.tgz
+解压：tar zxvf FileName.tgz
+压缩：未知
+.tar.tgz
+解压：tar zxvf FileName.tar.tgz
+压缩：tar zcvf FileName.tar.tgz FileName
+---------------------------------------------
+.zip
+解压：unzip FileName.zip
+压缩：zip FileName.zip DirName
+---------------------------------------------
+.rar
+解压：rar a FileName.rar
+压缩：r ar e FileName.rar
+gz
+解压1：gunzip FileName.gz
+解压2：gzip -d FileName.gz
+压缩：gzip FileName
+.tar.gz
+解压：tar zxvf FileName.tar.gz
+压缩：tar zcvf FileName.tar.gz DirName
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="几种快速清空文件内容的方法"><a href="#几种快速清空文件内容的方法" class="headerlink" title="几种快速清空文件内容的方法"></a>几种快速清空文件内容的方法</h4><pre class="line-numbers language-shell"><code class="language-shell">echo "" > fileName
+echo /dev/null > fileName
+echo > fileName
+cat /dev/null > fileName
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="软件安装问题"><a href="#软件安装问题" class="headerlink" title="软件安装问题"></a>软件安装问题</h3><h4 id="upgrade-部分链接报错"><a href="#upgrade-部分链接报错" class="headerlink" title="upgrade 部分链接报错"></a>upgrade 部分链接报错</h4><blockquote>
 <p> GPG error: <a href="http://deb.playonlinux.com" target="_blank" rel="noopener">http://deb.playonlinux.com</a> trusty InRelease: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY E0F72778C4676186</p>
 </blockquote>
@@ -578,10 +654,13 @@
 </li>
 </ul>
 <h4 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h4><ul>
-<li><a href="http://shadowsocks.org/en/index.html" target="_blank" rel="noopener">Shadowsocks</a><br><a href="http://https//plus.google.com/+GhostAssassin/posts/NrDZWoXVjSD" target="_blank" rel="noopener">免费翻墙账号网站大集合</a><br><a href="https://www.lightss.xyz/user/node/index.php" target="_blank" rel="noopener">https://www.lightss.xyz/user/node/index.php</a><br><a href="mailto:kebi2014@gmail.com" target="_blank" rel="noopener">kebi2014@gmail.com</a><br><a href="https://www.ss-link.com/my/free" target="_blank" rel="noopener">https://www.ss-link.com/my/free</a><br><a href="https://www.shadowsocksx.me/" target="_blank" rel="noopener">https://www.shadowsocksx.me/</a><br><a href="http://okzhjyy82.bkt.clouddn.com/SwitchyOptions.bak" target="_blank" rel="noopener">SwitchyOptions.bak下载</a><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install shadowsocks-qt5</span><br><span class="line">ss-qt5</span><br></pre></td></tr></table></figure>
-</li>
+<li><a href="http://shadowsocks.org/en/index.html" target="_blank" rel="noopener">Shadowsocks</a><br><a href="http://https//plus.google.com/+GhostAssassin/posts/NrDZWoXVjSD" target="_blank" rel="noopener">免费翻墙账号网站大集合</a><br><a href="https://www.lightss.xyz/user/node/index.php" target="_blank" rel="noopener">https://www.lightss.xyz/user/node/index.php</a><br><a href="mailto:kebi2014@gmail.com" target="_blank" rel="noopener">kebi2014@gmail.com</a><br><a href="https://www.ss-link.com/my/free" target="_blank" rel="noopener">https://www.ss-link.com/my/free</a><br><a href="https://www.shadowsocksx.me/" target="_blank" rel="noopener">https://www.shadowsocksx.me/</a><br><a href="http://okzhjyy82.bkt.clouddn.com/SwitchyOptions.bak" target="_blank" rel="noopener">SwitchyOptions.bak下载</a><pre class="line-numbers language-shell"><code class="language-shell">sudo add-apt-repository ppa:hzwhuang/ss-qt5
+sudo apt-get update
+sudo apt-get install shadowsocks-qt5
+ss-qt5
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+自己搭建 搬瓦工的vps</li>
 </ul>
-<p>自己搭建 搬瓦工的vps</p>
 <h3 id="Lubuntu-精简Linux系统的使用"><a href="#Lubuntu-精简Linux系统的使用" class="headerlink" title="Lubuntu 精简Linux系统的使用"></a>Lubuntu 精简Linux系统的使用</h3><h3 id="好玩的工具"><a href="#好玩的工具" class="headerlink" title="好玩的工具"></a>好玩的工具</h3><h4 id="lolcat"><a href="#lolcat" class="headerlink" title="lolcat"></a><strong><a href="https://github.com/busyloop/lolcat" target="_blank" rel="noopener">lolcat</a></strong></h4><p><img src="https://github.com/busyloop/lolcat/raw/master/ass/screenshot.png" alt=""></p>
 <blockquote>
 <p>gem install lolcat</p>
@@ -723,7 +802,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -740,7 +819,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -862,16 +941,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

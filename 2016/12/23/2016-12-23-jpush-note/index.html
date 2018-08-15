@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤注册极光账号 并配置Android 程序包名配置了jcenter支持1234567891011buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;&amp;#125;allprojects &amp;#123;    repositories &amp;#1">
+<meta name="description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤注册极光账号 并配置Android 程序包名配置了jcenter支持buildscript {     repositories {         jcenter()     } }  allprojects {     repositories {         jcenter()     } }  集成依赖a">
 <meta name="keywords" content="第三方SDK">
 <meta property="og:type" content="article">
 <meta property="og:title" content="推送实践">
 <meta property="og:url" content="http://zhilinchn.online/2016/12/23/2016-12-23-jpush-note/index.html">
 <meta property="og:site_name" content="林酱的博客">
-<meta property="og:description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤注册极光账号 并配置Android 程序包名配置了jcenter支持1234567891011buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;&amp;#125;allprojects &amp;#123;    repositories &amp;#1">
+<meta property="og:description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤注册极光账号 并配置Android 程序包名配置了jcenter支持buildscript {     repositories {         jcenter()     } }  allprojects {     repositories {         jcenter()     } }  集成依赖a">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/JPush_tutorial_img.png">
 <meta property="og:updated_time" content="2018-05-14T14:48:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="推送实践">
-<meta name="twitter:description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤注册极光账号 并配置Android 程序包名配置了jcenter支持1234567891011buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;&amp;#125;allprojects &amp;#123;    repositories &amp;#1">
+<meta name="twitter:description" content="极光推送介绍极光推送自动集成官方 Android SDK 集成指南集成实践详细步骤注册极光账号 并配置Android 程序包名配置了jcenter支持buildscript {     repositories {         jcenter()     } }  allprojects {     repositories {         jcenter()     } }  集成依赖a">
 <meta name="twitter:image" content="http://ohlb58e07.bkt.clouddn.com/JPush_tutorial_img.png">
 
 
@@ -132,7 +132,8 @@
 
 
   <title> 推送实践 | 林酱的博客 </title>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -548,34 +549,130 @@
       
 
       
-        <h2 id="极光推送介绍"><a href="#极光推送介绍" class="headerlink" title="极光推送介绍"></a>极光推送介绍</h2><h2 id="极光推送自动集成"><a href="#极光推送自动集成" class="headerlink" title="极光推送自动集成"></a>极光推送自动集成</h2><h3 id="官方-Android-SDK-集成指南"><a href="#官方-Android-SDK-集成指南" class="headerlink" title="官方 Android SDK 集成指南"></a><a href="https://docs.jiguang.cn/jpush/client/Android/android_guide/" target="_blank" rel="noopener">官方 Android SDK 集成指南</a></h3><h3 id="集成实践详细步骤"><a href="#集成实践详细步骤" class="headerlink" title="集成实践详细步骤"></a>集成实践详细步骤</h3><h4 id="注册极光账号-并配置Android-程序包名"><a href="#注册极光账号-并配置Android-程序包名" class="headerlink" title="注册极光账号 并配置Android 程序包名"></a><a href="https://www.jiguang.cn/" target="_blank" rel="noopener">注册极光账号</a> 并配置Android 程序包名</h4><h4 id="配置了jcenter支持"><a href="#配置了jcenter支持" class="headerlink" title="配置了jcenter支持"></a>配置了jcenter支持</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="集成依赖"><a href="#集成依赖" class="headerlink" title="集成依赖"></a>集成依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId &quot;com.xxx.xxx&quot; //JPush上注册的包名.</span><br><span class="line">        ndk &#123;</span><br><span class="line">            //选择要添加的对应cpu类型的.so库。</span><br><span class="line">            abiFilters &apos;armeabi&apos;, &apos;armeabi-v7a&apos;, &apos;armeabi-v8a&apos;</span><br><span class="line">            // 还可以添加 &apos;x86&apos;, &apos;x86_64&apos;, &apos;mips&apos;, &apos;mips64&apos;</span><br><span class="line">        &#125;</span><br><span class="line">        manifestPlaceholders = [</span><br><span class="line">            JPUSH_PKGNAME : applicationId,</span><br><span class="line">            JPUSH_APPKEY : &quot;你的appkey&quot;, //JPush上注册的包名对应的appkey.</span><br><span class="line">            JPUSH_CHANNEL : &quot;developer-default&quot;, //暂时填写默认值即可.</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile &apos;cn.jiguang.sdk:jpush:3.0.0&apos;  // 此处以JPush 3.0.0 版本为例。</span><br><span class="line">    compile &apos;cn.jiguang.sdk:jcore:1.0.0&apos;  // 此处以JCore 1.0.0 版本为例。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Manifest自定义广播设置"><a href="#Manifest自定义广播设置" class="headerlink" title="Manifest自定义广播设置"></a>Manifest自定义广播设置</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--      The begin setting of JPush       --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- User defined. 用户自定义的广播接收器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">".broadcast.JPushReceive"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:enabled</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--Required 用户注册SDK的intent--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.REGISTRATION"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--Required 用户接收SDK消息的intent--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.MESSAGE_RECEIVED"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--Required 用户接收SDK通知栏信息的intent--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_RECEIVED"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--Required 用户打开自定义通知栏的intent--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_OPENED"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 接收网络变化 连接/断开 since 1.6.3 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.CONNECTION"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"$&#123;JPUSH_PKGNAME&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--      The end setting of JPush         --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- ************************************* --&gt;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="极光推送介绍"><a href="#极光推送介绍" class="headerlink" title="极光推送介绍"></a>极光推送介绍</h2><h2 id="极光推送自动集成"><a href="#极光推送自动集成" class="headerlink" title="极光推送自动集成"></a>极光推送自动集成</h2><h3 id="官方-Android-SDK-集成指南"><a href="#官方-Android-SDK-集成指南" class="headerlink" title="官方 Android SDK 集成指南"></a><a href="https://docs.jiguang.cn/jpush/client/Android/android_guide/" target="_blank" rel="noopener">官方 Android SDK 集成指南</a></h3><h3 id="集成实践详细步骤"><a href="#集成实践详细步骤" class="headerlink" title="集成实践详细步骤"></a>集成实践详细步骤</h3><h4 id="注册极光账号-并配置Android-程序包名"><a href="#注册极光账号-并配置Android-程序包名" class="headerlink" title="注册极光账号 并配置Android 程序包名"></a><a href="https://www.jiguang.cn/" target="_blank" rel="noopener">注册极光账号</a> 并配置Android 程序包名</h4><h4 id="配置了jcenter支持"><a href="#配置了jcenter支持" class="headerlink" title="配置了jcenter支持"></a>配置了jcenter支持</h4><pre class="line-numbers language-java"><code class="language-java">buildscript <span class="token punctuation">{</span>
+    repositories <span class="token punctuation">{</span>
+        <span class="token function">jcenter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+allprojects <span class="token punctuation">{</span>
+    repositories <span class="token punctuation">{</span>
+        <span class="token function">jcenter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="集成依赖"><a href="#集成依赖" class="headerlink" title="集成依赖"></a>集成依赖</h4><pre><code>android {
+    defaultConfig {
+        applicationId &quot;com.xxx.xxx&quot; //JPush上注册的包名.
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters &#39;armeabi&#39;, &#39;armeabi-v7a&#39;, &#39;armeabi-v8a&#39;
+            // 还可以添加 &#39;x86&#39;, &#39;x86_64&#39;, &#39;mips&#39;, &#39;mips64&#39;
+        }
+        manifestPlaceholders = [
+            JPUSH_PKGNAME : applicationId,
+            JPUSH_APPKEY : &quot;你的appkey&quot;, //JPush上注册的包名对应的appkey.
+            JPUSH_CHANNEL : &quot;developer-default&quot;, //暂时填写默认值即可.
+        ]
+    }
+}
+dependencies {
+    compile &#39;cn.jiguang.sdk:jpush:3.0.0&#39;  // 此处以JPush 3.0.0 版本为例。
+    compile &#39;cn.jiguang.sdk:jcore:1.0.0&#39;  // 此处以JCore 1.0.0 版本为例。
+}
+</code></pre><h4 id="Manifest自定义广播设置"><a href="#Manifest自定义广播设置" class="headerlink" title="Manifest自定义广播设置"></a>Manifest自定义广播设置</h4><pre class="line-numbers language-xml"><code class="language-xml">        <span class="token comment" spellcheck="true">&lt;!-- ************************************* --></span>
+        <span class="token comment" spellcheck="true">&lt;!--      The begin setting of JPush       --></span>
+        <span class="token comment" spellcheck="true">&lt;!-- ************************************* --></span>
+        <span class="token comment" spellcheck="true">&lt;!-- User defined. 用户自定义的广播接收器--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>receiver</span>
+            <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.broadcast.JPushReceive<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">android:</span>enabled</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>intent-filter</span><span class="token punctuation">></span></span>
+                <span class="token comment" spellcheck="true">&lt;!--Required 用户注册SDK的intent--></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cn.jpush.android.intent.REGISTRATION<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+                <span class="token comment" spellcheck="true">&lt;!--Required 用户接收SDK消息的intent--></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cn.jpush.android.intent.MESSAGE_RECEIVED<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+                <span class="token comment" spellcheck="true">&lt;!--Required 用户接收SDK通知栏信息的intent--></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cn.jpush.android.intent.NOTIFICATION_RECEIVED<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+                <span class="token comment" spellcheck="true">&lt;!--Required 用户打开自定义通知栏的intent--></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cn.jpush.android.intent.NOTIFICATION_OPENED<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+                <span class="token comment" spellcheck="true">&lt;!-- 接收网络变化 连接/断开 since 1.6.3 --></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cn.jpush.android.intent.CONNECTION<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>category</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${JPUSH_PKGNAME}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>intent-filter</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>receiver</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!-- ************************************* --></span>
+        <span class="token comment" spellcheck="true">&lt;!--      The end setting of JPush         --></span>
+        <span class="token comment" spellcheck="true">&lt;!-- ************************************* --></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="自定义广播接收器"><a href="#自定义广播接收器" class="headerlink" title="自定义广播接收器"></a>自定义广播接收器</h4><p>官方Demo代码 <a href="https://gist.github.com/Orange168/f40de8f1796cfcd1b81cc7908226b7b7" target="_blank" rel="noopener">JPushReceive.java </a></p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate();</span><br><span class="line">        JPushInterface.setDebugMode(<span class="keyword">true</span>);</span><br><span class="line">        JPushInterface.init(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExampleApplication</span> <span class="token keyword">extends</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+<span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        JPushInterface<span class="token punctuation">.</span><span class="token function">setDebugMode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        JPushInterface<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="测试API集成是否成功"><a href="#测试API集成是否成功" class="headerlink" title="测试API集成是否成功"></a>测试API集成是否成功</h4><ul>
-<li><p>启动应用程序，出现如下日志，说明SDK运行正常</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> [JPushInterface] action:init - sdkVersion:<span class="number">3.0</span>.0, buildId:<span class="number">319</span></span><br><span class="line">pushcore I/JIGUANG-JCore: [ConnectingHelper] Login succeed</span><br></pre></td></tr></table></figure>
+<li>启动应用程序，出现如下日志，说明SDK运行正常<pre class="line-numbers language-java"><code class="language-java"><span class="token punctuation">[</span>JPushInterface<span class="token punctuation">]</span> action<span class="token operator">:</span>init <span class="token operator">-</span> sdkVersion<span class="token operator">:</span><span class="token number">3.0</span><span class="token punctuation">.</span><span class="token number">0</span><span class="token punctuation">,</span> buildId<span class="token operator">:</span><span class="token number">319</span>
+pushcore I<span class="token operator">/</span>JIGUANG<span class="token operator">-</span>JCore<span class="token operator">:</span> <span class="token punctuation">[</span>ConnectingHelper<span class="token punctuation">]</span> Login succeed 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p>运行App，到控制台发送测试推送<br><img src="http://ohlb58e07.bkt.clouddn.com/JPush_tutorial_img.png" alt=""></p>
-</li>
+<li>运行App，到控制台发送测试推送<br><img src="http://ohlb58e07.bkt.clouddn.com/JPush_tutorial_img.png" alt=""></li>
 <li>【重点-填坑】如果没有收到推送重启手机， 日志会打印某些jni调用的代码未找到；</li>
 <li>经验集成SDK，配置完成后需等待一段时间，功能才会见效；</li>
 </ul>
 <h2 id="进价"><a href="#进价" class="headerlink" title="进价"></a>进价</h2><h3 id="别名与标签"><a href="#别名与标签" class="headerlink" title="别名与标签"></a>别名与标签</h3><p>把绑定关系保存到 JPush 服务器端</p>
 <ul>
-<li>使用案例： 动态标签  根据角色和地域等相关的信息动态设置标签和别名，从而区分收到推送的客户；<br>相关方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JPushInterface.setAlias(Context context,String alias, TagAliasCallback CallBack);</span><br><span class="line">JPushInterface.setTags(Context ctx,Set&lt;String&gt; tags, TagAliasCallback CallBack);</span><br><span class="line">JPushInterface.setAliasAndTags(getApplicationContext(), null, (Set&lt;String&gt;) msg.obj, mTagsCallback);</span><br></pre></td></tr></table></figure>
+<li>使用案例： 动态标签  根据角色和地域等相关的信息动态设置标签和别名，从而区分收到推送的客户；<br>相关方法<pre><code>JPushInterface.setAlias(Context context,String alias, TagAliasCallback CallBack);
+JPushInterface.setTags(Context ctx,Set&lt;String&gt; tags, TagAliasCallback CallBack);
+JPushInterface.setAliasAndTags(getApplicationContext(), null, (Set&lt;String&gt;) msg.obj, mTagsCallback);
+</code></pre><blockquote>
+<p><strong>温馨提示</strong> 设置标签别名请注意处理call back结果。只有call back 返回值为 0 才设置成功，<br>才可以向目标推送。否则服务器 API 会返回1011错误。</p>
+</blockquote>
 </li>
 </ul>
-<blockquote>
-<p><strong>温馨提示</strong> 设置标签别名请注意处理call back结果。只有call back 返回值为 0 才设置成功，<br>  才可以向目标推送。否则服务器 API 会返回1011错误。</p>
-</blockquote>
 <h3 id="RegistrationID"><a href="#RegistrationID" class="headerlink" title="RegistrationID"></a>RegistrationID</h3><p>把绑定关系保存到开发者应用服务器中</p>
 <h3 id="客户端设置通知栏样式"><a href="#客户端设置通知栏样式" class="headerlink" title="客户端设置通知栏样式"></a><a href="https://docs.jiguang.cn/jpush/client/Android/android_senior/#_8" target="_blank" rel="noopener">客户端设置通知栏样式</a></h3><blockquote>
 <p>铃声、震动<br>显示图标<br>替换默认的通知栏样式。</p>
 </blockquote>
-<h3 id="自定义通知栏样式"><a href="#自定义通知栏样式" class="headerlink" title="自定义通知栏样式"></a>自定义通知栏样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 设置通知提示方式 - 基础属性</span><br><span class="line"> */</span><br><span class="line">private void setStyleBasic() &#123;</span><br><span class="line">	BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(PushSetActivity.this);</span><br><span class="line">	builder.statusBarDrawable = R.drawable.ic_launcher;</span><br><span class="line">	builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失</span><br><span class="line">	builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）</span><br><span class="line">	JPushInterface.setPushNotificationBuilder(1, builder);</span><br><span class="line">	Toast.makeText(PushSetActivity.this, &quot;Basic Builder - 1&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 设置通知栏样式 - 定义通知栏Layout</span><br><span class="line"> */</span><br><span class="line">private void setStyleCustom() &#123;</span><br><span class="line">	CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(PushSetActivity.this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text);</span><br><span class="line">	builder.layoutIconDrawable = R.drawable.ic_launcher;</span><br><span class="line">	builder.developerArg0 = &quot;developerArg2&quot;;</span><br><span class="line">	JPushInterface.setPushNotificationBuilder(2, builder);</span><br><span class="line">	Toast.makeText(PushSetActivity.this, &quot;Custom Builder - 2&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private void setAddActionsStyle() &#123;</span><br><span class="line">	MultiActionsNotificationBuilder builder = new MultiActionsNotificationBuilder(PushSetActivity.this);</span><br><span class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;first&quot;, &quot;my_extra1&quot;);</span><br><span class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;second&quot;, &quot;my_extra2&quot;);</span><br><span class="line">	builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;third&quot;, &quot;my_extra3&quot;);</span><br><span class="line">	JPushInterface.setPushNotificationBuilder(10, builder);</span><br><span class="line"></span><br><span class="line">	Toast.makeText(PushSetActivity.this, &quot;AddActions Builder - 10&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="gradle-properties-增加-android-useDeprecatedNdk-true-使用旧版本的ndk集成方式-不添加会报错"><a href="#gradle-properties-增加-android-useDeprecatedNdk-true-使用旧版本的ndk集成方式-不添加会报错" class="headerlink" title="gradle.properties 增加 android.useDeprecatedNdk=true 使用旧版本的ndk集成方式,不添加会报错:"></a>gradle.properties 增加 <code>android.useDeprecatedNdk=true</code> 使用旧版本的ndk集成方式,不添加会报错:</h3><blockquote>
+<h3 id="自定义通知栏样式"><a href="#自定义通知栏样式" class="headerlink" title="自定义通知栏样式"></a>自定义通知栏样式</h3><pre><code>    /**
+     * 设置通知提示方式 - 基础属性
+     */
+    private void setStyleBasic() {
+        BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(PushSetActivity.this);
+        builder.statusBarDrawable = R.drawable.ic_launcher;
+        builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为点击后自动消失
+        builder.notificationDefaults = Notification.DEFAULT_SOUND;  //设置为铃声（ Notification.DEFAULT_SOUND）或者震动（ Notification.DEFAULT_VIBRATE）
+        JPushInterface.setPushNotificationBuilder(1, builder);
+        Toast.makeText(PushSetActivity.this, &quot;Basic Builder - 1&quot;, Toast.LENGTH_SHORT).show();
+    }
+
+
+    /**
+     * 设置通知栏样式 - 定义通知栏Layout
+     */
+    private void setStyleCustom() {
+        CustomPushNotificationBuilder builder = new CustomPushNotificationBuilder(PushSetActivity.this, R.layout.customer_notitfication_layout, R.id.icon, R.id.title, R.id.text);
+        builder.layoutIconDrawable = R.drawable.ic_launcher;
+        builder.developerArg0 = &quot;developerArg2&quot;;
+        JPushInterface.setPushNotificationBuilder(2, builder);
+        Toast.makeText(PushSetActivity.this, &quot;Custom Builder - 2&quot;, Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void setAddActionsStyle() {
+        MultiActionsNotificationBuilder builder = new MultiActionsNotificationBuilder(PushSetActivity.this);
+        builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;first&quot;, &quot;my_extra1&quot;);
+        builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;second&quot;, &quot;my_extra2&quot;);
+        builder.addJPushAction(R.drawable.jpush_ic_richpush_actionbar_back, &quot;third&quot;, &quot;my_extra3&quot;);
+        JPushInterface.setPushNotificationBuilder(10, builder);
+
+        Toast.makeText(PushSetActivity.this, &quot;AddActions Builder - 10&quot;, Toast.LENGTH_SHORT).show();
+    }
+</code></pre><h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="gradle-properties-增加-android-useDeprecatedNdk-true-使用旧版本的ndk集成方式-不添加会报错"><a href="#gradle-properties-增加-android-useDeprecatedNdk-true-使用旧版本的ndk集成方式-不添加会报错" class="headerlink" title="gradle.properties 增加 android.useDeprecatedNdk=true 使用旧版本的ndk集成方式,不添加会报错:"></a>gradle.properties 增加 <code>android.useDeprecatedNdk=true</code> 使用旧版本的ndk集成方式,不添加会报错:</h3><blockquote>
 <p>NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin.</p>
 </blockquote>
 
@@ -713,7 +810,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -730,7 +827,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -852,16 +949,6 @@
   </a>
 </div>
 
-
-
-<% if (theme.mermaid.enable) { %>
-  <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
-<% } %>
 
         
 

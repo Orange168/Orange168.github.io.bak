@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/jni_array.png">
 <meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/jni_argments_method.png">
 <meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/jni_field_descriptor.png">
-<meta property="og:updated_time" content="2018-08-15T14:05:41.696Z">
+<meta property="og:updated_time" content="2018-08-15T14:12:03.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JNI&#x2F;NDK开发指南学习笔记">
 <meta name="twitter:description" content="[TOC]  JNI开发流程及HelloWorld基础知识：不同平台的动态库（windows：*.dll，linux/unix：*.so，mac os x：*.jnilib） JNI开发主要流程 第一步、并新建一个HelloWorld.java源文件  package com.study.jnilearn;  public class HelloWorld {      public static">
@@ -1207,95 +1207,95 @@ JNIEXPORT void JNICALL Java_com_study_jnilearn_AccessMethod_callJavaInstaceMetho
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Native 代码</p>
-<pre class="line-numbers language-C"><code class="language-C">// AccessField.c
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// AccessField.c</span>
 
-#include "com_study_jnilearn_AccessField.h"
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"com_study_jnilearn_AccessField.h"</span></span>
 
-/*
+<span class="token comment" spellcheck="true">/*
  * Class:     com_study_jnilearn_AccessField
  * Method:    accessInstanceField
  * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_com_study_jnilearn_AccessField_accessInstanceField
-(JNIEnv *env, jclass cls, jobject obj)
-{
-    jclass clazz;
-    jfieldID fid;
-    jstring j_str;
-    jstring j_newStr;
-    const char *c_str = NULL;
+ */</span>
+JNIEXPORT <span class="token keyword">void</span> JNICALL <span class="token function">Java_com_study_jnilearn_AccessField_accessInstanceField</span>
+<span class="token punctuation">(</span>JNIEnv <span class="token operator">*</span>env<span class="token punctuation">,</span> jclass cls<span class="token punctuation">,</span> jobject obj<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    jclass clazz<span class="token punctuation">;</span>
+    jfieldID fid<span class="token punctuation">;</span>
+    jstring j_str<span class="token punctuation">;</span>
+    jstring j_newStr<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>c_str <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
 
-    // 1.获取AccessField类的Class引用
-    clazz = (*env)->GetObjectClass(env,obj);
-    if (clazz == NULL) {
-        return;
-    }
+    <span class="token comment" spellcheck="true">// 1.获取AccessField类的Class引用</span>
+    clazz <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetObjectClass</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>clazz <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 2. 获取AccessField类实例变量str的属性ID
-    fid = (*env)->GetFieldID(env,clazz,"str", "Ljava/lang/String;");
-    if (clazz == NULL) {
-        return;
-    }
+    <span class="token comment" spellcheck="true">// 2. 获取AccessField类实例变量str的属性ID</span>
+    fid <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetFieldID</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>clazz<span class="token punctuation">,</span><span class="token string">"str"</span><span class="token punctuation">,</span> <span class="token string">"Ljava/lang/String;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>clazz <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 3. 获取实例变量str的值
-    j_str = (jstring)(*env)->GetObjectField(env,obj,fid);
+    <span class="token comment" spellcheck="true">// 3. 获取实例变量str的值</span>
+    j_str <span class="token operator">=</span> <span class="token punctuation">(</span>jstring<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetObjectField</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>obj<span class="token punctuation">,</span>fid<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 4. 将unicode编码的java字符串转换成C风格字符串
-    c_str = (*env)->GetStringUTFChars(env,j_str,NULL);
-    if (c_str == NULL) {
-        return;
-    }
-    printf("In C--->ClassField.str = %s\n", c_str);
-    (*env)->ReleaseStringUTFChars(env, j_str, c_str);
+    <span class="token comment" spellcheck="true">// 4. 将unicode编码的java字符串转换成C风格字符串</span>
+    c_str <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetStringUTFChars</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>j_str<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>c_str <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"In C--->ClassField.str = %s\n"</span><span class="token punctuation">,</span> c_str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">ReleaseStringUTFChars</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> j_str<span class="token punctuation">,</span> c_str<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 5. 修改实例变量str的值
-    j_newStr = (*env)->NewStringUTF(env, "This is C String");
-    if (j_newStr == NULL) {
-        return;
-    }
+    <span class="token comment" spellcheck="true">// 5. 修改实例变量str的值</span>
+    j_newStr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">NewStringUTF</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token string">"This is C String"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>j_newStr <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    (*env)->SetObjectField(env, obj, fid, j_newStr);
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">SetObjectField</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> obj<span class="token punctuation">,</span> fid<span class="token punctuation">,</span> j_newStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 6.删除局部引用
-    (*env)->DeleteLocalRef(env, clazz);
-    (*env)->DeleteLocalRef(env, j_str);
-    (*env)->DeleteLocalRef(env, j_newStr);
-}
+    <span class="token comment" spellcheck="true">// 6.删除局部引用</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> clazz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> j_str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> j_newStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-/*
+<span class="token comment" spellcheck="true">/*
  * Class:     com_study_jnilearn_AccessField
  * Method:    accessStaticField
  * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_com_study_jnilearn_AccessField_accessStaticField
-(JNIEnv *env, jclass cls)
-{
-    jclass clazz;
-    jfieldID fid;
-    jint num;
+ */</span>
+JNIEXPORT <span class="token keyword">void</span> JNICALL <span class="token function">Java_com_study_jnilearn_AccessField_accessStaticField</span>
+<span class="token punctuation">(</span>JNIEnv <span class="token operator">*</span>env<span class="token punctuation">,</span> jclass cls<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    jclass clazz<span class="token punctuation">;</span>
+    jfieldID fid<span class="token punctuation">;</span>
+    jint num<span class="token punctuation">;</span>
 
-    //1.获取ClassField类的Class引用
-    clazz = (*env)->FindClass(env,"com/study/jnilearn/ClassField");
-    if (clazz == NULL) {    // 错误处理
-        return;
-    }
+    <span class="token comment" spellcheck="true">//1.获取ClassField类的Class引用</span>
+    clazz <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">FindClass</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span><span class="token string">"com/study/jnilearn/ClassField"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>clazz <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">// 错误处理</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    //2.获取ClassField类静态变量num的属性ID
-    fid = (*env)->GetStaticFieldID(env, clazz, "num", "I");
-    if (fid == NULL) {
-        return;
-    }
+    <span class="token comment" spellcheck="true">//2.获取ClassField类静态变量num的属性ID</span>
+    fid <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetStaticFieldID</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> clazz<span class="token punctuation">,</span> <span class="token string">"num"</span><span class="token punctuation">,</span> <span class="token string">"I"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fid <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 3.获取静态变量num的值
-    num = (*env)->GetStaticIntField(env,clazz,fid);
-    printf("In C--->ClassField.num = %d\n", num);
+    <span class="token comment" spellcheck="true">// 3.获取静态变量num的值</span>
+    num <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetStaticIntField</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>clazz<span class="token punctuation">,</span>fid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"In C--->ClassField.num = %d\n"</span><span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 4.修改静态变量num的值
-    (*env)->SetStaticIntField(env, clazz, fid, 80);
+    <span class="token comment" spellcheck="true">// 4.修改静态变量num的值</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">SetStaticIntField</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> clazz<span class="token punctuation">,</span> fid<span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 删除属部引用
-    (*env)->DeleteLocalRef(env,clazz);
-}
+    <span class="token comment" spellcheck="true">// 删除属部引用</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>clazz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="访问实例Field"><a href="#访问实例Field" class="headerlink" title="访问实例Field"></a>访问实例Field</h3><h4 id="GetXXField"><a href="#GetXXField" class="headerlink" title="GetXXField"></a>GetXXField</h4><blockquote>
 <p>GetIntField，GetFloatField，GetDoubleField，GetBooleanField等</p>
@@ -1616,23 +1616,23 @@ JNIEXPORT jstring JNICALL Java_com_study_jnilearn_AccessCache_newString
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>++AccessCache.c++</p>
-<pre class="line-numbers language-C"><code class="language-C">#include "com_study_jnilearn_AccessCache.h"
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"com_study_jnilearn_AccessCache.h"</span></span>
 
-jmethodID MID_AccessCache_callback;
+jmethodID MID_AccessCache_callback<span class="token punctuation">;</span>
 
-JNIEXPORT void JNICALL Java_com_study_jnilearn_AccessCache_initIDs
-(JNIEnv *env, jclass cls)
-{
-    printf("initIDs called!!!\n");
-    MID_AccessCache_callback = (*env)->GetMethodID(env,cls,"callback","()V");
-}
+JNIEXPORT <span class="token keyword">void</span> JNICALL <span class="token function">Java_com_study_jnilearn_AccessCache_initIDs</span>
+<span class="token punctuation">(</span>JNIEnv <span class="token operator">*</span>env<span class="token punctuation">,</span> jclass cls<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"initIDs called!!!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    MID_AccessCache_callback <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetMethodID</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>cls<span class="token punctuation">,</span><span class="token string">"callback"</span><span class="token punctuation">,</span><span class="token string">"()V"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-JNIEXPORT void JNICALL Java_com_study_jnilearn_AccessCache_nativeMethod
-(JNIEnv *env, jobject obj)
-{
-    printf("In C Java_com_study_jnilearn_AccessCache_nativeMethod called!!!\n");
-    (*env)->CallVoidMethod(env, obj, MID_AccessCache_callback);
-}
+JNIEXPORT <span class="token keyword">void</span> JNICALL <span class="token function">Java_com_study_jnilearn_AccessCache_nativeMethod</span>
+<span class="token punctuation">(</span>JNIEnv <span class="token operator">*</span>env<span class="token punctuation">,</span> jobject obj<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"In C Java_com_study_jnilearn_AccessCache_nativeMethod called!!!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">CallVoidMethod</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> obj<span class="token punctuation">,</span> MID_AccessCache_callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="两种缓存方式比较"><a href="#两种缓存方式比较" class="headerlink" title="两种缓存方式比较"></a>两种缓存方式比较</h3><p>使用时缓存缺点</p>
 <ul>
@@ -1644,130 +1644,130 @@ JNIEXPORT void JNICALL Java_com_study_jnilearn_AccessCache_nativeMethod
 <pre class="line-numbers language-Java"><code class="language-Java">    // 返回count个sample相同的字符串数组，并用编号标识，如：sample1，sample2...
     public native String[] getStrings(int count, String sample);
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>++local_ref_overflow_test.c++</p>
-<pre class="line-numbers language-C"><code class="language-C">#include <jni.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <android/log.h>
+<p><em>local_ref_overflow_test.c</em></p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;jni.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;android/log.h></span></span>
 
-#define LOG_TAG "MainActivity"
-#define LOG_I(...) __android_log_print(ANDROID_LOG_INFO,LOG_TAG, __VA_ARGS__)
-#define LOG_E(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
+<span class="token macro property">#<span class="token directive keyword">define</span> LOG_TAG "MainActivity"</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> LOG_I(...) __android_log_print(ANDROID_LOG_INFO,LOG_TAG, __VA_ARGS__)</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> LOG_E(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)</span>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> __cplusplus</span>
+<span class="token keyword">extern</span> <span class="token string">"C"</span> <span class="token punctuation">{</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
 
-jobjectArray getStrings(JNIEnv *env, jobject obj, jint count, jstring sample) {
-    jobjectArray str_array = NULL;
-    jclass cls_string = NULL;
-    jmethodID mid_string_init;
-    jobject obj_str = NULL;
-    const char *c_str_sample = NULL;
-    char buff[256];
-    int i;
+jobjectArray <span class="token function">getStrings</span><span class="token punctuation">(</span>JNIEnv <span class="token operator">*</span>env<span class="token punctuation">,</span> jobject obj<span class="token punctuation">,</span> jint count<span class="token punctuation">,</span> jstring sample<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    jobjectArray str_array <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    jclass cls_string <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    jmethodID mid_string_init<span class="token punctuation">;</span>
+    jobject obj_str <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>c_str_sample <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> buff<span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
 
-    // 保证至少可以创建3个局部引用（str_array，cls_string，obj_str）
-    if ((*env)->EnsureLocalCapacity(env, 3) != JNI_OK) {
-        return NULL;
-    }
+    <span class="token comment" spellcheck="true">// 保证至少可以创建3个局部引用（str_array，cls_string，obj_str）</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">EnsureLocalCapacity</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">!=</span> JNI_OK<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    c_str_sample = (*env)->GetStringUTFChars(env, sample, NULL);
-    if (c_str_sample == NULL) {
-        return NULL;
-    }
+    c_str_sample <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetStringUTFChars</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> sample<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>c_str_sample <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    cls_string = (*env)->FindClass(env, "java/lang/String");
-    if (cls_string == NULL) {
-        return NULL;
-    }
+    cls_string <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">FindClass</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token string">"java/lang/String"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>cls_string <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 获取String的构造方法
-    mid_string_init = (*env)->GetMethodID(env, cls_string, "<init>", "()V");
-    if (mid_string_init == NULL) {
-        (*env)->DeleteLocalRef(env,cls_string);
-        return NULL;
-    }
-    obj_str = (*env)->NewObject(env, cls_string, mid_string_init);
-    if (obj_str == NULL) {
-        (*env)->DeleteLocalRef(env,cls_string);
-        return NULL;
-    }
+    <span class="token comment" spellcheck="true">// 获取String的构造方法</span>
+    mid_string_init <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetMethodID</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> cls_string<span class="token punctuation">,</span> <span class="token string">"&lt;init>"</span><span class="token punctuation">,</span> <span class="token string">"()V"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>mid_string_init <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>cls_string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    obj_str <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">NewObject</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> cls_string<span class="token punctuation">,</span> mid_string_init<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj_str <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>cls_string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 创建一个字符串数组
-    str_array = (*env)->NewObjectArray(env, count, cls_string, obj_str);
-    if (str_array == NULL) {
-         (*env)->DeleteLocalRef(env,cls_string);
-         (*env)->DeleteLocalRef(env,obj_str);
-        return NULL;
-    }
+    <span class="token comment" spellcheck="true">// 创建一个字符串数组</span>
+    str_array <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">NewObjectArray</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> count<span class="token punctuation">,</span> cls_string<span class="token punctuation">,</span> obj_str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>str_array <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>cls_string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>obj_str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 给数组中每个元素赋值
-    for (i = 0; i < count; ++i) {
-        memset(buff, 0, sizeof(buff));   // 初始一下缓冲区
-        sprintf(buff, c_str_sample,i);
-        jstring newStr = (*env)->NewStringUTF(env, buff);
-        (*env)->SetObjectArrayElement(env, str_array, i, newStr);
-         (*env)->DeleteLocalRef(env,newStr);   // Warning: 这里如果不手动释放局部引用，很有可能造成局部引用表溢出
-    }
+    <span class="token comment" spellcheck="true">// 给数组中每个元素赋值</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">memset</span><span class="token punctuation">(</span>buff<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>buff<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 初始一下缓冲区</span>
+        <span class="token function">sprintf</span><span class="token punctuation">(</span>buff<span class="token punctuation">,</span> c_str_sample<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        jstring newStr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">NewStringUTF</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> buff<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">SetObjectArrayElement</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> str_array<span class="token punctuation">,</span> i<span class="token punctuation">,</span> newStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>newStr<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// Warning: 这里如果不手动释放局部引用，很有可能造成局部引用表溢出</span>
+    <span class="token punctuation">}</span>
 
-    // 释放模板字符串所占的内存
-    (*env)->ReleaseStringUTFChars(env, sample, c_str_sample);
+    <span class="token comment" spellcheck="true">// 释放模板字符串所占的内存</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">ReleaseStringUTFChars</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> sample<span class="token punctuation">,</span> c_str_sample<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    // 释放局部引用所占用的资源
-    (*env)->DeleteLocalRef(env, cls_string);
-    (*env)->DeleteLocalRef(env, obj_str);
+    <span class="token comment" spellcheck="true">// 释放局部引用所占用的资源</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> cls_string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> obj_str<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    return str_array;
-}
+    <span class="token keyword">return</span> str_array<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-const JNINativeMethod g_methods[] = {
-        {"getStrings", "(ILjava/lang/String;)[Ljava/lang/String;", (void*)getStrings}
-};
+<span class="token keyword">const</span> JNINativeMethod g_methods<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span><span class="token string">"getStrings"</span><span class="token punctuation">,</span> <span class="token string">"(ILjava/lang/String;)[Ljava/lang/String;"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>getStrings<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-static jclass g_cls_MainActivity = NULL;
+<span class="token keyword">static</span> jclass g_cls_MainActivity <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
 
-JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)
-{
-    LOG_I("JNI_OnLoad method call begin");
-    JNIEnv* env = NULL;
-    jclass cls = NULL;
-    if((*vm)->GetEnv(vm, (void**)&env, JNI_VERSION_1_6) != JNI_OK) {
-        return JNI_ERR;
-    }
+JNIEXPORT jint JNICALL <span class="token function">JNI_OnLoad</span><span class="token punctuation">(</span>JavaVM<span class="token operator">*</span> vm<span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token operator">*</span> reserved<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">LOG_I</span><span class="token punctuation">(</span><span class="token string">"JNI_OnLoad method call begin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    JNIEnv<span class="token operator">*</span> env <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    jclass cls <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>vm<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetEnv</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>env<span class="token punctuation">,</span> JNI_VERSION_1_6<span class="token punctuation">)</span> <span class="token operator">!=</span> JNI_OK<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> JNI_ERR<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 查找要加载的本地方法Class引用
-    cls = (*env)->FindClass(env, "com/example/jni/MainActivity");
-    if(cls == NULL) {
-        return JNI_ERR;
-    }
-    // 将class的引用缓存到全局变量中
-    g_cls_MainActivity = (*env)->NewWeakGlobalRef(env, cls);
+    <span class="token comment" spellcheck="true">// 查找要加载的本地方法Class引用</span>
+    cls <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">FindClass</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token string">"com/example/jni/MainActivity"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>cls <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> JNI_ERR<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 将class的引用缓存到全局变量中</span>
+    g_cls_MainActivity <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">NewWeakGlobalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> cls<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    (*env)->DeleteLocalRef(env, cls);   // 手动删除局部引用是个好习惯
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> cls<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 手动删除局部引用是个好习惯</span>
 
-    // 将java中的native方法与本地函数绑定
-    (*env)->RegisterNatives(env, g_cls_MainActivity, g_methods, sizeof(g_methods) / sizeof(g_methods[0]));
-    LOG_I("JNI_OnLoad method call end");
+    <span class="token comment" spellcheck="true">// 将java中的native方法与本地函数绑定</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">RegisterNatives</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> g_cls_MainActivity<span class="token punctuation">,</span> g_methods<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>g_methods<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>g_methods<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">LOG_I</span><span class="token punctuation">(</span><span class="token string">"JNI_OnLoad method call end"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    return JNI_VERSION_1_6;
-}
+    <span class="token keyword">return</span> JNI_VERSION_1_6<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-JNIEXPORT void JNICALL JNI_OnUnload(JavaVM* vm, void* reserved)
-{
-    LOG_I("JNI_OnUnload method call begin");
-    JNIEnv *env = NULL;
-    if((*vm)->GetEnv(vm, (void**)&env, JNI_VERSION_1_6) != JNI_OK) {
-        return;
-    }
-    (*env)->UnregisterNatives(env, g_cls_MainActivity); // so被卸载的时候解除注册
-    (*env)->DeleteWeakGlobalRef(env, g_cls_MainActivity);
-}
+JNIEXPORT <span class="token keyword">void</span> JNICALL <span class="token function">JNI_OnUnload</span><span class="token punctuation">(</span>JavaVM<span class="token operator">*</span> vm<span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token operator">*</span> reserved<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">LOG_I</span><span class="token punctuation">(</span><span class="token string">"JNI_OnUnload method call begin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    JNIEnv <span class="token operator">*</span>env <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>vm<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetEnv</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>env<span class="token punctuation">,</span> JNI_VERSION_1_6<span class="token punctuation">)</span> <span class="token operator">!=</span> JNI_OK<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">UnregisterNatives</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> g_cls_MainActivity<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// so被卸载的时候解除注册</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">DeleteWeakGlobalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> g_cls_MainActivity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-#ifdef __cplusplus
-}
-#endif
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> __cplusplus</span>
+<span class="token punctuation">}</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="三种引用简介及区别"><a href="#三种引用简介及区别" class="headerlink" title="三种引用简介及区别"></a>三种引用简介及区别</h3><h4 id="局部引用（Local-Reference）"><a href="#局部引用（Local-Reference）" class="headerlink" title="局部引用（Local Reference）"></a>局部引用（Local Reference）</h4><ul>
 <li>创建: NewLocalRef 或JNI接口创建（FindClass、NewObject、GetObjectClass和NewCharArray等）</li>
@@ -1801,11 +1801,11 @@ jstring str_obj_local_ref = (*env)-&gt;NewLocalRef(env,str_obj);
 <li>可以跨方法、跨线程使用</li>
 </ul>
 </li>
-<li>释放： 1.比如内存紧张的时候；2. 调用DeleteWeakGlobalRef手动释放<code>(*env)-&gt;DeleteWeakGlobalRef(env,g_cls_string)</code><pre class="line-numbers language-C"><code class="language-C">static jclass g_cls_string;
-void TestFunc(JNIEnv* env, jobject obj) {
-  jclass cls_string = (*env)->FindClass(env, "java/lang/String");
-  g_cls_string = (*env)->NewWeakGlobalRef(env,cls_string);
-}
+<li>释放： 1.比如内存紧张的时候；2. 调用DeleteWeakGlobalRef手动释放<code>(*env)-&gt;DeleteWeakGlobalRef(env,g_cls_string)</code><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">static</span> jclass g_cls_string<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">TestFunc</span><span class="token punctuation">(</span>JNIEnv<span class="token operator">*</span> env<span class="token punctuation">,</span> jobject obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  jclass cls_string <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">FindClass</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token string">"java/lang/String"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  g_cls_string <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">NewWeakGlobalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span>cls_string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
@@ -2048,22 +2048,23 @@ exc <span class="token operator">=</span> <span class="token punctuation">(</spa
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// ....</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="异常发生后释放资源"><a href="#异常发生后释放资源" class="headerlink" title="异常发生后释放资源"></a>异常发生后释放资源</h3><pre><code>JNIEXPORT void JNICALL Java_pkg_Cls_f(JNIEnv *env, jclass cls, jstring jstr)
- {
-     const jchar *cstr = (*env)-&gt;GetStringChars(env, jstr);
-     if (c_str == NULL) {
-         return; 
-     }
-     ...
-     if ((*env)-&gt;ExceptionCheck(env)) { /* 异常检查 */
-         (*env)-&gt;ReleaseStringChars(env, jstr, cstr); // 发生异常后释放前面所分配的内存
-         return; 
-     }
-     ...
-     /* 正常返回 */
-     (*env)-&gt;ReleaseStringChars(env, jstr, cstr);
-}
-</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<h3 id="异常发生后释放资源"><a href="#异常发生后释放资源" class="headerlink" title="异常发生后释放资源"></a>异常发生后释放资源</h3><pre class="line-numbers language-c"><code class="language-c">JNIEXPORT <span class="token keyword">void</span> JNICALL <span class="token function">Java_pkg_Cls_f</span><span class="token punctuation">(</span>JNIEnv <span class="token operator">*</span>env<span class="token punctuation">,</span> jclass cls<span class="token punctuation">,</span> jstring jstr<span class="token punctuation">)</span>
+ <span class="token punctuation">{</span>
+     <span class="token keyword">const</span> jchar <span class="token operator">*</span>cstr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetStringChars</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> jstr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>c_str <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">return</span><span class="token punctuation">;</span> 
+     <span class="token punctuation">}</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">ExceptionCheck</span><span class="token punctuation">(</span>env<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* 异常检查 */</span>
+         <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">ReleaseStringChars</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> jstr<span class="token punctuation">,</span> cstr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 发生异常后释放前面所分配的内存</span>
+         <span class="token keyword">return</span><span class="token punctuation">;</span> 
+     <span class="token punctuation">}</span>
+     <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+     <span class="token comment" spellcheck="true">/* 正常返回 */</span>
+     <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">ReleaseStringChars</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> jstr<span class="token punctuation">,</span> cstr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://blog.csdn.net/xyang81/article/details/41759643" target="_blank" rel="noopener">JNI/NDK开发指南（开山篇）</a></li>
 <li>推荐《Pro Android C++ with the NDK》，中文版名称《Android C++高级编程 使用NDK》</li>
 </ul>

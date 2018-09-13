@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="最小案例需要的权限 &amp;lt;uses-permission android:name=&amp;quot;android.permission.ACCESS_NETWORK_STATE&amp;quot;/&amp;gt; MainActivity.java public class MainActivity extends AppCompatActivity {      private IntentFilter in">
+<meta name="description" content="目录 最小案例 概况 实践概要 NetworkInfo 实践详解 ConnectivityManager 实践详解 Network 浅析   实用工具 参考  最小案例需要的权限 &amp;lt;uses-permission android:name=&amp;quot;android.permission.ACCESS_NETWORK_STATE&amp;quot;/&amp;gt; MainActivity.java pu">
 <meta name="keywords" content="Android,ConnectivityManager,API">
 <meta property="og:type" content="article">
 <meta property="og:title" content="谷歌API之ConnectivityManager实战全解析（9分钟阅读时间）">
 <meta property="og:url" content="http://zhilinchn.online/2018/09/12/2018-9-12-api-ConnectivityManager/index.html">
 <meta property="og:site_name" content="北疆的博客">
-<meta property="og:description" content="最小案例需要的权限 &amp;lt;uses-permission android:name=&amp;quot;android.permission.ACCESS_NETWORK_STATE&amp;quot;/&amp;gt; MainActivity.java public class MainActivity extends AppCompatActivity {      private IntentFilter in">
+<meta property="og:description" content="目录 最小案例 概况 实践概要 NetworkInfo 实践详解 ConnectivityManager 实践详解 Network 浅析   实用工具 参考  最小案例需要的权限 &amp;lt;uses-permission android:name=&amp;quot;android.permission.ACCESS_NETWORK_STATE&amp;quot;/&amp;gt; MainActivity.java pu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T15:45:45.253Z">
+<meta property="og:updated_time" content="2018-09-13T14:41:34.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谷歌API之ConnectivityManager实战全解析（9分钟阅读时间）">
-<meta name="twitter:description" content="最小案例需要的权限 &amp;lt;uses-permission android:name=&amp;quot;android.permission.ACCESS_NETWORK_STATE&amp;quot;/&amp;gt; MainActivity.java public class MainActivity extends AppCompatActivity {      private IntentFilter in">
+<meta name="twitter:description" content="目录 最小案例 概况 实践概要 NetworkInfo 实践详解 ConnectivityManager 实践详解 Network 浅析   实用工具 参考  最小案例需要的权限 &amp;lt;uses-permission android:name=&amp;quot;android.permission.ACCESS_NETWORK_STATE&amp;quot;/&amp;gt; MainActivity.java pu">
 
 
 
@@ -547,7 +547,19 @@
       
 
       
-        <h2 id="最小案例"><a href="#最小案例" class="headerlink" title="最小案例"></a>最小案例</h2><p>需要的权限</p>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#最小案例">最小案例</a></li>
+<li><a href="#概况">概况</a></li>
+<li><a href="#实践概要">实践概要</a><ul>
+<li><a href="#networkinfo-实践详解">NetworkInfo 实践详解</a></li>
+<li><a href="#connectivitymanager-实践详解">ConnectivityManager 实践详解</a></li>
+<li><a href="#network-浅析">Network 浅析</a></li>
+</ul>
+</li>
+<li><a href="#实用工具">实用工具</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+<h2 id="最小案例"><a href="#最小案例" class="headerlink" title="最小案例"></a>最小案例</h2><p>需要的权限</p>
 <pre><code>&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
 </code></pre><p>MainActivity.java</p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">AppCompatActivity</span> <span class="token punctuation">{</span>
@@ -731,54 +743,99 @@ result <span class="token operator">=</span> process<span class="token punctuati
 </tr>
 </tbody>
 </table>
-<pre class="line-numbers language-java"><code class="language-java">    cm <span class="token operator">=</span> <span class="token punctuation">(</span>ConnectivityManager<span class="token punctuation">)</span> <span class="token function">getSystemService</span><span class="token punctuation">(</span>Context<span class="token punctuation">.</span>CONNECTIVITY_SERVICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cm<span class="token punctuation">.</span><span class="token function">addDefaultNetworkActiveListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ConnectivityManager<span class="token punctuation">.</span>OnNetworkActiveListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onNetworkActive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"Active ==>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    NetworkRequest<span class="token punctuation">.</span>Builder builder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NetworkRequest<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    NetworkRequest request <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">addCapability</span><span class="token punctuation">(</span>NetworkCapabilities<span class="token punctuation">.</span>NET_CAPABILITY_INTERNET<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">addTransportType</span><span class="token punctuation">(</span>NetworkCapabilities<span class="token punctuation">.</span>TRANSPORT_WIFI<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">addTransportType</span><span class="token punctuation">(</span>NetworkCapabilities<span class="token punctuation">.</span>TRANSPORT_CELLULAR<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java"><code class="language-java"> <span class="token keyword">if</span> <span class="token punctuation">(</span>Build<span class="token punctuation">.</span>VERSION<span class="token punctuation">.</span>SDK_INT <span class="token operator">>=</span> Build<span class="token punctuation">.</span>VERSION_CODES<span class="token punctuation">.</span>LOLLIPOP<span class="token comment" spellcheck="true">/*5.0*/</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      ConnectivityManager connectivityManager <span class="token operator">=</span> <span class="token punctuation">(</span>ConnectivityManager<span class="token punctuation">)</span> <span class="token function">getSystemService</span><span class="token punctuation">(</span>Context<span class="token punctuation">.</span>CONNECTIVITY_SERVICE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// 请注意这里会有一个版本适配bug，所以请在这里添加非空判断</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>connectivityManager <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        NetworkRequest<span class="token punctuation">.</span>Builder builder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NetworkRequest<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    cm<span class="token punctuation">.</span><span class="token function">registerNetworkCallback</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">ConnectivityManager<span class="token punctuation">.</span>NetworkCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onAvailable</span><span class="token punctuation">(</span>Network network<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onAvailable</span><span class="token punctuation">(</span>network<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onAvailable ==>"</span> <span class="token operator">+</span> network<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
+        NetworkRequest request <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">addCapability</span><span class="token punctuation">(</span>NetworkCapabilities<span class="token punctuation">.</span>NET_CAPABILITY_INTERNET<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">addTransportType</span><span class="token punctuation">(</span>NetworkCapabilities<span class="token punctuation">.</span>TRANSPORT_WIFI<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">addTransportType</span><span class="token punctuation">(</span>NetworkCapabilities<span class="token punctuation">.</span>TRANSPORT_CELLULAR<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-      <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onLosing</span><span class="token punctuation">(</span>Network network<span class="token punctuation">,</span> <span class="token keyword">int</span> maxMsToLive<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onLosing</span><span class="token punctuation">(</span>network<span class="token punctuation">,</span> maxMsToLive<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onLosing ==>"</span> <span class="token operator">+</span> network<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
+        connectivityManager<span class="token punctuation">.</span><span class="token function">registerNetworkCallback</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">ConnectivityManager<span class="token punctuation">.</span>NetworkCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-      <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onLost</span><span class="token punctuation">(</span>Network network<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onLost</span><span class="token punctuation">(</span>network<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onLost ==>"</span> <span class="token operator">+</span> network<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
+          <span class="token comment" spellcheck="true">/**
+           * 网络可用的回调连接成功
+           * */</span>
+          <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onAvailable</span><span class="token punctuation">(</span>Network network<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onAvailable</span><span class="token punctuation">(</span>network<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onAvailable ==>"</span> <span class="token operator">+</span> network<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
 
-      <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onUnavailable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onUnavailable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onUnavailable ==>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
+          <span class="token comment" spellcheck="true">/**
+           * 实践中在网络连接正常的情况下，丢失数据会有回调
+           * */</span>
+          <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onLosing</span><span class="token punctuation">(</span>Network network<span class="token punctuation">,</span> <span class="token keyword">int</span> maxMsToLive<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onLosing</span><span class="token punctuation">(</span>network<span class="token punctuation">,</span> maxMsToLive<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onLosing ==>"</span> <span class="token operator">+</span> network<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" max==>"</span> <span class="token operator">+</span> maxMsToLive<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
 
-      <span class="token annotation punctuation">@Override</span>
-      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCapabilitiesChanged</span><span class="token punctuation">(</span>Network network<span class="token punctuation">,</span> NetworkCapabilities networkCapabilities<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCapabilitiesChanged</span><span class="token punctuation">(</span>network<span class="token punctuation">,</span> networkCapabilities<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onCapabilitiesChanged ==>"</span> <span class="token operator">+</span> network<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
+          <span class="token comment" spellcheck="true">/**
+           * 网络不可用时调用和onAvailable成对出现
+           */</span>
+          <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onLost</span><span class="token punctuation">(</span>Network network<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onLost</span><span class="token punctuation">(</span>network<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onLost ==>"</span> <span class="token operator">+</span> network<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
 
-      <span class="token annotation punctuation">@Override</span>
-      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onLinkPropertiesChanged</span><span class="token punctuation">(</span>Network network<span class="token punctuation">,</span> LinkProperties linkProperties<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onLinkPropertiesChanged</span><span class="token punctuation">(</span>network<span class="token punctuation">,</span> linkProperties<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onLinkPropertiesChanged ==>"</span> <span class="token operator">+</span> network<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onUnavailable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onUnavailable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onUnavailable ==>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+
+          <span class="token comment" spellcheck="true">/**
+           * 字面直接能理解
+           * @param network 新连接网络
+           * @param networkCapabilities 新连接网络的一些能力参数
+           */</span>
+          <span class="token annotation punctuation">@Override</span>
+          <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onCapabilitiesChanged</span><span class="token punctuation">(</span>Network network<span class="token punctuation">,</span> NetworkCapabilities networkCapabilities<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCapabilitiesChanged</span><span class="token punctuation">(</span>network<span class="token punctuation">,</span> networkCapabilities<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onCapabilitiesChanged ==>"</span> <span class="token operator">+</span> networkCapabilities<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//WIFI -> CELLULAR</span>
+            <span class="token comment" spellcheck="true">//[ Transports: CELLULAR Capabilities: INTERNET&amp;NOT_RESTRICTED&amp;TRUSTED&amp;NOT_VPN&amp;VALIDATED LinkUpBandwidth>=51200Kbps LinkDnBandwidth>=102400Kbps Specifier: &lt;3>]</span>
+            <span class="token comment" spellcheck="true">//CELLULAR -> WIFI</span>
+            <span class="token comment" spellcheck="true">//==>[ Transports: WIFI Capabilities: INTERNET&amp;NOT_RESTRICTED&amp;TRUSTED&amp;NOT_VPN&amp;VALIDATED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps SignalStrength: -42]</span>
+          <span class="token punctuation">}</span>
+
+          <span class="token comment" spellcheck="true">/**
+           * 和上面类似，但是没有试出效果
+           */</span>
+          <span class="token annotation punctuation">@Override</span>
+          <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onLinkPropertiesChanged</span><span class="token punctuation">(</span>Network network<span class="token punctuation">,</span> LinkProperties linkProperties<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onLinkPropertiesChanged</span><span class="token punctuation">(</span>network<span class="token punctuation">,</span> linkProperties<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span>TAG<span class="token punctuation">,</span> <span class="token string">"onLinkPropertiesChanged ==>"</span> <span class="token operator">+</span> linkProperties<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>更多监听内容<a href="https://developer.android.com/reference/android/net/NetworkRequest" target="_blank" rel="noopener">NetworkRequest 科学上网</a></p>
-<h2 id="实用工具"><a href="#实用工具" class="headerlink" title="实用工具"></a>实用工具</h2><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//NetUtils.java</span>
+    <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>更多监听内容设置请访问官网<a href="https://developer.android.com/reference/android/net/NetworkRequest" target="_blank" rel="noopener">NetworkRequest 科学上网</a></p>
+<h3 id="Network-浅析"><a href="#Network-浅析" class="headerlink" title="Network 浅析"></a>Network 浅析</h3><p>从源码中可以得出<code>Network</code>就是一个Parcelable数据，最重要的参数是</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> netId<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在回想一下<code>Network</code>什么时候第一次获得</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">onAvailable</span><span class="token punctuation">(</span>Network network<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果到这里还啥都不<code>get</code>代码意图，那看Network提供的方法</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> InetAddress<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">getAllByName</span><span class="token punctuation">(</span>String host<span class="token punctuation">)</span> <span class="token keyword">throws</span> UnknownHostException <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> InetAddress<span class="token punctuation">.</span><span class="token function">getAllByNameOnNet</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> netId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> InetAddress <span class="token function">getByName</span><span class="token punctuation">(</span>String host<span class="token punctuation">)</span> <span class="token keyword">throws</span> UnknownHostException <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> InetAddress<span class="token punctuation">.</span><span class="token function">getByNameOnNet</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> netId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">bindSocket</span><span class="token punctuation">(</span>Socket socket<span class="token punctuation">)</span>
+<span class="token function">getSocketFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">openConnection</span><span class="token punctuation">(</span>URL url<span class="token punctuation">)</span>
+<span class="token function">openConnection</span><span class="token punctuation">(</span>URL url<span class="token punctuation">,</span> Proxy proxy<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>好到此我的理解是在网络连接<code>onAvailable</code>成功后,返回基于netId的底层网络标识，可以基于这个Network建立一些特殊的URL访问；</p>
+<h2 id="实用工具"><a href="#实用工具" class="headerlink" title="实用工具"></a>实用工具</h2><p><a href="https://github.com/albert-lii/SUtils/blob/f26aa5c9916a9d767415aef4a1bdcdf8d542c883/sutils/src/main/java/com/liyi/sutils/utils/NetUtil.java" target="_blank" rel="noopener">NetUtil.java</a></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//NetUtils.java</span>
  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> NETWORK_TYPE_GSM <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>
   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> NETWORK_TYPE_TD_SCDMA <span class="token operator">=</span> <span class="token number">17</span><span class="token punctuation">;</span>
   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> NETWORK_TYPE_IWLAN <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span>
@@ -926,6 +983,7 @@ result <span class="token operator">=</span> process<span class="token punctuati
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://developer.android.com/reference/android/net/ConnectivityManager" target="_blank" rel="noopener">ConnectivityManager 官网API 科学上网</a></li>
 <li><a href="https://www.jianshu.com/p/0042c0e3a15b" target="_blank" rel="noopener">Android多网络机制浅析</a></li>
+<li><a href="https://blog.csdn.net/u011315960/article/details/79006162" target="_blank" rel="noopener">android 5.0 以上监听网络变化</a></li>
 </ul>
 
       
@@ -1161,7 +1219,7 @@ result <span class="token operator">=</span> process<span class="token punctuati
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最小案例"><span class="nav-number">1.</span> <span class="nav-text">最小案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概况"><span class="nav-number">2.</span> <span class="nav-text">概况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践概要"><span class="nav-number">3.</span> <span class="nav-text">实践概要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NetworkInfo-实践详解"><span class="nav-number">3.1.</span> <span class="nav-text">NetworkInfo 实践详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConnectivityManager-实践详解"><span class="nav-number">3.2.</span> <span class="nav-text">ConnectivityManager 实践详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用工具"><span class="nav-number">4.</span> <span class="nav-text">实用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最小案例"><span class="nav-number">1.1.</span> <span class="nav-text">最小案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概况"><span class="nav-number">1.2.</span> <span class="nav-text">概况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践概要"><span class="nav-number">1.3.</span> <span class="nav-text">实践概要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NetworkInfo-实践详解"><span class="nav-number">1.3.1.</span> <span class="nav-text">NetworkInfo 实践详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConnectivityManager-实践详解"><span class="nav-number">1.3.2.</span> <span class="nav-text">ConnectivityManager 实践详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-浅析"><span class="nav-number">1.3.3.</span> <span class="nav-text">Network 浅析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用工具"><span class="nav-number">1.4.</span> <span class="nav-text">实用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.5.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>

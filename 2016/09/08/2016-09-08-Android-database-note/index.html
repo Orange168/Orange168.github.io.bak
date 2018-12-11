@@ -93,7 +93,7 @@
 <meta property="og:description" content="数据格式 gson Gson Json Annotations Example   stag-java Speedy Type Adapter Generation fastjson  序列化 Parcelable Parcelable AutoValue使用 Google AutoValue 自动生成代码 Dependencies dependencies {   provided &amp;#39;c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://camo.githubusercontent.com/5a2f9fe0725a29ff92f941daa814a65f2bdc193c/68747470733a2f2f7261772e6769746875622e636f6d2f696e66696e756d2f616e64726f69645f6462696e73706563746f722f6d61737465722f73637265656e73686f74732e706e67">
-<meta property="og:updated_time" content="2017-03-31T23:24:34.000Z">
+<meta property="og:updated_time" content="2018-11-05T01:53:33.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 数据处理资源总汇">
 <meta name="twitter:description" content="数据格式 gson Gson Json Annotations Example   stag-java Speedy Type Adapter Generation fastjson  序列化 Parcelable Parcelable AutoValue使用 Google AutoValue 自动生成代码 Dependencies dependencies {   provided &amp;#39;c">
@@ -549,7 +549,7 @@
       
 
       
-        <h4 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h4><ul>
+        <h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><ul>
 <li><strong><a href="https://github.com/google/gson" target="_blank" rel="noopener">gson</a></strong><ul>
 <li><a href="http://websystique.com/java/json/gson-json-annotations-example/" target="_blank" rel="noopener">Gson Json Annotations Example</a></li>
 </ul>
@@ -557,8 +557,8 @@
 <li><strong><a href="https://github.com/vimeo/stag-java" target="_blank" rel="noopener">stag-java</a></strong> Speedy Type Adapter Generation</li>
 <li><strong><a href="https://github.com/alibaba/fastjson" target="_blank" rel="noopener">fastjson</a></strong></li>
 </ul>
-<h4 id="序列化-Parcelable"><a href="#序列化-Parcelable" class="headerlink" title="序列化 Parcelable"></a>序列化 Parcelable</h4><hr>
-<h4 id="Parcelable-AutoValue"><a href="#Parcelable-AutoValue" class="headerlink" title="Parcelable AutoValue"></a>Parcelable AutoValue</h4><p><a href="http://tedyin.me/2016/04/11/auto-value/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">使用 Google AutoValue 自动生成代码</a></p>
+<h2 id="序列化-Parcelable"><a href="#序列化-Parcelable" class="headerlink" title="序列化 Parcelable"></a>序列化 Parcelable</h2><hr>
+<h3 id="Parcelable-AutoValue"><a href="#Parcelable-AutoValue" class="headerlink" title="Parcelable AutoValue"></a>Parcelable AutoValue</h3><p><a href="http://tedyin.me/2016/04/11/auto-value/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">使用 Google AutoValue 自动生成代码</a></p>
 <p><strong>Dependencies</strong></p>
 <pre><code>dependencies {
   provided &#39;com.google.auto.value:auto-value:1.2&#39;
@@ -574,7 +574,29 @@ public abstract class Story implements Parcelable{
     new AutoValue_Story(id,title);
   }
 }
-</code></pre><h4 id="日常笔记"><a href="#日常笔记" class="headerlink" title="日常笔记"></a>日常笔记</h4><hr>
+</code></pre><h3 id="Android-状态保存"><a href="#Android-状态保存" class="headerlink" title="Android 状态保存"></a>Android 状态保存</h3><ul>
+<li><p><a href="https://github.com/evernote/android-state" target="_blank" rel="noopener">android-state</a></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainActivity</span> <span class="token keyword">extends</span> <span class="token class-name">Activity</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@State</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> mValue<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>Bundle savedInstanceState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StateSaver<span class="token punctuation">.</span><span class="token function">restoreInstanceState</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> savedInstanceState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">onSaveInstanceState</span><span class="token punctuation">(</span>Bundle outState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onSaveInstanceState</span><span class="token punctuation">(</span>outState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        StateSaver<span class="token punctuation">.</span><span class="token function">saveInstanceState</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> outState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><hr>
 <p><em>Sqlite 批量处理</em></p>
 <ul>
 <li><a href="http://blog.sina.com.cn/s/blog_48d4cf2d0102v5ip.html" target="_blank" rel="noopener">SQLite批量插入和其他一些使用心得</a> </li>
@@ -586,10 +608,13 @@ public abstract class Story implements Parcelable{
 <li><a href="http://zhangfan822.iteye.com/blog/1883118" target="_blank" rel="noopener">Android 保存图片到SQLite,读出SQLite中的图片</a></li>
 <li><a href="https://www.sqlite.org/lang_createtrigger.html" target="_blank" rel="noopener">sqlite 官方教程 CREATE TRIGGER</a></li>
 <li><a href="http://www.runoob.com/sqlite/sqlite-index.html" target="_blank" rel="noopener">Sqlite learnning Course</a></li>
-<li><a href="http://www.runoob.com/sql/sql-union.html" target="_blank" rel="noopener">SQL语句 Inner join/ union 的学习</a><pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token number">f</span><span class="token punctuation">.</span>name <span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sum<span class="token punctuation">,</span> <span class="token number">d</span><span class="token punctuation">.</span><span class="token keyword">value</span> <span class="token keyword">as</span> url <span class="token keyword">from</span> Favorite <span class="token number">f</span> <span class="token keyword">inner</span> <span class="token keyword">join</span> <span class="token keyword">data</span> <span class="token number">d</span>  <span class="token keyword">on</span> <span class="token number">d</span><span class="token punctuation">.</span><span class="token keyword">key</span><span class="token operator">=</span><span class="token operator">=</span><span class="token number">f</span><span class="token punctuation">.</span>name  <span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">f</span><span class="token punctuation">.</span>name
+<li><p><a href="http://www.runoob.com/sql/sql-union.html" target="_blank" rel="noopener">SQL语句 Inner join/ union 的学习</a></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token number">f</span><span class="token punctuation">.</span>name <span class="token punctuation">,</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">as</span> sum<span class="token punctuation">,</span> <span class="token number">d</span><span class="token punctuation">.</span><span class="token keyword">value</span> <span class="token keyword">as</span> url <span class="token keyword">from</span> Favorite <span class="token number">f</span> <span class="token keyword">inner</span> <span class="token keyword">join</span> <span class="token keyword">data</span> <span class="token number">d</span>  <span class="token keyword">on</span> <span class="token number">d</span><span class="token punctuation">.</span><span class="token keyword">key</span><span class="token operator">=</span><span class="token operator">=</span><span class="token number">f</span><span class="token punctuation">.</span>name  <span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">f</span><span class="token punctuation">.</span>name
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<em>笔记好滴博文</em></li>
-<li><a href="http://blog.csdn.net/iefreer/article/details/39188231" target="_blank" rel="noopener">5个Android ORM框架</a>  Android 主流ORM（对象关系数据映射）简介</li>
+<p><em>笔记好滴博文</em></p>
+</li>
+<li><p><a href="http://blog.csdn.net/iefreer/article/details/39188231" target="_blank" rel="noopener">5个Android ORM框架</a>  Android 主流ORM（对象关系数据映射）简介</p>
+</li>
 </ul>
 <p><em>常用的SQL语句</em></p>
 <pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> t_student
@@ -607,7 +632,141 @@ public abstract class Story implements Parcelable{
 <span class="token keyword">constraint</span> fk_t_student_class_id_t_class_id <span class="token keyword">foreign</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>class_id<span class="token punctuation">)</span> <span class="token keyword">references</span> t_class<span class="token punctuation">(</span>id<span class="token punctuation">)</span>
 <span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="No-Sql"><a href="#No-Sql" class="headerlink" title="No Sql"></a><strong>No Sql</strong></h4><hr>
+<h2 id="Awesome-Repositories"><a href="#Awesome-Repositories" class="headerlink" title="Awesome Repositories"></a>Awesome Repositories</h2><table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/pardom-zz/ActiveAndroid" target="_blank" rel="noopener">ActiveAndroid</a></td>
+<td>Active record style SQLite persistence for Android.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jgilfelt/android-sqlite-asset-helper" target="_blank" rel="noopener">Android-sqlite-asset-helper</a></td>
+<td>An Android helper class to manage database creation and version management using an application’s raw asset files.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/litesuits/android-lite-orm" target="_blank" rel="noopener">Android-lite-orm</a></td>
+<td>A fast, small, powerful ORM framework for Android.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sqlcipher/android-database-sqlcipher" target="_blank" rel="noopener">Android-database-sqlcipher</a></td>
+<td>Android SQLite API based on SQLCipher.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sromku/android-storage" target="_blank" rel="noopener">Android Storage</a></td>
+<td>Create, read, delete, append, encrypt files and more, on internal or external disk spaces with a really simple API.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/facebook/conceal" target="_blank" rel="noopener">Conceal</a></td>
+<td>Conceal provides easy Android APIs for performing fast encryption and authentication of data.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/couchbase/couchbase-lite-android" target="_blank" rel="noopener">Couchbase-lite-android</a></td>
+<td>Lightweight, embedded, syncable NoSQL database engine for Android.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ConserveORM/main" target="_blank" rel="noopener">ConserveORM</a></td>
+<td>A library for storing your Java/Scala/Kotlin objects in a database.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Raizlabs/DBFlow" target="_blank" rel="noopener">DBFlow</a></td>
+<td>A blazing fast, powerful, and very simple ORM android database library that writes database code for you.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/PDDStudio/EncryptedPreferences" target="_blank" rel="noopener">EncryptedPreferences</a></td>
+<td>AES-256 encrypted SharedPreferences for Android.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/greenrobot/greenDAO" target="_blank" rel="noopener">GreenDao</a></td>
+<td>greenDAO is a light &amp; fast ORM solution for Android that maps objects to SQLite databases.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/orhanobut/hawk" target="_blank" rel="noopener">Hawk</a></td>
+<td>Secure, simple key-value storage for Android.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/chibatching/Kotpref" target="_blank" rel="noopener">Kotpref</a></td>
+<td>Android SharedPreferences delegation library for Kotlin.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LitePalFramework/LitePal" target="_blank" rel="noopener">LitePal</a></td>
+<td>An Android library that makes developers use SQLite database extremely easy.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/objectbox/objectbox-java" target="_blank" rel="noopener">ObjectBox</a></td>
+<td>ObjectBox is a superfast mobile database for objects.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/j256/ormlite-android" target="_blank" rel="noopener">Ormlite-android</a></td>
+<td>ORMLite Android functionality used in conjunction with ormlite-core.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pilgr/Paper" target="_blank" rel="noopener">Paper</a></td>
+<td>Paper is a fast NoSQL-like storage for Java/Kotlin objects on Android with automatic schema migration support.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/skydoves/PreferenceRoom" target="_blank" rel="noopener">PreferenceRoom</a></td>
+<td>Manage your android project’s SharedPreferences more efficiently.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/franmontiel/PersistentCookieJar" target="_blank" rel="noopener">PersistentCookieJar</a></td>
+<td>A persistent CookieJar implementation for OkHttp 3 based on SharedPreferences.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/realm/realm-java" target="_blank" rel="noopener">Realm</a></td>
+<td>Realm is a mobile database: a replacement for SQLite &amp; ORMs.</td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/topic/libraries/architecture/room" target="_blank" rel="noopener">Room Persistence</a></td>
+<td>The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/requery/requery" target="_blank" rel="noopener">Requery</a></td>
+<td>Modern SQL based query &amp; persistence for Java / Kotlin / Android.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/f2prateek/rx-preferences" target="_blank" rel="noopener">Rx-preferences</a></td>
+<td>Reactive SharedPreferences for Android.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/afollestad/rxkprefs" target="_blank" rel="noopener">Rxkprefs</a></td>
+<td>A small, Rx-powered shared preferences library for Kotlin.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/NYTimes/Store" target="_blank" rel="noopener">Store</a></td>
+<td>Android Library for Async Data Loading and Caching.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pushtorefresh/storio" target="_blank" rel="noopener">Storio</a></td>
+<td>Reactive API for SQLiteDatabase and ContentResolver.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/chennaione/sugar" target="_blank" rel="noopener">Sugar</a></td>
+<td>Insanely easy way to work with Android Database.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/yahoo/squidb" target="_blank" rel="noopener">Squidb</a></td>
+<td>SquiDB is a SQLite database library for Android and iOS.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/requery/sqlite-android" target="_blank" rel="noopener">Sqlite-android</a></td>
+<td>Android SQLite support library.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/iamMehedi/Secured-Preference-Store" target="_blank" rel="noopener">Secured-Preference-Store</a></td>
+<td>A cryptography library and a SharedPreferences wrapper for Android that encrypts the content with 256 bit AES encryption. The Encryption key is securely stored in device’s KeyStore.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/grandcentrix/tray" target="_blank" rel="noopener">Tray</a></td>
+<td>A SharedPreferences replacement for Android with multiprocess support.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="No-Sql"><a href="#No-Sql" class="headerlink" title="No Sql"></a><strong>No Sql</strong></h2><hr>
 <ul>
 <li><strong><a href="http://github.com/cesarferreira/RxPaper#handle-data-structure-changes" target="_blank" rel="noopener">RxPaper</a>   Like  below Paper </strong></li>
 <li><a href="http://github.com/f2prateek/rx-preferences" target="_blank" rel="noopener">Rx-preferences</a>   <strong>Reactive SharedPreferences for Android <a href="http://f2prateek.com/2015/10/05/rx-preferences/" target="_blank" rel="noopener">http://f2prateek.com/2015/10/05/rx-preferences/</a></strong></li>
@@ -615,7 +774,10 @@ public abstract class Story implements Parcelable{
 <li><a href="http://github.com/pilgr/Paper#benchmark-results" target="_blank" rel="noopener">Paper</a>   save/restore Java objects by using efficient Kryo serialization and handling data structure changes automatically.</li>
 <li><a href="https://github.com/FabianTerhorst/Iron" target="_blank" rel="noopener">Iron</a>  Fast and easy to use NoSQL data storage</li>
 </ul>
-<h4 id="轻量对原生方法的封装（Origin-API-Extension）"><a href="#轻量对原生方法的封装（Origin-API-Extension）" class="headerlink" title="轻量对原生方法的封装（Origin API Extension）"></a>轻量对原生方法的封装（Origin API Extension）</h4><hr>
+<h2 id="轻量"><a href="#轻量" class="headerlink" title="轻量"></a>轻量</h2><blockquote>
+<p>轻量对原生方法的封装（Origin API Extension）</p>
+</blockquote>
+<hr>
 <ul>
 <li><a href="http://github.com/soarcn/Favor" target="_blank" rel="noopener">Favor </a> A easy way to use android sharepreference</li>
 <li>SQLite ORM</li>
@@ -624,7 +786,7 @@ public abstract class Story implements Parcelable{
 <li><a href="https://github.com/requery/requery" target="_blank" rel="noopener">requery</a> 又一轻量ORM库</li>
 <li><a href="http://stackoverflow.com/questions/6645665/what-is-a-good-tutorial-for-using-ormlite-with-sqlite-and-android" target="_blank" rel="noopener">What is a good tutorial for using ORMLite with SQLite and Android</a></li>
 </ul>
-<h5 id="Improve-SQLiteOpenHelper-and-ContentResolver"><a href="#Improve-SQLiteOpenHelper-and-ContentResolver" class="headerlink" title="Improve SQLiteOpenHelper and ContentResolver"></a>Improve SQLiteOpenHelper and ContentResolver</h5><p><a href="https://github.com/square" target="_blank" rel="noopener">Square</a> 出品</p>
+<h3 id="Improve-SQLiteOpenHelper-and-ContentResolver"><a href="#Improve-SQLiteOpenHelper-and-ContentResolver" class="headerlink" title="Improve SQLiteOpenHelper and ContentResolver"></a>Improve SQLiteOpenHelper and ContentResolver</h3><p><a href="https://github.com/square" target="_blank" rel="noopener">Square</a> 出品</p>
 <ul>
 <li><a href="http://github.com/square/sqlbrite" target="_blank" rel="noopener">Sqlbrite</a>  A lightweight wrapper around SQLiteOpenHelper which introduces reactive stream semantics to SQL operations.<strong><a href="http://square.github.io/sqlbrite/" target="_blank" rel="noopener">http://square.github.io/sqlbrite/</a> 
 </strong> </li>
@@ -636,10 +798,15 @@ public abstract class Story implements Parcelable{
 <li><a href="http://github.com/pushtorefresh/storio" target="_blank" rel="noopener">Storio</a>  Beautiful API for SQLiteDatabase and ContentResolver </li>
 <li>Android Instance<a href="http://github.com/frankiesardo/icepick" target="_blank" rel="noopener">Icepick</a>  Android Instance State made easy It works for Activities, Fragments or any object that needs to serialize its state on a Bundle</li>
 </ul>
-<h4 id="Tools-工具"><a href="#Tools-工具" class="headerlink" title="Tools(工具)"></a>Tools(工具)</h4><ul>
+<h2 id="Tools-工具"><a href="#Tools-工具" class="headerlink" title="Tools(工具)"></a>Tools(工具)</h2><ul>
 <li><strong><a href="https://github.com/infinum/android_dbinspector" target="_blank" rel="noopener">android_dbinspector</a></strong><br><img src="https://camo.githubusercontent.com/5a2f9fe0725a29ff92f941daa814a65f2bdc193c/68747470733a2f2f7261772e6769746875622e636f6d2f696e66696e756d2f616e64726f69645f6462696e73706563746f722f6d61737465722f73637265656e73686f74732e706e67" alt=""></li>
 </ul>
-<p>Sqlite3</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><hr>
+<ul>
+<li>WeChat Sqliste  <a href="http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&amp;mid=207548094&amp;idx=1&amp;sn=1a277620bc28349368b68ed98fbefebe" target="_blank" rel="noopener">微信ANDROID客户端-会话速度提升70%的背后</a></li>
+<li><a href="http://code.google.com/p/protobuf/" target="_blank" rel="noopener">protocol buffer (protobuf)</a>  </li>
+</ul>
+<h2 id="问题处理"><a href="#问题处理" class="headerlink" title="问题处理"></a>问题处理</h2><p>Sqlite3</p>
 <ul>
 <li>sqlite3 not found<br>blog:<ul>
 <li><a href="http://ramosli.iteye.com/blog/1966202" target="_blank" rel="noopener">sqlite3 not found的解决办法</a></li>
@@ -647,11 +814,6 @@ public abstract class Story implements Parcelable{
 <li><code>sqlite3 robot.db</code> ==&gt; error: only position independent executables (PIE) are supported.</li>
 </ul>
 </li>
-</ul>
-<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><hr>
-<ul>
-<li>WeChat Sqliste  <a href="http://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&amp;mid=207548094&amp;idx=1&amp;sn=1a277620bc28349368b68ed98fbefebe" target="_blank" rel="noopener">微信ANDROID客户端-会话速度提升70%的背后</a></li>
-<li><a href="http://code.google.com/p/protobuf/" target="_blank" rel="noopener">protocol buffer (protobuf)</a>  </li>
 </ul>
 
       
@@ -792,7 +954,7 @@ public abstract class Story implements Parcelable{
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -809,7 +971,7 @@ public abstract class Story implements Parcelable{
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -891,7 +1053,7 @@ public abstract class Story implements Parcelable{
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据格式"><span class="nav-number">1.</span> <span class="nav-text">数据格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化-Parcelable"><span class="nav-number">2.</span> <span class="nav-text">序列化 Parcelable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Parcelable-AutoValue"><span class="nav-number">3.</span> <span class="nav-text">Parcelable AutoValue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日常笔记"><span class="nav-number">4.</span> <span class="nav-text">日常笔记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#No-Sql"><span class="nav-number">5.</span> <span class="nav-text">No Sql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#轻量对原生方法的封装（Origin-API-Extension）"><span class="nav-number">6.</span> <span class="nav-text">轻量对原生方法的封装（Origin API Extension）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Improve-SQLiteOpenHelper-and-ContentResolver"><span class="nav-number">6.1.</span> <span class="nav-text">Improve SQLiteOpenHelper and ContentResolver</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tools-工具"><span class="nav-number">7.</span> <span class="nav-text">Tools(工具)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化"><span class="nav-number">8.</span> <span class="nav-text">优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据格式"><span class="nav-number">1.</span> <span class="nav-text">数据格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列化-Parcelable"><span class="nav-number">2.</span> <span class="nav-text">序列化 Parcelable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Parcelable-AutoValue"><span class="nav-number">2.1.</span> <span class="nav-text">Parcelable AutoValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-状态保存"><span class="nav-number">2.2.</span> <span class="nav-text">Android 状态保存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-number">3.</span> <span class="nav-text">笔记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Awesome-Repositories"><span class="nav-number">4.</span> <span class="nav-text">Awesome Repositories</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-Sql"><span class="nav-number">5.</span> <span class="nav-text">No Sql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轻量"><span class="nav-number">6.</span> <span class="nav-text">轻量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Improve-SQLiteOpenHelper-and-ContentResolver"><span class="nav-number">6.1.</span> <span class="nav-text">Improve SQLiteOpenHelper and ContentResolver</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tools-工具"><span class="nav-number">7.</span> <span class="nav-text">Tools(工具)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">8.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题处理"><span class="nav-number">9.</span> <span class="nav-text">问题处理</span></a></li></ol></div>
             
 
           </div>

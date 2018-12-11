@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-33598d6aed0431f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-3a9cf4161a59a9e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/2018-4-14-gralde-binvsall-download.jpg">
-<meta property="og:updated_time" content="2018-05-14T14:48:30.000Z">
+<meta property="og:updated_time" content="2018-10-29T01:23:24.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle 学习积累">
 <meta name="twitter:description" content="基础教程 实践博客 Google’s guide on Gradle for Android 美团Android自动化之旅—适配渠道包 Android Gradle实战中遇到的问题与经验  Maven  建立企业内部maven服务器并使用Android Studio发布公共项目。 Gradle Tutorial Gradle 用法总结  构建神器Gradle  翻译gradle for andro">
@@ -682,7 +682,8 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 <li>方案五： 直接更改 distributionUrl的下载路径为国内服务器，例如：<a href="http://mirrors.flysnow.org/" target="_blank" rel="noopener">http://mirrors.flysnow.org/</a><br><code>`</code><br>distributionUrl=http\://mirrors.flysnow.org/gradle/gradle-4.1-bin.zip<br>如果你在 gradle.properties 配置了代理，请添加一个不走代理的配置，否则 gralde 无法安装<br>systemProp.http.proxyHost=mirrors.neusoft.edu.cn<br>systemProp.http.proxyPort=80</li>
 </ul>
 <h1 id="添加不走代理的-host，会影响-package-的安装"><a href="#添加不走代理的-host，会影响-package-的安装" class="headerlink" title="添加不走代理的 host，会影响 package 的安装"></a>添加不走代理的 host，会影响 package 的安装</h1><p>systemProp.http.nonProxyHosts=172.1.1.227|localhost|mirrors.flysnow.org</p>
-<pre><code>#### 使用阿里云国内镜像
+<pre><code>
+#### 使用阿里云国内镜像
 单个项目生效
 </code></pre><p>buildscript {<br>    repositories {<br>        maven { url ‘<a href="http://maven.aliyun.com/nexus/content/groups/public/&#39;" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/groups/public/&#39;</a> }<br>        maven{ url ‘<a href="http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;}" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;}</a><br>    }<br>    dependencies {<br>        classpath ‘com.android.tools.build:gradle:2.2.3’<br>    }<br>}<br>allprojects {<br>    repositories {<br>        maven { url ‘<a href="http://maven.aliyun.com/nexus/content/groups/public/&#39;" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/groups/public/&#39;</a> }<br>        maven{ url ‘<a href="http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;}" target="_blank" rel="noopener">http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;}</a><br>    }<br>}</p>
 <pre><code>对所有项目生效，在USER_HOME/.gradle/下创建init.gradle文件
@@ -823,7 +824,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -840,7 +841,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

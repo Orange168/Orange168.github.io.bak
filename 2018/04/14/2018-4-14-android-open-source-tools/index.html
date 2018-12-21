@@ -92,13 +92,15 @@
 <meta property="og:site_name" content="北疆的博客">
 <meta property="og:description" content="正在研究 SUtils 封装有许多实用的开发工具类 APKParser parceler通过注解的方式序列化对象more: Transfuse Transfuse is a Java Dependency Injection (DI) and integration library geared specifically for the Google Android API.  数据持久化  Aw">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://camo.githubusercontent.com/b0cdc1242d8170b8184ef2a92d8afd5af4152563/68747470733a2f2f692e696d6775722e636f6d2f706a44456a576c2e676966">
+<meta property="og:image" content="https://raw.githubusercontent.com/mike14u/shimmer-recyclerview-x/master/screenshots/second_list_demo.gif">
 <meta property="og:image" content="https://github.com/lingochamp/FileDownloader/raw/master/art/parallel_tasks_demo.gif">
 <meta property="og:image" content="https://github.com/kexanie/MathView/raw/master/screenshot/screenshot.png">
-<meta property="og:updated_time" content="2018-12-06T06:53:03.904Z">
+<meta property="og:updated_time" content="2018-12-14T00:55:13.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 常用开源库">
 <meta name="twitter:description" content="正在研究 SUtils 封装有许多实用的开发工具类 APKParser parceler通过注解的方式序列化对象more: Transfuse Transfuse is a Java Dependency Injection (DI) and integration library geared specifically for the Google Android API.  数据持久化  Aw">
-<meta name="twitter:image" content="https://github.com/lingochamp/FileDownloader/raw/master/art/parallel_tasks_demo.gif">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/b0cdc1242d8170b8184ef2a92d8afd5af4152563/68747470733a2f2f692e696d6775722e636f6d2f706a44456a576c2e676966">
 
 
 
@@ -575,7 +577,16 @@
 <li><a href="http://bigertech.com/post/assistor-ps-1/" target="_blank" rel="noopener">切图标记外挂神器 Assistor PS 介绍</a></li>
 <li><a href="https://github.com/JcMinarro/Philology" target="_blank" rel="noopener">动态修改App字符开源库 Philology</a></li>
 </ul>
-<h2 id="检测优化工具"><a href="#检测优化工具" class="headerlink" title="检测优化工具"></a>检测优化工具</h2><hr>
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><ul>
+<li><a href="https://github.com/jaredrummler/Cyanea" target="_blank" rel="noopener">Cyanea</a><br><img src="https://camo.githubusercontent.com/b0cdc1242d8170b8184ef2a92d8afd5af4152563/68747470733a2f2f692e696d6775722e636f6d2f706a44456a576c2e676966" alt=""></li>
+</ul>
+<h3 id="显示效果"><a href="#显示效果" class="headerlink" title="显示效果"></a>显示效果</h3><ul>
+<li>闪光 Shimmer<ul>
+<li><a href="https://github.com/mike14u/shimmer-recyclerview-x" target="_blank" rel="noopener">shimmer-recyclerview-x</a> 闪光list<br><img src="https://raw.githubusercontent.com/mike14u/shimmer-recyclerview-x/master/screenshots/second_list_demo.gif" alt=""><h2 id="检测优化工具"><a href="#检测优化工具" class="headerlink" title="检测优化工具"></a>检测优化工具</h2></li>
+</ul>
+</li>
+</ul>
+<hr>
 <ul>
 <li><a href="http://github.com/square/leakcanary" target="_blank" rel="noopener">LeakCanary</a> Android 和 Java 内存泄露检测<br>Tutorial <a href="http://www.liaohuqiu.net/cn/posts/leak-canary-read-me/" target="_blank" rel="noopener">Chinese</a><a href="http://https//corner.squareup.com/2015/05/leak-canary.html" target="_blank" rel="noopener">English</a><br>phrof file path: /storage/sdcard0/Download/leakcanary/<br>hprof-conv leakCanary</li>
 <li><a href="http://inloop.github.io/apk-method-count/" target="_blank" rel="noopener">apk-method-count</a> 上传Apk，可以根据包名统计方法数量的网站，UI很友好。</li>
@@ -613,7 +624,13 @@
 <h2 id="崩溃错误处理"><a href="#崩溃错误处理" class="headerlink" title="崩溃错误处理"></a>崩溃错误处理</h2><h3 id="LoadSir-优雅地处理加载中，重试，无数据等"><a href="#LoadSir-优雅地处理加载中，重试，无数据等" class="headerlink" title="LoadSir 优雅地处理加载中，重试，无数据等"></a><strong><a href="https://github.com/KingJA/LoadSir" target="_blank" rel="noopener">LoadSir</a></strong> 优雅地处理加载中，重试，无数据等</h3><p><em>配置:</em> compile ‘com.kingja.loadsir:loadsir:1.3.6’<br>ProGuard:</p>
 <pre><code>-dontwarn com.kingja.loadsir.**
 -keep class com.kingja.loadsir.** {*;}
-</code></pre><h2 id="BufferKnife"><a href="#BufferKnife" class="headerlink" title="BufferKnife"></a><a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="noopener">BufferKnife</a></h2><h3 id="VIEW-LISTS"><a href="#VIEW-LISTS" class="headerlink" title="VIEW LISTS"></a>VIEW LISTS</h3><p>@OnClick({ R.id.door1, R.id.door2, R.id.door3 })</p>
+</code></pre><h3 id="YCStateLayout-特殊状态提示"><a href="#YCStateLayout-特殊状态提示" class="headerlink" title="YCStateLayout 特殊状态提示"></a>YCStateLayout 特殊状态提示</h3><blockquote>
+<p>状态切换，让 View 状态的切换和 Activity 彻底分离开。</p>
+<ul>
+<li><a href="https://github.com/yangchong211/YCStateLayout" target="_blank" rel="noopener">YCStateLayout</a></li>
+</ul>
+</blockquote>
+<h2 id="BufferKnife"><a href="#BufferKnife" class="headerlink" title="BufferKnife"></a><a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="noopener">BufferKnife</a></h2><h3 id="VIEW-LISTS"><a href="#VIEW-LISTS" class="headerlink" title="VIEW LISTS"></a>VIEW LISTS</h3><p>@OnClick({ R.id.door1, R.id.door2, R.id.door3 })</p>
 <pre><code>@BindViews({ R.id.first_name, R.id.middle_name, R.id.last_name })
 List&lt;EditText&gt; nameViews;
 
@@ -693,8 +710,8 @@ public void sayHi(Button button) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/19/2017-04-19-keytool_signerJar/" rel="next" title="密钥和证书管理工具Keytool及jarsigner的使用">
-                <i class="fa fa-chevron-left"></i> 密钥和证书管理工具Keytool及jarsigner的使用
+              <a href="/2018/04/14/2018-4-14-android-standards/" rel="next" title="Android 代码规范化笔记">
+                <i class="fa fa-chevron-left"></i> Android 代码规范化笔记
               </a>
             
           </div>
@@ -895,7 +912,7 @@ public void sayHi(Button button) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正在研究"><span class="nav-number">1.</span> <span class="nav-text">正在研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据持久化"><span class="nav-number">2.</span> <span class="nav-text">数据持久化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建工具"><span class="nav-number">3.</span> <span class="nav-text">构建工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发中实用的工具"><span class="nav-number">4.</span> <span class="nav-text">开发中实用的工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI"><span class="nav-number">5.</span> <span class="nav-text">UI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测优化工具"><span class="nav-number">6.</span> <span class="nav-text">检测优化工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能性开发工具"><span class="nav-number">7.</span> <span class="nav-text">功能性开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础的开发工具"><span class="nav-number">8.</span> <span class="nav-text">基础的开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#崩溃错误处理"><span class="nav-number">9.</span> <span class="nav-text">崩溃错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LoadSir-优雅地处理加载中，重试，无数据等"><span class="nav-number">9.1.</span> <span class="nav-text">LoadSir 优雅地处理加载中，重试，无数据等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BufferKnife"><span class="nav-number">10.</span> <span class="nav-text">BufferKnife</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VIEW-LISTS"><span class="nav-number">10.1.</span> <span class="nav-text">VIEW LISTS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESOURCE-BINDING"><span class="nav-number">10.2.</span> <span class="nav-text">RESOURCE BINDING</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#automatically-be-cast"><span class="nav-number">10.3.</span> <span class="nav-text">automatically be cast.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OPTIONAL-BINDINGS"><span class="nav-number">10.4.</span> <span class="nav-text">OPTIONAL BINDINGS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BINDING-RESET-on-Fragments"><span class="nav-number">10.5.</span> <span class="nav-text">BINDING RESET on Fragments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块化的开发工具"><span class="nav-number">10.6.</span> <span class="nav-text">模块化的开发工具</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正在研究"><span class="nav-number">1.</span> <span class="nav-text">正在研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据持久化"><span class="nav-number">2.</span> <span class="nav-text">数据持久化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建工具"><span class="nav-number">3.</span> <span class="nav-text">构建工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发中实用的工具"><span class="nav-number">4.</span> <span class="nav-text">开发中实用的工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI"><span class="nav-number">5.</span> <span class="nav-text">UI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主题"><span class="nav-number">5.1.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示效果"><span class="nav-number">5.2.</span> <span class="nav-text">显示效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测优化工具"><span class="nav-number">6.</span> <span class="nav-text">检测优化工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能性开发工具"><span class="nav-number">7.</span> <span class="nav-text">功能性开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础的开发工具"><span class="nav-number">8.</span> <span class="nav-text">基础的开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#崩溃错误处理"><span class="nav-number">9.</span> <span class="nav-text">崩溃错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LoadSir-优雅地处理加载中，重试，无数据等"><span class="nav-number">9.1.</span> <span class="nav-text">LoadSir 优雅地处理加载中，重试，无数据等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YCStateLayout-特殊状态提示"><span class="nav-number">9.2.</span> <span class="nav-text">YCStateLayout 特殊状态提示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BufferKnife"><span class="nav-number">10.</span> <span class="nav-text">BufferKnife</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VIEW-LISTS"><span class="nav-number">10.1.</span> <span class="nav-text">VIEW LISTS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESOURCE-BINDING"><span class="nav-number">10.2.</span> <span class="nav-text">RESOURCE BINDING</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#automatically-be-cast"><span class="nav-number">10.3.</span> <span class="nav-text">automatically be cast.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OPTIONAL-BINDINGS"><span class="nav-number">10.4.</span> <span class="nav-text">OPTIONAL BINDINGS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BINDING-RESET-on-Fragments"><span class="nav-number">10.5.</span> <span class="nav-text">BINDING RESET on Fragments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块化的开发工具"><span class="nav-number">10.6.</span> <span class="nav-text">模块化的开发工具</span></a></li></ol></li></ol></div>
             
 
           </div>

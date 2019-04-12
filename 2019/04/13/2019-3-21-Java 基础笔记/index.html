@@ -1,0 +1,1208 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="[TOC] Java 基础学习Core Java 书籍官网 泛型 方法 public &amp;lt;T&amp;gt; T tell(T t){   return t; }  数组`public static void main(String[] args){  String arr[] = {“java”,”web”};  tell(arr);}     public static viod tell(T a">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 基础学习笔记；">
+<meta property="og:url" content="http://zhilinchn.online/2019/04/13/2019-3-21-Java 基础笔记/index.html">
+<meta property="og:site_name" content="北疆的博客">
+<meta property="og:description" content="[TOC] Java 基础学习Core Java 书籍官网 泛型 方法 public &amp;lt;T&amp;gt; T tell(T t){   return t; }  数组`public static void main(String[] args){  String arr[] = {“java”,”web”};  tell(arr);}     public static viod tell(T a">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://images2017.cnblogs.com/blog/1218459/201709/1218459-20170909185534835-716713048.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/1034279/201703/1034279-20170314221828745-451137504.png">
+<meta property="og:updated_time" content="2019-04-12T17:26:47.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 基础学习笔记；">
+<meta name="twitter:description" content="[TOC] Java 基础学习Core Java 书籍官网 泛型 方法 public &amp;lt;T&amp;gt; T tell(T t){   return t; }  数组`public static void main(String[] args){  String arr[] = {“java”,”web”};  tell(arr);}     public static viod tell(T a">
+<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/1218459/201709/1218459-20170909185534835-716713048.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'CD2IHLO3Q2',
+      apiKey: 'f3890b1e9cf212771f29d3258b186372',
+      indexName: 'LocalSearch',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhilinchn.online/2019/04/13/2019-3-21-Java 基础笔记/"/>
+
+
+
+
+
+  <title> Java 基础学习笔记； | 北疆的博客 </title>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd275ba96bfa28cb8bd3809466f17419";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">北疆的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2019/04/13/2019-3-21-Java 基础笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="北疆">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="北疆的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="北疆的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java 基础学习笔记；
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T01:23:33+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2019/04/13/2019-3-21-Java 基础笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/04/13/2019-3-21-Java 基础笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h1 id="Java-基础学习"><a href="#Java-基础学习" class="headerlink" title="Java 基础学习"></a>Java 基础学习</h1><p><a href="http://www.horstmann.com/corejava.html" target="_blank" rel="noopener">Core Java 书籍官网</a></p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><ul>
+<li>方法 <pre><code>public &lt;T&gt; T tell(T t){
+  return t;
+}
+</code></pre></li>
+<li>数组<br><code>`</code><br>public static void main(String[] args){<br>  String arr[] = {“java”,”web”};<br>  tell(arr);<br>}   </li>
+</ul>
+<p>public static <t>viod tell(T arr[]){<br>    for(int i=0;i&lt;arr.length;i++){<br>        System.out.println(arr[i]);<br>    }<br>}</t></p>
+<pre><code>
+demo
+</code></pre><p>private <t> T getObject(Message msg, Class<t> c) {<br>        return (T) msg.getData().getParcelable(c.getSimpleName());<br>    }</t></t></p>
+<pre><code>现实案例：
+[RxSharePreference.java](https://raw.githubusercontent.com/f2prateek/rx-preferences/master/rx-preferences/src/main/java/com/f2prateek/rx/preferences2/RxSharedPreferences.java)
+
+```java
+@CheckResult @NonNull public &lt;T&gt; Preference&lt;T&gt; getObject(@NonNull String key,
+                                                         @NonNull T defaultValue, @NonNull Preference.Converter&lt;T&gt; converter) {
+    checkNotNull(key, &quot;key == null&quot;);
+    return new RealPreference&lt;&gt;(preferences, key, defaultValue,
+                                new ConverterAdapter&lt;&gt;(converter), keyChanges);
+}
+</code></pre><p>FlowableConversionTest.java from Rxjava</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token operator">&lt;</span>R<span class="token punctuation">,</span> O<span class="token operator">></span> O <span class="token function">x</span><span class="token punctuation">(</span>Function<span class="token operator">&lt;</span>Publisher<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">,</span> O<span class="token operator">></span> operator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> operator<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>onSubscribe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><pre class="line-numbers language-java"><code class="language-java"> <span class="token comment" spellcheck="true">//java7 以后数字可以加下划线</span>
+<span class="token keyword">int</span> b <span class="token operator">=</span> 1_000_000<span class="token punctuation">;</span>
+<span class="token keyword">int</span> by <span class="token operator">=</span> 0B1111_0100_0010<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 二进制</span>
+<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0xCAFE</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//十六进制</span>
+<span class="token keyword">int</span> eight <span class="token operator">=</span> <span class="token number">010</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 八进制</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Float</strong>  </p>
+<pre><code>float 4 字节 double 8 字节
+3.14F or 3.14D 不写默认为double类型
+
+System.out.println(2.0 - 1.1);
+// ==&gt; 0.8999999999999999 二进制无法表示 1/10
+</code></pre><p><strong>强转</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"> <span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">9.997</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> nx <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> x<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// nx = 9;</span>
+<span class="token keyword">int</span> nx2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// nx2 = 10;</span>
+
+<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+y <span class="token operator">+=</span> <span class="token number">3.9</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// y = 5;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>常用转化</strong></p>
+<pre><code>List&lt;Object&gt; list ;
+Object[] listener = list.toArray();
+
+List&lt;Object&gt; list = Arrays.asList(T... elements);
+</code></pre><h2 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h2><p>静态方法导入直接使用</p>
+<pre><code>import static java.lang.Math.*;
+</code></pre><ul>
+<li>反射<pre class="line-numbers language-java"><code class="language-java">Method square <span class="token operator">=</span> MethodTableTest<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token string">"square"</span><span class="token punctuation">,</span> <span class="token keyword">double</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//得到方法</span>
+<span class="token keyword">double</span> y <span class="token operator">=</span> <span class="token punctuation">(</span>Double<span class="token punctuation">)</span> square<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>null<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//激发方法</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="Clone"><a href="#Clone" class="headerlink" title="Clone"></a><strong>Clone</strong></h2><p>浅度拷贝/深度拷贝</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1.直接强转只能克隆基本数据类型，原因是clone方法只是复制了相同的内存块</span>
+<span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">protected</span> Student <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> CloneNotSupportedException <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>Student<span class="token punctuation">)</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//2.存在非基本数据类型的克隆方法</span>
+  <span class="token annotation punctuation">@Override</span>
+  <span class="token keyword">protected</span> Student3 <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> CloneNotSupportedException <span class="token punctuation">{</span>
+    Student3 stu <span class="token operator">=</span> <span class="token punctuation">(</span>Student3<span class="token punctuation">)</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    stu<span class="token punctuation">.</span>bag <span class="token operator">=</span> bag<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> stu<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//3.有些类是不能拷贝的如：StringBuffer没有重载clone()方法</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
+<li>assert false ; 在jvm的参数，参数是-ea或者-enableassertions 抛出java.lang.AssertionErro。增加错误信息，<code>assert  false : &quot;这个异常没有性格&quot;;</code></li>
+</ul>
+<h2 id="读写操作"><a href="#读写操作" class="headerlink" title="读写操作"></a>读写操作</h2><p><img src="https://images2017.cnblogs.com/blog/1218459/201709/1218459-20170909185534835-716713048.jpg" alt=""></p>
+<p><img src="https://images2015.cnblogs.com/blog/1034279/201703/1034279-20170314221828745-451137504.png" alt=""></p>
+<p><a href="http://tutorials.jenkov.com/java-io/overview.html" target="_blank" rel="noopener">Java IO教程.英文</a></p>
+<p><a href="http://ifeve.com/java-io/" target="_blank" rel="noopener">Java IO教程.中文</a></p>
+<h2 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h2><h3 id="监控工具"><a href="#监控工具" class="headerlink" title="监控工具"></a>监控工具</h3><ul>
+<li><a href="https://www.cnblogs.com/happy-rabbit/p/6232581.html" target="_blank" rel="noopener">java自带的监控工具VisualVM一</a></li>
+<li>jstat JVM分析工具</li>
+</ul>
+<h2 id="Java常用命令"><a href="#Java常用命令" class="headerlink" title="Java常用命令"></a>Java常用命令</h2><pre class="line-numbers language-java"><code class="language-java">javap <span class="token operator">-</span>c PathForClazz<span class="token punctuation">.</span><span class="token keyword">class</span> 查看<span class="token keyword">class</span>汇编指令
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Java实战笔记"><a href="#Java实战笔记" class="headerlink" title="Java实战笔记"></a>Java实战笔记</h1><h2 id="class声明为final的好处"><a href="#class声明为final的好处" class="headerlink" title="class声明为final的好处"></a><a href="https://blog.csdn.net/zzxuan6/article/details/44646263" target="_blank" rel="noopener">class声明为final的好处</a></h2><ul>
+<li>不会被重载<ul>
+<li>Vm产生更快codes</li>
+<li>防止自己改的代码影响到客户</li>
+</ul>
+</li>
+<li>多线程使用安全</li>
+<li>针对Final的优化<ul>
+<li>Jvm和Application有针对final的缓存</li>
+<li>Final keyword allows JVM to optimized method, variable or class.</li>
+<li>jit能够避免使用虚函数表</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>结论：能用final尽量使用final</p>
+</blockquote>
+<h2 id="运行Java代码"><a href="#运行Java代码" class="headerlink" title="运行Java代码"></a>运行Java代码</h2><p>Exmaple.java </p>
+<pre class="line-numbers language-shell"><code class="language-shell">#编译Java代码成.class
+javac Exmaple.java 
+# 运行.class文件
+java -cp . Example
+#后台运行
+nohup java -cp . Exmaple 
+# 查看后台运行日志
+tail -f nohup.out
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h1><ul>
+<li><a href="https://github.com/crossoverJie/JCSprout" target="_blank" rel="noopener">JCSprout</a> 处于萌芽阶段的 Java 核心知识库</li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="javase-11-API-官方文档搜索"><a href="#javase-11-API-官方文档搜索" class="headerlink" title="javase 11 API 官方文档搜索 "></a><a href="https://docs.oracle.com/en/java/javase/11/" target="_blank" rel="noopener">javase 11 API 官方文档搜索 </a></h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/13/2019-3-7-web笔记总结/" rel="next" title="网页WEB笔记汇总">
+                <i class="fa fa-chevron-left"></i> 网页WEB笔记汇总
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/13/2019-3-23-Linux菜鸟私房菜笔记/" rel="prev" title="Linux 菜鸟私房菜知识架构">
+                Linux 菜鸟私房菜知识架构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2019/04/13/2019-3-21-Java 基础笔记/"
+     data-title="Java 基础学习笔记；"
+     data-content=""
+     data-url="http://zhilinchn.online/2019/04/13/2019-3-21-Java 基础笔记/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2019/04/13/2019-3-21-Java 基础笔记/"
+           data-title="Java 基础学习笔记；" data-url="http://zhilinchn.online/2019/04/13/2019-3-21-Java 基础笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg"
+               alt="北疆" />
+          <p class="site-author-name" itemprop="name">北疆</p>
+          <p class="site-description motion-element" itemprop="description">自古以来，所谓豪杰之士，必有过人之节。人情有所不能忍着，匹夫见辱.拔剑而起.挺身而斗，此不足为勇也。天下有大勇者,猝然临之而不惊,无故加之而不怒。而其挟持者甚大，其志甚远也。 ——苏东坡《留候论》</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Orange168" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/bonanzas" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/53927a5b90c8/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              常用网站
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://androidweekly.net/" title="Androidweekly English" target="_blank">Androidweekly English</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://androidweekly.cn/" title="Androidweekly Chinese" target="_blank">Androidweekly Chinese</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-基础学习"><span class="nav-number">1.</span> <span class="nav-text">Java 基础学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型"><span class="nav-number">1.1.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型"><span class="nav-number">1.2.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字"><span class="nav-number">1.3.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用技巧"><span class="nav-number">1.4.</span> <span class="nav-text">常用技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clone"><span class="nav-number">1.5.</span> <span class="nav-text">Clone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字"><span class="nav-number">1.6.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读写操作"><span class="nav-number">1.7.</span> <span class="nav-text">读写操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控"><span class="nav-number">1.8.</span> <span class="nav-text">监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监控工具"><span class="nav-number">1.8.1.</span> <span class="nav-text">监控工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java常用命令"><span class="nav-number">1.9.</span> <span class="nav-text">Java常用命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java实战笔记"><span class="nav-number">2.</span> <span class="nav-text">Java实战笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#class声明为final的好处"><span class="nav-number">2.1.</span> <span class="nav-text">class声明为final的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Java代码"><span class="nav-number">2.2.</span> <span class="nav-text">运行Java代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习资源"><span class="nav-number">3.</span> <span class="nav-text">学习资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">4.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#javase-11-API-官方文档搜索"><span class="nav-number">4.1.</span> <span class="nav-text">javase 11 API 官方文档搜索 </span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">北疆</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zhilinchn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

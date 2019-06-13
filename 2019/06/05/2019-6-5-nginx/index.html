@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://cdn.linz.tech/nginx-2019-6-13-io-epoll.png">
 <meta property="og:image" content="http://cdn.linz.tech/nginx-2019-6-13-io-sendfile.png">
 <meta property="og:image" content="http://cdn.linz.tech/nginx-2019-6-13-io-status.png">
-<meta property="og:updated_time" content="2019-06-13T13:23:19.666Z">
+<meta property="og:updated_time" content="2019-06-13T13:41:50.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx 学习笔记">
 <meta name="twitter:description" content="Nginx 简介Nginx 优点 IO 多路复用epoll  什么是IO多路复用： 多个描述符的I/O操作都能在一个线程内并发交替地顺序完成，其中复用指复用同一个线程。   轻量级，功能模块化，代码模块化  CPU亲和（afflinity）  什么是CPU亲和： 是一种CPU核心和Nginx工作进程绑定的方式，把没一个Worker进程固定在一个cpu上执行，减少切换cpu的cache miss,">
@@ -567,14 +567,14 @@
 <li><p>sendFile<br><img src="http://cdn.linz.tech/nginx-2019-6-13-io-sendfile.png" alt=""></p>
 </li>
 </ol>
-<h1 id="基于Nginx的中间件架构"><a href="#基于Nginx的中间件架构" class="headerlink" title="基于Nginx的中间件架构"></a>基于Nginx的中间件架构</h1><h2 id="1-Nginx快速搭建"><a href="#1-Nginx快速搭建" class="headerlink" title="1. Nginx快速搭建"></a>1. Nginx快速搭建</h2><p>官网： <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+<h1 id="基于Nginx的中间件架构"><a href="#基于Nginx的中间件架构" class="headerlink" title="基于Nginx的中间件架构"></a>基于Nginx的中间件架构</h1><h2 id="Nginx快速搭建"><a href="#Nginx快速搭建" class="headerlink" title="Nginx快速搭建"></a>Nginx快速搭建</h2><p>官网： <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
 <p>Mainline version 开发版本</p>
 <p>Stable version 稳定版本</p>
 <p>Legacy version 历史版本</p>
 <h3 id="Pre-Built-Packages"><a href="#Pre-Built-Packages" class="headerlink" title="Pre-Built Packages"></a>Pre-Built Packages</h3><p>有对应系统的安装方式 <a href="http://nginx.org/en/linux_packages.html" target="_blank" rel="noopener">linux_package</a></p>
 <pre class="line-numbers language-shell"><code class="language-shell">vim /etc/yum.repos.d/nginx.repos
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="2-Nginx的目录和配置语法"><a href="#2-Nginx的目录和配置语法" class="headerlink" title="2. Nginx的目录和配置语法"></a>2. Nginx的目录和配置语法</h2><p>日志目录 </p>
+<h2 id="Nginx的目录和配置语法"><a href="#Nginx的目录和配置语法" class="headerlink" title="Nginx的目录和配置语法"></a>Nginx的目录和配置语法</h2><p>日志目录 </p>
 <p>tengine -&gt; /usr/local/tengine/logs</p>
 <p>查看nginx的配置</p>
 <pre class="line-numbers language-shell"><code class="language-shell">nginx -V
@@ -763,7 +763,7 @@ nginx -s reload
     deny all;
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-命令"><a href="#3-命令" class="headerlink" title="3 命令"></a>3 命令</h2><p>Ø  -h：显示帮助信息</p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p>Ø  -h：显示帮助信息</p>
 <p>Ø  -v：显示Tengine版本</p>
 <p>Ø  -m：显示所有静态编译的模块</p>
 <p>Ø  -l：显示所有可配置的指令</p>
@@ -800,7 +800,7 @@ nginx -s reload
 nginx: configuration file /usr/local/tengine/conf/nginx.conf test is successful
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>阿里云后台配置文件路径：<code>/usr/local/tengine/conf/nginx.conf</code></p>
-<h2 id="4-基于nginx的实践应用"><a href="#4-基于nginx的实践应用" class="headerlink" title="4. 基于nginx的实践应用"></a>4. 基于nginx的实践应用</h2><h4 id="I-实现索引目录（适用于下载站）"><a href="#I-实现索引目录（适用于下载站）" class="headerlink" title="I 实现索引目录（适用于下载站）"></a>I 实现索引目录（适用于下载站）</h4><ol>
+<h2 id="基于nginx的实践应用"><a href="#基于nginx的实践应用" class="headerlink" title="基于nginx的实践应用"></a>基于nginx的实践应用</h2><h4 id="实现索引目录（适用于下载站）"><a href="#实现索引目录（适用于下载站）" class="headerlink" title="实现索引目录（适用于下载站）"></a>实现索引目录（适用于下载站）</h4><ol>
 <li><p>下载ngx-fancyindex</p>
 <pre class="line-numbers language-shell"><code class="language-shell">yum -y install git \
 cd /tmp \
@@ -823,21 +823,20 @@ ls /usr/local/tengine/modules | grep fancyindex  -->  ngx_http_fancyindex_module
 <ol start="4">
 <li><p>server 设置</p>
 <pre class="line-numbers language-shell"><code class="language-shell">location /software {
-
     root /download;
     fancyindex on;              # 启用fancy目录索引功能
     fancyindex_exact_size off;    # 不显示文件的精确大小，而是四舍五入，单位是KB、MB和GB
     fancyindex_localtime on;     # 默认为off，显示的是GMT时间，改为on，显示的是服务器时间
 
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>重载后测试<ul>
-<li>访问到测试</li>
-<li>检测模块是否加载成功 <code>nginx -m  --&gt;  ngx_http_fancyindex_module (shared, 3.1)</code></li>
-</ul>
-</li>
+<li>重载后测试</li>
 </ol>
+<ul>
+<li>访问到测试</li>
+<li>检测模块是否加载成功 nginx -m  –&gt;  ngx_http_fancyindex_module (shared, 3.1)</li>
+</ul>
 <h1 id="Nginx作为静态资源web服务"><a href="#Nginx作为静态资源web服务" class="headerlink" title="Nginx作为静态资源web服务"></a>Nginx作为静态资源web服务</h1><h1 id="Nginx动静分离"><a href="#Nginx动静分离" class="headerlink" title="Nginx动静分离"></a>Nginx动静分离</h1><h1 id="Nginx的性能优化与测试"><a href="#Nginx的性能优化与测试" class="headerlink" title="Nginx的性能优化与测试"></a>Nginx的性能优化与测试</h1><h2 id="1-调试"><a href="#1-调试" class="headerlink" title="1. 调试"></a>1. 调试</h2><h3 id="1-1-查看nginx的状态信息"><a href="#1-1-查看nginx的状态信息" class="headerlink" title="1.1 查看nginx的状态信息"></a>1.1 查看nginx的状态信息</h3><pre class="line-numbers language-shell"><code class="language-shell">location /status {
     stub_status on;
     allow 192.168.101.120;
@@ -944,8 +943,8 @@ location /echo {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/14/2019-4-14-Docker-note/" rel="next" title="Docker学习笔记">
-                <i class="fa fa-chevron-left"></i> Docker学习笔记
+              <a href="/2019/04/14/2019-4-17-database/" rel="next" title="数据库学习笔记">
+                <i class="fa fa-chevron-left"></i> 数据库学习笔记
               </a>
             
           </div>
@@ -953,6 +952,10 @@ location /echo {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/13/2019-4-13-Java-concurrent/" rel="prev" title="Java多线程并发学习笔记">
+                Java多线程并发学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -1060,7 +1063,7 @@ location /echo {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1142,7 +1145,7 @@ location /echo {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-简介"><span class="nav-number">1.</span> <span class="nav-text">Nginx 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx-优点"><span class="nav-number">1.1.</span> <span class="nav-text">Nginx 优点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于Nginx的中间件架构"><span class="nav-number">2.</span> <span class="nav-text">基于Nginx的中间件架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Nginx快速搭建"><span class="nav-number">2.1.</span> <span class="nav-text">1. Nginx快速搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pre-Built-Packages"><span class="nav-number">2.1.1.</span> <span class="nav-text">Pre-Built Packages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Nginx的目录和配置语法"><span class="nav-number">2.2.</span> <span class="nav-text">2. Nginx的目录和配置语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-nginx-conf"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 nginx.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Location"><span class="nav-number">2.2.2.</span> <span class="nav-text">Location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">2.2.3.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于nginx控制"><span class="nav-number">2.2.4.</span> <span class="nav-text">基于nginx控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#I-基于来源IP实现访问控制"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">I 基于来源IP实现访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#II-基于用户名-密码实现访问控制"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">II 基于用户名/密码实现访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#III-禁止访问某一类资源"><span class="nav-number">2.2.4.3.</span> <span class="nav-text">III 禁止访问某一类资源</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-命令"><span class="nav-number">2.3.</span> <span class="nav-text">3 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-基于nginx的实践应用"><span class="nav-number">2.4.</span> <span class="nav-text">4. 基于nginx的实践应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#I-实现索引目录（适用于下载站）"><span class="nav-number">2.4.0.1.</span> <span class="nav-text">I 实现索引目录（适用于下载站）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx作为静态资源web服务"><span class="nav-number">3.</span> <span class="nav-text">Nginx作为静态资源web服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx动静分离"><span class="nav-number">4.</span> <span class="nav-text">Nginx动静分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx的性能优化与测试"><span class="nav-number">5.</span> <span class="nav-text">Nginx的性能优化与测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-调试"><span class="nav-number">5.1.</span> <span class="nav-text">1. 调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-查看nginx的状态信息"><span class="nav-number">5.1.1.</span> <span class="nav-text">1.1 查看nginx的状态信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-装载echo模块-用于打印日志"><span class="nav-number">5.1.2.</span> <span class="nav-text">1.2 装载echo模块, 用于打印日志</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件管理"><span class="nav-number">6.2.</span> <span class="nav-text">配置文件管理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-简介"><span class="nav-number">1.</span> <span class="nav-text">Nginx 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx-优点"><span class="nav-number">1.1.</span> <span class="nav-text">Nginx 优点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于Nginx的中间件架构"><span class="nav-number">2.</span> <span class="nav-text">基于Nginx的中间件架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx快速搭建"><span class="nav-number">2.1.</span> <span class="nav-text">Nginx快速搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pre-Built-Packages"><span class="nav-number">2.1.1.</span> <span class="nav-text">Pre-Built Packages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx的目录和配置语法"><span class="nav-number">2.2.</span> <span class="nav-text">Nginx的目录和配置语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-nginx-conf"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 nginx.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Location"><span class="nav-number">2.2.2.</span> <span class="nav-text">Location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">2.2.3.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于nginx控制"><span class="nav-number">2.2.4.</span> <span class="nav-text">基于nginx控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#I-基于来源IP实现访问控制"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">I 基于来源IP实现访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#II-基于用户名-密码实现访问控制"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">II 基于用户名/密码实现访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#III-禁止访问某一类资源"><span class="nav-number">2.2.4.3.</span> <span class="nav-text">III 禁止访问某一类资源</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-number">2.3.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于nginx的实践应用"><span class="nav-number">2.4.</span> <span class="nav-text">基于nginx的实践应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现索引目录（适用于下载站）"><span class="nav-number">2.4.0.1.</span> <span class="nav-text">实现索引目录（适用于下载站）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx作为静态资源web服务"><span class="nav-number">3.</span> <span class="nav-text">Nginx作为静态资源web服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx动静分离"><span class="nav-number">4.</span> <span class="nav-text">Nginx动静分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx的性能优化与测试"><span class="nav-number">5.</span> <span class="nav-text">Nginx的性能优化与测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-调试"><span class="nav-number">5.1.</span> <span class="nav-text">1. 调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-查看nginx的状态信息"><span class="nav-number">5.1.1.</span> <span class="nav-text">1.1 查看nginx的状态信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-装载echo模块-用于打印日志"><span class="nav-number">5.1.2.</span> <span class="nav-text">1.2 装载echo模块, 用于打印日志</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件管理"><span class="nav-number">6.2.</span> <span class="nav-text">配置文件管理</span></a></li></ol></li></ol></div>
             
 
           </div>

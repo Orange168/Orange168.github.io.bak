@@ -84,18 +84,21 @@
 
 
 
-<meta name="description" content="基础教程 博客 构建工具-Gradle Gradle 完整指南（Android） android Gradle 基础的使用看 Gradle实战及学习建议 Gradle for android 的一些学习资源的罗列 Writing Custom Plugins gradle官方文档，自定义插件拿到Project类，就可以拿到几乎所有工程配置的属性和方法，然后发挥想象控制你的工程。  资料 Chapt">
+<meta name="description" content="基础 Gradle Guides Creating New Gradle Builds  命令 # 多任务顺序执行 gradlew clean jar  Groovy 基本D:\workspace\project\gradle\basic-demo\build.gradle Gradle Task 语法 D:\workspace\project\gradle\basic-demo\build.gr">
 <meta name="keywords" content="gradle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle 学习积累">
 <meta property="og:url" content="http://zhilinchn.online/2017/01/08/2017-01-08-gradle-note/index.html">
 <meta property="og:site_name" content="北疆的博客">
-<meta property="og:description" content="基础教程 博客 构建工具-Gradle Gradle 完整指南（Android） android Gradle 基础的使用看 Gradle实战及学习建议 Gradle for android 的一些学习资源的罗列 Writing Custom Plugins gradle官方文档，自定义插件拿到Project类，就可以拿到几乎所有工程配置的属性和方法，然后发挥想象控制你的工程。  资料 Chapt">
+<meta property="og:description" content="基础 Gradle Guides Creating New Gradle Builds  命令 # 多任务顺序执行 gradlew clean jar  Groovy 基本D:\workspace\project\gradle\basic-demo\build.gradle Gradle Task 语法 D:\workspace\project\gradle\basic-demo\build.gr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-21T14:42:50.279Z">
+<meta property="og:image" content="http://cdn.linz.tech/basic-demo-build-scan.png">
+<meta property="og:image" content="http://cdn.linz.tech/logger_level-2019-6-13.webp">
+<meta property="og:updated_time" content="2019-06-13T08:46:18.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle 学习积累">
-<meta name="twitter:description" content="基础教程 博客 构建工具-Gradle Gradle 完整指南（Android） android Gradle 基础的使用看 Gradle实战及学习建议 Gradle for android 的一些学习资源的罗列 Writing Custom Plugins gradle官方文档，自定义插件拿到Project类，就可以拿到几乎所有工程配置的属性和方法，然后发挥想象控制你的工程。  资料 Chapt">
+<meta name="twitter:description" content="基础 Gradle Guides Creating New Gradle Builds  命令 # 多任务顺序执行 gradlew clean jar  Groovy 基本D:\workspace\project\gradle\basic-demo\build.gradle Gradle Task 语法 D:\workspace\project\gradle\basic-demo\build.gr">
+<meta name="twitter:image" content="http://cdn.linz.tech/basic-demo-build-scan.png">
 
 
 
@@ -547,39 +550,24 @@
       
 
       
-        <h1 id="基础教程"><a href="#基础教程" class="headerlink" title="基础教程"></a>基础教程</h1><hr>
-<h2 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h2><ul>
-<li><a href="https://www.jianshu.com/nb/10954931" target="_blank" rel="noopener">构建工具-Gradle</a></li>
-<li><a href="https://www.jianshu.com/p/9df3c3b6067a" target="_blank" rel="noopener">Gradle 完整指南（Android）</a> android Gradle 基础的使用看</li>
-<li><a href="https://www.jianshu.com/p/b7fc7a6abffb" target="_blank" rel="noopener">Gradle实战及学习建议</a> Gradle for android 的一些学习资源的罗列</li>
-<li><a href="https://docs.gradle.org/current/userguide/custom_plugins.html" target="_blank" rel="noopener">Writing Custom Plugins</a> gradle官方文档，自定义插件拿到<a href="https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html" target="_blank" rel="noopener">Project</a>类，就可以拿到几乎所有工程配置的属性和方法，然后发挥想象控制你的工程。</li>
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><hr>
+<h2 id="Gradle-Guides"><a href="#Gradle-Guides" class="headerlink" title="Gradle Guides"></a>Gradle Guides</h2><ul>
+<li><a href="https://guides.gradle.org/creating-new-gradle-builds/" target="_blank" rel="noopener">Creating New Gradle Builds</a></li>
 </ul>
-<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
-<li><a href="https://docs.gradle.org/current/userguide/dependency_management.html" target="_blank" rel="noopener">Chapter 23. Dependency Management</a> 【待研究】</li>
-<li><a href="https://docs.gradle.org/current/userguide/java_plugin.html" target="_blank" rel="noopener">Chapter 45. The Java Plugin</a></li>
-<li><a href="https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.DependencyHandler.html" target="_blank" rel="noopener">DependencyHandler</a></li>
-<li><a href="http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Types" target="_blank" rel="noopener">Gradle Plugin User Guide</a> Android Studio 官网提供的Gradle实用教程</li>
-<li><a href="http://google.github.io/android-gradle-dsl/current/" target="_blank" rel="noopener">Android Plugin DSL Reference</a>  build.gradle  android{….} API</li>
-</ul>
-<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p><strong>Android Studio Project Site </strong></p>
-<ul>
-<li><a href="http://tools.android.com/tech-docs/new-build-system/user-guide" target="_blank" rel="noopener">Gradle Plugin User Guide</a></li>
-<li><a href="http://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html" target="_blank" rel="noopener">Android BuildType的可配置属性</a></li>
-</ul>
-<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><ul>
-<li><strong><a href="https://github.com/JakeWharton/hugo" target="_blank" rel="noopener">hugo</a></strong>  JakeWharton 不必介绍了。项目中使用Gradle plugin 和自定义Task 顺便学习一些Process Annotation.</li>
-<li><a href="https://plugins.gradle.org/" target="_blank" rel="noopener">https://plugins.gradle.org/</a> plugins gradle plugin确定</li>
-</ul>
-<h2 id="开源插件"><a href="#开源插件" class="headerlink" title="开源插件"></a>开源插件</h2><hr>
-<ul>
-<li><a href="https://github.com/vanniktech/gradle-android-junit-jacoco-plugin" target="_blank" rel="noopener">gradle-android-junit-jacoco-plugin</a><br>可以生成代码单元测试覆盖率报告的 Gradle 插件。</li>
-<li><a href="https://github.com/vanniktech/gradle-android-javadoc-plugin" target="_blank" rel="noopener">gradle-android-javadoc-plugin</a><br>可以生成 java doc 的 Gradle 插件。</li>
-<li><a href="https://github.com/vanniktech/gradle-android-apk-size-plugin" target="_blank" rel="noopener">gradle-android-apk-size-plugin</a><br>可以将 Apk 大小记录到 CSV 文件的 Gradle 插件。</li>
-<li><a href="http://github.com/adwiv/android-fat-aar" target="_blank" rel="noopener">android-fat-aar </a> Gradle script that allows you to merge and embed dependencies in generted aar file.</li>
-<li><strong><a href="https://github.com/JcMinarro/ProperDroid" target="_blank" rel="noopener">ProperDroid</a></strong>  simplifies the way that config different variant on your project.</li>
-<li><strong><a href="https://github.com/KeepSafe/dexcount-gradle-plugin" target="_blank" rel="noopener">dexcount-gradle-plugin</a></strong>  A Gradle plugin to report the number of method references in your APK on every build.</li>
-</ul>
-<h1 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h1><h3 id="查看当前依赖关系"><a href="#查看当前依赖关系" class="headerlink" title="查看当前依赖关系"></a>查看当前依赖关系</h3><p>gradlew  :sample:dependencies</p>
+<p>命令</p>
+<pre class="line-numbers language-shell"><code class="language-shell"># 多任务顺序执行
+gradlew clean jar
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="Groovy-基本"><a href="#Groovy-基本" class="headerlink" title="Groovy 基本"></a>Groovy 基本</h2><p>D:\workspace\project\gradle\basic-demo\build.gradle</p>
+<h2 id="Gradle-Task-语法"><a href="#Gradle-Task-语法" class="headerlink" title="Gradle Task 语法"></a>Gradle Task 语法</h2><blockquote>
+<p>D:\workspace\project\gradle\basic-demo\build.gradle</p>
+</blockquote>
+<ol>
+<li>task create</li>
+<li>task dependon</li>
+<li>myTask.doFirst</li>
+</ol>
+<h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h2><h3 id="1-查看当前依赖关系"><a href="#1-查看当前依赖关系" class="headerlink" title="1. 查看当前依赖关系"></a>1. 查看当前依赖关系</h3><p>gradlew  :sample:dependencies</p>
 <pre class="line-numbers language-xml"><code class="language-xml">+--- project :jobslibs
 |    +--- com.android.support:appcompat-v7:27.1.1
 |    |    +--- com.android.support:support-annotations:27.1.1
@@ -594,7 +582,7 @@
 |    |    |    +--- com.android.support:support-compat:27.1.1 (*)
 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="排除传递依赖"><a href="#排除传递依赖" class="headerlink" title="排除传递依赖"></a>排除传递依赖</h3><p>参考：<a href="http://www.paincker.com/gradle-dependencies" target="_blank" rel="noopener">Gradle依赖项学习总结</a></p>
+<h3 id="2-排除传递依赖"><a href="#2-排除传递依赖" class="headerlink" title="2. 排除传递依赖"></a>2. 排除传递依赖</h3><p>参考：<a href="http://www.paincker.com/gradle-dependencies" target="_blank" rel="noopener">Gradle依赖项学习总结</a></p>
 <p>指定某个模块</p>
 <pre class="line-numbers language-groovy"><code class="language-groovy">dependencies <span class="token punctuation">{</span>
     <span class="token function">compile</span> <span class="token punctuation">(</span><span class="token string">'org.codehaus.cargo:cargo-ant:1.3.1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -622,6 +610,113 @@ dependencies <span class="token punctuation">{</span>
    <span class="token function">androidTestCompile</span><span class="token punctuation">(</span><span class="token string">'com.android.support.test.espresso:espresso-core:2.1'</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="配置相关"><a href="#配置相关" class="headerlink" title="配置相关"></a>配置相关</h3><p>强制刷新依赖</p>
+<pre class="line-numbers language-shell"><code class="language-shell">gradlew --refresh-dependencies assemble
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><h3 id="查看属性-ext"><a href="#查看属性-ext" class="headerlink" title="查看属性(ext)"></a>查看属性(ext)</h3><p>设置属性 <code>gradle.properties</code></p>
+<pre class="line-numbers language-gradle"><code class="language-gradle">description = "A trivial Gradle build"
+version = "1.0"
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>查看</p>
+<pre><code>./gradlew properties
+</code></pre><h3 id="任务调试"><a href="#任务调试" class="headerlink" title="任务调试"></a>任务调试</h3><pre class="line-numbers language-shell"><code class="language-shell">./gradlew task_cmd --scan
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="http://cdn.linz.tech/basic-demo-build-scan.png" alt=""></p>
+<p>打印堆栈信息</p>
+<pre class="line-numbers language-shell"><code class="language-shell"># --stacktrace
+./gradlew task_cmd -s
+# --full-stacktrace
+./gradlew task_cmd -S
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>自定义日志级别输出</p>
+<p><img src="http://cdn.linz.tech/logger_level-2019-6-13.webp" alt=""></p>
+<pre class="line-numbers language-shell"><code class="language-shell"># out quiet > level log 
+gradle -q task_cmd
+# out info > level log 
+gradle -i task_cmd
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用gradle内置 logger 日志</p>
+<pre class="line-numbers language-shell"><code class="language-shell">task logTask {
+  doLast {
+    println 'Hello world!'
+    logger.quiet('quiet log ...')
+    logger.error('error log ...')
+    logger.lifecycle('lifecycle log info ...')
+    logger.info('info log...')
+    logger.debug('debug ... ')
+  }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>获取Task命令的命令选项，例如：</p>
+<p><code>gradlew help --task init</code></p>
+<p>输出如下：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">> Task :help 
+Detailed task information for init
+
+Path
+     :init
+
+Type
+     InitBuild (org.gradle.buildinit.tasks.InitBuild)
+
+Options
+     --dsl     Set alternative build script DSL to be used.
+               Available values are:
+                    groovy
+                    kotlin
+
+     --test-framework     Set alternative test framework to be used.
+                          Available values are:
+                               spock
+                               testng
+
+     --type     Set type of build to create.
+                Available values are:
+                     basic
+                     groovy-application
+                     groovy-library
+                     java-application
+                     java-library
+                     pom
+                     scala-library
+
+Description
+     Initializes a new Gradle build.
+
+Group
+     Build Setup
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h3><ul>
+<li><a href="https://www.jianshu.com/nb/10954931" target="_blank" rel="noopener">构建工具-Gradle</a></li>
+<li><a href="https://www.jianshu.com/p/9df3c3b6067a" target="_blank" rel="noopener">Gradle 完整指南（Android）</a> android Gradle 基础的使用看</li>
+<li><a href="https://www.jianshu.com/p/b7fc7a6abffb" target="_blank" rel="noopener">Gradle实战及学习建议</a> Gradle for android 的一些学习资源的罗列</li>
+<li><a href="https://docs.gradle.org/current/userguide/custom_plugins.html" target="_blank" rel="noopener">Writing Custom Plugins</a> gradle官方文档，自定义插件拿到<a href="https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html" target="_blank" rel="noopener">Project</a>类，就可以拿到几乎所有工程配置的属性和方法，然后发挥想象控制你的工程。</li>
+</ul>
+<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><ul>
+<li><a href="https://docs.gradle.org/current/userguide/dependency_management.html" target="_blank" rel="noopener">Chapter 23. Dependency Management</a> 【待研究】</li>
+<li><a href="https://docs.gradle.org/current/userguide/java_plugin.html" target="_blank" rel="noopener">Chapter 45. The Java Plugin</a></li>
+<li><a href="https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.DependencyHandler.html" target="_blank" rel="noopener">DependencyHandler</a></li>
+<li><a href="http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Types" target="_blank" rel="noopener">Gradle Plugin User Guide</a> Android Studio 官网提供的Gradle实用教程</li>
+<li><a href="http://google.github.io/android-gradle-dsl/current/" target="_blank" rel="noopener">Android Plugin DSL Reference</a>  build.gradle  android{….} API</li>
+</ul>
+<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p><strong>Android Studio Project Site </strong></p>
+<ul>
+<li><a href="http://tools.android.com/tech-docs/new-build-system/user-guide" target="_blank" rel="noopener">Gradle Plugin User Guide</a></li>
+<li><a href="http://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html" target="_blank" rel="noopener">Android BuildType的可配置属性</a></li>
+</ul>
+<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><ul>
+<li><strong><a href="https://github.com/JakeWharton/hugo" target="_blank" rel="noopener">hugo</a></strong>  JakeWharton 不必介绍了。项目中使用Gradle plugin 和自定义Task 顺便学习一些Process Annotation.</li>
+<li><a href="https://plugins.gradle.org/" target="_blank" rel="noopener">https://plugins.gradle.org/</a> plugins gradle plugin确定</li>
+</ul>
+<h2 id="开源插件"><a href="#开源插件" class="headerlink" title="开源插件"></a>开源插件</h2><hr>
+<ul>
+<li><a href="https://github.com/vanniktech/gradle-android-junit-jacoco-plugin" target="_blank" rel="noopener">gradle-android-junit-jacoco-plugin</a><br>可以生成代码单元测试覆盖率报告的 Gradle 插件。</li>
+<li><a href="https://github.com/vanniktech/gradle-android-javadoc-plugin" target="_blank" rel="noopener">gradle-android-javadoc-plugin</a><br>可以生成 java doc 的 Gradle 插件。</li>
+<li><a href="https://github.com/vanniktech/gradle-android-apk-size-plugin" target="_blank" rel="noopener">gradle-android-apk-size-plugin</a><br>可以将 Apk 大小记录到 CSV 文件的 Gradle 插件。</li>
+<li><a href="http://github.com/adwiv/android-fat-aar" target="_blank" rel="noopener">android-fat-aar </a> Gradle script that allows you to merge and embed dependencies in generted aar file.</li>
+<li><strong><a href="https://github.com/JcMinarro/ProperDroid" target="_blank" rel="noopener">ProperDroid</a></strong>  simplifies the way that config different variant on your project.</li>
+<li><strong><a href="https://github.com/KeepSafe/dexcount-gradle-plugin" target="_blank" rel="noopener">dexcount-gradle-plugin</a></strong>  A Gradle plugin to report the number of method references in your APK on every build.</li>
+</ul>
 <h1 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h1><ul>
 <li><p><a href="http://blog.csdn.net/qinxiandiqi/article/details/44458707" target="_blank" rel="noopener">  建立企业内部maven服务器并使用Android Studio发布公共项目</a>。</p>
 </li>
@@ -727,6 +822,31 @@ allprojects <span class="token punctuation">{</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="gradle-lt-gt-maven"><a href="#gradle-lt-gt-maven" class="headerlink" title="gradle &lt;=&gt; maven"></a>gradle &lt;=&gt; maven</h2><h3 id="1-gradle-gt-maven"><a href="#1-gradle-gt-maven" class="headerlink" title="1. gradle -&gt; maven"></a>1. gradle -&gt; maven</h3><p>build.gradle  <project></project></p>
+<pre class="line-numbers language-gradle"><code class="language-gradle">apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.101tec'
+version = '0.7-dev'
+sourceCompatibility = 1.6
+
+task writeNewPom << {
+    pom {
+        project {
+            inceptionYear '2008'
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }.writeTo("$buildDir/pom.xml")
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-maven-gt-gradle"><a href="#2-maven-gt-gradle" class="headerlink" title="2. maven -&gt; gradle"></a>2. maven -&gt; gradle</h3><pre class="line-numbers language-shell"><code class="language-shell">gradle init --type pom
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
       
     </div>
@@ -862,7 +982,7 @@ allprojects <span class="token punctuation">{</span>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -870,7 +990,7 @@ allprojects <span class="token punctuation">{</span>
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -879,7 +999,7 @@ allprojects <span class="token punctuation">{</span>
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -961,7 +1081,7 @@ allprojects <span class="token punctuation">{</span>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础教程"><span class="nav-number">1.</span> <span class="nav-text">基础教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#博客"><span class="nav-number">1.1.</span> <span class="nav-text">博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料"><span class="nav-number">1.2.</span> <span class="nav-text">资料</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Google"><span class="nav-number">1.2.1.</span> <span class="nav-text">Google</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件"><span class="nav-number">2.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开源插件"><span class="nav-number">2.1.</span> <span class="nav-text">开源插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖管理"><span class="nav-number">3.</span> <span class="nav-text">依赖管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前依赖关系"><span class="nav-number">3.0.1.</span> <span class="nav-text">查看当前依赖关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排除传递依赖"><span class="nav-number">3.0.2.</span> <span class="nav-text">排除传递依赖</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用案例"><span class="nav-number">4.</span> <span class="nav-text">使用案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题解决"><span class="nav-number">5.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖更新"><span class="nav-number">5.1.</span> <span class="nav-text">依赖更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle下载慢5个解决方案"><span class="nav-number">5.2.</span> <span class="nav-text">Gradle下载慢5个解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖下载慢，使用阿里云国内镜像"><span class="nav-number">5.3.</span> <span class="nav-text">依赖下载慢，使用阿里云国内镜像</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle-Guides"><span class="nav-number">1.1.</span> <span class="nav-text">Gradle Guides</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Groovy-基本"><span class="nav-number">1.2.</span> <span class="nav-text">Groovy 基本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle-Task-语法"><span class="nav-number">1.3.</span> <span class="nav-text">Gradle Task 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖管理"><span class="nav-number">1.4.</span> <span class="nav-text">依赖管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查看当前依赖关系"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 查看当前依赖关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-排除传递依赖"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 排除传递依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置相关"><span class="nav-number">1.4.3.</span> <span class="nav-text">配置相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">1.5.</span> <span class="nav-text">调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看属性-ext"><span class="nav-number">1.5.1.</span> <span class="nav-text">查看属性(ext)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务调试"><span class="nav-number">1.5.2.</span> <span class="nav-text">任务调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">1.6.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#博客"><span class="nav-number">1.6.1.</span> <span class="nav-text">博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资料"><span class="nav-number">1.6.2.</span> <span class="nav-text">资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google"><span class="nav-number">1.6.3.</span> <span class="nav-text">Google</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件"><span class="nav-number">2.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开源插件"><span class="nav-number">2.1.</span> <span class="nav-text">开源插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用案例"><span class="nav-number">3.</span> <span class="nav-text">使用案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题解决"><span class="nav-number">4.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖更新"><span class="nav-number">4.1.</span> <span class="nav-text">依赖更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle下载慢5个解决方案"><span class="nav-number">4.2.</span> <span class="nav-text">Gradle下载慢5个解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖下载慢，使用阿里云国内镜像"><span class="nav-number">4.3.</span> <span class="nav-text">依赖下载慢，使用阿里云国内镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle-lt-gt-maven"><span class="nav-number">4.4.</span> <span class="nav-text">gradle &lt;=&gt; maven</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-gradle-gt-maven"><span class="nav-number">4.4.1.</span> <span class="nav-text">1. gradle -&gt; maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-maven-gt-gradle"><span class="nav-number">4.4.2.</span> <span class="nav-text">2. maven -&gt; gradle</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

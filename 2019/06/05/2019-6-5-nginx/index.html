@@ -1,0 +1,1447 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="nginx," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Nginx 简介Nginx 优点 IO 多路复用epoll  什么是IO多路复用： 多个描述符的I/O操作都能在一个线程内并发交替地顺序完成，其中复用指复用同一个线程。   轻量级，功能模块化，代码模块化  CPU亲和（afflinity）  什么是CPU亲和： 是一种CPU核心和Nginx工作进程绑定的方式，把没一个Worker进程固定在一个cpu上执行，减少切换cpu的cache miss,">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx 学习笔记">
+<meta property="og:url" content="http://zhilinchn.online/2019/06/05/2019-6-5-nginx/index.html">
+<meta property="og:site_name" content="北疆的博客">
+<meta property="og:description" content="Nginx 简介Nginx 优点 IO 多路复用epoll  什么是IO多路复用： 多个描述符的I/O操作都能在一个线程内并发交替地顺序完成，其中复用指复用同一个线程。   轻量级，功能模块化，代码模块化  CPU亲和（afflinity）  什么是CPU亲和： 是一种CPU核心和Nginx工作进程绑定的方式，把没一个Worker进程固定在一个cpu上执行，减少切换cpu的cache miss,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://cdn.linz.tech/nginx-2019-6-13-io-epoll.png">
+<meta property="og:image" content="http://cdn.linz.tech/nginx-2019-6-13-io-sendfile.png">
+<meta property="og:image" content="http://cdn.linz.tech/nginx-2019-6-13-io-status.png">
+<meta property="og:updated_time" content="2019-06-13T13:23:19.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nginx 学习笔记">
+<meta name="twitter:description" content="Nginx 简介Nginx 优点 IO 多路复用epoll  什么是IO多路复用： 多个描述符的I/O操作都能在一个线程内并发交替地顺序完成，其中复用指复用同一个线程。   轻量级，功能模块化，代码模块化  CPU亲和（afflinity）  什么是CPU亲和： 是一种CPU核心和Nginx工作进程绑定的方式，把没一个Worker进程固定在一个cpu上执行，减少切换cpu的cache miss,">
+<meta name="twitter:image" content="http://cdn.linz.tech/nginx-2019-6-13-io-epoll.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'CD2IHLO3Q2',
+      apiKey: 'f3890b1e9cf212771f29d3258b186372',
+      indexName: 'LocalSearch',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhilinchn.online/2019/06/05/2019-6-5-nginx/"/>
+
+
+
+
+
+  <title> nginx 学习笔记 | 北疆的博客 </title>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dd275ba96bfa28cb8bd3809466f17419";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">北疆的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2019/06/05/2019-6-5-nginx/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="北疆">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="北疆的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="北疆的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                nginx 学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-05T16:49:14+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2019/06/05/2019-6-5-nginx/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/06/05/2019-6-5-nginx/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Nginx-简介"><a href="#Nginx-简介" class="headerlink" title="Nginx 简介"></a>Nginx 简介</h1><h2 id="Nginx-优点"><a href="#Nginx-优点" class="headerlink" title="Nginx 优点"></a>Nginx 优点</h2><ol>
+<li><p>IO 多路复用epoll<br><img src="http://cdn.linz.tech/nginx-2019-6-13-io-epoll.png" alt=""></p>
+<blockquote>
+<p>什么是IO多路复用： 多个描述符的I/O操作都能在一个线程内并发交替地顺序完成，其中<code>复用</code>指复用同一个线程。</p>
+</blockquote>
+</li>
+<li><p>轻量级，功能模块化，代码模块化</p>
+</li>
+<li><p>CPU亲和（afflinity）</p>
+<blockquote>
+<p>什么是CPU亲和： 是一种CPU核心和Nginx工作进程绑定的方式，把没一个Worker进程固定在一个cpu上执行，减少切换cpu的cache miss, 获取更好的性能。</p>
+</blockquote>
+</li>
+<li><p>sendFile<br><img src="http://cdn.linz.tech/nginx-2019-6-13-io-sendfile.png" alt=""></p>
+</li>
+</ol>
+<h1 id="基于Nginx的中间件架构"><a href="#基于Nginx的中间件架构" class="headerlink" title="基于Nginx的中间件架构"></a>基于Nginx的中间件架构</h1><h2 id="1-Nginx快速搭建"><a href="#1-Nginx快速搭建" class="headerlink" title="1. Nginx快速搭建"></a>1. Nginx快速搭建</h2><p>官网： <a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
+<p>Mainline version 开发版本</p>
+<p>Stable version 稳定版本</p>
+<p>Legacy version 历史版本</p>
+<h3 id="Pre-Built-Packages"><a href="#Pre-Built-Packages" class="headerlink" title="Pre-Built Packages"></a>Pre-Built Packages</h3><p>有对应系统的安装方式 <a href="http://nginx.org/en/linux_packages.html" target="_blank" rel="noopener">linux_package</a></p>
+<pre class="line-numbers language-shell"><code class="language-shell">vim /etc/yum.repos.d/nginx.repos
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="2-Nginx的目录和配置语法"><a href="#2-Nginx的目录和配置语法" class="headerlink" title="2. Nginx的目录和配置语法"></a>2. Nginx的目录和配置语法</h2><p>日志目录 </p>
+<p>tengine -&gt; /usr/local/tengine/logs</p>
+<p>查看nginx的配置</p>
+<pre class="line-numbers language-shell"><code class="language-shell">nginx -V
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2-1-nginx-conf"><a href="#2-1-nginx-conf" class="headerlink" title="2.1 nginx.conf"></a>2.1 nginx.conf</h3><pre class="line-numbers language-shell"><code class="language-shell">
+user tengine;                    # 运行worker进程的用户
+
+worker_processes auto;           # worker进程的个数，命令ps aux | grep nginx可查看启动的worker进程数量
+
+worker_cpu_affinity auto;         # 将worker进程绑定在哪些CPU上，减少由于上下文切换导致的CPU消耗
+
+worker_rlimit_nofile 65535;       # worker进程能够打开的最大文件数限制
+
+error_log logs/error.log error;     # 指定Tengine错误日志的存放路径和级别
+
+pid logs/nginx.pid;              # 指定Tengine进程的pid文件路径
+
+google_perftools_profiles /tmp/tcmalloc;   # tcmalloc保存路径，命令lsof -n | grep tcmalloc验证运行状态
+
+
+
+events {
+
+accept_mutex on;           # 让多个worker进程轮流地、序列化地响应新请求
+
+multi_accept on;            # 在Tengine接收到一个新连接通知后，调用accept()来接收尽可能多的连接
+
+worker_connections 65535;   # 单个worker进程所能响应的最大并发连接数
+
+# 此处没有指定use epoll;指令，让Tengine自动选择合适的事件处理模型
+
+}
+
+
+
+http {
+
+server_tokens off;           # 隐藏Tengine版本号
+
+include mime.types;         # MIME是网络资源的媒体类型，使用include指令导入mime.types文件
+
+default_type application/octet-stream;   # 指定默认类型
+
+
+
+# 自定义访问日志格式，名称为main，指定要保存的日志内容
+
+# ====================================================
+
+# $remote_addr与$http_x_forwarded_for含义相同：客户端的IP地址
+
+# $remote_user：记录客户端用户名称
+
+# $time_local：通用日志格式下的本地服务器时间
+
+# $request：记录请求的URL与HTTP协议
+
+# $status：响应状态码，成功是200
+
+# $body_bytes_sent：发送给客户端HTTP响应的主体内容的字节数大小，不包括响应首部的大小
+
+# $http_referer：记录从哪个页面链接访问过来的
+
+# $http_user_agent：记录客户端浏览器相关信息
+
+# ====================================================
+
+log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+
+                  '$status $body_bytes_sent "$http_referer" '
+
+                 '"$http_user_agent" "$http_x_forwarded_for"';
+
+
+
+access_log off;       # 关闭访问日志，提高磁盘的I/O性能
+
+sendfile on;          # 开启高效文件传输模式，调用sendfile()进行数据复制，sendfile()复制数据是在内核级别完成的，所以会比一般的read()、write()更高效，sendfile()可以在磁盘和TCP socket之间互相拷贝数据
+
+tcp_nopush on;      # 开启后服务器的响应头部信息产生独立的数据包发送，即一个响应头信息一个包。在一个数据包里发送所有头文件，而不是一个接一个的发送，用于防止网络阻塞，必须先开启sendfile模式
+
+keepalive_timeout 65; # 客户端keep-alive连接超时时长，服务器将在这个超时时长过后关闭连接，单位秒
+
+charset UTF-8;      # 定义头文件默认字符集
+
+
+
+gzip on;                      # 采用gzip压缩形式发送数据，将页面压缩后传输更节省带宽
+
+gzip_disable "msie6";           # IE6的浏览器禁用gzip功能
+
+gzip_proxied any;              # 指定对客户端请求的所有资源启用压缩功能
+
+gzip_min_length 1k;            # 指定对数据启用压缩的最少字节数，如果请求小于1K的文件，不要压缩，压缩小数据会降低处理此请求的所有进程速度
+
+gzip_comp_level 6;             # 指定数据的压缩等级，这个等级可以是1~9之间的任意数值，1压缩比最小但处理速度最快，9处理最慢但压缩比最大，CPU消耗也越大
+
+gzip_buffers 16 8k;             # 指定压缩响应的缓冲区的数量和大小
+
+gzip_vary on;                 # 允许把"Vary: Accept-Encoding"插入响应首部
+
+gzip_http_version 1.1;          # 指定识别HTTP协议版本，默认是1.1
+
+gzip_types text/plain text/css text/xml text/javascript application/json application/x-javascript application/xml application/xml+rss;               # 指定需要压缩的资源类型
+
+
+
+reset_timedout_connection on;       # 关闭不响应的客户端连接，释放客户端所占的内存空间
+
+client_body_buffer_size 8k;         # 指定用于读取客户端请求主体的缓冲区大小
+
+client_header_buffer_size 1k;       # 指定用于读取客户端请求首部的缓冲区大小
+
+large_client_header_buffers 4 8k;    # 指定用于读取客户端请求中较大首部的缓冲区的最大数量和大小
+
+client_max_body_size 1m;          # 指定用于客户端请求主体的最大大小
+
+client_header_timeout 30s;         # 指定用于读取客户端请求报文首部的超时时长，单位秒
+
+client_body_timeout 30s;           # 指定用于读取客户端请求报文主体的超时时长，单位秒
+
+send_timeout 30s;                 # 指定用于向客户端发送响应报文的超时时长，单位秒
+
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h3><blockquote>
+<p>参考 <a href="https://www.cnblogs.com/xiaoliangup/p/9175932.html" target="_blank" rel="noopener">nginx location指令详解</a></p>
+</blockquote>
+<p>基本语法： <code>location [=|~|~\*|^~|@] pattern{……}**</code></p>
+<ol>
+<li>没有修饰符 表示：必须以指定模式开始</li>
+<li>=表示：必须与指定的模式<code>精确</code>匹配</li>
+<li>~ 表示：指定的正则表达式要<code>区分大小写</code><ul>
+<li><code>~ \.(txt|css)$</code>   匹配所有以txt和css结尾的请求 区分大小写</li>
+</ul>
+</li>
+<li>~* 表示：指定的正则表达式<code>不区分大小写</code></li>
+<li>^~ 类似于无修饰符的行为，也是以指定模式开始，不同的是，如果模式匹配，<br>那么就<code>停止搜索其他模式</code>了。</li>
+<li>@ ：定义命名location区段，这些区段客户段不能访问，只可以由<code>内部</code>产生的请<br>求来访问，如try_files或error_page等</li>
+</ol>
+<p>优先级 “=” &gt; <strong>“^~”</strong> &gt; <strong>“~” 或“~*” </strong> &gt; “/ ”</p>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><ol>
+<li>自定义错误页</li>
+</ol>
+<pre class="line-numbers language-shell"><code class="language-shell">   location /bbs {
+       root /vhosts/bbs;
+       error_page 404 404/404.html;
+   }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="基于nginx控制"><a href="#基于nginx控制" class="headerlink" title="基于nginx控制"></a>基于nginx控制</h3><h4 id="I-基于来源IP实现访问控制"><a href="#I-基于来源IP实现访问控制" class="headerlink" title="I 基于来源IP实现访问控制"></a>I 基于来源IP实现访问控制</h4><pre class="line-numbers language-shell"><code class="language-shell">server{
+    location / {
+        # 网段的写法：192.168.1.0/24
+        deny 192.168.1.222;
+        # 从上到下进行匹配，类似iptables
+        allow all;
+    }
+
+    location /bbs {
+        if ( $remote_addr = 192.168.1.146 ) {
+        return 404;
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="II-基于用户名-密码实现访问控制"><a href="#II-基于用户名-密码实现访问控制" class="headerlink" title="II 基于用户名/密码实现访问控制"></a>II 基于用户名/密码实现访问控制</h4><pre class="line-numbers language-shell"><code class="language-shell">location /bbs {
+    auth_basic "Please Login";
+    auth_basic_user_file /usr/local/tengine/conf/.htpasswd;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>设置账户密码</p>
+<pre class="line-numbers language-shell"><code class="language-shell">yum -y install httpd-tools
+cd /usr/local/tengine/conf
+htpasswd -c -m .htpasswd keyso     //用户名keyso，密码123456
+nginx -t
+nginx -s reload
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>htpasswd</strong></p>
+<p>  -c：自动创建账号文件<strong>（仅在添加第一个用户时使用该选项）</strong></p>
+<p> -m：使用MD5加密用户密码</p>
+<p> -s：使用SHA加密用户密码</p>
+<p>  -D：删除指定用户</p>
+<h4 id="III-禁止访问某一类资源"><a href="#III-禁止访问某一类资源" class="headerlink" title="III 禁止访问某一类资源"></a>III 禁止访问某一类资源</h4><pre class="line-numbers language-shell"><code class="language-shell">location ~ \.(txt|doc)$ {
+    if (-f $request_filename){
+        root html;
+        break;
+    }
+    deny all;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-命令"><a href="#3-命令" class="headerlink" title="3 命令"></a>3 命令</h2><p>Ø  -h：显示帮助信息</p>
+<p>Ø  -v：显示Tengine版本</p>
+<p>Ø  -m：显示所有静态编译的模块</p>
+<p>Ø  -l：显示所有可配置的指令</p>
+<p>Ø  -V：显示版本、编译安装时的选项、所有静态编译的模块</p>
+<p>Ø  -t：检查Tengine配置文件语法</p>
+<p>Ø  -s [stop | quit | reopen | reload]：关闭 | 退出 | 重新打开 | 重载Tengine</p>
+<ul>
+<li><a href="https://www.cnblogs.com/jiangwangxiang/p/8481661.html" target="_blank" rel="noopener">windows下nginx的安装及使用</a> </li>
+</ul>
+<pre class="line-numbers language-shell"><code class="language-shell">  start nginx
+  nginx -s stop(快速停止nginx)  或  nginx -s quit(完整有序的停止nginx)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>Nginx 常用命令</li>
+</ul>
+<pre class="line-numbers language-shell"><code class="language-shell">  sudo nginx #打开 nginx
+  nginx -s reload|reopen|stop|quit  #重新加载配置|重启|停止|退出 nginx
+  nginx -t   #测试配置是否有语法错误
+
+  nginx [-?hvVtq] [-s signal] [-c filename] [-p prefix] [-g directives]
+
+  -?,-h           : 打开帮助信息
+  -v              : 显示版本信息并退出
+  -V              : 显示版本和配置选项信息，然后退出
+  -t              : 检测配置文件是否有语法错误，然后退出
+  -q              : 在检测配置文件期间屏蔽非错误信息
+  -s signal       : 给一个 nginx 主进程发送信号：stop（停止）, quit（退出）, reopen（重启）, reload（重新加载配置文件）
+  -p prefix       : 设置前缀路径（默认是：/usr/local/Cellar/nginx/1.2.6/）
+  -c filename     : 设置配置文件（默认是：/usr/local/etc/nginx/nginx.conf）
+  -g directives   : 设置配置文件外的全局指令
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>nginx -t  能查看配置文件所在目录</p>
+<pre class="line-numbers language-shell"><code class="language-shell">nginx: the configuration file /usr/local/tengine/conf/nginx.conf syntax is ok
+nginx: configuration file /usr/local/tengine/conf/nginx.conf test is successful
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>阿里云后台配置文件路径：<code>/usr/local/tengine/conf/nginx.conf</code></p>
+<h2 id="4-基于nginx的实践应用"><a href="#4-基于nginx的实践应用" class="headerlink" title="4. 基于nginx的实践应用"></a>4. 基于nginx的实践应用</h2><h4 id="I-实现索引目录（适用于下载站）"><a href="#I-实现索引目录（适用于下载站）" class="headerlink" title="I 实现索引目录（适用于下载站）"></a>I 实现索引目录（适用于下载站）</h4><ol>
+<li><p>下载ngx-fancyindex</p>
+<pre class="line-numbers language-shell"><code class="language-shell">yum -y install git \
+cd /tmp \
+git clone https://github.com/aperezdc/ngx-fancyindex.git ngx-fancyindex
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用Tengine的dso_tool工具编译第三方模块：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">dso_tool -h #help
+dso_tool --add-module=/tmp/ngx-fancyindex
+ls /usr/local/tengine/modules | grep fancyindex  -->  ngx_http_fancyindex_module.so
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>添加events 配置</p>
+</li>
+</ol>
+<pre class="line-numbers language-shell"><code class="language-shell">   dso {
+       load ngx_http_fancyindex_module.so;
+   }
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="4">
+<li><p>server 设置</p>
+<pre class="line-numbers language-shell"><code class="language-shell">location /software {
+
+    root /download;
+    fancyindex on;              # 启用fancy目录索引功能
+    fancyindex_exact_size off;    # 不显示文件的精确大小，而是四舍五入，单位是KB、MB和GB
+    fancyindex_localtime on;     # 默认为off，显示的是GMT时间，改为on，显示的是服务器时间
+
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>重载后测试<ul>
+<li>访问到测试</li>
+<li>检测模块是否加载成功 <code>nginx -m  --&gt;  ngx_http_fancyindex_module (shared, 3.1)</code></li>
+</ul>
+</li>
+</ol>
+<h1 id="Nginx作为静态资源web服务"><a href="#Nginx作为静态资源web服务" class="headerlink" title="Nginx作为静态资源web服务"></a>Nginx作为静态资源web服务</h1><h1 id="Nginx动静分离"><a href="#Nginx动静分离" class="headerlink" title="Nginx动静分离"></a>Nginx动静分离</h1><h1 id="Nginx的性能优化与测试"><a href="#Nginx的性能优化与测试" class="headerlink" title="Nginx的性能优化与测试"></a>Nginx的性能优化与测试</h1><h2 id="1-调试"><a href="#1-调试" class="headerlink" title="1. 调试"></a>1. 调试</h2><h3 id="1-1-查看nginx的状态信息"><a href="#1-1-查看nginx的状态信息" class="headerlink" title="1.1 查看nginx的状态信息"></a>1.1 查看nginx的状态信息</h3><pre class="line-numbers language-shell"><code class="language-shell">location /status {
+    stub_status on;
+    allow 192.168.101.120;
+    deny all;
+    access_log off;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>访问<a href="http://192.168.1.222/status" target="_blank" rel="noopener">http://192.168.1.222/status</a></p>
+<p><img src="http://cdn.linz.tech/nginx-2019-6-13-io-status.png" alt=""></p>
+<p>状态说明</p>
+<ul>
+<li>Active connections：当前活动的客户端连接数</li>
+<li>accepts：已经接收过的客户端连接总数</li>
+<li>handled：已经处理过的客户端连接总数</li>
+<li>requests：客户端的请求总数</li>
+<li>request_time：请求时间</li>
+<li>Reading：正在读取的客户端请求数</li>
+<li>Writing：正在处理请求或发送响应报文的连接数</li>
+<li>Waiting：等待发出请求的空闲连接数</li>
+</ul>
+<blockquote>
+<p>注意：可以配合 基于用户名/密码实现访问控制进行密码校验</p>
+</blockquote>
+<h3 id="1-2-装载echo模块-用于打印日志"><a href="#1-2-装载echo模块-用于打印日志" class="headerlink" title="1.2 装载echo模块, 用于打印日志"></a>1.2 装载echo模块, 用于打印日志</h3><ol>
+<li>下载echo-nginx-module：</li>
+</ol>
+<pre class="line-numbers language-shell"><code class="language-shell">yum -y install git \
+cd /tmp \
+git clone https://github.com/openresty/echo-nginx-module.git
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li><p>使用Tengine的dso_tool工具编译第三方模块：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">dso_tool --add-module=/tmp/echo-nginx-module
+ls /usr/local/tengine/modules | grep echo  -->  ngx_http_echo_module.so
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>nginx 配置</p>
+<pre class="line-numbers language-shell"><code class="language-shell">events{
+    dso {
+        load ngx_http_echo_module.so;
+    }
+}
+server{
+location /echo {
+    default_type "text/plain";    # 不指定default_type，会提示下载文件，而非直接输出在浏览器中
+    echo "host  -->  $host";                        # 请求主机头字段，否则为服务器名称
+    echo "server_name  -->  $server_name";          # 服务器名称
+    echo "server_addr  -->  $server_addr";            # 服务器IP地址
+    echo "remote_addr  -->  $remote_addr";          # 客户端IP地址
+    echo "uri  -->  $uri";                          # 不带请求参数的当前URI，$uri不包含主机名
+    echo "document_uri  -->  $document_uri";        # 与$uri含义相同
+    echo "request_uri  -->  $request_uri";            # 带请求参数的原始URI，不包含主机名
+    echo "request_filename  -->  $request_filename";   # 当前请求的文件路径
+    echo "document_root  -->  $document_root";      # 当前请求在root指令中指定的值
+}
+}
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>测试</p>
+<ul>
+<li>nginx -m  –&gt;  ngx_http_echo_module (shared, 3.1)</li>
+<li>访问的  <a href="http://www.qiuyue.com/echo" target="_blank" rel="noopener">http://www.qiuyue.com/echo</a></li>
+</ul>
+</li>
+</ol>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://blog.51cto.com/qiuyue/2114716" target="_blank" rel="noopener">CentOS 7.4 Tengine安装配置详解（一）</a></li>
+</ol>
+<h2 id="配置文件管理"><a href="#配置文件管理" class="headerlink" title="配置文件管理"></a>配置文件管理</h2><pre class="line-numbers language-shell"><code class="language-shell">http {
+    #导入servers/目录下所有conf文件
+    include servers/*.conf;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/14/2019-4-14-Docker-note/" rel="next" title="Docker学习笔记">
+                <i class="fa fa-chevron-left"></i> Docker学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2019/06/05/2019-6-5-nginx/"
+     data-title="nginx 学习笔记"
+     data-content=""
+     data-url="http://zhilinchn.online/2019/06/05/2019-6-5-nginx/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2019/06/05/2019-6-5-nginx/"
+           data-title="nginx 学习笔记" data-url="http://zhilinchn.online/2019/06/05/2019-6-5-nginx/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ohlb58e07.bkt.clouddn.com/avatar_github_blog.jpg"
+               alt="北疆" />
+          <p class="site-author-name" itemprop="name">北疆</p>
+          <p class="site-description motion-element" itemprop="description">自古以来，所谓豪杰之士，必有过人之节。人情有所不能忍着，匹夫见辱.拔剑而起.挺身而斗，此不足为勇也。天下有大勇者,猝然临之而不惊,无故加之而不怒。而其挟持者甚大，其志甚远也。 ——苏东坡《留候论》</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Orange168" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/bonanzas" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/53927a5b90c8/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              常用网站
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://androidweekly.net/" title="Androidweekly English" target="_blank">Androidweekly English</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://androidweekly.cn/" title="Androidweekly Chinese" target="_blank">Androidweekly Chinese</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-简介"><span class="nav-number">1.</span> <span class="nav-text">Nginx 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx-优点"><span class="nav-number">1.1.</span> <span class="nav-text">Nginx 优点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于Nginx的中间件架构"><span class="nav-number">2.</span> <span class="nav-text">基于Nginx的中间件架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Nginx快速搭建"><span class="nav-number">2.1.</span> <span class="nav-text">1. Nginx快速搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pre-Built-Packages"><span class="nav-number">2.1.1.</span> <span class="nav-text">Pre-Built Packages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Nginx的目录和配置语法"><span class="nav-number">2.2.</span> <span class="nav-text">2. Nginx的目录和配置语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-nginx-conf"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 nginx.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Location"><span class="nav-number">2.2.2.</span> <span class="nav-text">Location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">2.2.3.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于nginx控制"><span class="nav-number">2.2.4.</span> <span class="nav-text">基于nginx控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#I-基于来源IP实现访问控制"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">I 基于来源IP实现访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#II-基于用户名-密码实现访问控制"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">II 基于用户名/密码实现访问控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#III-禁止访问某一类资源"><span class="nav-number">2.2.4.3.</span> <span class="nav-text">III 禁止访问某一类资源</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-命令"><span class="nav-number">2.3.</span> <span class="nav-text">3 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-基于nginx的实践应用"><span class="nav-number">2.4.</span> <span class="nav-text">4. 基于nginx的实践应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#I-实现索引目录（适用于下载站）"><span class="nav-number">2.4.0.1.</span> <span class="nav-text">I 实现索引目录（适用于下载站）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx作为静态资源web服务"><span class="nav-number">3.</span> <span class="nav-text">Nginx作为静态资源web服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx动静分离"><span class="nav-number">4.</span> <span class="nav-text">Nginx动静分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx的性能优化与测试"><span class="nav-number">5.</span> <span class="nav-text">Nginx的性能优化与测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-调试"><span class="nav-number">5.1.</span> <span class="nav-text">1. 调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-查看nginx的状态信息"><span class="nav-number">5.1.1.</span> <span class="nav-text">1.1 查看nginx的状态信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-装载echo模块-用于打印日志"><span class="nav-number">5.1.2.</span> <span class="nav-text">1.2 装载echo模块, 用于打印日志</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">6.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件管理"><span class="nav-number">6.2.</span> <span class="nav-text">配置文件管理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">北疆</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zhilinchn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

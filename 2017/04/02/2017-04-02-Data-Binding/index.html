@@ -94,7 +94,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ohlb58e07.bkt.clouddn.com/data_binding_blog.png">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1321512-9683c578ded1684f.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2018-05-14T14:48:30.000Z">
+<meta property="og:updated_time" content="2019-05-10T09:27:34.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Data Binding 详解及使用案例">
 <meta name="twitter:description" content="构建环境使用条件 支持 Android 2.1 (API level 7+). Android Plugin for Gradle 1.5.0-alpha1 或更高buildscript { ... dependencies {   classpath &apos;com.android.tools.build:gradle:1.5.0-alpha1&apos; } }  开启android {   ....   d">
@@ -802,18 +802,20 @@ android:text=&quot;@{user.displayName != null ? user.displayName : user.lastName
 </tbody>
 </table>
 <p>Sample</p>
-<pre><code>android:text=&quot;@{@string/nameFormat(firstName, lastName)}&quot;
-android:text=&quot;@{@plurals/banana(bananaCount)}&quot;
-android:padding=&quot;@{large? @dimen/largePadding : @dimen/smallPadding}&quot;
-</code></pre><p>String formatting</p>
-<pre><code>&lt;resources&gt;
-    &lt;string name=&quot;greeting&quot;&gt;Hello, %s&lt;/string&gt;
-&lt;/resources&gt;
+<pre class="line-numbers language-java"><code class="language-java">android<span class="token operator">:</span>text<span class="token operator">=</span><span class="token string">"@{@string/nameFormat(firstName, lastName)}"</span>
+android<span class="token operator">:</span>text<span class="token operator">=</span><span class="token string">"@{@plurals/banana(bananaCount)}"</span>
+android<span class="token operator">:</span>padding<span class="token operator">=</span><span class="token string">"@{large? @dimen/largePadding : @dimen/smallPadding}"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>String formatting</p>
+<pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>greeting<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Hello, %s<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">></span></span>
 
-&lt;TextView
-    android:text=&quot;@{@string/greeting(user.firstName)}&quot;/&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TextView</span>
+    <span class="token attr-name"><span class="token namespace">android:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{@string/greeting(user.firstName)}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 
-</code></pre><p>Math in expressions</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Math in expressions</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TextView</span>
     <span class="token attr-name"><span class="token namespace">android:</span>padding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@dimen/padding<span class="token punctuation">"</span></span>
     <span class="token attr-name"><span class="token namespace">android:</span>padding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{@dimen/padding}<span class="token punctuation">"</span></span>
@@ -821,8 +823,7 @@ android:padding=&quot;@{large? @dimen/largePadding : @dimen/smallPadding}&quot;
     <span class="token attr-name"><span class="token namespace">android:</span>padding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{@dimen/padding + @dimen/padding}<span class="token punctuation">"</span></span>
     <span class="token attr-name"><span class="token namespace">android:</span>padding</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{largeScreen ? @dimen/padding * 2 : @dimen/padding}<span class="token punctuation">"</span></span>
 <span class="token punctuation">/></span></span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="更改数据自动更新UI界面-（Data-Objects）"><a href="#更改数据自动更新UI界面-（Data-Objects）" class="headerlink" title="更改数据自动更新UI界面 （Data Objects）"></a>更改数据自动更新UI界面 （Data Objects）</h2><p>经过上的学习，有木有发现， 布局Layout中的数据variables是固定的，只有初始化的时候赋值 数据变动时（设置数据，得到数据），还需要找控件，设置参数，更改UI状态, 基本还是老套路，官方的解决方案是Observable，使用观察者模式，当数据变化时通知layout自动变化，<br>官方提供的类：</p>
 <ul>
 <li>Observable Objects ；</li>
@@ -869,13 +870,8 @@ android:padding=&quot;@{large? @dimen/largePadding : @dimen/smallPadding}&quot;
       <span class="token comment" spellcheck="true">// 自动控制对应的Progress是否显示，或进行一些简单的逻辑处理</span>
      <span class="token punctuation">}</span>
    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-
-
-
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="ObservableFields"><a href="#ObservableFields" class="headerlink" title="ObservableFields"></a>ObservableFields</h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
    <span class="token keyword">public</span> <span class="token keyword">final</span> ObservableField<span class="token operator">&lt;</span>String<span class="token operator">></span> firstName <span class="token operator">=</span>
        <span class="token keyword">new</span> <span class="token class-name">ObservableField</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1265,7 +1261,7 @@ user<span class="token punctuation">.</span><span class="token function">put</sp
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1273,7 +1269,7 @@ user<span class="token punctuation">.</span><span class="token function">put</sp
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1282,7 +1278,7 @@ user<span class="token punctuation">.</span><span class="token function">put</sp
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

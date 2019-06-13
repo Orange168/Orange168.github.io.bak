@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="markdown,md," />
+  <meta name="keywords" content="database," />
 
 
 
@@ -84,21 +84,18 @@
 
 
 
-<meta name="description" content="[TOC] [TOC]  [TOC]     生成目录  样式（字体段落）页面内跳转 - [Usage](#usage) - [Examples](#examples) - [Download](#download) - [Tests](#tests) - [Code style](#code-style) - [Static code analysis](#static-code-analysi">
-<meta name="keywords" content="markdown,md">
+<meta name="description" content="实战备份项目腕带信息上传-- 创建视图 create view v_watch_recoder_msg as select r.id ,r.err as code, m.msg as msg, r.imei, an.name, r.time as upload_time from t_watch_recoder r,t_code_msg m, T_RUNAN_IMEI an where m.cod">
+<meta name="keywords" content="database">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MarkDown 语法补全">
-<meta property="og:url" content="http://zhilinchn.online/2019/04/13/2019-3-3-MarkDown语法补全/index.html">
+<meta property="og:title" content="数据库学习笔记">
+<meta property="og:url" content="http://zhilinchn.online/2019/04/14/2019-4-17-database/index.html">
 <meta property="og:site_name" content="北疆的博客">
-<meta property="og:description" content="[TOC] [TOC]  [TOC]     生成目录  样式（字体段落）页面内跳转 - [Usage](#usage) - [Examples](#examples) - [Download](#download) - [Tests](#tests) - [Code style](#code-style) - [Static code analysis](#static-code-analysi">
+<meta property="og:description" content="实战备份项目腕带信息上传-- 创建视图 create view v_watch_recoder_msg as select r.id ,r.err as code, m.msg as msg, r.imei, an.name, r.time as upload_time from t_watch_recoder r,t_code_msg m, T_RUNAN_IMEI an where m.cod">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img.shields.io/travis/pwittchen/RxBiometric.svg?branch=master&style=flat-square">
-<meta property="og:image" content="https://img.shields.io/travis/pwittchen/RxBiometric.svg?branch=master&style=flat-square">
-<meta property="og:updated_time" content="2019-04-12T17:22:54.469Z">
+<meta property="og:updated_time" content="2019-06-13T13:12:32.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MarkDown 语法补全">
-<meta name="twitter:description" content="[TOC] [TOC]  [TOC]     生成目录  样式（字体段落）页面内跳转 - [Usage](#usage) - [Examples](#examples) - [Download](#download) - [Tests](#tests) - [Code style](#code-style) - [Static code analysis](#static-code-analysi">
-<meta name="twitter:image" content="https://img.shields.io/travis/pwittchen/RxBiometric.svg?branch=master&style=flat-square">
+<meta name="twitter:title" content="数据库学习笔记">
+<meta name="twitter:description" content="实战备份项目腕带信息上传-- 创建视图 create view v_watch_recoder_msg as select r.id ,r.err as code, m.msg as msg, r.imei, an.name, r.time as upload_time from t_watch_recoder r,t_code_msg m, T_RUNAN_IMEI an where m.cod">
 
 
 
@@ -126,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://zhilinchn.online/2019/04/13/2019-3-3-MarkDown语法补全/"/>
+  <link rel="canonical" href="http://zhilinchn.online/2019/04/14/2019-4-17-database/"/>
 
 
 
 
 
-  <title> MarkDown 语法补全 | 北疆的博客 </title>
+  <title> 数据库学习笔记 | 北疆的博客 </title>
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -447,7 +444,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2019/04/13/2019-3-3-MarkDown语法补全/">
+  <link itemprop="mainEntityOfPage" href="http://zhilinchn.online/2019/04/14/2019-4-17-database/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="北疆">
@@ -471,7 +468,7 @@
             
             
               
-                MarkDown 语法补全
+                数据库学习笔记
               
             
           </h1>
@@ -484,8 +481,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T01:21:43+08:00">
-                2019-04-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T08:22:52+08:00">
+                2019-04-14
               </time>
             
 
@@ -518,8 +515,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2019/04/13/2019-3-3-MarkDown语法补全/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/04/13/2019-3-3-MarkDown语法补全/" itemprop="commentCount"></span>
+                <a href="/2019/04/14/2019-4-17-database/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/04/14/2019-4-17-database/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -550,281 +547,14 @@
       
 
       
-        <p>[TOC]</p>
-<h3 id="TOC"><a href="#TOC" class="headerlink" title="[TOC]"></a><code>[TOC]</code></h3><blockquote>
-<p> [TOC]     生成目录</p>
-</blockquote>
-<h3 id="样式（字体段落）"><a href="#样式（字体段落）" class="headerlink" title="样式（字体段落）"></a>样式（字体段落）</h3><h4 id="页面内跳转"><a href="#页面内跳转" class="headerlink" title="页面内跳转"></a>页面内跳转</h4><pre class="line-numbers language-java"><code class="language-java">
-<span class="token operator">-</span> <span class="token punctuation">[</span>Usage<span class="token punctuation">]</span><span class="token punctuation">(</span>#usage<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>Examples<span class="token punctuation">]</span><span class="token punctuation">(</span>#examples<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>Download<span class="token punctuation">]</span><span class="token punctuation">(</span>#download<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>Tests<span class="token punctuation">]</span><span class="token punctuation">(</span>#tests<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>Code style<span class="token punctuation">]</span><span class="token punctuation">(</span>#code<span class="token operator">-</span>style<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>Static code analysis<span class="token punctuation">]</span><span class="token punctuation">(</span>#<span class="token keyword">static</span><span class="token operator">-</span>code<span class="token operator">-</span>analysis<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>JavaDoc<span class="token punctuation">]</span><span class="token punctuation">(</span>#javadoc<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>Changelog<span class="token punctuation">]</span><span class="token punctuation">(</span>#changelog<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>Releasing<span class="token punctuation">]</span><span class="token punctuation">(</span>#releasing<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>References<span class="token punctuation">]</span><span class="token punctuation">(</span>#references<span class="token punctuation">)</span>
-<span class="token operator">-</span> <span class="token punctuation">[</span>License<span class="token punctuation">]</span><span class="token punctuation">(</span>#license<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h4><pre><code>&lt;font face=&quot;黑体&quot;&gt;我是黑体字&lt;/font&gt;
-&lt;font face=&quot;微软雅黑&quot;&gt;我是微软雅黑&lt;/font&gt;
-&lt;font face=&quot;STCAIYUN&quot;&gt;我是华文彩云&lt;/font&gt;
-&lt;font color=#0099ff size=12 face=&quot;黑体&quot;&gt;黑体&lt;/font&gt;
-&lt;font color=#00ffff size=3&gt;null&lt;/font&gt;
-&lt;font color=gray size=5&gt;gray&lt;/font&gt;
-</code></pre><p><font face="黑体">我是黑体字</font>  </p>
-<p><font face="微软雅黑">我是微软雅黑</font>  </p>
-<p><font face="STCAIYUN">我是华文彩云</font>  </p>
-<p><font color="#0099ff" size="12" face="黑体">黑体</font>  </p>
-<p><font color="red" size="3">null</font>  </p>
-<p><font color="gray" size="5">gray</font></p>
-<h5 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h5><table>
-<thead>
-<tr>
-<th>字体</th>
-<th>中文字体的英文名</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><font face="FZShuTi">网页字体样式方正舒体</font></td>
-<td>FZShuTi</td>
-</tr>
-<tr>
-<td><font face="FZYaoti">网页字体样式方正姚体</font></td>
-<td>FZYaoti</td>
-</tr>
-<tr>
-<td><font face="STCaiyun">网页字体样式华文彩云</font></td>
-<td>STCaiyun</td>
-</tr>
-<tr>
-<td><font face="STHupo">网页字体样式华文琥珀</font></td>
-<td>STHupo</td>
-</tr>
-<tr>
-<td><font face="STLiti">网页字体样式华文隶书</font></td>
-<td>STLiti</td>
-</tr>
-<tr>
-<td><font face="STXingkai">网页字体样式华文行楷</font></td>
-<td>STXingkai</td>
-</tr>
-<tr>
-<td><font face="STXinwei">网页字体样式华文新魏</font></td>
-<td>STXinwei</td>
-</tr>
-<tr>
-<td><font face="STHeiti">网页字体样式华文黑体</font></td>
-<td>STHeiti</td>
-</tr>
-<tr>
-<td><font face="STKaiti">网页字体样式华文楷体</font></td>
-<td>STKaiti</td>
-</tr>
-<tr>
-<td><font face="STSong">网页字体样式华文宋体</font></td>
-<td>STSong</td>
-</tr>
-<tr>
-<td><font face="STFangsong">网页字体样式华文仿宋</font></td>
-<td>STFangsong</td>
-</tr>
-<tr>
-<td><font face="SimHei">网页字体样式黑体</font></td>
-<td>SimHei</td>
-</tr>
-<tr>
-<td><font face="SimSun">网页字体样式宋体</font></td>
-<td>SimSun</td>
-</tr>
-<tr>
-<td><font face="NSimSun">网页字体样式新宋体</font></td>
-<td>NSimSun</td>
-</tr>
-<tr>
-<td><font face="FangSong">网页字体样式仿宋</font></td>
-<td>FangSong</td>
-</tr>
-<tr>
-<td><font face="KaiTi">网页字体样式楷体</font></td>
-<td>KaiTi</td>
-</tr>
-<tr>
-<td><font face="FangSong_GB2312">网页字体样式仿宋_GB2312</font></td>
-<td>FangSong_GB2312</td>
-</tr>
-<tr>
-<td><font face="KaiTi_GB2312">网页字体样式楷体_GB2312</font></td>
-<td>KaiTi_GB2312</td>
-</tr>
-<tr>
-<td><font face="Microsoft" jhenghei="">网页字体样式微软正黑体</font></td>
-<td>Microsoft JhengHei</td>
-</tr>
-<tr>
-<td><font face="Microsoft" yahei="">网页字体样式微软雅黑体</font></td>
-<td>Microsoft YaHei</td>
-</tr>
-<tr>
-<td><font face="LiSu">网页字体样式隶书</font></td>
-<td>LiSu</td>
-</tr>
-<tr>
-<td><font face="YouYuan">网页字体样式幼圆</font></td>
-<td>YouYuan</td>
-</tr>
-<tr>
-<td><font face="STXihei">网页字体样式华文细黑</font></td>
-<td>STXihei</td>
-</tr>
-<tr>
-<td><font face="STKaiti">网页字体样式华文楷体</font></td>
-<td>STKaiti</td>
-</tr>
-<tr>
-<td><font face="STSong">网页字体样式华文宋体</font></td>
-<td>STSong</td>
-</tr>
-<tr>
-<td><font face="STZhongsong">网页字体样式华文中宋</font></td>
-<td>STZhongsong</td>
-</tr>
-<tr>
-<td><font face="STFangsong">网页字体样式华文仿宋</font></td>
-<td>STFangsong</td>
-</tr>
-</tbody>
-</table>
-<h3 id="富媒体"><a href="#富媒体" class="headerlink" title="富媒体"></a>富媒体</h3><h4 id="图片嵌入链接"><a href="#图片嵌入链接" class="headerlink" title="图片嵌入链接"></a>图片嵌入链接</h4><p><a href="https://travis-ci.org/pwittchen/RxBiometric" target="_blank" rel="noopener"><img src="https://img.shields.io/travis/pwittchen/RxBiometric.svg?branch=master&amp;style=flat-square" alt="Build Status"></a> </p>
-<pre><code>[![Build Status](https://img.shields.io/travis/pwittchen/RxBiometric.svg?branch=master&amp;style=flat-square)](https://travis-ci.org/pwittchen/RxBiometric) 
-</code></pre><h4 id="调节图片样式"><a href="#调节图片样式" class="headerlink" title="调节图片样式"></a>调节图片样式</h4><p align="center"><img src="https://img.shields.io/travis/pwittchen/RxBiometric.svg?branch=master&style=flat-square" alt="logo" height="250px"></p>
+        <h1 id="实战备份"><a href="#实战备份" class="headerlink" title="实战备份"></a>实战备份</h1><h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><h3 id="腕带信息上传"><a href="#腕带信息上传" class="headerlink" title="腕带信息上传"></a>腕带信息上传</h3><pre class="line-numbers language-shell"><code class="language-shell">-- 创建视图
+create view v_watch_recoder_msg as
+select r.id ,r.err as code, m.msg as msg, r.imei, an.name, r.time as upload_time from t_watch_recoder r,t_code_msg m, T_RUNAN_IMEI an where m.code = r.ERR and m.type='status' and r.imei = an.imei ORDER BY r.time DESC
 
-<h4 id="嵌入HTML"><a href="#嵌入HTML" class="headerlink" title="嵌入HTML"></a>嵌入HTML</h4><html><br><table><tbody><br>    <tr><br>        <th>方法说明</th><th>颜色名称</th><th>颜色</th><br>    </tr><br>    <tr><br>        <td><font color="Hotpink">此处实现方法利用 CSDN-markdown 内嵌 html 语言的优势</font></td><td><font color="Hotpink">Hotpink</font></td><td bgcolor="Hotpink">rgb(240, 248, 255)</td><br>    </tr><br>    <tr><br>        <td><font color="Pink">借助 table, tr, td 等表格标签的 bgcolor 属性实现背景色设置</font></td><td><font color="pink">AntiqueWhite</font></td><td bgcolor="Pink">rgb(255, 192, 203)</td><br>    </tr><br></tbody></table><br></html>
+create view v_alert_record_msg as
+select t.id, t.type,msg.msg, t.imei,t.time from t_alert_record t, t_code_msg msg where msg.type='alert' and msg.code = t.type order by t.time desc
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-
-<pre><code>graph LR
-A--&gt;B
-</code></pre><pre><code>sequenceDiagram
-A-&gt;&gt;B: How are you?
-B-&gt;&gt;A: Great!
-</code></pre><pre><code>gantt
-dateFormat YYYY-MM-DD
-section S1
-T1: 2014-01-01, 9d
-section S2
-T2: 2014-01-11, 9d
-section S3
-T3: 2014-01-02, 9d
-</code></pre><h3 id="脚注-注解"><a href="#脚注-注解" class="headerlink" title="脚注(注解)"></a>脚注(注解)</h3><p><strong>样式1</strong> 评价：相对于超链接方式，提供了对超链接的解说作用</p>
-<p>I get 10 times more traffic from <a href="http://google.com/" title="Google" target="_blank" rel="noopener">Google</a> than from <a href="http://search.yahoo.com/" title="Yahoo Search" target="_blank" rel="noopener">Yahoo</a> or <a href="http://search.msn.com/" title="MSN Search" target="_blank" rel="noopener">MSN</a>.  </p>
-<p><strong>样式2</strong></p>
-<p>这是一个链接到谷歌的[^脚注的详细说明]。</p>
-<p>[^脚注的详细说明]: <a href="http://www.google.com" target="_blank" rel="noopener">http://www.google.com</a>   增加一些评论</p>
-<p>评论： </p>
-<pre><code> 1. 可以新建隐藏一些提示说明
- 2. 可以把链接地址增加说明，鼠标悬停是可以自己点击
-</code></pre><h3 id="段落缩进（空格）"><a href="#段落缩进（空格）" class="headerlink" title="段落缩进（空格）"></a><strong>段落缩进（空格）</strong></h3><pre><code>半方大的空白&amp;ensp;或&amp;#8194;看，飞碟
-全方大的空白&amp;emsp;或&amp;#8195;看，飞碟
-不断行的空白格&amp;nbsp;或&amp;#160;看，飞碟
-&amp;emsp;&amp;emsp;段落从此开始。
-</code></pre><p>半方大的空白&ensp;或&#8194;看，飞碟<br>全方大的空白&emsp;或&#8195;看，飞碟<br>不断行的空白格&nbsp;或&#160;看，飞碟<br>&emsp;&emsp;段落从此开始。</p>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><pre><code>| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-</code></pre><table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<p>或者</p>
-<pre><code>项目     | 价格
--------- | ---
-Computer | $1600
-Phone    | $12
-Pipe     | $1
-</code></pre><table>
-<thead>
-<tr>
-<th>项目</th>
-<th>价格</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Computer</td>
-<td>$1600</td>
-</tr>
-<tr>
-<td>Phone</td>
-<td>$12</td>
-</tr>
-<tr>
-<td>Pipe</td>
-<td>$1</td>
-</tr>
-</tbody>
-</table>
-<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><hr>
-<hr>
-<hr>
-<p>三个-*_</p>
-<pre><code>---
-***
-___
-</code></pre><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><blockquote>
-<p>引用</p>
-<blockquote>
-<p>引用中的引用</p>
-<pre><code>引用
-引用中的引用
-</code></pre></blockquote>
-</blockquote>
-<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><h1 id="大标题"><a href="#大标题" class="headerlink" title=" 大标题"></a> 大标题</h1><h2 id="小标题"><a href="#小标题" class="headerlink" title="小标题"></a>小标题</h2><pre><code>大标题
-===
-小标题
----
-</code></pre><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><ol>
-<li>有序列表</li>
-<li>有序列表</li>
-<li>有序列表</li>
-<li>有序列表<br><code>`</code></li>
-<li>有序列表</li>
-<li>有序列表</li>
-<li>有序列表</li>
-<li>有序列表 【不连续】<br><code>`</code><h3 id="checkBox"><a href="#checkBox" class="headerlink" title="checkBox"></a>checkBox</h3></li>
-</ol>
-<ul>
-<li>[x] 地方大</li>
-<li>[ ] 地方大</li>
-</ul>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6>
       
     </div>
 
@@ -847,9 +577,7 @@ ___
       
         <div class="post-tags">
           
-            <a href="/tags/markdown/" rel="tag"># markdown</a>
-          
-            <a href="/tags/md/" rel="tag"># md</a>
+            <a href="/tags/database/" rel="tag"># database</a>
           
         </div>
       
@@ -858,8 +586,8 @@ ___
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/13/2019-2-26-server/" rel="next" title="Java后台基础学习笔记">
-                <i class="fa fa-chevron-left"></i> Java后台基础学习笔记
+              <a href="/2019/04/13/2019-3-23-newbia-note/" rel="next" title="Linux 菜鸟私房菜知识架构">
+                <i class="fa fa-chevron-left"></i> Linux 菜鸟私房菜知识架构
               </a>
             
           </div>
@@ -868,8 +596,8 @@ ___
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/13/2019-3-23-中小型互联网公司后台服务架构与运维架构/" rel="prev" title="中小型互联网公司后台服务架构与运维架构；">
-                中小型互联网公司后台服务架构与运维架构； <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/14/2019-4-14-Docker-note/" rel="prev" title="Docker学习笔记">
+                Docker学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -885,10 +613,10 @@ ___
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2019/04/13/2019-3-3-MarkDown语法补全/"
-     data-title="MarkDown 语法补全"
+        <div class="ds-share flat" data-thread-key="2019/04/14/2019-4-17-database/"
+     data-title="数据库学习笔记"
      data-content=""
-     data-url="http://zhilinchn.online/2019/04/13/2019-3-3-MarkDown语法补全/">
+     data-url="http://zhilinchn.online/2019/04/14/2019-4-17-database/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -915,8 +643,8 @@ ___
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2019/04/13/2019-3-3-MarkDown语法补全/"
-           data-title="MarkDown 语法补全" data-url="http://zhilinchn.online/2019/04/13/2019-3-3-MarkDown语法补全/">
+      <div class="ds-thread" data-thread-key="2019/04/14/2019-4-17-database/"
+           data-title="数据库学习笔记" data-url="http://zhilinchn.online/2019/04/14/2019-4-17-database/">
       </div>
     
   </div>
@@ -961,7 +689,7 @@ ___
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -969,7 +697,7 @@ ___
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -978,7 +706,7 @@ ___
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1060,7 +788,7 @@ ___
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TOC"><span class="nav-number">1.</span> <span class="nav-text">[TOC]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式（字体段落）"><span class="nav-number">2.</span> <span class="nav-text">样式（字体段落）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#页面内跳转"><span class="nav-number">2.1.</span> <span class="nav-text">页面内跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体样式"><span class="nav-number">2.2.</span> <span class="nav-text">字体样式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字体"><span class="nav-number">2.2.1.</span> <span class="nav-text">字体</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#富媒体"><span class="nav-number">3.</span> <span class="nav-text">富媒体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片嵌入链接"><span class="nav-number">3.1.</span> <span class="nav-text">图片嵌入链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调节图片样式"><span class="nav-number">3.2.</span> <span class="nav-text">调节图片样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入HTML"><span class="nav-number">3.3.</span> <span class="nav-text">嵌入HTML</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚注-注解"><span class="nav-number">4.</span> <span class="nav-text">脚注(注解)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段落缩进（空格）"><span class="nav-number">5.</span> <span class="nav-text">段落缩进（空格）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">6.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分割线"><span class="nav-number">7.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">8.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标题"><span class="nav-number">9.</span> <span class="nav-text">标题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大标题"><span class="nav-number"></span> <span class="nav-text"> 大标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小标题"><span class="nav-number"></span> <span class="nav-text">小标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有序列表"><span class="nav-number">1.</span> <span class="nav-text">有序列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checkBox"><span class="nav-number">2.</span> <span class="nav-text">checkBox</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number"></span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number"></span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级标题"><span class="nav-number">1.</span> <span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四级标题"><span class="nav-number">1.1.</span> <span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#五级标题"><span class="nav-number">1.1.1.</span> <span class="nav-text">五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#六级标题"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实战备份"><span class="nav-number">1.</span> <span class="nav-text">实战备份</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目"><span class="nav-number">1.1.</span> <span class="nav-text">项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#腕带信息上传"><span class="nav-number">1.1.1.</span> <span class="nav-text">腕带信息上传</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

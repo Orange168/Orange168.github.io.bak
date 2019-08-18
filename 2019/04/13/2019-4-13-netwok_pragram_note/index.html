@@ -93,8 +93,8 @@
 <meta property="og:description" content="[TOC] 基本知识基本术语Socket操作系统为软件提供输入/出的端口，链接过程Service端监听某个端口，客户端访问服务器端口； int socket(int domain, int type, int protocol);   domain：协议域，又称协议族（family）。常用有AF_INET、AF_INET6、AF_LOCAL（或称AF_UNIX，Unix域Socket）、AF_RO">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.linz.tech/web-process-url.png">
-<meta property="og:image" content="http://cdn.linz.tech/network-model-7.png">
-<meta property="og:image" content="http://cdn.linz.tech/handshake-3-2019-6-13.png.png">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1561132064&di=cc967a2bf193d68f4abcdebb215c85ce&imgtype=jpg&er=1&src=http%3A%2F%2Fseo-1255598498.file.myqcloud.com%2Ffull%2Fa1b608d8a924f451f5538a13996e023be1d904f4.jpg">
+<meta property="og:image" content="http://cdn.linz.tech/handshake-3-2019-6-13.png">
 <meta property="og:image" content="http://cdn.linz.tech/http-message-2019-6-13.png">
 <meta property="og:image" content="http://cdn.linz.tech/https-handshake.png">
 <meta property="og:image" content="http://cdn.linz.tech/websocket-push-2019-6-13.webp">
@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://cdn.linz.tech/network-pragram-note-2.png">
 <meta property="og:image" content="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/f6e2ac304ee22891eca4ad1218602044.png">
 <meta property="og:image" content="http://ata2-img.cn-hangzhou.img-pub.aliyun-inc.com/e67029972070a7dd84206023b179dbd1.png">
-<meta property="og:updated_time" content="2019-06-13T08:46:18.912Z">
+<meta property="og:updated_time" content="2019-06-14T15:54:47.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络编程笔记汇总">
 <meta name="twitter:description" content="[TOC] 基本知识基本术语Socket操作系统为软件提供输入/出的端口，链接过程Service端监听某个端口，客户端访问服务器端口； int socket(int domain, int type, int protocol);   domain：协议域，又称协议族（family）。常用有AF_INET、AF_INET6、AF_LOCAL（或称AF_UNIX，Unix域Socket）、AF_RO">
@@ -641,7 +641,7 @@ Accept: */*
 <pre class="line-numbers language-url"><code class="language-url">http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="浏览器处理URL完整过程"><a href="#浏览器处理URL完整过程" class="headerlink" title="浏览器处理URL完整过程"></a>浏览器处理URL完整过程</h3><p><img src="http://cdn.linz.tech/web-process-url.png" alt="1556472466987"></p>
-<h2 id="网络协议"><a href="#网络协议" class="headerlink" title="网络协议"></a>网络协议</h2><h3 id="经典五层模型"><a href="#经典五层模型" class="headerlink" title="经典五层模型"></a>经典五层模型</h3><p><img src="http://cdn.linz.tech/network-model-7.png" alt=""></p>
+<h2 id="网络协议"><a href="#网络协议" class="headerlink" title="网络协议"></a>网络协议</h2><h3 id="经典五层模型"><a href="#经典五层模型" class="headerlink" title="经典五层模型"></a>经典五层模型</h3><p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1561132064&amp;di=cc967a2bf193d68f4abcdebb215c85ce&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fseo-1255598498.file.myqcloud.com%2Ffull%2Fa1b608d8a924f451f5538a13996e023be1d904f4.jpg" alt=""></p>
 <h3 id="HTTP基础"><a href="#HTTP基础" class="headerlink" title="HTTP基础"></a>HTTP基础</h3><h4 id="HTTP历史"><a href="#HTTP历史" class="headerlink" title="HTTP历史"></a>HTTP历史</h4><ol>
 <li>HTTP/1.1<br>持久连接， Pipeline（并行/串行传输），增加host命令</li>
 <li><p>HTTP2</p>
@@ -653,7 +653,7 @@ Accept: */*
 </li>
 </ol>
 </li>
-<li><p>三次握手时序图<br><img src="http://cdn.linz.tech/handshake-3-2019-6-13.png.png" alt=""></p>
+<li><p>三次握手时序图<br><img src="http://cdn.linz.tech/handshake-3-2019-6-13.png" alt=""></p>
 <h4 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h4></li>
 </ol>
 <p><img src="http://cdn.linz.tech/http-message-2019-6-13.png" alt="1556350805659"></p>
@@ -740,7 +740,7 @@ response<span class="token punctuation">.</span><span class="token function">wri
 <h4 id="Content-Security-Policy（CSP）"><a href="#Content-Security-Policy（CSP）" class="headerlink" title="Content-Security-Policy（CSP）"></a>Content-Security-Policy（CSP）</h4><blockquote>
 <ol>
 <li>限制资源获取</li>
-<li>报 告资源获取越权</li>
+<li>报告资源获取越权</li>
 </ol>
 </blockquote>
 <p>限制方式</p>
@@ -1156,8 +1156,8 @@ curl -v --http1.1 test.com # 强制使用http1.1
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/13/2019-3-7-web-note/" rel="next" title="网页WEB笔记汇总">
-                <i class="fa fa-chevron-left"></i> 网页WEB笔记汇总
+              <a href="/2019/04/13/2019-3-21-Java-basic/" rel="next" title="Java 基础学习笔记；">
+                <i class="fa fa-chevron-left"></i> Java 基础学习笔记；
               </a>
             
           </div>
@@ -1166,8 +1166,8 @@ curl -v --http1.1 test.com # 强制使用http1.1
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/13/2019-3-21-Java-basic/" rel="prev" title="Java 基础学习笔记；">
-                Java 基础学习笔记； <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/13/2019-3-23-linux-note/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1259,7 +1259,7 @@ curl -v --http1.1 test.com # 强制使用http1.1
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1276,7 +1276,7 @@ curl -v --http1.1 test.com # 强制使用http1.1
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
